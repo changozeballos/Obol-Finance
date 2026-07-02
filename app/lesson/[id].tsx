@@ -1,10 +1,11 @@
 import {
   View, Text, StyleSheet, TouchableOpacity, Animated, Modal,
-  SafeAreaView, StatusBar, Pressable,
+  SafeAreaView, StatusBar, Pressable, PanResponder,
 } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { useState, useRef, useEffect, useMemo } from 'react';
+import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
+import Svg, { Polyline, Line, Text as SvgText } from 'react-native-svg';
 import { Colors, Shadows } from '../../constants/Colors';
 import { nativeDriver, shadow } from '../../constants/platform';
 import { SECTIONS } from '../../content/lessons/sections';
@@ -12,14 +13,17 @@ import { useProgressStore } from '../../store/progressStore';
 import { syncProgressToCloud } from '../../lib/syncProgress';
 import type { Question } from '../../types';
 
+const SUPPORTED_TYPES = [
+  'multiple_choice', 'true_false', 'fill_number',
+  'order', 'classify', 'slider', 'graph_id',
+];
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
 function ProgressBar({ current, total, color }: { current: number; total: number; color: string }) {
   const anim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
-    Animated.timing(anim, {
-      toValue: current / total,
-      duration: 350,
-      useNativeDriver: false,
-    }).start();
+    Animated.timing(anim, { toValue: current / total, duration: 350, useNativeDriver: false }).start();
   }, [current]);
   const width = anim.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] });
   return (
@@ -42,14 +46,9 @@ function HeartBar({ hearts }: { hearts: number }) {
 function OptionButton({
   text, selected, correct, revealed, onPress,
 }: {
-  text: string;
-  selected: boolean;
-  correct: boolean;
-  revealed: boolean;
-  onPress: () => void;
+  text: string; selected: boolean; correct: boolean; revealed: boolean; onPress: () => void;
 }) {
   const scaleAnim = useRef(new Animated.Value(1)).current;
-
   const handlePress = () => {
     Animated.sequence([
       Animated.timing(scaleAnim, { toValue: 0.96, duration: 80, useNativeDriver: nativeDriver }),
@@ -57,25 +56,24 @@ function OptionButton({
     ]).start();
     onPress();
   };
-
-  const containerStyle = [
-    styles.option,
-    !revealed && selected && styles.optionSelected,
-    revealed && correct && styles.optionCorrect,
-    revealed && selected && !correct && styles.optionWrong,
-  ];
-
-  const textStyle = [
-    styles.optionText,
-    !revealed && selected && styles.optionTextSelected,
-    revealed && correct && styles.optionTextCorrect,
-    revealed && selected && !correct && styles.optionTextWrong,
-  ];
-
   return (
     <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
-      <Pressable style={containerStyle} onPress={handlePress} disabled={revealed}>
-        <Text style={textStyle}>{text}</Text>
+      <Pressable
+        style={[
+          styles.option,
+          !revealed && selected && styles.optionSelected,
+          revealed && correct && styles.optionCorrect,
+          revealed && selected && !correct && styles.optionWrong,
+        ]}
+        onPress={handlePress}
+        disabled={revealed}
+      >
+        <Text style={[
+          styles.optionText,
+          !revealed && selected && styles.optionTextSelected,
+          revealed && correct && styles.optionTextCorrect,
+          revealed && selected && !correct && styles.optionTextWrong,
+        ]}>{text}</Text>
         {revealed && correct && <Text style={styles.optionCheck}>✓</Text>}
         {revealed && selected && !correct && <Text style={styles.optionX}>✗</Text>}
       </Pressable>
@@ -86,24 +84,14 @@ function OptionButton({
 function FeedbackPanel({
   isCorrect, explanation, onContinue, combo,
 }: {
-  isCorrect: boolean;
-  explanation: string;
-  onContinue: () => void;
-  combo: number;
+  isCorrect: boolean; explanation: string; onContinue: () => void; combo: number;
 }) {
   const { t } = useTranslation();
   const slideAnim = useRef(new Animated.Value(120)).current;
   const comboPop = useRef(new Animated.Value(0)).current;
-
   useEffect(() => {
-    Animated.spring(slideAnim, {
-      toValue: 0,
-      tension: 65,
-      friction: 9,
-      useNativeDriver: nativeDriver,
-    }).start();
+    Animated.spring(slideAnim, { toValue: 0, tension: 65, friction: 9, useNativeDriver: nativeDriver }).start();
   }, []);
-
   useEffect(() => {
     if (isCorrect && combo >= 2) {
       Animated.sequence([
@@ -112,15 +100,12 @@ function FeedbackPanel({
       ]).start();
     }
   }, [combo, isCorrect]);
-
   return (
-    <Animated.View
-      style={[
-        styles.feedback,
-        isCorrect ? styles.feedbackCorrect : styles.feedbackWrong,
-        { transform: [{ translateY: slideAnim }] },
-      ]}
-    >
+    <Animated.View style={[
+      styles.feedback,
+      isCorrect ? styles.feedbackCorrect : styles.feedbackWrong,
+      { transform: [{ translateY: slideAnim }] },
+    ]}>
       <View style={styles.feedbackHeader}>
         <Text style={styles.feedbackIcon}>{isCorrect ? '🎉' : '💡'}</Text>
         <Text style={[styles.feedbackTitle, isCorrect ? styles.feedbackTitleCorrect : styles.feedbackTitleWrong]}>
@@ -145,6 +130,315 @@ function FeedbackPanel({
   );
 }
 
+// ─── Order question ───────────────────────────────────────────────────────────
+
+function OrderQuestion({
+  items, answer, revealed, isCorrect, onChangeAnswer, color,
+}: {
+  items: NonNullable<Question['items']>;
+  answer: string[];
+  revealed: boolean;
+  isCorrect: boolean;
+  onChangeAnswer: (a: string[]) => void;
+  color: string;
+}) {
+  const { t } = useTranslation();
+  const shuffled = useMemo(() => [...items].sort(() => Math.random() - 0.5), []);
+  const available = shuffled.filter((item) => !answer.includes(item.id));
+  const selected = answer.map((id) => items.find((i) => i.id === id)!).filter(Boolean);
+  const sortedCorrect = useMemo(
+    () => [...items].sort((a, b) => (a.position ?? 0) - (b.position ?? 0)).map((i) => i.id),
+    [items],
+  );
+
+  const tapAvailable = (itemId: string) => {
+    if (revealed) return;
+    onChangeAnswer([...answer, itemId]);
+  };
+  const tapSelected = (itemId: string) => {
+    if (revealed) return;
+    const idx = answer.indexOf(itemId);
+    onChangeAnswer(answer.slice(0, idx));
+  };
+
+  return (
+    <View style={styles.orderWrap}>
+      {/* Answer slots */}
+      <View style={styles.orderSlots}>
+        {selected.length === 0 && (
+          <Text style={styles.orderPlaceholder}>Toca los elementos en orden...</Text>
+        )}
+        {selected.map((item, i) => {
+          const correct = revealed && sortedCorrect[i] === item.id;
+          const wrong = revealed && sortedCorrect[i] !== item.id;
+          return (
+            <TouchableOpacity
+              key={item.id}
+              style={[styles.orderToken, styles.orderTokenPlaced,
+                correct && styles.orderTokenCorrect,
+                wrong && styles.orderTokenWrong,
+              ]}
+              onPress={() => tapSelected(item.id)}
+              disabled={revealed}
+            >
+              <Text style={[styles.orderNum, { color }]}>{i + 1}</Text>
+              <Text style={styles.orderTokenText}>{t(item.labelKey)}</Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+
+      <View style={styles.orderDivider} />
+
+      {/* Available pool */}
+      <View style={styles.orderPool}>
+        {available.map((item) => (
+          <TouchableOpacity key={item.id} style={styles.orderToken} onPress={() => tapAvailable(item.id)}>
+            <Text style={styles.orderTokenText}>{t(item.labelKey)}</Text>
+          </TouchableOpacity>
+        ))}
+        {available.length === 0 && !revealed && (
+          <Text style={styles.orderPlaceholder}>Todos ubicados ✓</Text>
+        )}
+      </View>
+    </View>
+  );
+}
+
+// ─── Classify question ────────────────────────────────────────────────────────
+
+function ClassifyQuestion({
+  items, buckets, answer, revealed, onChangeAnswer,
+}: {
+  items: NonNullable<Question['items']>;
+  buckets: NonNullable<Question['buckets']>;
+  answer: Record<string, string>;
+  revealed: boolean;
+  onChangeAnswer: (a: Record<string, string>) => void;
+}) {
+  const { t } = useTranslation();
+  const [selected, setSelected] = useState<string | null>(null);
+
+  const unplaced = items.filter((item) => !answer[item.id]);
+  const getItemsInBucket = (bid: string) => items.filter((item) => answer[item.id] === bid);
+
+  const tapItem = (itemId: string) => {
+    if (revealed) return;
+    if (answer[itemId]) {
+      // Remove from bucket → back to pool
+      const next = { ...answer };
+      delete next[itemId];
+      onChangeAnswer(next);
+      return;
+    }
+    setSelected((prev) => (prev === itemId ? null : itemId));
+  };
+
+  const tapBucket = (bucketId: string) => {
+    if (!selected || revealed) return;
+    onChangeAnswer({ ...answer, [selected]: bucketId });
+    setSelected(null);
+  };
+
+  return (
+    <View style={styles.classifyWrap}>
+      {/* Pool */}
+      <View style={styles.classifyPool}>
+        {unplaced.length === 0
+          ? <Text style={styles.orderPlaceholder}>Todos clasificados ✓</Text>
+          : unplaced.map((item) => (
+            <TouchableOpacity
+              key={item.id}
+              style={[styles.classifyChip, selected === item.id && styles.classifyChipSelected]}
+              onPress={() => tapItem(item.id)}
+            >
+              <Text style={styles.classifyChipText}>{t(item.labelKey)}</Text>
+            </TouchableOpacity>
+          ))
+        }
+      </View>
+
+      {/* Buckets */}
+      <View style={styles.classifyBuckets}>
+        {buckets.map((bucket) => {
+          const bucketItems = getItemsInBucket(bucket.id);
+          return (
+            <TouchableOpacity
+              key={bucket.id}
+              style={[styles.classifyBucket, !!selected && !revealed && styles.classifyBucketTarget]}
+              onPress={() => tapBucket(bucket.id)}
+              activeOpacity={selected ? 0.7 : 1}
+            >
+              <Text style={styles.classifyBucketLabel}>{t(bucket.labelKey)}</Text>
+              <View style={styles.classifyBucketItems}>
+                {bucketItems.map((item) => {
+                  const ok = revealed && item.bucket === bucket.id;
+                  const bad = revealed && item.bucket !== bucket.id;
+                  return (
+                    <TouchableOpacity
+                      key={item.id}
+                      style={[styles.classifyChip,
+                        ok && styles.classifyChipCorrect,
+                        bad && styles.classifyChipWrong,
+                      ]}
+                      onPress={() => tapItem(item.id)}
+                      disabled={revealed}
+                    >
+                      <Text style={styles.classifyChipText}>{t(item.labelKey)}</Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+
+      {!!selected && !revealed && (
+        <Text style={styles.classifyHint}>Toca una categoría para clasificar</Text>
+      )}
+    </View>
+  );
+}
+
+// ─── Slider question ──────────────────────────────────────────────────────────
+
+function SliderQuestion({
+  min, max, correct, tolerance, unit, value, revealed, isCorrect, onChange, color,
+}: {
+  min: number; max: number; correct: number; tolerance: number; unit: string;
+  value: number | null; revealed: boolean; isCorrect: boolean;
+  onChange: (v: number) => void; color: string;
+}) {
+  const [trackW, setTrackW] = useState(280);
+  const posRef = useRef(trackW / 2);
+  const [posX, setPosX] = useState(trackW / 2);
+
+  const xToVal = useCallback((x: number) => Math.round(min + (x / trackW) * (max - min)), [min, max, trackW]);
+
+  const panResponder = useMemo(() => PanResponder.create({
+    onStartShouldSetPanResponder: () => !revealed,
+    onMoveShouldSetPanResponder: () => !revealed,
+    onPanResponderMove: (_, gs) => {
+      const nx = Math.max(0, Math.min(trackW, posRef.current + gs.dx));
+      setPosX(nx);
+      onChange(xToVal(nx));
+    },
+    onPanResponderRelease: (_, gs) => {
+      const nx = Math.max(0, Math.min(trackW, posRef.current + gs.dx));
+      posRef.current = nx;
+      setPosX(nx);
+      onChange(xToVal(nx));
+    },
+  }), [revealed, trackW, xToVal]);
+
+  const fillPct = (posX / trackW) * 100;
+  const correctPct = ((correct - min) / (max - min)) * 100;
+  const displayVal = value ?? xToVal(posX);
+
+  return (
+    <View style={styles.sliderWrap}>
+      <Text style={styles.sliderValue}>
+        {displayVal.toLocaleString()} <Text style={styles.sliderUnit}>{unit}</Text>
+      </Text>
+
+      <View style={styles.sliderRow}>
+        <Text style={styles.sliderEdge}>{min.toLocaleString()}</Text>
+        <View style={{ flex: 1 }} onLayout={(e) => { setTrackW(e.nativeEvent.layout.width); posRef.current = e.nativeEvent.layout.width / 2; }}>
+          <View style={styles.sliderTrack}>
+            <View style={[styles.sliderFill, { width: `${fillPct}%` as any, backgroundColor: color }]} />
+            {revealed && (
+              <View style={[styles.sliderCorrectMark, { left: `${correctPct}%` as any }]} />
+            )}
+            <View
+              {...panResponder.panHandlers}
+              style={[styles.sliderThumb, { left: posX - 16, backgroundColor: color }]}
+            />
+          </View>
+        </View>
+        <Text style={styles.sliderEdge}>{max.toLocaleString()}</Text>
+      </View>
+
+      {revealed && (
+        <Text style={[styles.sliderHint, isCorrect ? styles.sliderHintCorrect : styles.sliderHintWrong]}>
+          {isCorrect ? '¡Bien! Estabas en el rango correcto' : `La respuesta era ${correct.toLocaleString()} ${unit}`}
+        </Text>
+      )}
+    </View>
+  );
+}
+
+// ─── Mini chart (for graph_id) ────────────────────────────────────────────────
+
+function ChartMini({ series, labels }: { series: NonNullable<Question['series']>; labels: string[] }) {
+  const W = 290;
+  const H = 90;
+  const PAD = { t: 8, r: 8, b: 20, l: 8 };
+  const chartW = W - PAD.l - PAD.r;
+  const chartH = H - PAD.t - PAD.b;
+
+  const COLORS = ['#4F46E5', '#F59E0B', '#10B981', '#EF4444'];
+
+  const allVals = series.flatMap((s) => s.values);
+  const minV = Math.min(...allVals);
+  const maxV = Math.max(...allVals);
+  const range = maxV - minV || 1;
+
+  const toX = (i: number) => PAD.l + (i / (labels.length - 1)) * chartW;
+  const toY = (v: number) => PAD.t + chartH - ((v - minV) / range) * chartH;
+
+  return (
+    <View style={styles.chartWrap}>
+      <Svg width={W} height={H}>
+        {/* Zero line */}
+        {minV < 0 && maxV > 0 && (
+          <Line
+            x1={PAD.l} y1={toY(0)} x2={W - PAD.r} y2={toY(0)}
+            stroke="#CBD5E1" strokeWidth={1} strokeDasharray="3,3"
+          />
+        )}
+        {/* Series */}
+        {series.map((s, si) => {
+          const pts = s.values.map((v, i) => `${toX(i)},${toY(v)}`).join(' ');
+          return (
+            <Polyline
+              key={si}
+              points={pts}
+              fill="none"
+              stroke={s.color ?? COLORS[si % COLORS.length]}
+              strokeWidth={2.5}
+              strokeLinejoin="round"
+              strokeLinecap="round"
+            />
+          );
+        })}
+        {/* X labels */}
+        {labels.map((label, i) => (
+          <SvgText
+            key={i}
+            x={toX(i)}
+            y={H - 4}
+            fontSize={8}
+            fill="#94A3B8"
+            textAnchor="middle"
+          >{label}</SvgText>
+        ))}
+      </Svg>
+      {/* Legend */}
+      <View style={styles.chartLegend}>
+        {series.map((s, si) => (
+          <View key={si} style={styles.chartLegendItem}>
+            <View style={[styles.chartLegendDot, { backgroundColor: s.color ?? COLORS[si % COLORS.length] }]} />
+            <Text style={styles.chartLegendText}>Serie {String.fromCharCode(65 + si)}</Text>
+          </View>
+        ))}
+      </View>
+    </View>
+  );
+}
+
+// ─── Main lesson screen ───────────────────────────────────────────────────────
+
 export default function LessonScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { t } = useTranslation();
@@ -158,30 +452,61 @@ export default function LessonScreen() {
     return null;
   }, [id]);
 
-  const SUPPORTED_TYPES = ['multiple_choice', 'true_false', 'fill_number'];
   const questions: Question[] = (lesson?.lesson.questions ?? []).filter(
     (q) => SUPPORTED_TYPES.includes(q.type),
   );
+
   const [qIndex, setQIndex] = useState(0);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
+  const [checkResult, setCheckResult] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [comboCount, setComboCount] = useState(0);
   const [maxCombo, setMaxCombo] = useState(0);
   const [showQuit, setShowQuit] = useState(false);
   const [localHearts, setLocalHearts] = useState(hearts);
 
+  // Per-type answer state
+  const [selectedId, setSelectedId] = useState<string | null>(null);      // MC/TF/fill/graph_id
+  const [orderAnswer, setOrderAnswer] = useState<string[]>([]);            // order
+  const [classifyAnswer, setClassifyAnswer] = useState<Record<string, string>>({}); // classify
+  const [sliderValue, setSliderValue] = useState<number | null>(null);     // slider
+
   const currentQ = questions[qIndex];
   const sectionColor = lesson?.color ?? Colors.primary;
 
-  const handleSelect = (optId: string) => {
-    if (revealed) return;
-    setSelectedId(optId);
+  const canCheck = (): boolean => {
+    if (!currentQ || revealed) return false;
+    const type = currentQ.type;
+    if (['multiple_choice', 'true_false', 'fill_number', 'graph_id'].includes(type)) return selectedId !== null;
+    if (type === 'order') return orderAnswer.length === (currentQ.items?.length ?? 0);
+    if (type === 'classify') return Object.keys(classifyAnswer).length === (currentQ.items?.length ?? 0);
+    if (type === 'slider') return sliderValue !== null;
+    return false;
+  };
+
+  const computeIsCorrect = (): boolean => {
+    if (!currentQ) return false;
+    const type = currentQ.type;
+    if (['multiple_choice', 'true_false', 'fill_number', 'graph_id'].includes(type)) {
+      return selectedId === currentQ.correctId;
+    }
+    if (type === 'order') {
+      const sorted = [...(currentQ.items ?? [])].sort((a, b) => (a.position ?? 0) - (b.position ?? 0)).map((i) => i.id);
+      return JSON.stringify(orderAnswer) === JSON.stringify(sorted);
+    }
+    if (type === 'classify') {
+      return (currentQ.items ?? []).every((item) => classifyAnswer[item.id] === item.bucket);
+    }
+    if (type === 'slider') {
+      return sliderValue !== null && Math.abs(sliderValue - (currentQ.correct ?? 0)) <= (currentQ.tolerance ?? 0);
+    }
+    return false;
   };
 
   const handleCheck = () => {
-    if (!selectedId || !currentQ) return;
-    const isCorrect = selectedId === currentQ.correctId;
+    if (!canCheck() || !currentQ) return;
+    const isCorrect = computeIsCorrect();
+    setCheckResult(isCorrect);
     if (isCorrect) {
       setCorrectCount((c) => c + 1);
       const nextCombo = comboCount + 1;
@@ -195,31 +520,32 @@ export default function LessonScreen() {
     setRevealed(true);
   };
 
+  const resetAnswerState = () => {
+    setSelectedId(null);
+    setOrderAnswer([]);
+    setClassifyAnswer({});
+    setSliderValue(null);
+    setCheckResult(false);
+  };
+
   const handleContinue = () => {
     if (qIndex + 1 >= questions.length) {
       const base = Math.round(((lesson?.lesson.xpReward ?? 10) * correctCount) / questions.length);
       const perfect = correctCount === questions.length ? 5 : 0;
       const comboBonus = Math.floor(maxCombo / 3) * 2;
       const earned = base + perfect + comboBonus;
-      const isPerfect = correctCount === questions.length;
       addXp(earned);
-      completeLesson(id!, isPerfect);
+      completeLesson(id!, correctCount === questions.length);
       checkAndUpdateStreak();
       syncProgressToCloud();
       router.replace({
         pathname: '/lesson/result',
-        params: {
-          lessonId: id,
-          correct: correctCount,
-          total: questions.length,
-          xp: earned,
-          color: sectionColor,
-        },
+        params: { lessonId: id, correct: correctCount, total: questions.length, xp: earned, color: sectionColor },
       });
     } else {
       setQIndex((i) => i + 1);
-      setSelectedId(null);
       setRevealed(false);
+      resetAnswerState();
     }
   };
 
@@ -235,6 +561,7 @@ export default function LessonScreen() {
     );
   }
 
+  const isMcType = ['multiple_choice', 'true_false', 'fill_number', 'graph_id'].includes(currentQ.type);
   const isTrueFalse = currentQ.type === 'true_false';
 
   return (
@@ -250,45 +577,94 @@ export default function LessonScreen() {
         <HeartBar hearts={localHearts} />
       </View>
 
-      {/* Question */}
+      {/* Question card + interactive area */}
       <View style={styles.body}>
         <View style={styles.qCard}>
           <Text style={styles.qCount}>{qIndex + 1} / {questions.length}</Text>
           <Text style={styles.qText}>{t(currentQ.textKey)}</Text>
         </View>
 
-        {/* Options */}
-        <View style={[styles.options, isTrueFalse && styles.optionsTF]}>
-          {(currentQ.options ?? []).map((opt) => (
-            <OptionButton
-              key={opt.id}
-              text={t(opt.textKey)}
-              selected={selectedId === opt.id}
-              correct={opt.id === currentQ.correctId}
-              revealed={revealed}
-              onPress={() => handleSelect(opt.id)}
-            />
-          ))}
-        </View>
+        {/* Graph preview for graph_id */}
+        {currentQ.type === 'graph_id' && currentQ.series && currentQ.labels && (
+          <ChartMini series={currentQ.series} labels={currentQ.labels} />
+        )}
+
+        {/* MC / TF / fill_number / graph_id options */}
+        {isMcType && (
+          <View style={[styles.options, isTrueFalse && styles.optionsTF]}>
+            {(currentQ.options ?? []).map((opt) => (
+              <OptionButton
+                key={opt.id}
+                text={t(opt.textKey)}
+                selected={selectedId === opt.id}
+                correct={opt.id === currentQ.correctId}
+                revealed={revealed}
+                onPress={() => !revealed && setSelectedId(opt.id)}
+              />
+            ))}
+          </View>
+        )}
+
+        {/* Order */}
+        {currentQ.type === 'order' && currentQ.items && (
+          <OrderQuestion
+            key={qIndex}
+            items={currentQ.items}
+            answer={orderAnswer}
+            revealed={revealed}
+            isCorrect={checkResult}
+            onChangeAnswer={setOrderAnswer}
+            color={sectionColor}
+          />
+        )}
+
+        {/* Classify */}
+        {currentQ.type === 'classify' && currentQ.items && currentQ.buckets && (
+          <ClassifyQuestion
+            key={qIndex}
+            items={currentQ.items}
+            buckets={currentQ.buckets}
+            answer={classifyAnswer}
+            revealed={revealed}
+            onChangeAnswer={setClassifyAnswer}
+          />
+        )}
+
+        {/* Slider */}
+        {currentQ.type === 'slider' && (
+          <SliderQuestion
+            key={qIndex}
+            min={currentQ.min ?? 0}
+            max={currentQ.max ?? 100}
+            correct={currentQ.correct ?? 50}
+            tolerance={currentQ.tolerance ?? 5}
+            unit={currentQ.unit ?? ''}
+            value={sliderValue}
+            revealed={revealed}
+            isCorrect={checkResult}
+            onChange={setSliderValue}
+            color={sectionColor}
+          />
+        )}
       </View>
 
       {/* Check button */}
       {!revealed && (
         <View style={styles.footer}>
           <TouchableOpacity
-            style={[styles.checkBtn, { backgroundColor: sectionColor }, !selectedId && styles.checkBtnDisabled]}
+            style={[styles.checkBtn, { backgroundColor: sectionColor }, !canCheck() && styles.checkBtnDisabled]}
             onPress={handleCheck}
-            disabled={!selectedId}
+            disabled={!canCheck()}
           >
             <Text style={styles.checkBtnText}>{t('lesson.checkAnswer')}</Text>
           </TouchableOpacity>
         </View>
       )}
 
-      {/* Feedback */}
+      {/* Feedback panel */}
       {revealed && currentQ && (
         <FeedbackPanel
-          isCorrect={selectedId === currentQ.correctId}
+          isCorrect={checkResult}
           explanation={t(currentQ.explanationKey)}
           onContinue={handleContinue}
           combo={comboCount}
@@ -325,24 +701,18 @@ const styles = StyleSheet.create({
   heartIcon: { fontSize: 14 },
   heartEmpty: { opacity: 0.2 },
 
-  body: { flex: 1, padding: 20, gap: 24 },
+  body: { flex: 1, padding: 20, gap: 16 },
   qCard: { backgroundColor: '#fff', borderRadius: 24, padding: 24, gap: 8, ...Shadows.md },
   qCount: { fontFamily: 'Baloo2_600SemiBold', fontSize: 12, color: Colors.textMuted, letterSpacing: 0.5 },
-  qText: { fontFamily: 'Baloo2_700Bold', fontSize: 20, color: Colors.text, lineHeight: 28 },
+  qText: { fontFamily: 'Baloo2_700Bold', fontSize: 18, color: Colors.text, lineHeight: 26 },
 
-  options: { gap: 12 },
+  options: { gap: 10 },
   optionsTF: { flexDirection: 'row', gap: 12 },
   option: {
-    backgroundColor: '#fff',
-    borderRadius: 18,
-    padding: 16,
-    borderWidth: 2,
-    borderColor: Colors.border,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    flex: 1,
-    ...Shadows.sm,
+    backgroundColor: '#fff', borderRadius: 18, padding: 16,
+    borderWidth: 2, borderColor: Colors.border,
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+    flex: 1, ...Shadows.sm,
   },
   optionSelected: { borderColor: Colors.primary, backgroundColor: '#EEF2FF' },
   optionCorrect: { borderColor: '#16A34A', backgroundColor: '#F0FDF4' },
@@ -356,7 +726,7 @@ const styles = StyleSheet.create({
 
   footer: { padding: 20, paddingBottom: 32 },
   checkBtn: { paddingVertical: 17, borderRadius: 20, alignItems: 'center', ...Shadows.md },
-  checkBtnDisabled: { opacity: 0.4, elevation: 0 },
+  checkBtnDisabled: { opacity: 0.4 },
   checkBtnText: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 17, color: '#fff' },
 
   feedback: {
@@ -379,14 +749,84 @@ const styles = StyleSheet.create({
   feedbackBtnWrong: { backgroundColor: '#DC2626' },
   feedbackBtnText: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 16, color: '#fff' },
   comboBadge: {
-    marginLeft: 'auto',
-    backgroundColor: '#F59E0B',
-    borderRadius: 12,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
+    marginLeft: 'auto', backgroundColor: '#F59E0B', borderRadius: 12,
+    paddingHorizontal: 10, paddingVertical: 4,
     ...shadow(2, 4, '#F59E0B', 0.4, 3),
   },
   comboBadgeText: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 13, color: '#fff' },
+
+  // Order
+  orderWrap: { gap: 12 },
+  orderSlots: {
+    minHeight: 60, backgroundColor: '#fff', borderRadius: 18,
+    borderWidth: 2, borderColor: Colors.border, borderStyle: 'dashed',
+    padding: 12, gap: 8, ...Shadows.sm,
+  },
+  orderPool: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  orderToken: {
+    backgroundColor: '#fff', borderRadius: 14, paddingHorizontal: 14, paddingVertical: 10,
+    borderWidth: 2, borderColor: Colors.border, flexDirection: 'row', alignItems: 'center', gap: 8,
+    ...Shadows.sm,
+  },
+  orderTokenPlaced: { backgroundColor: '#EEF2FF', borderColor: Colors.primary },
+  orderTokenCorrect: { backgroundColor: '#F0FDF4', borderColor: '#16A34A' },
+  orderTokenWrong: { backgroundColor: '#FEF2F2', borderColor: '#DC2626' },
+  orderNum: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 13 },
+  orderTokenText: { fontFamily: 'Baloo2_600SemiBold', fontSize: 13, color: Colors.text },
+  orderDivider: { height: 1.5, backgroundColor: Colors.border },
+  orderPlaceholder: { fontFamily: 'Baloo2_400Regular', fontSize: 13, color: Colors.textMuted, textAlign: 'center', paddingVertical: 8 },
+
+  // Classify
+  classifyWrap: { gap: 12 },
+  classifyPool: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  classifyChip: {
+    backgroundColor: '#fff', borderRadius: 14, paddingHorizontal: 14, paddingVertical: 10,
+    borderWidth: 2, borderColor: Colors.border, ...Shadows.sm,
+  },
+  classifyChipSelected: { backgroundColor: '#EEF2FF', borderColor: Colors.primary },
+  classifyChipCorrect: { backgroundColor: '#F0FDF4', borderColor: '#16A34A' },
+  classifyChipWrong: { backgroundColor: '#FEF2F2', borderColor: '#DC2626' },
+  classifyChipText: { fontFamily: 'Baloo2_600SemiBold', fontSize: 13, color: Colors.text },
+  classifyBuckets: { flexDirection: 'row', gap: 10 },
+  classifyBucket: {
+    flex: 1, backgroundColor: '#fff', borderRadius: 18, padding: 12,
+    borderWidth: 2, borderColor: Colors.border, gap: 8, minHeight: 80, ...Shadows.sm,
+  },
+  classifyBucketTarget: { borderColor: Colors.primary, backgroundColor: '#EEF2FF' },
+  classifyBucketLabel: { fontFamily: 'Baloo2_700Bold', fontSize: 12, color: Colors.textMuted, textAlign: 'center', textTransform: 'uppercase', letterSpacing: 0.5 },
+  classifyBucketItems: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
+  classifyHint: { fontFamily: 'Baloo2_400Regular', fontSize: 12, color: Colors.primary, textAlign: 'center' },
+
+  // Slider
+  sliderWrap: { backgroundColor: '#fff', borderRadius: 24, padding: 24, gap: 16, alignItems: 'center', ...Shadows.md },
+  sliderValue: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 32, color: Colors.text },
+  sliderUnit: { fontFamily: 'Baloo2_600SemiBold', fontSize: 16, color: Colors.textMuted },
+  sliderRow: { flexDirection: 'row', alignItems: 'center', gap: 8, width: '100%' },
+  sliderEdge: { fontFamily: 'Baloo2_600SemiBold', fontSize: 10, color: Colors.textMuted, width: 36, textAlign: 'center' },
+  sliderTrack: {
+    flex: 1, height: 8, backgroundColor: Colors.border, borderRadius: 4, overflow: 'visible',
+    position: 'relative',
+  },
+  sliderFill: { height: '100%', borderRadius: 4, position: 'absolute', left: 0, top: 0 },
+  sliderThumb: {
+    position: 'absolute', width: 32, height: 32, borderRadius: 16, top: -12,
+    borderWidth: 3, borderColor: '#fff',
+    ...shadow(3, 6, '#000', 0.2, 6),
+  },
+  sliderCorrectMark: {
+    position: 'absolute', width: 4, height: 20, backgroundColor: '#16A34A',
+    borderRadius: 2, top: -6,
+  },
+  sliderHint: { fontFamily: 'Baloo2_600SemiBold', fontSize: 13, textAlign: 'center' },
+  sliderHintCorrect: { color: '#16A34A' },
+  sliderHintWrong: { color: '#DC2626' },
+
+  // Chart
+  chartWrap: { backgroundColor: '#fff', borderRadius: 18, padding: 12, gap: 8, ...Shadows.sm },
+  chartLegend: { flexDirection: 'row', gap: 16, justifyContent: 'center' },
+  chartLegendItem: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+  chartLegendDot: { width: 10, height: 10, borderRadius: 5 },
+  chartLegendText: { fontFamily: 'Baloo2_600SemiBold', fontSize: 10, color: Colors.textMuted },
 
   modalOverlay: { flex: 1, backgroundColor: '#00000066', alignItems: 'center', justifyContent: 'center', padding: 24 },
   modalCard: { backgroundColor: '#fff', borderRadius: 28, padding: 28, width: '100%', gap: 12, alignItems: 'center' },
