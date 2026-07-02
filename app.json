@@ -15,7 +15,12 @@
     },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.obol.app"
+      "bundleIdentifier": "com.obol.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Obol usa la cámara para personalizar tu perfil.",
+        "NSPhotoLibraryUsageDescription": "Obol accede a tus fotos para personalizar tu perfil."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -23,11 +28,18 @@
         "backgroundColor": "#4F46E5"
       },
       "package": "com.obol.app",
-      "edgeToEdgeEnabled": true
+      "versionCode": 1,
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.VIBRATE"
+      ]
     },
     "web": {
       "bundler": "metro",
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "name": "Obol — Educación financiera"
     },
     "plugins": [
       "expo-router",
@@ -38,6 +50,11 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": ""
+      }
     }
   }
 }

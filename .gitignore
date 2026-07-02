@@ -72,3 +72,8 @@ plan_contenido.html.bak
 # Temporary/handover files
 handover_claude.md
 lesson_data_raw.json
+
+# EAS / store credentials (never commit)
+google-service-account.json
+*.mobileprovision
+GoogleService-Info.plist
