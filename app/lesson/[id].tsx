@@ -5,7 +5,7 @@ import {
 import { useLocalSearchParams, router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
-import Svg, { Polyline, Line, Text as SvgText } from 'react-native-svg';
+import Svg, { Polyline, Line, Rect as SvgRect, Text as SvgText } from 'react-native-svg';
 import { Colors, Shadows } from '../../constants/Colors';
 import { nativeDriver, shadow } from '../../constants/platform';
 import { SECTIONS } from '../../content/lessons/sections';
@@ -15,7 +15,7 @@ import type { Question } from '../../types';
 
 const SUPPORTED_TYPES = [
   'multiple_choice', 'true_false', 'fill_number',
-  'order', 'classify', 'slider', 'graph_id',
+  'order', 'classify', 'slider', 'graph_id', 'match', 'graph_point',
 ];
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -437,6 +437,193 @@ function ChartMini({ series, labels }: { series: NonNullable<Question['series']>
   );
 }
 
+// ─── Match question ───────────────────────────────────────────────────────────
+
+const PAIR_COLORS = ['#4F46E5', '#10B981', '#F59E0B', '#8B5CF6', '#EF4444'];
+
+function MatchQuestion({
+  pairs, answer, revealed, onChangeAnswer,
+}: {
+  pairs: NonNullable<Question['pairs']>;
+  answer: Record<string, string>;
+  revealed: boolean;
+  onChangeAnswer: (a: Record<string, string>) => void;
+}) {
+  const { t } = useTranslation();
+  const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
+  const shuffledRight = useMemo(() => [...pairs].sort(() => Math.random() - 0.5), []);
+
+  const colorOf = (leftKey: string) =>
+    PAIR_COLORS[pairs.findIndex((p) => p.leftKey === leftKey) % PAIR_COLORS.length];
+
+  const matchedLeftFor = (rightKey: string) =>
+    Object.entries(answer).find(([, v]) => v === rightKey)?.[0];
+
+  const tapLeft = (leftKey: string) => {
+    if (revealed) return;
+    if (answer[leftKey]) {
+      const next = { ...answer };
+      delete next[leftKey];
+      onChangeAnswer(next);
+      setSelectedLeft(null);
+      return;
+    }
+    setSelectedLeft((prev) => (prev === leftKey ? null : leftKey));
+  };
+
+  const tapRight = (rightKey: string) => {
+    if (revealed) return;
+    const existingLeft = matchedLeftFor(rightKey);
+    if (existingLeft) {
+      const next = { ...answer };
+      delete next[existingLeft];
+      if (selectedLeft) {
+        onChangeAnswer({ ...next, [selectedLeft]: rightKey });
+        setSelectedLeft(null);
+      } else {
+        onChangeAnswer(next);
+      }
+      return;
+    }
+    if (!selectedLeft) return;
+    onChangeAnswer({ ...answer, [selectedLeft]: rightKey });
+    setSelectedLeft(null);
+  };
+
+  return (
+    <View style={styles.matchWrap}>
+      <View style={styles.matchColumns}>
+        {/* Left column */}
+        <View style={styles.matchCol}>
+          {pairs.map((pair) => {
+            const isSel = selectedLeft === pair.leftKey;
+            const matched = answer[pair.leftKey];
+            const color = colorOf(pair.leftKey);
+            const revOk = revealed && matched === pair.rightKey;
+            const revBad = revealed && matched && matched !== pair.rightKey;
+            return (
+              <TouchableOpacity
+                key={pair.leftKey}
+                style={[
+                  styles.matchChip,
+                  isSel && styles.matchChipSelected,
+                  matched && !revealed && { borderColor: color, backgroundColor: color + '18' },
+                  revOk && styles.matchChipCorrect,
+                  revBad && styles.matchChipWrong,
+                ]}
+                onPress={() => tapLeft(pair.leftKey)}
+                disabled={revealed}
+              >
+                {matched && !revealed && <View style={[styles.matchDot, { backgroundColor: color }]} />}
+                <Text style={styles.matchChipText} numberOfLines={3}>{t(pair.leftKey)}</Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+
+        {/* Right column */}
+        <View style={styles.matchCol}>
+          {shuffledRight.map((pair) => {
+            const leftOf = matchedLeftFor(pair.rightKey);
+            const color = leftOf ? colorOf(leftOf) : undefined;
+            const revOk = revealed && leftOf && answer[leftOf] === pair.rightKey;
+            const revBad = revealed && leftOf && answer[leftOf] !== pair.rightKey;
+            return (
+              <TouchableOpacity
+                key={pair.rightKey}
+                style={[
+                  styles.matchChip,
+                  selectedLeft && !leftOf && !revealed && styles.matchChipTarget,
+                  leftOf && !revealed && { borderColor: color, backgroundColor: color + '18' },
+                  revOk && styles.matchChipCorrect,
+                  revBad && styles.matchChipWrong,
+                ]}
+                onPress={() => tapRight(pair.rightKey)}
+                disabled={revealed}
+              >
+                {leftOf && !revealed && <View style={[styles.matchDot, { backgroundColor: color }]} />}
+                <Text style={styles.matchChipText} numberOfLines={3}>{t(pair.rightKey)}</Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+      </View>
+
+      {selectedLeft && !revealed && (
+        <Text style={styles.matchHint}>Tocá la definición que corresponde →</Text>
+      )}
+    </View>
+  );
+}
+
+// ─── Graph point question ─────────────────────────────────────────────────────
+
+function GraphPointQuestion({
+  labels, values, correctLabel, selectedLabel, revealed, onSelect, color,
+}: {
+  labels: string[]; values: number[]; correctLabel: string;
+  selectedLabel: string | null; revealed: boolean;
+  onSelect: (label: string) => void; color: string;
+}) {
+  const W = 290;
+  const H = 130;
+  const PAD = { t: 12, r: 8, b: 24, l: 8 };
+  const chartW = W - PAD.l - PAD.r;
+  const chartH = H - PAD.t - PAD.b;
+  const barW = chartW / values.length - 4;
+
+  const minV = Math.min(...values, 0);
+  const maxV = Math.max(...values, 0);
+  const range = maxV - minV || 1;
+  const zeroY = PAD.t + chartH * (maxV / range);
+
+  const barX = (i: number) => PAD.l + i * (chartW / values.length) + 2;
+  const barY = (v: number) => v >= 0 ? zeroY - (v / range) * chartH : zeroY;
+  const barH = (v: number) => Math.abs(v / range) * chartH;
+
+  return (
+    <View style={styles.chartWrap}>
+      <Svg width={W} height={H}>
+        {/* Zero line */}
+        <Line x1={PAD.l} y1={zeroY} x2={W - PAD.r} y2={zeroY} stroke="#CBD5E1" strokeWidth={1} />
+
+        {values.map((v, i) => {
+          const label = labels[i];
+          const isSel = label === selectedLabel;
+          const revOk = revealed && label === correctLabel;
+          const revBad = revealed && isSel && label !== correctLabel;
+          const fill = revOk ? '#16A34A' : revBad ? '#DC2626' : isSel ? color : '#CBD5E1';
+
+          return (
+            <SvgRect
+              key={label}
+              x={barX(i)} y={barY(v)}
+              width={barW} height={Math.max(barH(v), 2)}
+              fill={fill} rx={3}
+              onPress={() => !revealed && onSelect(label)}
+            />
+          );
+        })}
+
+        {/* X labels */}
+        {labels.map((label, i) => (
+          <SvgText
+            key={label}
+            x={barX(i) + barW / 2} y={H - 4}
+            fontSize={8} fill={label === selectedLabel ? color : '#94A3B8'}
+            textAnchor="middle" fontWeight={label === selectedLabel ? 'bold' : 'normal'}
+          >{label}</SvgText>
+        ))}
+      </Svg>
+      <Text style={styles.graphHint}>
+        {revealed
+          ? `La respuesta correcta era: ${correctLabel}`
+          : 'Tocá la barra correcta en el gráfico'}
+      </Text>
+    </View>
+  );
+}
+
 // ─── Main lesson screen ───────────────────────────────────────────────────────
 
 export default function LessonScreen() {
@@ -466,10 +653,12 @@ export default function LessonScreen() {
   const [localHearts, setLocalHearts] = useState(hearts);
 
   // Per-type answer state
-  const [selectedId, setSelectedId] = useState<string | null>(null);      // MC/TF/fill/graph_id
-  const [orderAnswer, setOrderAnswer] = useState<string[]>([]);            // order
+  const [selectedId, setSelectedId] = useState<string | null>(null);           // MC/TF/fill/graph_id
+  const [orderAnswer, setOrderAnswer] = useState<string[]>([]);                // order
   const [classifyAnswer, setClassifyAnswer] = useState<Record<string, string>>({}); // classify
-  const [sliderValue, setSliderValue] = useState<number | null>(null);     // slider
+  const [sliderValue, setSliderValue] = useState<number | null>(null);          // slider
+  const [matchAnswer, setMatchAnswer] = useState<Record<string, string>>({});  // match
+  const [graphLabel, setGraphLabel] = useState<string | null>(null);           // graph_point
 
   const currentQ = questions[qIndex];
   const sectionColor = lesson?.color ?? Colors.primary;
@@ -481,6 +670,8 @@ export default function LessonScreen() {
     if (type === 'order') return orderAnswer.length === (currentQ.items?.length ?? 0);
     if (type === 'classify') return Object.keys(classifyAnswer).length === (currentQ.items?.length ?? 0);
     if (type === 'slider') return sliderValue !== null;
+    if (type === 'match') return Object.keys(matchAnswer).length === (currentQ.pairs?.length ?? 0);
+    if (type === 'graph_point') return graphLabel !== null;
     return false;
   };
 
@@ -499,6 +690,12 @@ export default function LessonScreen() {
     }
     if (type === 'slider') {
       return sliderValue !== null && Math.abs(sliderValue - (currentQ.correct ?? 0)) <= (currentQ.tolerance ?? 0);
+    }
+    if (type === 'match') {
+      return (currentQ.pairs ?? []).every((p) => matchAnswer[p.leftKey] === p.rightKey);
+    }
+    if (type === 'graph_point') {
+      return graphLabel === currentQ.correctLabel;
     }
     return false;
   };
@@ -525,6 +722,8 @@ export default function LessonScreen() {
     setOrderAnswer([]);
     setClassifyAnswer({});
     setSliderValue(null);
+    setMatchAnswer({});
+    setGraphLabel(null);
     setCheckResult(false);
   };
 
@@ -643,6 +842,31 @@ export default function LessonScreen() {
             revealed={revealed}
             isCorrect={checkResult}
             onChange={setSliderValue}
+            color={sectionColor}
+          />
+        )}
+
+        {/* Match */}
+        {currentQ.type === 'match' && currentQ.pairs && (
+          <MatchQuestion
+            key={qIndex}
+            pairs={currentQ.pairs}
+            answer={matchAnswer}
+            revealed={revealed}
+            onChangeAnswer={setMatchAnswer}
+          />
+        )}
+
+        {/* Graph point */}
+        {currentQ.type === 'graph_point' && currentQ.labels && currentQ.values && (
+          <GraphPointQuestion
+            key={qIndex}
+            labels={currentQ.labels}
+            values={currentQ.values}
+            correctLabel={currentQ.correctLabel ?? ''}
+            selectedLabel={graphLabel}
+            revealed={revealed}
+            onSelect={setGraphLabel}
             color={sectionColor}
           />
         )}
@@ -820,6 +1044,27 @@ const styles = StyleSheet.create({
   sliderHint: { fontFamily: 'Baloo2_600SemiBold', fontSize: 13, textAlign: 'center' },
   sliderHintCorrect: { color: '#16A34A' },
   sliderHintWrong: { color: '#DC2626' },
+
+  // Match
+  matchWrap: { gap: 10 },
+  matchColumns: { flexDirection: 'row', gap: 8 },
+  matchCol: { flex: 1, gap: 8 },
+  matchChip: {
+    backgroundColor: '#fff', borderRadius: 14, padding: 10,
+    borderWidth: 2, borderColor: Colors.border,
+    flexDirection: 'row', alignItems: 'center', gap: 6,
+    minHeight: 52, ...Shadows.sm,
+  },
+  matchChipSelected: { borderColor: Colors.primary, backgroundColor: '#EEF2FF' },
+  matchChipTarget: { borderColor: Colors.primary, borderStyle: 'dashed' },
+  matchChipCorrect: { borderColor: '#16A34A', backgroundColor: '#F0FDF4' },
+  matchChipWrong: { borderColor: '#DC2626', backgroundColor: '#FEF2F2' },
+  matchChipText: { fontFamily: 'Baloo2_600SemiBold', fontSize: 12, color: Colors.text, flex: 1 },
+  matchDot: { width: 8, height: 8, borderRadius: 4 },
+  matchHint: { fontFamily: 'Baloo2_400Regular', fontSize: 12, color: Colors.primary, textAlign: 'center' },
+
+  // Graph point
+  graphHint: { fontFamily: 'Baloo2_400Regular', fontSize: 12, color: Colors.textMuted, textAlign: 'center', marginTop: 4 },
 
   // Chart
   chartWrap: { backgroundColor: '#fff', borderRadius: 18, padding: 12, gap: 8, ...Shadows.sm },

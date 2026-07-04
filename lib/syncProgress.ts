@@ -3,6 +3,9 @@ import { useProgressStore } from '../store/progressStore';
 
 const XP_PER_LEVEL = 500;
 
+const log = (...args: unknown[]) => { if (__DEV__) console.log(...args); };
+const warn = (...args: unknown[]) => { if (__DEV__) console.warn(...args); };
+
 function pickMostRecent(a: string | null | undefined, b: string | null | undefined): string | null {
   if (!a && !b) return null;
   if (!a) return b ?? null;
@@ -20,7 +23,7 @@ export async function mergeAndSyncFromCloud(userId: string) {
   const local = useProgressStore.getState();
 
   if (error || !data) {
-    console.log('[Obol] no cloud data → uploading local state');
+    log('[Obol] no cloud data → uploading local state');
     await syncProgressToCloud(userId);
     return;
   }
@@ -29,10 +32,11 @@ export async function mergeAndSyncFromCloud(userId: string) {
   const mergedPerfect = Array.from(new Set([...local.perfectLessons, ...(data.perfect_lessons ?? [])]));
   const mergedXp = Math.max(local.totalXp, data.total_xp ?? 0);
 
-  console.log('[Obol] merge ←', {
-    localXp: local.totalXp, cloudXp: data.total_xp,
-    localLessons: local.completedLessons.length, cloudLessons: (data.completed_lessons ?? []).length,
-    mergedLessons: mergedLessons.length, mergedXp,
+  log('[Obol] merge ←', {
+    localLessons: local.completedLessons.length,
+    cloudLessons: (data.completed_lessons ?? []).length,
+    mergedLessons: mergedLessons.length,
+    mergedXp,
   });
 
   useProgressStore.setState({
@@ -56,12 +60,12 @@ export async function syncProgressToCloud(userId?: string) {
     uid = session?.user?.id;
   }
   if (!uid) {
-    console.log('[Obol] sync skipped — no session (guest mode)');
+    log('[Obol] sync skipped — guest mode');
     return;
   }
 
   const s = useProgressStore.getState();
-  console.log('[Obol] syncing →', { uid, lessons: s.completedLessons.length, xp: s.totalXp, streak: s.streak });
+  log('[Obol] syncing →', { lessons: s.completedLessons.length, xp: s.totalXp, streak: s.streak });
 
   const { error } = await supabase.from('user_progress').upsert(
     {
@@ -80,9 +84,9 @@ export async function syncProgressToCloud(userId?: string) {
   );
 
   if (error) {
-    console.warn('[Obol] sync error:', error.message, error.code, error.details);
+    warn('[Obol] sync error:', error.message);
   } else {
-    console.log('[Obol] sync ✓ —', s.completedLessons.length, 'lecciones,', s.totalXp, 'XP');
+    log('[Obol] sync ✓ —', s.completedLessons.length, 'lecciones,', s.totalXp, 'XP');
   }
 }
 
