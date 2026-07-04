@@ -4,11 +4,22 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts, Baloo2_400Regular, Baloo2_600SemiBold, Baloo2_700Bold, Baloo2_800ExtraBold } from '@expo-google-fonts/baloo-2';
 import * as SplashScreen from 'expo-splash-screen';
+import * as Notifications from 'expo-notifications';
 import { LinearGradient } from 'expo-linear-gradient';
 import '../i18n';
 import { supabase } from '../lib/supabase';
 import { useAuthStore } from '../store/authStore';
-import { mergeAndSyncFromCloud, syncProgressToCloud } from '../lib/syncProgress';
+import { mergeAndSyncFromCloud } from '../lib/syncProgress';
+import { setupDailyReminder } from '../lib/notifications';
+
+// Show alerts for in-foreground notifications
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
 
 try { SplashScreen.preventAutoHideAsync(); } catch {}
 
@@ -46,7 +57,9 @@ export default function RootLayout() {
   }, []);
 
   useEffect(() => {
-    try { if (fontsLoaded) SplashScreen.hideAsync(); } catch {}
+    if (!fontsLoaded) return;
+    try { SplashScreen.hideAsync(); } catch {}
+    setupDailyReminder();
   }, [fontsLoaded]);
 
   const nav = (
@@ -65,6 +78,8 @@ export default function RootLayout() {
         <Stack.Screen name="game/presupuesto" />
         <Stack.Screen name="character" />
         <Stack.Screen name="settings" />
+        <Stack.Screen name="legal/privacy" />
+        <Stack.Screen name="legal/terms" />
       </Stack>
     </>
   );

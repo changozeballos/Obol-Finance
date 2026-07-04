@@ -9,7 +9,7 @@ import {
   Platform,
 } from 'react-native';
 import { router, useNavigation } from 'expo-router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -18,7 +18,10 @@ import { useProgressStore } from '../store/progressStore';
 import { useAuthStore } from '../store/authStore';
 import { supabase } from '../lib/supabase';
 import { ONBOARDING_KEY } from '../constants/keys';
+import { setupDailyReminder, cancelDailyReminder } from '../lib/notifications';
 import type { Language } from '../types';
+
+const NOTIF_PERM_KEY = '@obol_notif_v1';
 
 const LANGUAGES: { code: Language; label: string; flag: string }[] = [
   { code: 'es', label: 'Español', flag: '🇦🇷' },
@@ -70,8 +73,27 @@ export default function SettingsScreen() {
   const { i18n } = useTranslation();
   const { language, setLanguage, streak, totalXp, level } = useProgressStore();
   const { session } = useAuthStore();
-  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
+  const [notificationsEnabled, setNotificationsEnabled] = useState(false);
   const navigation = useNavigation();
+
+  useEffect(() => {
+    AsyncStorage.getItem(NOTIF_PERM_KEY).then((val) => {
+      setNotificationsEnabled(val === 'granted');
+    });
+  }, []);
+
+  const handleToggleNotifications = async (value: boolean) => {
+    setNotificationsEnabled(value);
+    if (value) {
+      await setupDailyReminder();
+      // Re-read actual state in case permission was denied by OS
+      const actual = await AsyncStorage.getItem(NOTIF_PERM_KEY);
+      setNotificationsEnabled(actual === 'granted');
+    } else {
+      await cancelDailyReminder();
+      await AsyncStorage.setItem(NOTIF_PERM_KEY, 'denied');
+    }
+  };
 
   const displayName =
     session?.user?.user_metadata?.full_name ??
@@ -184,7 +206,7 @@ export default function SettingsScreen() {
             rightElement={
               <Switch
                 value={notificationsEnabled}
-                onValueChange={setNotificationsEnabled}
+                onValueChange={handleToggleNotifications}
                 trackColor={{ false: Colors.border, true: Colors.primaryLight }}
                 thumbColor={notificationsEnabled ? Colors.primary : '#f4f3f4'}
               />
@@ -215,13 +237,13 @@ export default function SettingsScreen() {
           <SettingsRow
             icon="document-text-outline"
             label="Términos de uso"
-            onPress={() => {}}
+            onPress={() => router.push('/legal/terms')}
           />
           <View style={styles.divider} />
           <SettingsRow
             icon="shield-checkmark-outline"
             label="Política de privacidad"
-            onPress={() => {}}
+            onPress={() => router.push('/legal/privacy')}
           />
         </View>
 
