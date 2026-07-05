@@ -443,43 +443,57 @@ export default function HomeScreen() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
-        {/* Greeting */}
-        <View style={styles.greeting}>
-          <Text style={styles.greetingTitle}>Hola 👋</Text>
-          <Text style={styles.greetingSubtitle}>Seguí aprendiendo donde lo dejaste</Text>
-        </View>
+        {/* Hero greeting */}
+        <LinearGradient
+          colors={['#1e1b4b', '#312e81', '#4c1d95']}
+          start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
+          style={styles.heroBanner}
+        >
+          {/* Stars decoration */}
+          <Text style={styles.heroStar1}>✦</Text>
+          <Text style={styles.heroStar2}>✦</Text>
+          <Text style={styles.heroStar3}>✦</Text>
 
-        {/* Daily challenge */}
-        <TouchableOpacity activeOpacity={0.9} style={styles.dailyCard}>
-          <View style={styles.dailyIconBox}>
-            <Text style={{ fontSize: 24 }}>⚡</Text>
-          </View>
-          <View style={{ flex: 1 }}>
-            <Text style={styles.dailyTitle}>Desafío del día</Text>
-            <Text style={styles.dailyDesc}>Completá 2 lecciones · mantenés la racha</Text>
-            <View style={styles.dailyBarBg}>
-              <View style={[styles.dailyBarFill, { width: '40%' }]} />
+          <View style={styles.heroContent}>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.greetingTitle}>Hola 👋</Text>
+              <Text style={styles.greetingSubtitle}>Seguí aprendiendo donde lo dejaste</Text>
             </View>
+            <PigAvatar mood="happy" size={56} overrideBg="rgba(255,255,255,0.12)" />
           </View>
-          <View style={styles.xpBadge}>
-            <Text style={styles.xpBadgeText}>+50 XP</Text>
-          </View>
-        </TouchableOpacity>
 
-        {/* Ver Secciones button */}
-        <View style={{ alignItems: 'center', marginBottom: 4 }}>
-          <TouchableOpacity onPress={() => setDrawerVisible(true)} activeOpacity={0.85}>
-            <LinearGradient
-              colors={['#4F46E5', '#7C3AED']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              style={styles.verBtn}
-            >
-              <Text style={styles.verBtnIcon}>☰</Text>
-              <Text style={styles.verBtnText}>Ver Secciones</Text>
-            </LinearGradient>
+          {/* Daily challenge */}
+          <TouchableOpacity activeOpacity={0.9} style={styles.dailyCard}>
+            <View style={styles.dailyIconBox}>
+              <Text style={{ fontSize: 24 }}>⚡</Text>
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.dailyTitle}>Desafío del día</Text>
+              <Text style={styles.dailyDesc}>Completá 2 lecciones · mantenés la racha</Text>
+              <View style={styles.dailyBarBg}>
+                <View style={[styles.dailyBarFill, { width: '40%' }]} />
+              </View>
+            </View>
+            <View style={styles.xpBadge}>
+              <Text style={styles.xpBadgeText}>+50 XP</Text>
+            </View>
           </TouchableOpacity>
-        </View>
+
+          {/* Ver Secciones button */}
+          <View style={{ alignItems: 'center' }}>
+            <TouchableOpacity onPress={() => setDrawerVisible(true)} activeOpacity={0.85}>
+              <LinearGradient
+                colors={['rgba(255,255,255,0.18)', 'rgba(255,255,255,0.08)']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                style={styles.verBtn}
+              >
+                <Text style={styles.verBtnIcon}>☰</Text>
+                <Text style={styles.verBtnText}>Ver Secciones</Text>
+              </LinearGradient>
+            </TouchableOpacity>
+          </View>
+        </LinearGradient>
 
         {/* Sections */}
         {withMeta.map(({ sec, isFirstInWorld, showTransition }) => {
@@ -561,7 +575,7 @@ export default function HomeScreen() {
 
 // ─── Styles ──────────────────────────────────────────────────────────────────
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: Colors.background },
+  root: { flex: 1, backgroundColor: '#0f0f1a' },
 
   // TopBar
   topBar: {
@@ -592,33 +606,42 @@ const styles = StyleSheet.create({
 
   scrollContent: { paddingBottom: 0 },
 
-  // Greeting
-  greeting: { paddingHorizontal: 20, paddingTop: 16, paddingBottom: 10 },
-  greetingTitle: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 22, color: Colors.text },
-  greetingSubtitle: { fontFamily: 'Baloo2_400Regular', fontSize: 13, color: Colors.textMuted, marginTop: 2 },
+  // Hero banner
+  heroBanner: {
+    paddingTop: 20,
+    paddingHorizontal: 16,
+    paddingBottom: 20,
+    gap: 14,
+    overflow: 'hidden',
+  },
+  heroStar1: { position: 'absolute', top: 14, left: 24,  fontSize: 12, color: 'rgba(255,255,255,0.3)' },
+  heroStar2: { position: 'absolute', top: 28, right: 40, fontSize: 8,  color: 'rgba(255,255,255,0.2)' },
+  heroStar3: { position: 'absolute', top: 8,  right: 80, fontSize: 16, color: 'rgba(255,255,255,0.15)' },
+  heroContent: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+
+  // Greeting inside hero
+  greetingTitle: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 22, color: '#fff' },
+  greetingSubtitle: { fontFamily: 'Baloo2_400Regular', fontSize: 13, color: 'rgba(255,255,255,0.7)', marginTop: 2 },
 
   // Daily challenge
   dailyCard: {
-    marginHorizontal: 16,
-    marginBottom: 12,
-    backgroundColor: '#FEF3C7',
+    backgroundColor: 'rgba(255,255,255,0.13)',
     borderRadius: 20,
     padding: 14,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
-    borderWidth: 2,
-    borderColor: '#FBBF24',
-    ...shadow(4, 10, '#F59E0B', 0.2, 4),
+    borderWidth: 1.5,
+    borderColor: 'rgba(255,255,255,0.2)',
   },
   dailyIconBox: {
     width: 44, height: 44, borderRadius: 14,
-    backgroundColor: '#FBBF24',
+    backgroundColor: '#F59E0B',
     alignItems: 'center', justifyContent: 'center',
   },
-  dailyTitle: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 14, color: '#92400E' },
-  dailyDesc: { fontFamily: 'Baloo2_400Regular', fontSize: 12, color: '#B45309', marginTop: 1 },
-  dailyBarBg: { height: 5, backgroundColor: '#FCD34D', borderRadius: 99, marginTop: 6, overflow: 'hidden' },
+  dailyTitle: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 14, color: '#fff' },
+  dailyDesc: { fontFamily: 'Baloo2_400Regular', fontSize: 12, color: 'rgba(255,255,255,0.7)', marginTop: 1 },
+  dailyBarBg: { height: 5, backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: 99, marginTop: 6, overflow: 'hidden' },
   dailyBarFill: { height: '100%', backgroundColor: '#F59E0B', borderRadius: 99 },
   xpBadge: {
     backgroundColor: '#F59E0B',
@@ -634,9 +657,9 @@ const styles = StyleSheet.create({
     gap: 7,
     borderRadius: 99,
     paddingHorizontal: 22,
-    paddingVertical: 9,
-    ...shadow(4, 12, '#4F46E5', 0.35, 5),
-    marginBottom: 4,
+    paddingVertical: 10,
+    borderWidth: 1.5,
+    borderColor: 'rgba(255,255,255,0.25)',
   },
   verBtnIcon: { fontSize: 14, color: '#fff' },
   verBtnText: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 13, color: '#fff', letterSpacing: 0.3 },

@@ -4,11 +4,13 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Animated,
 } from 'react-native';
 import { router } from 'expo-router';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Shadows } from '../constants/Colors';
+import { nativeDriver } from '../constants/platform';
 import {
   useCharacterStore,
   HAT_OPTIONS,
@@ -72,6 +74,31 @@ export default function CharacterScreen() {
   const { hat, glasses, extra, bgColor, setHat, setGlasses, setExtra, setBgColor } =
     useCharacterStore();
 
+  // Animation: bounce when accessory changes, float continuously
+  const bounceAnim = useRef(new Animated.Value(1)).current;
+  const floatAnim  = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(floatAnim, { toValue: -8, duration: 1200, useNativeDriver: nativeDriver }),
+        Animated.timing(floatAnim, { toValue:  0, duration: 1200, useNativeDriver: nativeDriver }),
+      ])
+    ).start();
+  }, []);
+
+  const triggerBounce = () => {
+    Animated.sequence([
+      Animated.spring(bounceAnim, { toValue: 1.25, tension: 300, friction: 5, useNativeDriver: nativeDriver }),
+      Animated.spring(bounceAnim, { toValue: 1,    tension: 200, friction: 6, useNativeDriver: nativeDriver }),
+    ]).start();
+  };
+
+  const handleSetHat = (id: Hat) => { setHat(id); triggerBounce(); };
+  const handleSetGlasses = (id: Glasses) => { setGlasses(id); triggerBounce(); };
+  const handleSetExtra = (id: Extra) => { setExtra(id); triggerBounce(); };
+  const handleSetBgColor = (id: BgColor) => { setBgColor(id); triggerBounce(); };
+
   const renderOptions = () => {
     switch (activeCategory) {
       case 'hat':
@@ -81,7 +108,7 @@ export default function CharacterScreen() {
             emoji={opt.emoji}
             label={opt.label}
             selected={hat === opt.id}
-            onPress={() => setHat(opt.id as Hat)}
+            onPress={() => handleSetHat(opt.id as Hat)}
           />
         ));
       case 'glasses':
@@ -91,7 +118,7 @@ export default function CharacterScreen() {
             emoji={opt.emoji}
             label={opt.label}
             selected={glasses === opt.id}
-            onPress={() => setGlasses(opt.id as Glasses)}
+            onPress={() => handleSetGlasses(opt.id as Glasses)}
           />
         ));
       case 'extra':
@@ -101,7 +128,7 @@ export default function CharacterScreen() {
             emoji={opt.emoji}
             label={opt.label}
             selected={extra === opt.id}
-            onPress={() => setExtra(opt.id as Extra)}
+            onPress={() => handleSetExtra(opt.id as Extra)}
           />
         ));
       case 'bg':
@@ -112,7 +139,7 @@ export default function CharacterScreen() {
             label={opt.label}
             selected={bgColor === opt.id}
             bgColor={opt.color}
-            onPress={() => setBgColor(opt.id as BgColor)}
+            onPress={() => handleSetBgColor(opt.id as BgColor)}
           />
         ));
     }
@@ -133,7 +160,14 @@ export default function CharacterScreen() {
         {/* Live preview */}
         <View style={styles.previewArea}>
           <View style={styles.previewGlow} />
-          <PigAvatar mood="celebrating" size={120} showAccessories />
+          <Animated.View style={{
+            transform: [
+              { scale: bounceAnim },
+              { translateY: floatAnim },
+            ],
+          }}>
+            <PigAvatar mood="celebrating" size={130} showAccessories overrideBg="#fff" />
+          </Animated.View>
           <Text style={styles.previewLabel}>¡Así luce tu chanchito! 🐷</Text>
         </View>
 
@@ -189,19 +223,27 @@ const styles = StyleSheet.create({
   },
   headerTitle: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 20, color: Colors.text },
   scroll: { padding: 16, gap: 20 },
-  previewArea: { alignItems: 'center', paddingVertical: 24, gap: 12 },
+  previewArea: {
+    alignItems: 'center',
+    paddingVertical: 36,
+    gap: 14,
+    backgroundColor: '#1e1b4b',
+    borderRadius: 28,
+    marginBottom: 4,
+    overflow: 'hidden',
+  },
   previewGlow: {
     position: 'absolute',
-    width: 200,
-    height: 200,
-    borderRadius: 100,
-    backgroundColor: Colors.primaryLight + '22',
-    top: 10,
+    width: 240,
+    height: 240,
+    borderRadius: 120,
+    backgroundColor: Colors.primaryLight + '33',
+    top: -20,
   },
   previewLabel: {
     fontFamily: 'Baloo2_700Bold',
     fontSize: 15,
-    color: Colors.textMuted,
+    color: 'rgba(255,255,255,0.8)',
   },
   categoryRow: {
     flexDirection: 'row',

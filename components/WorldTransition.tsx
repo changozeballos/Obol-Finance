@@ -105,7 +105,7 @@ export function WorldTransition({ pathId }: { pathId: string }) {
 }
 
 const styles = StyleSheet.create({
-  wrap: { marginVertical: 6 },
+  wrap: { marginVertical: 0 },
 
   edgeLine: { height: 2, width: '100%' },
 
