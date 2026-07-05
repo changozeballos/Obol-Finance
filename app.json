@@ -63,8 +63,10 @@
     },
     "extra": {
       "eas": {
-        "projectId": ""
-      }
-    }
+        "projectId": "888726bc-0be4-4466-84e8-44be177f6a14"
+      },
+      "router": {}
+    },
+    "owner": "elchangos-team"
   }
 }

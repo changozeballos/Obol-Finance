@@ -28,11 +28,6 @@
       "android": {
         "serviceAccountKeyPath": "./google-service-account.json",
         "track": "internal"
-      },
-      "ios": {
-        "appleId": "ignacio.tejero.07@gmail.com",
-        "ascAppId": "",
-        "appleTeamId": ""
       }
     }
   }
