@@ -146,39 +146,7 @@ function TopBar() {
 // ─── SectionHeader (WorldHeader) ─────────────────────────────────────────────
 const PIG_OVERFLOW = 44; // px que el pig sobresale por encima de la card
 
-function CardContent({ sec, meta, isFirstInWorld, done, total, pct, t }: any) {
-  return (
-    <>
-      <Text style={styles.watermark}>{sec.icon}</Text>
-      <LinearGradient
-        colors={['rgba(255,255,255,0.28)', 'transparent'] as any}
-        start={{ x: 0.8, y: 0 }} end={{ x: 0.2, y: 0.8 }}
-        style={[StyleSheet.absoluteFillObject, { pointerEvents: 'none' }]}
-      />
-      <View style={styles.chipRow}>
-        <View style={styles.pathChip}>
-          <Text style={styles.pathChipText}>{meta.name.toUpperCase()}</Text>
-        </View>
-        <View style={styles.progressChip}>
-          <Text style={styles.progressChipText}>{done}/{total} lecciones</Text>
-        </View>
-      </View>
-      <Text style={styles.headerTitle} numberOfLines={2}>{t(sec.titleKey)}</Text>
-      {isFirstInWorld && SECTION_DESC[sec.id] && (
-        <Text style={styles.headerSubtitle} numberOfLines={2}>{SECTION_DESC[sec.id]}</Text>
-      )}
-      <View style={styles.progressBarBg}>
-        <LinearGradient
-          colors={['rgba(255,255,255,0.95)', 'rgba(255,255,255,0.55)'] as any}
-          start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
-          style={[styles.progressBarFill, { width: `${pct || 3}%` as any }]}
-        />
-      </View>
-    </>
-  );
-}
-
-function SectionHeader({ sec, isFirstInWorld, bgImage }: { sec: Section; isFirstInWorld: boolean; bgImage?: any }) {
+function SectionHeader({ sec, isFirstInWorld }: { sec: Section; isFirstInWorld: boolean }) {
   const { t } = useTranslation();
   const meta = PATH_META[sec.pathId] ?? PATH_META.fundamentos;
   const done  = sec.lessons.filter((l) => l.status === 'completed').length;
@@ -220,31 +188,39 @@ function SectionHeader({ sec, isFirstInWorld, bgImage }: { sec: Section; isFirst
 
       {/* Card */}
       <View style={[styles.headerCard, shadow(8, 20, sec.color, 0.25, 8), { marginTop: PIG_OVERFLOW }]}>
-        {bgImage ? (
-          <ImageBackground
-            source={bgImage}
-            style={styles.headerGradient}
-            imageStyle={{ borderRadius: 22 }}
-            resizeMode="cover"
-          >
-            {/* Color tint overlay for readability */}
-            <LinearGradient
-              colors={[sec.color + 'BB', meta.deep + 'DD'] as any}
-              start={{ x: 0.1, y: 0 }} end={{ x: 1, y: 1.1 }}
-              style={StyleSheet.absoluteFillObject}
-              pointerEvents="none"
-            />
-            <CardContent sec={sec} meta={meta} isFirstInWorld={isFirstInWorld} done={done} total={total} pct={pct} t={t} />
-          </ImageBackground>
-        ) : (
+        <LinearGradient
+          colors={[sec.color, meta.deep] as [string, string]}
+          start={{ x: 0.1, y: 0 }} end={{ x: 1, y: 1.1 }}
+          style={styles.headerGradient}
+        >
+          {/* Watermark */}
+          <Text style={styles.watermark}>{sec.icon}</Text>
+          {/* Sheen */}
           <LinearGradient
-            colors={[sec.color, meta.deep] as [string, string]}
-            start={{ x: 0.1, y: 0 }} end={{ x: 1, y: 1.1 }}
-            style={styles.headerGradient}
-          >
-            <CardContent sec={sec} meta={meta} isFirstInWorld={isFirstInWorld} done={done} total={total} pct={pct} t={t} />
-          </LinearGradient>
-        )}
+            colors={['rgba(255,255,255,0.28)', 'transparent'] as any}
+            start={{ x: 0.8, y: 0 }} end={{ x: 0.2, y: 0.8 }}
+            style={[StyleSheet.absoluteFillObject, { pointerEvents: 'none' }]}
+          />
+          <View style={styles.chipRow}>
+            <View style={styles.pathChip}>
+              <Text style={styles.pathChipText}>{meta.name.toUpperCase()}</Text>
+            </View>
+            <View style={styles.progressChip}>
+              <Text style={styles.progressChipText}>{done}/{total} lecciones</Text>
+            </View>
+          </View>
+          <Text style={styles.headerTitle} numberOfLines={2}>{t(sec.titleKey)}</Text>
+          {isFirstInWorld && SECTION_DESC[sec.id] && (
+            <Text style={styles.headerSubtitle} numberOfLines={2}>{SECTION_DESC[sec.id]}</Text>
+          )}
+          <View style={styles.progressBarBg}>
+            <LinearGradient
+              colors={['rgba(255,255,255,0.95)', 'rgba(255,255,255,0.55)'] as any}
+              start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+              style={[styles.progressBarFill, { width: `${pct || 3}%` as any }]}
+            />
+          </View>
+        </LinearGradient>
       </View>
     </View>
   );
@@ -522,28 +498,59 @@ export default function HomeScreen() {
             >
               {showTransition && <WorldTransition pathId={sec.pathId} />}
 
-              <LinearGradient
-                colors={[meta.skyTop, meta.skyMid, meta.skyBot] as [string, string, string]}
-                style={styles.sectionBg}
-              >
-                <WorldScene pathId={sec.pathId} />
-                <View style={{ position: 'relative', zIndex: 1 }}>
-                  <SectionHeader sec={sec} isFirstInWorld={isFirstInWorld} bgImage={SECTION_BG[sec.id]} />
-                  <View style={styles.lessonPath}>
-                    {sec.lessons.map((lesson, li) => (
-                      <View key={lesson.id}>
-                        <LessonNode
-                          lesson={lesson}
-                          sec={sec}
-                          index={li}
-                          isActive={lesson.id === firstAvailableId}
-                          zig={sectionZig}
-                        />
-                      </View>
-                    ))}
+              {SECTION_BG[sec.id] ? (
+                <ImageBackground
+                  source={SECTION_BG[sec.id]}
+                  style={styles.sectionBg}
+                  imageStyle={styles.sectionBgImage}
+                  resizeMode="cover"
+                >
+                  <LinearGradient
+                    colors={['rgba(0,0,0,0.18)', 'rgba(0,0,0,0.05)', 'rgba(0,0,0,0.22)'] as any}
+                    style={StyleSheet.absoluteFillObject}
+                    pointerEvents="none"
+                  />
+                  <View style={{ position: 'relative', zIndex: 1 }}>
+                    <SectionHeader sec={sec} isFirstInWorld={isFirstInWorld} />
+                    <View style={styles.lessonPath}>
+                      {sec.lessons.map((lesson, li) => (
+                        <View key={lesson.id}>
+                          <LessonNode
+                            lesson={lesson}
+                            sec={sec}
+                            index={li}
+                            isActive={lesson.id === firstAvailableId}
+                            zig={sectionZig}
+                          />
+                        </View>
+                      ))}
+                    </View>
                   </View>
-                </View>
-              </LinearGradient>
+                </ImageBackground>
+              ) : (
+                <LinearGradient
+                  colors={[meta.skyTop, meta.skyMid, meta.skyBot] as [string, string, string]}
+                  style={styles.sectionBg}
+                >
+                  <WorldScene pathId={sec.pathId} />
+                  <View style={{ position: 'relative', zIndex: 1 }}>
+                    <SectionHeader sec={sec} isFirstInWorld={isFirstInWorld} />
+                    <View style={styles.lessonPath}>
+                      {sec.lessons.map((lesson, li) => (
+                        <View key={lesson.id}>
+                          <LessonNode
+                            lesson={lesson}
+                            sec={sec}
+                            index={li}
+                            isActive={lesson.id === firstAvailableId}
+                            zig={sectionZig}
+                          />
+                        </View>
+                      ))}
+                    </View>
+                  </View>
+                </LinearGradient>
+              )}
             </View>
           );
         })}
@@ -654,6 +661,7 @@ const styles = StyleSheet.create({
 
   // Section background
   sectionBg: { width: '100%', paddingBottom: 40, overflow: 'hidden', position: 'relative', minHeight: 220 },
+  sectionBgImage: { width: '100%', height: '100%' },
 
   // WorldHeader
   headerWrap: { marginHorizontal: 14, marginBottom: 4, position: 'relative' },
