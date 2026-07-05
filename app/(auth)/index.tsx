@@ -39,7 +39,7 @@ export default function OnboardingScreen() {
         <Text style={styles.tagline}>{t('onboarding.tagline')}</Text>
         <Text style={styles.subtitle}>{t('onboarding.subtitle')}</Text>
         <Image
-          source={require('../../assets/characters/neutral pero con algo de plata.png')}
+          source={require('../../assets/characters/neutral-plata.png')}
           style={styles.pig}
           resizeMode="contain"
         />
