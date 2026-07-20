@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useTranslation } from 'react-i18next';
-import { shadow } from '../constants/platform';
 import type { Section } from '../types';
 
 // Relación de aspecto del canvas exportado (840x400) — el chanchito y el
@@ -12,7 +12,7 @@ const IMAGE_ASPECT_RATIO = 840 / 400;
 // mockup original (card a x:40,y:60 dentro de un canvas 840x400; contenido
 // con padding 44/40 adentro del card → x:84 y:100, ancho 456).
 const TEXT_LEFT_PCT = '10%';
-const TEXT_TOP_PCT = '25%';
+const TEXT_TOP_PCT = '22%';
 const TEXT_WIDTH_PCT = '54%';
 
 interface SectionMeta {
@@ -37,6 +37,9 @@ export function SectionHeaderCard({
   const done  = sec.lessons.filter((l) => l.status === 'completed').length;
   const total = sec.lessons.length;
   const pct   = total > 0 ? (done / total) * 100 : 0;
+  // Si el título ocupa las 2 líneas no hay lugar para la descripción sin que
+  // la barra de progreso se salga del cartel — se oculta en ese caso.
+  const [titleWrapped, setTitleWrapped] = useState(false);
 
   return (
     <View style={[styles.headerWrap, { marginTop: isFirstInWorld ? 24 : 16 }]}>
@@ -61,7 +64,7 @@ export function SectionHeaderCard({
       )}
 
       {/* Card: imagen única (fondo + chanchito + degradé, ya compuesta en el diseño) */}
-      <View style={[styles.imageWrap, shadow(8, 20, sec.color, 0.3, 10)]}>
+      <View style={styles.imageWrap}>
         {headerImage && (
           <Image
             source={headerImage}
@@ -81,9 +84,15 @@ export function SectionHeaderCard({
             </View>
           </View>
 
-          <Text style={styles.sectionTitle} numberOfLines={2}>{t(sec.titleKey)}</Text>
+          <Text
+            style={styles.sectionTitle}
+            numberOfLines={2}
+            onTextLayout={(e) => setTitleWrapped(e.nativeEvent.lines.length > 1)}
+          >
+            {t(sec.titleKey)}
+          </Text>
 
-          {isFirstInWorld && desc && (
+          {isFirstInWorld && desc && !titleWrapped && (
             <Text style={styles.sectionDesc} numberOfLines={2}>{desc}</Text>
           )}
 
@@ -136,40 +145,40 @@ const styles = StyleSheet.create({
   },
 
   // Chips
-  chipRow: { flexDirection: 'row', gap: 6, marginBottom: 8, alignItems: 'center' },
+  chipRow: { flexDirection: 'row', gap: 5, marginBottom: 4, alignItems: 'center' },
   pathChip: {
     backgroundColor: 'rgba(255,255,255,0.16)', borderRadius: 99,
     borderWidth: 1, borderColor: 'rgba(255,255,255,0.26)',
-    paddingHorizontal: 11, paddingVertical: 5,
+    paddingHorizontal: 9, paddingVertical: 3,
   },
   pathChipText: {
-    fontFamily: 'Fredoka_600SemiBold', fontSize: 10,
-    color: '#fff', letterSpacing: 1.5, textTransform: 'uppercase',
+    fontFamily: 'Fredoka_600SemiBold', fontSize: 9,
+    color: '#fff', letterSpacing: 1.2, textTransform: 'uppercase',
   },
   progressChip: {
     backgroundColor: 'rgba(0,0,0,0.35)',
     borderRadius: 99,
     borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)',
-    paddingHorizontal: 10, paddingVertical: 5,
+    paddingHorizontal: 8, paddingVertical: 3,
   },
-  progressChipText: { fontFamily: 'Nunito_700Bold', fontSize: 10, color: 'rgba(255,255,255,0.92)' },
+  progressChipText: { fontFamily: 'Nunito_700Bold', fontSize: 9, color: 'rgba(255,255,255,0.92)' },
 
   // Textos
   sectionTitle: {
-    fontFamily: 'Fredoka_700Bold', fontSize: 21, color: '#fff',
-    lineHeight: 25, letterSpacing: -0.3, marginBottom: 4,
+    fontFamily: 'Fredoka_700Bold', fontSize: 17, color: '#fff',
+    lineHeight: 19, letterSpacing: -0.3, marginBottom: 2,
     textShadowColor: 'rgba(20,10,5,0.55)', textShadowOffset: { width: 0, height: 2 }, textShadowRadius: 8,
   },
   sectionDesc: {
-    fontFamily: 'Nunito_600SemiBold', fontSize: 11, color: 'rgba(255,255,255,0.78)',
-    lineHeight: 15, marginBottom: 6,
+    fontFamily: 'Nunito_600SemiBold', fontSize: 9, color: 'rgba(255,255,255,0.78)',
+    lineHeight: 11, marginBottom: 3,
     textShadowColor: 'rgba(20,10,5,0.5)', textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 6,
   },
 
   // Barra de progreso
   progressBarBg: {
-    height: 6, backgroundColor: 'rgba(0,0,0,0.28)', borderRadius: 99,
-    overflow: 'hidden', marginTop: 10, width: '100%',
+    height: 5, backgroundColor: 'rgba(0,0,0,0.28)', borderRadius: 99,
+    overflow: 'hidden', marginTop: 4, width: '100%',
   },
   progressBarFill: { height: '100%', borderRadius: 99 },
 });
