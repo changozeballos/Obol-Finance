@@ -6,13 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "scheme": "obol",
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#1B2A40"
-    },
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.obol.app",
@@ -29,7 +23,6 @@
       },
       "package": "com.obol.app",
       "versionCode": 1,
-      "edgeToEdgeEnabled": true,
       "permissions": [
         "android.permission.INTERNET",
         "android.permission.RECEIVE_BOOT_COMPLETED",
@@ -56,7 +49,16 @@
           "color": "#4F46E5",
           "defaultChannel": "obol-reminders"
         }
-      ]
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#1B2A40"
+        }
+      ],
+      "expo-status-bar"
     ],
     "experiments": {
       "typedRoutes": true

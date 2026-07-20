@@ -20,19 +20,20 @@ import { PigAvatar } from '../../components/PigAvatar';
 import { WorldScene } from '../../components/WorldScene';
 import { WorldTransition } from '../../components/WorldTransition';
 import { FinishLine } from '../../components/FinishLine';
+import { SectionHeaderCard } from '../../components/SectionHeaderCard';
 import { useComputedSections } from '../../hooks/useComputedSections';
 import type { Lesson, PathId, Section } from '../../types';
 
-// ─── Background image map (section id → require) ─────────────────────────────
+// ─── Fondos completos de cada sección (assets/background/) ───────────────────
 const SECTION_BG: Record<string, any> = {
-  base_comun:            require('../../assets/background/bg_fundamentos.png'),
-  inflation_prices:      require('../../assets/background/bg_inflation_prices.png'),
+  base_comun:            require('../../assets/background/bg_fundamentos.png.png'),
+  inflation_prices:      require('../../assets/background/bg_inflation_prices.png.png.png'),
   goods_markets_intro:   require('../../assets/background/bg_bienes_mercados.png.png'),
-  supply_demand_markets: require('../../assets/background/bg_oferta_demanda.png'),
-  macro_indicators:      require('../../assets/background/bg_macroeconomia.png'),
-  economic_policy:       require('../../assets/background/bg_politica_economica.png'),
-  international_money:   require('../../assets/background/bg_dinero_internacional.png'),
-  crises_cycles:         require('../../assets/background/bg_crisis_ciclos.png'),
+  supply_demand_markets: require('../../assets/background/bg_oferta_demanda.png.png'),
+  macro_indicators:      require('../../assets/background/bg_macroeconomia.png.png'),
+  economic_policy:       require('../../assets/background/bg_politica_economica.png.png'),
+  international_money:   require('../../assets/background/bg_dinero_internacional.png.png'),
+  crises_cycles:         require('../../assets/background/bg_crisis_ciclos.png.png'),
   personal_budgeting:    require('../../assets/background/bg_presupuesto.png.png'),
   saving_track:          require('../../assets/background/bg_ahorro.png.png'),
   debt_credit:           require('../../assets/background/bg_deuda_credito.png.png'),
@@ -42,6 +43,69 @@ const SECTION_BG: Record<string, any> = {
   advanced_finance:      require('../../assets/background/bg_finanzas_avanzadas.png.png'),
   myths_busting:         require('../../assets/background/bg_desmitificando.png.png'),
   historia:              require('../../assets/background/bg_historia.png.png'),
+};
+
+// ─── Imágenes para el recuadro del nombre (assets/section-headers/) ──────────
+const CARD_BG: Record<string, any> = {
+  base_comun:            require('../../assets/section-headers/bg_fundamentos.png'),
+  inflation_prices:      require('../../assets/section-headers/bg_inflation_prices.png'),
+  goods_markets_intro:   require('../../assets/section-headers/bg_bienes_mercados.png'),
+  supply_demand_markets: require('../../assets/section-headers/bg_oferta_demanda.png'),
+  macro_indicators:      require('../../assets/section-headers/bg_macroeconomia.png'),
+  economic_policy:       require('../../assets/section-headers/bg_politica_economica.png'),
+  international_money:   require('../../assets/section-headers/bg_dinero_internacional.png'),
+  crises_cycles:         require('../../assets/section-headers/bg_crisis_ciclos.png'),
+  personal_budgeting:    require('../../assets/section-headers/bg_presupuesto.png'),
+  saving_track:          require('../../assets/section-headers/bg_ahorro.png'),
+  debt_credit:           require('../../assets/section-headers/bg_deuda_credito.png'),
+  investments_base:      require('../../assets/section-headers/bg_inversiones_base.png'),
+  capital_markets:       require('../../assets/section-headers/bg_mercado_de_capitales.png'),
+  crypto_track:          require('../../assets/section-headers/bg_criptomonedas.png'),
+  advanced_finance:      require('../../assets/section-headers/bg_finanzas_avanzadas.png'),
+  myths_busting:         require('../../assets/section-headers/bg_desmitificando.png'),
+  historia:              require('../../assets/section-headers/bg_historia.png'),
+};
+
+// ─── Chanchito ilustrado grande (todas las secciones ya rediseñadas) ─────────
+const CARD_PIG: Record<string, any> = {
+  base_comun:            require('../../assets/section-headers/pig_fundamentos.png'),
+  inflation_prices:      require('../../assets/section-headers/pig_inflation_prices.png'),
+  goods_markets_intro:   require('../../assets/section-headers/pig_bienes_mercados.png'),
+  supply_demand_markets: require('../../assets/section-headers/pig_oferta_demanda.png'),
+  macro_indicators:      require('../../assets/section-headers/pig_macroeconomia.png'),
+  economic_policy:       require('../../assets/section-headers/pig_politica_economica.png'),
+  international_money:   require('../../assets/section-headers/pig_dinero_internacional.png'),
+  crises_cycles:         require('../../assets/section-headers/pig_crisis_ciclos.png'),
+  personal_budgeting:    require('../../assets/section-headers/pig_presupuesto.png'),
+  saving_track:          require('../../assets/section-headers/pig_ahorro.png'),
+  debt_credit:           require('../../assets/section-headers/pig_deuda_credito.png'),
+  investments_base:      require('../../assets/section-headers/pig_inversiones_base.png'),
+  capital_markets:       require('../../assets/section-headers/pig_mercado_de_capitales.png'),
+  crypto_track:          require('../../assets/section-headers/pig_criptomonedas.png'),
+  advanced_finance:      require('../../assets/section-headers/pig_finanzas_avanzadas.png'),
+  myths_busting:         require('../../assets/section-headers/pig_desmitificando.png'),
+  historia:              require('../../assets/section-headers/pig_historia.png'),
+};
+
+// ─── Tinte del degradé de legibilidad, ajustado a cada fondo (r,g,b) ─────────
+const CARD_TINT: Record<string, string> = {
+  base_comun:            '35,20,15',
+  inflation_prices:      '45,25,15',
+  goods_markets_intro:   '50,30,20',
+  supply_demand_markets: '20,45,65',
+  macro_indicators:      '15,40,55',
+  economic_policy:       '55,32,18',
+  international_money:   '30,22,45',
+  crises_cycles:         '10,12,26',
+  personal_budgeting:    '10,55,48',
+  saving_track:          '20,55,42',
+  debt_credit:           '20,28,60',
+  investments_base:      '45,28,60',
+  capital_markets:       '8,24,48',
+  crypto_track:          '45,25,55',
+  advanced_finance:      '10,22,42',
+  myths_busting:         '45,18,68',
+  historia:              '60,42,18',
 };
 
 // ─── Section taglines ─────────────────────────────────────────────────────────
@@ -139,89 +203,6 @@ function TopBar() {
         <Text style={{ fontSize: 16 }}>⭐</Text>
         <Text style={styles.pillVal}>{totalXp.toLocaleString()}</Text>
       </TouchableOpacity>
-    </View>
-  );
-}
-
-// ─── SectionHeader (WorldHeader) ─────────────────────────────────────────────
-const PIG_OVERFLOW = 44; // px que el pig sobresale por encima de la card
-
-function SectionHeader({ sec, isFirstInWorld }: { sec: Section; isFirstInWorld: boolean }) {
-  const { t } = useTranslation();
-  const meta = PATH_META[sec.pathId] ?? PATH_META.fundamentos;
-  const done  = sec.lessons.filter((l) => l.status === 'completed').length;
-  const total = sec.lessons.length;
-  const pct   = total > 0 ? (done / total) * 100 : 0;
-
-  const spinAnim = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    Animated.loop(
-      Animated.timing(spinAnim, { toValue: 1, duration: 9000, useNativeDriver: nativeDriver })
-    ).start();
-  }, []);
-  const rotate = spinAnim.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] });
-
-  return (
-    <View style={[styles.headerWrap, { marginTop: isFirstInWorld ? 24 : 16 }]}>
-      {/* World intro ribbon */}
-      {isFirstInWorld && (
-        <View style={styles.ribbon}>
-          <LinearGradient colors={['transparent', meta.accent + 'AA'] as any} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={styles.ribbonLine} />
-          <Text style={[styles.ribbonText, { color: meta.accent }]}>✦ {meta.name.toUpperCase()} ✦</Text>
-          <LinearGradient colors={[meta.accent + 'AA', 'transparent'] as any} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={styles.ribbonLine} />
-        </View>
-      )}
-
-      {/* Pig overflow — flota sobre la card */}
-      <View style={[styles.pigOverflowWrap, { pointerEvents: 'none' }]}>
-        <Animated.View style={[styles.medallionRing, { transform: [{ rotate }] }]}>
-          <LinearGradient
-            colors={[meta.accent, 'rgba(255,255,255,0.75)', meta.accent, 'rgba(255,255,255,0.5)', meta.accent] as any}
-            start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
-            style={{ flex: 1, borderRadius: 50 }}
-          />
-        </Animated.View>
-        <View style={[styles.medallionInner, shadow(4, 10, meta.deep, 0.22, 6)]}>
-          <PigAvatar mood={meta.pig} size={68} overrideBg="transparent" />
-        </View>
-      </View>
-
-      {/* Card */}
-      <View style={[styles.headerCard, shadow(8, 20, sec.color, 0.25, 8), { marginTop: PIG_OVERFLOW }]}>
-        <LinearGradient
-          colors={[sec.color, meta.deep] as [string, string]}
-          start={{ x: 0.1, y: 0 }} end={{ x: 1, y: 1.1 }}
-          style={styles.headerGradient}
-        >
-          {/* Watermark */}
-          <Text style={styles.watermark}>{sec.icon}</Text>
-          {/* Sheen */}
-          <LinearGradient
-            colors={['rgba(255,255,255,0.28)', 'transparent'] as any}
-            start={{ x: 0.8, y: 0 }} end={{ x: 0.2, y: 0.8 }}
-            style={[StyleSheet.absoluteFillObject, { pointerEvents: 'none' }]}
-          />
-          <View style={styles.chipRow}>
-            <View style={styles.pathChip}>
-              <Text style={styles.pathChipText}>{meta.name.toUpperCase()}</Text>
-            </View>
-            <View style={styles.progressChip}>
-              <Text style={styles.progressChipText}>{done}/{total} lecciones</Text>
-            </View>
-          </View>
-          <Text style={styles.headerTitle} numberOfLines={2}>{t(sec.titleKey)}</Text>
-          {isFirstInWorld && SECTION_DESC[sec.id] && (
-            <Text style={styles.headerSubtitle} numberOfLines={2}>{SECTION_DESC[sec.id]}</Text>
-          )}
-          <View style={styles.progressBarBg}>
-            <LinearGradient
-              colors={['rgba(255,255,255,0.95)', 'rgba(255,255,255,0.55)'] as any}
-              start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
-              style={[styles.progressBarFill, { width: `${pct || 3}%` as any }]}
-            />
-          </View>
-        </LinearGradient>
-      </View>
     </View>
   );
 }
@@ -507,11 +488,11 @@ export default function HomeScreen() {
                 >
                   <LinearGradient
                     colors={['rgba(0,0,0,0.18)', 'rgba(0,0,0,0.05)', 'rgba(0,0,0,0.22)'] as any}
-                    style={StyleSheet.absoluteFillObject}
+                    style={StyleSheet.absoluteFill}
                     pointerEvents="none"
                   />
                   <View style={{ position: 'relative', zIndex: 1 }}>
-                    <SectionHeader sec={sec} isFirstInWorld={isFirstInWorld} />
+                    <SectionHeaderCard sec={sec} isFirstInWorld={isFirstInWorld} meta={meta} desc={SECTION_DESC[sec.id]} cardImage={CARD_BG[sec.id]} heroPigImage={CARD_PIG[sec.id]} cardTint={CARD_TINT[sec.id]} />
                     <View style={styles.lessonPath}>
                       {sec.lessons.map((lesson, li) => (
                         <View key={lesson.id}>
@@ -534,7 +515,7 @@ export default function HomeScreen() {
                 >
                   <WorldScene pathId={sec.pathId} />
                   <View style={{ position: 'relative', zIndex: 1 }}>
-                    <SectionHeader sec={sec} isFirstInWorld={isFirstInWorld} />
+                    <SectionHeaderCard sec={sec} isFirstInWorld={isFirstInWorld} meta={meta} desc={SECTION_DESC[sec.id]} cardImage={CARD_BG[sec.id]} heroPigImage={CARD_PIG[sec.id]} cardTint={CARD_TINT[sec.id]} />
                     <View style={styles.lessonPath}>
                       {sec.lessons.map((lesson, li) => (
                         <View key={lesson.id}>
@@ -662,71 +643,6 @@ const styles = StyleSheet.create({
   // Section background
   sectionBg: { width: '100%', paddingBottom: 40, overflow: 'hidden', position: 'relative', minHeight: 220 },
   sectionBgImage: { width: '100%', height: '100%' },
-
-  // WorldHeader
-  headerWrap: { marginHorizontal: 14, marginBottom: 4, position: 'relative' },
-  ribbon: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 12 },
-  ribbonLine: { flex: 1, height: 1.5, borderRadius: 99 },
-  ribbonText: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 10, letterSpacing: 2, textTransform: 'uppercase' },
-
-  // Pig que flota sobre la card
-  pigOverflowWrap: {
-    position: 'absolute', top: 0, left: 0, right: 0,
-    alignItems: 'center', zIndex: 10,
-    height: PIG_OVERFLOW * 2,
-  },
-  medallionRing: {
-    position: 'absolute', top: 0, width: 100, height: 100, borderRadius: 50, overflow: 'hidden',
-  },
-  medallionInner: {
-    marginTop: 4,
-    width: 88, height: 88, borderRadius: 44,
-    backgroundColor: 'rgba(255,255,255,0.97)',
-    alignItems: 'center', justifyContent: 'center', overflow: 'hidden',
-    zIndex: 2,
-  },
-
-  headerCard: {
-    borderRadius: 22,
-    overflow: 'hidden',
-  },
-  headerGradient: {
-    paddingTop: PIG_OVERFLOW + 10,
-    paddingHorizontal: 18,
-    paddingBottom: 16,
-    position: 'relative', overflow: 'hidden',
-    alignItems: 'center',
-  },
-  watermark: {
-    position: 'absolute', right: -14, bottom: -22,
-    fontSize: 120, opacity: 0.07, lineHeight: 130,
-  },
-
-  // Section text — centrado
-  chipRow: { flexDirection: 'row', gap: 6, marginBottom: 8, alignItems: 'center', justifyContent: 'center' },
-  pathChip: {
-    backgroundColor: 'rgba(0,0,0,0.25)', borderRadius: 99,
-    paddingHorizontal: 11, paddingVertical: 4,
-  },
-  pathChipText: { fontFamily: 'Baloo2_800ExtraBold', fontSize: 9, color: 'rgba(255,255,255,0.95)', letterSpacing: 1, textTransform: 'uppercase' },
-  progressChip: {
-    backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: 99,
-    paddingHorizontal: 10, paddingVertical: 4,
-  },
-  progressChipText: { fontFamily: 'Baloo2_700Bold', fontSize: 9, color: 'rgba(255,255,255,0.9)' },
-  headerTitle: {
-    fontFamily: 'Baloo2_800ExtraBold', fontSize: 20, color: '#fff',
-    lineHeight: 24, letterSpacing: -0.3, marginBottom: 4, textAlign: 'center',
-  },
-  headerSubtitle: {
-    fontFamily: 'Baloo2_600SemiBold', fontSize: 11, color: 'rgba(255,255,255,0.72)',
-    lineHeight: 15, marginBottom: 6, textAlign: 'center',
-  },
-  progressBarBg: {
-    height: 6, backgroundColor: 'rgba(0,0,0,0.28)', borderRadius: 99,
-    overflow: 'hidden', marginTop: 10, width: '100%',
-  },
-  progressBarFill: { height: '100%', borderRadius: 99 },
 
   // Lesson path
   lessonPath: { paddingVertical: 8, paddingBottom: 16 },
