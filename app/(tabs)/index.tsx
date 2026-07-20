@@ -45,67 +45,26 @@ const SECTION_BG: Record<string, any> = {
   historia:              require('../../assets/background/bg_historia.png.png'),
 };
 
-// ─── Imágenes para el recuadro del nombre (assets/section-headers/) ──────────
-const CARD_BG: Record<string, any> = {
-  base_comun:            require('../../assets/section-headers/bg_fundamentos.png'),
-  inflation_prices:      require('../../assets/section-headers/bg_inflation_prices.png'),
-  goods_markets_intro:   require('../../assets/section-headers/bg_bienes_mercados.png'),
-  supply_demand_markets: require('../../assets/section-headers/bg_oferta_demanda.png'),
-  macro_indicators:      require('../../assets/section-headers/bg_macroeconomia.png'),
-  economic_policy:       require('../../assets/section-headers/bg_politica_economica.png'),
-  international_money:   require('../../assets/section-headers/bg_dinero_internacional.png'),
-  crises_cycles:         require('../../assets/section-headers/bg_crisis_ciclos.png'),
-  personal_budgeting:    require('../../assets/section-headers/bg_presupuesto.png'),
-  saving_track:          require('../../assets/section-headers/bg_ahorro.png'),
-  debt_credit:           require('../../assets/section-headers/bg_deuda_credito.png'),
-  investments_base:      require('../../assets/section-headers/bg_inversiones_base.png'),
-  capital_markets:       require('../../assets/section-headers/bg_mercado_de_capitales.png'),
-  crypto_track:          require('../../assets/section-headers/bg_criptomonedas.png'),
-  advanced_finance:      require('../../assets/section-headers/bg_finanzas_avanzadas.png'),
-  myths_busting:         require('../../assets/section-headers/bg_desmitificando.png'),
-  historia:              require('../../assets/section-headers/bg_historia.png'),
-};
-
-// ─── Chanchito ilustrado grande (todas las secciones ya rediseñadas) ─────────
-const CARD_PIG: Record<string, any> = {
-  base_comun:            require('../../assets/section-headers/pig_fundamentos.png'),
-  inflation_prices:      require('../../assets/section-headers/pig_inflation_prices.png'),
-  goods_markets_intro:   require('../../assets/section-headers/pig_bienes_mercados.png'),
-  supply_demand_markets: require('../../assets/section-headers/pig_oferta_demanda.png'),
-  macro_indicators:      require('../../assets/section-headers/pig_macroeconomia.png'),
-  economic_policy:       require('../../assets/section-headers/pig_politica_economica.png'),
-  international_money:   require('../../assets/section-headers/pig_dinero_internacional.png'),
-  crises_cycles:         require('../../assets/section-headers/pig_crisis_ciclos.png'),
-  personal_budgeting:    require('../../assets/section-headers/pig_presupuesto.png'),
-  saving_track:          require('../../assets/section-headers/pig_ahorro.png'),
-  debt_credit:           require('../../assets/section-headers/pig_deuda_credito.png'),
-  investments_base:      require('../../assets/section-headers/pig_inversiones_base.png'),
-  capital_markets:       require('../../assets/section-headers/pig_mercado_de_capitales.png'),
-  crypto_track:          require('../../assets/section-headers/pig_criptomonedas.png'),
-  advanced_finance:      require('../../assets/section-headers/pig_finanzas_avanzadas.png'),
-  myths_busting:         require('../../assets/section-headers/pig_desmitificando.png'),
-  historia:              require('../../assets/section-headers/pig_historia.png'),
-};
-
-// ─── Tinte del degradé de legibilidad, ajustado a cada fondo (r,g,b) ─────────
-const CARD_TINT: Record<string, string> = {
-  base_comun:            '35,20,15',
-  inflation_prices:      '45,25,15',
-  goods_markets_intro:   '50,30,20',
-  supply_demand_markets: '20,45,65',
-  macro_indicators:      '15,40,55',
-  economic_policy:       '55,32,18',
-  international_money:   '30,22,45',
-  crises_cycles:         '10,12,26',
-  personal_budgeting:    '10,55,48',
-  saving_track:          '20,55,42',
-  debt_credit:           '20,28,60',
-  investments_base:      '45,28,60',
-  capital_markets:       '8,24,48',
-  crypto_track:          '45,25,55',
-  advanced_finance:      '10,22,42',
-  myths_busting:         '45,18,68',
-  historia:              '60,42,18',
+// ─── Imagen única del header de cada sección: fondo + chanchito + degradé,
+// ya compuestos en el diseño (assets/section-headers/) ────────────────────────
+const CARD_HEADER: Record<string, any> = {
+  base_comun:            require('../../assets/section-headers/header_fundamentos.png'),
+  inflation_prices:      require('../../assets/section-headers/header_inflation_prices.png'),
+  goods_markets_intro:   require('../../assets/section-headers/header_bienes_mercados.png'),
+  supply_demand_markets: require('../../assets/section-headers/header_oferta_demanda.png'),
+  macro_indicators:      require('../../assets/section-headers/header_macroeconomia.png'),
+  economic_policy:       require('../../assets/section-headers/header_politica_economica.png'),
+  international_money:   require('../../assets/section-headers/header_dinero_internacional.png'),
+  crises_cycles:         require('../../assets/section-headers/header_crisis_ciclos.png'),
+  personal_budgeting:    require('../../assets/section-headers/header_presupuesto.png'),
+  saving_track:          require('../../assets/section-headers/header_ahorro.png'),
+  debt_credit:           require('../../assets/section-headers/header_deuda_credito.png'),
+  investments_base:      require('../../assets/section-headers/header_inversiones_base.png'),
+  capital_markets:       require('../../assets/section-headers/header_mercado_de_capitales.png'),
+  crypto_track:          require('../../assets/section-headers/header_criptomonedas.png'),
+  advanced_finance:      require('../../assets/section-headers/header_finanzas_avanzadas.png'),
+  myths_busting:         require('../../assets/section-headers/header_desmitificando.png'),
+  historia:              require('../../assets/section-headers/header_historia.png'),
 };
 
 // ─── Section taglines ─────────────────────────────────────────────────────────
@@ -492,7 +451,7 @@ export default function HomeScreen() {
                     pointerEvents="none"
                   />
                   <View style={{ position: 'relative', zIndex: 1 }}>
-                    <SectionHeaderCard sec={sec} isFirstInWorld={isFirstInWorld} meta={meta} desc={SECTION_DESC[sec.id]} cardImage={CARD_BG[sec.id]} heroPigImage={CARD_PIG[sec.id]} cardTint={CARD_TINT[sec.id]} />
+                    <SectionHeaderCard sec={sec} isFirstInWorld={isFirstInWorld} meta={meta} desc={SECTION_DESC[sec.id]} headerImage={CARD_HEADER[sec.id]} />
                     <View style={styles.lessonPath}>
                       {sec.lessons.map((lesson, li) => (
                         <View key={lesson.id}>
@@ -515,7 +474,7 @@ export default function HomeScreen() {
                 >
                   <WorldScene pathId={sec.pathId} />
                   <View style={{ position: 'relative', zIndex: 1 }}>
-                    <SectionHeaderCard sec={sec} isFirstInWorld={isFirstInWorld} meta={meta} desc={SECTION_DESC[sec.id]} cardImage={CARD_BG[sec.id]} heroPigImage={CARD_PIG[sec.id]} cardTint={CARD_TINT[sec.id]} />
+                    <SectionHeaderCard sec={sec} isFirstInWorld={isFirstInWorld} meta={meta} desc={SECTION_DESC[sec.id]} headerImage={CARD_HEADER[sec.id]} />
                     <View style={styles.lessonPath}>
                       {sec.lessons.map((lesson, li) => (
                         <View key={lesson.id}>
