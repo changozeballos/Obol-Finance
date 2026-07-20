@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, Animated } from 'react-native';
+import { View, Text, StyleSheet, Animated, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { PigAvatar } from './PigAvatar';
 import { shadow, textShadow, nativeDriver } from '../constants/platform';
@@ -17,8 +17,18 @@ const WORLD_META: Record<string, {
   desmitificando: { name: 'Desmitificando', accent: '#8B5CF6', deep: '#4C1D95', pig: 'motivated',   tagline: 'La verdad sobre el dinero',    icon: '🔬' },
 };
 
+// Imágenes completas (fondo + card + texto + chanchito, ya compuestas en el
+// diseño) para los mundos a los que se puede transicionar. "Fundamentos"
+// nunca se muestra como transición (es el primer mundo), no necesita una.
+const WORLD_IMAGE: Partial<Record<string, any>> = {
+  economia:       require('../assets/entresecciones/economía.png'),
+  finanzas:       require('../assets/entresecciones/finanzas.png'),
+  desmitificando: require('../assets/entresecciones/desmitificando.png'),
+};
+
 export function WorldTransition({ pathId }: { pathId: string }) {
   const meta = WORLD_META[pathId] ?? WORLD_META.fundamentos;
+  const image = WORLD_IMAGE[pathId];
 
   // Animations
   const fadeAnim   = useRef(new Animated.Value(0)).current;
@@ -53,6 +63,19 @@ export function WorldTransition({ pathId }: { pathId: string }) {
   const shimmerTranslate = shimmerAnim.interpolate({
     inputRange: [0, 1], outputRange: [-200, 360],
   });
+
+  // Imagen completa (fondo + card + texto + chanchito ya compuestos) —
+  // reemplaza todo el banner de gradiente cuando existe para ese mundo.
+  if (image) {
+    return (
+      <Animated.View style={[
+        styles.wrap,
+        { opacity: fadeAnim, transform: [{ scale: scaleAnim }, { translateY: slideAnim }] },
+      ]}>
+        <Image source={image} style={styles.fullImage} resizeMode="cover" />
+      </Animated.View>
+    );
+  }
 
   return (
     <Animated.View style={[
@@ -106,6 +129,8 @@ export function WorldTransition({ pathId }: { pathId: string }) {
 
 const styles = StyleSheet.create({
   wrap: { marginVertical: 0 },
+
+  fullImage: { width: '100%', aspectRatio: 1 },
 
   edgeLine: { height: 2, width: '100%' },
 
