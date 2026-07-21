@@ -164,8 +164,8 @@ export const SECTIONS: Section[] = [
           order_q('wim_10', 'q.wim_10', [
             { id: 'wim_10_i1', labelKey: 'q.wim_10_i1', position: 0 },
             { id: 'wim_10_i2', labelKey: 'q.wim_10_i2', position: 1 },
-            { id: 'wim_10_i3', labelKey: 'q.wim_10_i3', position: 2 },
-            { id: 'wim_10_i4', labelKey: 'q.wim_10_i4', position: 3 },
+            { id: 'wim_10_i3', labelKey: 'q.wim_10_i3', position: 3 },
+            { id: 'wim_10_i4', labelKey: 'q.wim_10_i4', position: 2 },
           ], 'q.wim_10_exp') as any,
           graph_id('wim_11', 'q.wim_11', 1,
             [{ values: [54,36,51,95,211] }],
@@ -252,7 +252,7 @@ export const SECTIONS: Section[] = [
           fill_num('iet_8', 'q.iet_8', 1, 'q.iet_8_exp') as any,
           graph_pt('iet_9', 'q.iet_9',
             ['Peso Arg','Lira Tur','Real BR','Peso Mex'],
-            [54.2,38.4,7.1,-15.8],
+            [355,38.4,-8.1,-15.8],
             'Peso Mex', 'q.iet_9_exp') as any,
           match_q('iet_10', 'q.iet_10', [
             { leftKey: 'q.iet_10_l1', rightKey: 'q.iet_10_r1' },
@@ -743,8 +743,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.sdl_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.sdl_10_i4', position: 3 },
           ], 'q.sdl_10_exp') as any,
-          slider_q('sdl_11', 'q.sdl_11', 30, 5, 10, 50, '$', 'q.sdl_11_exp') as any,
-          graph_id('sdl_12', 'q.sdl_12', 0, [
+          slider_q('sdl_11', 'q.sdl_11', 50, 10, 10, 70, 'M ton', 'q.sdl_11_exp') as any,
+          graph_id('sdl_12', 'q.sdl_12', 1, [
             { values: [100,80,60,40,20] },
             { values: [20,40,60,80,100] },
           ], ['$10','$20','$30','$40','$50'], 'q.sdl_12_exp') as any,
@@ -765,9 +765,9 @@ export const SECTIONS: Section[] = [
           classify('mkt_6', 'q.mkt_6', [
             { id: 'i1', labelKey: 'q.mkt_6_i1', bucket: 'competencia' },
             { id: 'i2', labelKey: 'q.mkt_6_i2', bucket: 'monopolio' },
-            { id: 'i3', labelKey: 'q.mkt_6_i3', bucket: 'competencia' },
-            { id: 'i4', labelKey: 'q.mkt_6_i4', bucket: 'monopolio' },
-            { id: 'i5', labelKey: 'q.mkt_6_i5', bucket: 'competencia' },
+            { id: 'i3', labelKey: 'q.mkt_6_i3', bucket: 'monopolio' },
+            { id: 'i4', labelKey: 'q.mkt_6_i4', bucket: 'competencia' },
+            { id: 'i5', labelKey: 'q.mkt_6_i5', bucket: 'monopolio' },
           ], [
             { id: 'competencia', labelKey: 'q.mkt_6_b1' },
             { id: 'monopolio', labelKey: 'q.mkt_6_b2' },
@@ -777,7 +777,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.mkt_7_l2', rightKey: 'q.mkt_7_r2' },
             { leftKey: 'q.mkt_7_l3', rightKey: 'q.mkt_7_r3' },
           ], 'q.mkt_7_exp') as any,
-          fill_num('mkt_8', 'q.mkt_8', 0, 'q.mkt_8_exp') as any,
+          fill_num('mkt_8', 'q.mkt_8', 1, 'q.mkt_8_exp') as any,
           graph_pt('mkt_9', 'q.mkt_9', ['1 empresa','2 empresas','5 empresas','10 empresas','100 empresas'], [100,80,50,30,10], '1 empresa', 'q.mkt_9_exp') as any,
           order_q('mkt_10', 'q.mkt_10', [
             { id: 'i1', labelKey: 'q.mkt_10_i1', position: 0 },
@@ -785,8 +785,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.mkt_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.mkt_10_i4', position: 3 },
           ], 'q.mkt_10_exp') as any,
-          slider_q('mkt_11', 'q.mkt_11', 4, 1, 1, 10, 'empresas', 'q.mkt_11_exp') as any,
-          graph_id('mkt_12', 'q.mkt_12', 0, [
+          slider_q('mkt_11', 'q.mkt_11', 35, 5, 0, 60, '%', 'q.mkt_11_exp') as any,
+          graph_id('mkt_12', 'q.mkt_12', 1, [
             { values: [100,80,50,30,10] },
             { values: [10,30,50,80,100] },
           ], ['1 empresa','2 empresas','5 empresas','10 empresas','100 empresas'], 'q.mkt_12_exp') as any,
@@ -809,7 +809,7 @@ export const SECTIONS: Section[] = [
             { id: 'i2', labelKey: 'q.ela_6_i2', bucket: 'inelastico' },
             { id: 'i3', labelKey: 'q.ela_6_i3', bucket: 'elastico' },
             { id: 'i4', labelKey: 'q.ela_6_i4', bucket: 'inelastico' },
-            { id: 'i5', labelKey: 'q.ela_6_i5', bucket: 'elastico' },
+            { id: 'i5', labelKey: 'q.ela_6_i5', bucket: 'inelastico' },
           ], [
             { id: 'elastico', labelKey: 'q.ela_6_b1' },
             { id: 'inelastico', labelKey: 'q.ela_6_b2' },
@@ -819,7 +819,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.ela_7_l2', rightKey: 'q.ela_7_r2' },
             { leftKey: 'q.ela_7_l3', rightKey: 'q.ela_7_r3' },
           ], 'q.ela_7_exp') as any,
-          fill_num('ela_8', 'q.ela_8', 2, 'q.ela_8_exp') as any,
+          fill_num('ela_8', 'q.ela_8', 0, 'q.ela_8_exp') as any,
           graph_pt('ela_9', 'q.ela_9', ['$10','$20','$30','$40','$50'], [200,150,100,60,30], '$30', 'q.ela_9_exp') as any,
           order_q('ela_10', 'q.ela_10', [
             { id: 'i1', labelKey: 'q.ela_10_i1', position: 0 },
@@ -827,8 +827,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.ela_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.ela_10_i4', position: 3 },
           ], 'q.ela_10_exp') as any,
-          slider_q('ela_11', 'q.ela_11', 1.5, 0.5, 0, 5, 'elasticidad', 'q.ela_11_exp') as any,
-          graph_id('ela_12', 'q.ela_12', 0, [
+          slider_q('ela_11', 'q.ela_11', 4, 1, 0, 10, '%', 'q.ela_11_exp') as any,
+          graph_id('ela_12', 'q.ela_12', 2, [
             { values: [200,150,100,60,30] },
             { values: [100,95,90,85,80] },
           ], ['$10','$20','$30','$40','$50'], 'q.ela_12_exp') as any,
@@ -880,8 +880,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.gdp_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.gdp_10_i4', position: 3 },
           ], 'q.gdp_10_exp') as any,
-          slider_q('gdp_11', 'q.gdp_11', 500, 50, 300, 800, 'B USD', 'q.gdp_11_exp') as any,
-          graph_id('gdp_12', 'q.gdp_12', 0, [
+          slider_q('gdp_11', 'q.gdp_11', 600, 50, 300, 800, 'B USD', 'q.gdp_11_exp') as any,
+          graph_id('gdp_12', 'q.gdp_12', 1, [
             { values: [500,450,480,510,530] },
             { values: [530,510,480,450,500] },
           ], ['2019','2020','2021','2022','2023'], 'q.gdp_12_exp') as any,
@@ -903,7 +903,7 @@ export const SECTIONS: Section[] = [
             { id: 'i1', labelKey: 'q.emp_6_i1', bucket: 'activo' },
             { id: 'i2', labelKey: 'q.emp_6_i2', bucket: 'inactivo' },
             { id: 'i3', labelKey: 'q.emp_6_i3', bucket: 'activo' },
-            { id: 'i4', labelKey: 'q.emp_6_i4', bucket: 'inactivo' },
+            { id: 'i4', labelKey: 'q.emp_6_i4', bucket: 'activo' },
             { id: 'i5', labelKey: 'q.emp_6_i5', bucket: 'activo' },
           ], [
             { id: 'activo', labelKey: 'q.emp_6_b1' },
@@ -923,7 +923,7 @@ export const SECTIONS: Section[] = [
             { id: 'i4', labelKey: 'q.emp_10_i4', position: 3 },
           ], 'q.emp_10_exp') as any,
           slider_q('emp_11', 'q.emp_11', 7, 2, 0, 20, '%', 'q.emp_11_exp') as any,
-          graph_id('emp_12', 'q.emp_12', 0, [
+          graph_id('emp_12', 'q.emp_12', 1, [
             { values: [8,10,9,7,6] },
             { values: [6,7,9,10,8] },
           ], ['2019','2020','2021','2022','2023'], 'q.emp_12_exp') as any,
@@ -946,7 +946,7 @@ export const SECTIONS: Section[] = [
             { id: 'i2', labelKey: 'q.pov_6_i2', bucket: 'indigencia' },
             { id: 'i3', labelKey: 'q.pov_6_i3', bucket: 'pobreza' },
             { id: 'i4', labelKey: 'q.pov_6_i4', bucket: 'indigencia' },
-            { id: 'i5', labelKey: 'q.pov_6_i5', bucket: 'pobreza' },
+            { id: 'i5', labelKey: 'q.pov_6_i5', bucket: 'indigencia' },
           ], [
             { id: 'pobreza', labelKey: 'q.pov_6_b1' },
             { id: 'indigencia', labelKey: 'q.pov_6_b2' },
@@ -964,8 +964,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.pov_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.pov_10_i4', position: 3 },
           ], 'q.pov_10_exp') as any,
-          slider_q('pov_11', 'q.pov_11', 40, 5, 10, 70, '%', 'q.pov_11_exp') as any,
-          graph_id('pov_12', 'q.pov_12', 0, [
+          slider_q('pov_11', 'q.pov_11', 55, 5, 10, 70, '%', 'q.pov_11_exp') as any,
+          graph_id('pov_12', 'q.pov_12', 2, [
             { values: [29,26,35,40,41] },
             { values: [41,40,35,26,29] },
           ], ['2015','2017','2019','2021','2023'], 'q.pov_12_exp') as any,
@@ -998,7 +998,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.tbl_7_l2', rightKey: 'q.tbl_7_r2' },
             { leftKey: 'q.tbl_7_l3', rightKey: 'q.tbl_7_r3' },
           ], 'q.tbl_7_exp') as any,
-          fill_num('tbl_8', 'q.tbl_8', 0, 'q.tbl_8_exp') as any,
+          fill_num('tbl_8', 'q.tbl_8', 2, 'q.tbl_8_exp') as any,
           graph_pt('tbl_9', 'q.tbl_9', ['2019','2020','2021','2022','2023'], [5,2,8,12,10], '2022', 'q.tbl_9_exp') as any,
           order_q('tbl_10', 'q.tbl_10', [
             { id: 'i1', labelKey: 'q.tbl_10_i1', position: 0 },
@@ -1006,8 +1006,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.tbl_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.tbl_10_i4', position: 3 },
           ], 'q.tbl_10_exp') as any,
-          slider_q('tbl_11', 'q.tbl_11', 10, 3, -20, 30, 'B USD', 'q.tbl_11_exp') as any,
-          graph_id('tbl_12', 'q.tbl_12', 0, [
+          slider_q('tbl_11', 'q.tbl_11', 35, 5, 0, 60, '%', 'q.tbl_11_exp') as any,
+          graph_id('tbl_12', 'q.tbl_12', 1, [
             { values: [5,2,8,12,10] },
             { values: [10,12,8,2,5] },
           ], ['2019','2020','2021','2022','2023'], 'q.tbl_12_exp') as any,
@@ -1041,7 +1041,7 @@ export const SECTIONS: Section[] = [
             { id: 'i2', labelKey: 'q.monp_6_i2', bucket: 'contractiva' },
             { id: 'i3', labelKey: 'q.monp_6_i3', bucket: 'expansiva' },
             { id: 'i4', labelKey: 'q.monp_6_i4', bucket: 'contractiva' },
-            { id: 'i5', labelKey: 'q.monp_6_i5', bucket: 'expansiva' },
+            { id: 'i5', labelKey: 'q.monp_6_i5', bucket: 'contractiva' },
           ], [
             { id: 'expansiva', labelKey: 'q.monp_6_b1' },
             { id: 'contractiva', labelKey: 'q.monp_6_b2' },
@@ -1051,7 +1051,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.monp_7_l2', rightKey: 'q.monp_7_r2' },
             { leftKey: 'q.monp_7_l3', rightKey: 'q.monp_7_r3' },
           ], 'q.monp_7_exp') as any,
-          fill_num('monp_8', 'q.monp_8', 1, 'q.monp_8_exp') as any,
+          fill_num('monp_8', 'q.monp_8', 2, 'q.monp_8_exp') as any,
           graph_pt('monp_9', 'q.monp_9', ['2019','2020','2021','2022','2023'], [50,30,40,75,100], '2023', 'q.monp_9_exp') as any,
           order_q('monp_10', 'q.monp_10', [
             { id: 'i1', labelKey: 'q.monp_10_i1', position: 0 },
@@ -1059,8 +1059,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.monp_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.monp_10_i4', position: 3 },
           ], 'q.monp_10_exp') as any,
-          slider_q('monp_11', 'q.monp_11', 40, 10, 0, 120, '%', 'q.monp_11_exp') as any,
-          graph_id('monp_12', 'q.monp_12', 0, [
+          slider_q('monp_11', 'q.monp_11', 7.5, 2, 0, 120, '%', 'q.monp_11_exp') as any,
+          graph_id('monp_12', 'q.monp_12', 1, [
             { values: [50,30,40,75,100] },
             { values: [100,75,40,30,50] },
           ], ['2019','2020','2021','2022','2023'], 'q.monp_12_exp') as any,
@@ -1101,8 +1101,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.fisp_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.fisp_10_i4', position: 3 },
           ], 'q.fisp_10_exp') as any,
-          slider_q('fisp_11', 'q.fisp_11', -2, 1, -10, 5, '% PIB', 'q.fisp_11_exp') as any,
-          graph_id('fisp_12', 'q.fisp_12', 0, [
+          slider_q('fisp_11', 'q.fisp_11', 31, 2, 0, 50, '% PIB', 'q.fisp_11_exp') as any,
+          graph_id('fisp_12', 'q.fisp_12', 1, [
             { values: [-1,-5,0,-3,-2] },
             { values: [2,1,0,-1,-2] },
           ], ['2019','2020','2021','2022','2023'], 'q.fisp_12_exp') as any,
@@ -1135,7 +1135,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.ait_7_l2', rightKey: 'q.ait_7_r2' },
             { leftKey: 'q.ait_7_l3', rightKey: 'q.ait_7_r3' },
           ], 'q.ait_7_exp') as any,
-          fill_num('ait_8', 'q.ait_8', 0, 'q.ait_8_exp') as any,
+          fill_num('ait_8', 'q.ait_8', 3, 'q.ait_8_exp') as any,
           graph_pt('ait_9', 'q.ait_9', ['2019','2020','2021','2022','2023'], [50,55,60,95,140], '2023', 'q.ait_9_exp') as any,
           order_q('ait_10', 'q.ait_10', [
             { id: 'i1', labelKey: 'q.ait_10_i1', position: 0 },
@@ -1143,8 +1143,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.ait_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.ait_10_i4', position: 3 },
           ], 'q.ait_10_exp') as any,
-          slider_q('ait_11', 'q.ait_11', 100, 20, 0, 300, '%', 'q.ait_11_exp') as any,
-          graph_id('ait_12', 'q.ait_12', 0, [
+          slider_q('ait_11', 'q.ait_11', 10, 2, 0, 30, 'años', 'q.ait_11_exp') as any,
+          graph_id('ait_12', 'q.ait_12', 1, [
             { values: [50,55,60,95,140] },
             { values: [140,95,60,55,50] },
           ], ['2019','2020','2021','2022','2023'], 'q.ait_12_exp') as any,
@@ -1176,9 +1176,9 @@ export const SECTIONS: Section[] = [
           classify('exr_6', 'q.exr_6', [
             { id: 'i1', labelKey: 'q.exr_6_i1', bucket: 'oficial' },
             { id: 'i2', labelKey: 'q.exr_6_i2', bucket: 'paralelo' },
-            { id: 'i3', labelKey: 'q.exr_6_i3', bucket: 'oficial' },
+            { id: 'i3', labelKey: 'q.exr_6_i3', bucket: 'paralelo' },
             { id: 'i4', labelKey: 'q.exr_6_i4', bucket: 'paralelo' },
-            { id: 'i5', labelKey: 'q.exr_6_i5', bucket: 'oficial' },
+            { id: 'i5', labelKey: 'q.exr_6_i5', bucket: 'paralelo' },
           ], [
             { id: 'oficial', labelKey: 'q.exr_6_b1' },
             { id: 'paralelo', labelKey: 'q.exr_6_b2' },
@@ -1196,8 +1196,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.exr_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.exr_10_i4', position: 3 },
           ], 'q.exr_10_exp') as any,
-          slider_q('exr_11', 'q.exr_11', 350, 50, 100, 800, 'ARS/USD', 'q.exr_11_exp') as any,
-          graph_id('exr_12', 'q.exr_12', 0, [
+          slider_q('exr_11', 'q.exr_11', 850, 50, 100, 1000, 'ARS/USD', 'q.exr_11_exp') as any,
+          graph_id('exr_12', 'q.exr_12', 1, [
             { values: [200,250,300,400,500] },
             { values: [500,400,300,250,200] },
           ], ['Ene','Feb','Mar','Abr','May'], 'q.exr_12_exp') as any,
@@ -1238,8 +1238,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.intr_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.intr_10_i4', position: 3 },
           ], 'q.intr_10_exp') as any,
-          slider_q('intr_11', 'q.intr_11', 30, 5, 0, 100, 'B USD', 'q.intr_11_exp') as any,
-          graph_id('intr_12', 'q.intr_12', 0, [
+          slider_q('intr_11', 'q.intr_11', -12, 5, -30, 100, 'B USD', 'q.intr_11_exp') as any,
+          graph_id('intr_12', 'q.intr_12', 2, [
             { values: [65,38,42,37,25] },
             { values: [25,37,42,38,65] },
           ], ['2019','2020','2021','2022','2023'], 'q.intr_12_exp') as any,
@@ -1280,8 +1280,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.ftr_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.ftr_10_i4', position: 3 },
           ], 'q.ftr_10_exp') as any,
-          slider_q('ftr_11', 'q.ftr_11', 10, 5, 0, 50, '%', 'q.ftr_11_exp') as any,
-          graph_id('ftr_12', 'q.ftr_12', 0, [
+          slider_q('ftr_11', 'q.ftr_11', 33, 5, 0, 50, '%', 'q.ftr_11_exp') as any,
+          graph_id('ftr_12', 'q.ftr_12', 1, [
             { values: [200,180,160,130,100] },
             { values: [100,130,160,180,200] },
           ], ['0%','5%','10%','20%','35%'], 'q.ftr_12_exp') as any,
@@ -1325,7 +1325,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.cyc_7_l2', rightKey: 'q.cyc_7_r2' },
             { leftKey: 'q.cyc_7_l3', rightKey: 'q.cyc_7_r3' },
           ], 'q.cyc_7_exp') as any,
-          fill_num('cyc_8', 'q.cyc_8', 0, 'q.cyc_8_exp') as any,
+          fill_num('cyc_8', 'q.cyc_8', 1, 'q.cyc_8_exp') as any,
           graph_pt('cyc_9', 'q.cyc_9', ['T1','T2','T3','T4','T5'], [100,110,105,95,90], 'T4', 'q.cyc_9_exp') as any,
           order_q('cyc_10', 'q.cyc_10', [
             { id: 'i1', labelKey: 'q.cyc_10_i1', position: 0 },
@@ -1334,7 +1334,7 @@ export const SECTIONS: Section[] = [
             { id: 'i4', labelKey: 'q.cyc_10_i4', position: 3 },
           ], 'q.cyc_10_exp') as any,
           slider_q('cyc_11', 'q.cyc_11', 5, 1, 1, 10, 'años', 'q.cyc_11_exp') as any,
-          graph_id('cyc_12', 'q.cyc_12', 0, [
+          graph_id('cyc_12', 'q.cyc_12', 1, [
             { values: [100,110,105,95,90] },
             { values: [90,95,105,110,100] },
           ], ['T1','T2','T3','T4','T5'], 'q.cyc_12_exp') as any,
@@ -1357,7 +1357,7 @@ export const SECTIONS: Section[] = [
             { id: 'i2', labelKey: 'q.fcrisis_6_i2', bucket: 'efecto' },
             { id: 'i3', labelKey: 'q.fcrisis_6_i3', bucket: 'causa' },
             { id: 'i4', labelKey: 'q.fcrisis_6_i4', bucket: 'efecto' },
-            { id: 'i5', labelKey: 'q.fcrisis_6_i5', bucket: 'causa' },
+            { id: 'i5', labelKey: 'q.fcrisis_6_i5', bucket: 'efecto' },
           ], [
             { id: 'causa', labelKey: 'q.fcrisis_6_b1' },
             { id: 'efecto', labelKey: 'q.fcrisis_6_b2' },
@@ -1367,7 +1367,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.fcrisis_7_l2', rightKey: 'q.fcrisis_7_r2' },
             { leftKey: 'q.fcrisis_7_l3', rightKey: 'q.fcrisis_7_r3' },
           ], 'q.fcrisis_7_exp') as any,
-          fill_num('fcrisis_8', 'q.fcrisis_8', 1, 'q.fcrisis_8_exp') as any,
+          fill_num('fcrisis_8', 'q.fcrisis_8', 2, 'q.fcrisis_8_exp') as any,
           graph_pt('fcrisis_9', 'q.fcrisis_9', ['2006','2007','2008','2009','2010'], [100,105,80,75,90], '2008', 'q.fcrisis_9_exp') as any,
           order_q('fcrisis_10', 'q.fcrisis_10', [
             { id: 'i1', labelKey: 'q.fcrisis_10_i1', position: 0 },
@@ -1375,8 +1375,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.fcrisis_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.fcrisis_10_i4', position: 3 },
           ], 'q.fcrisis_10_exp') as any,
-          slider_q('fcrisis_11', 'q.fcrisis_11', 40, 10, 0, 80, '%', 'q.fcrisis_11_exp') as any,
-          graph_id('fcrisis_12', 'q.fcrisis_12', 0, [
+          slider_q('fcrisis_11', 'q.fcrisis_11', 57, 10, 0, 80, '%', 'q.fcrisis_11_exp') as any,
+          graph_id('fcrisis_12', 'q.fcrisis_12', 1, [
             { values: [100,105,80,75,90] },
             { values: [75,80,90,100,105] },
           ], ['2006','2007','2008','2009','2010'], 'q.fcrisis_12_exp') as any,
@@ -1417,8 +1417,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.arh_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.arh_10_i4', position: 3 },
           ], 'q.arh_10_exp') as any,
-          slider_q('arh_11', 'q.arh_11', 3000, 500, 0, 5000, '%', 'q.arh_11_exp') as any,
-          graph_id('arh_12', 'q.arh_12', 0, [
+          slider_q('arh_11', 'q.arh_11', 9, 1, 0, 20, 'veces', 'q.arh_11_exp') as any,
+          graph_id('arh_12', 'q.arh_12', 1, [
             { values: [1000,3000,4,150,140] },
             { values: [140,150,4,3000,1000] },
           ], ['1985','1989','1994','2001','2023'], 'q.arh_12_exp') as any,
@@ -1451,7 +1451,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.prc_7_l2', rightKey: 'q.prc_7_r2' },
             { leftKey: 'q.prc_7_l3', rightKey: 'q.prc_7_r3' },
           ], 'q.prc_7_exp') as any,
-          fill_num('prc_8', 'q.prc_8', 0, 'q.prc_8_exp') as any,
+          fill_num('prc_8', 'q.prc_8', 2, 'q.prc_8_exp') as any,
           graph_pt('prc_9', 'q.prc_9', ['Plazo fijo','Dólar','Oro','Acciones','Cripto'], [5,40,30,60,80], 'Cripto', 'q.prc_9_exp') as any,
           order_q('prc_10', 'q.prc_10', [
             { id: 'i1', labelKey: 'q.prc_10_i1', position: 0 },
@@ -1459,8 +1459,8 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.prc_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.prc_10_i4', position: 3 },
           ], 'q.prc_10_exp') as any,
-          slider_q('prc_11', 'q.prc_11', 30, 10, 0, 100, '%', 'q.prc_11_exp') as any,
-          graph_id('prc_12', 'q.prc_12', 0, [
+          slider_q('prc_11', 'q.prc_11', 50, 10, 0, 100, '%', 'q.prc_11_exp') as any,
+          graph_id('prc_12', 'q.prc_12', 1, [
             { values: [5,40,30,60,80] },
             { values: [80,60,30,40,5] },
           ], ['Plazo fijo','Dólar','Oro','Acciones','Cripto'], 'q.prc_12_exp') as any,
@@ -1508,7 +1508,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.whyb_7_l2', rightKey: 'q.whyb_7_r2' },
             { leftKey: 'q.whyb_7_l3', rightKey: 'q.whyb_7_r3' },
           ], 'q.whyb_7_exp') as any,
-          fill_num('whyb_8', 'q.whyb_8', 1, 'q.whyb_8_exp') as any,
+          fill_num('whyb_8', 'q.whyb_8', 3, 'q.whyb_8_exp') as any,
           graph_pt('whyb_9', 'q.whyb_9', ['Ene','Feb','Mar','Abr','May'], [50000,48000,52000,49000,55000], 'May', 'q.whyb_9_exp') as any,
           order_q('whyb_10', 'q.whyb_10', [
             { id: 'i1', labelKey: 'q.whyb_10_i1', position: 0 },
@@ -1550,7 +1550,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.bb_7_l2', rightKey: 'q.bb_7_r2' },
             { leftKey: 'q.bb_7_l3', rightKey: 'q.bb_7_r3' },
           ], 'q.bb_7_exp') as any,
-          fill_num('bb_8', 'q.bb_8', 0, 'q.bb_8_exp') as any,
+          fill_num('bb_8', 'q.bb_8', 2, 'q.bb_8_exp') as any,
           graph_pt('bb_9', 'q.bb_9', ['Ene','Feb','Mar','Abr','May'], [100000,95000,102000,98000,105000], 'May', 'q.bb_9_exp') as any,
           order_q('bb_10', 'q.bb_10', [
             { id: 'i1', labelKey: 'q.bb_10_i1', position: 0 },
@@ -1558,7 +1558,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.bb_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.bb_10_i4', position: 3 },
           ], 'q.bb_10_exp') as any,
-          slider_q('bb_11', 'q.bb_11', 15, 5, 0, 50, '%', 'q.bb_11_exp') as any,
+          slider_q('bb_11', 'q.bb_11', 60, 10, 0, 80, '%', 'q.bb_11_exp') as any,
           graph_id('bb_12', 'q.bb_12', 0, [
             { values: [100000,95000,102000,98000,105000] },
             { values: [80000,75000,70000,65000,60000] },
@@ -1593,7 +1593,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.r5020_7_l2', rightKey: 'q.r5020_7_r2' },
             { leftKey: 'q.r5020_7_l3', rightKey: 'q.r5020_7_r3' },
           ], 'q.r5020_7_exp') as any,
-          fill_num('r5020_8', 'q.r5020_8', 1, 'q.r5020_8_exp') as any,
+          fill_num('r5020_8', 'q.r5020_8', 2, 'q.r5020_8_exp') as any,
           graph_pt('r5020_9', 'q.r5020_9', ['Necesidades','Deseos','Ahorro'], [50,30,20], 'Ahorro', 'q.r5020_9_exp') as any,
           order_q('r5020_10', 'q.r5020_10', [
             { id: 'i1', labelKey: 'q.r5020_10_i1', position: 0 },
@@ -1601,7 +1601,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.r5020_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.r5020_10_i4', position: 3 },
           ], 'q.r5020_10_exp') as any,
-          slider_q('r5020_11', 'q.r5020_11', 20, 5, 0, 50, '%', 'q.r5020_11_exp') as any,
+          slider_q('r5020_11', 'q.r5020_11', 50, 5, 0, 50, '%', 'q.r5020_11_exp') as any,
           graph_id('r5020_12', 'q.r5020_12', 0, [
             { values: [50,30,20] },
             { values: [70,20,10] },
@@ -1643,7 +1643,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.ante_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.ante_10_i4', position: 3 },
           ], 'q.ante_10_exp') as any,
-          slider_q('ante_11', 'q.ante_11', 5000, 1000, 0, 15000, 'ARS', 'q.ante_11_exp') as any,
+          slider_q('ante_11', 'q.ante_11', 15, 5, 0, 30, '%', 'q.ante_11_exp') as any,
           graph_id('ante_12', 'q.ante_12', 0, [
             { values: [50,80,30,60,90] },
             { values: [1000,1000,1000,1000,1000] },
@@ -1688,7 +1688,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.ws_7_l2', rightKey: 'q.ws_7_r2' },
             { leftKey: 'q.ws_7_l3', rightKey: 'q.ws_7_r3' },
           ], 'q.ws_7_exp') as any,
-          fill_num('ws_8', 'q.ws_8', 0, 'q.ws_8_exp') as any,
+          fill_num('ws_8', 'q.ws_8', 1, 'q.ws_8_exp') as any,
           graph_pt('ws_9', 'q.ws_9', ['Ene','Feb','Mar','Abr','May'], [5000,8000,12000,17000,23000], 'May', 'q.ws_9_exp') as any,
           order_q('ws_10', 'q.ws_10', [
             { id: 'i1', labelKey: 'q.ws_10_i1', position: 0 },
@@ -1696,7 +1696,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.ws_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.ws_10_i4', position: 3 },
           ], 'q.ws_10_exp') as any,
-          slider_q('ws_11', 'q.ws_11', 20, 5, 5, 50, '%', 'q.ws_11_exp') as any,
+          slider_q('ws_11', 'q.ws_11', 8, 3, 5, 50, '%', 'q.ws_11_exp') as any,
           graph_id('ws_12', 'q.ws_12', 0, [
             { values: [5000,8000,12000,17000,23000] },
             { values: [23000,17000,12000,8000,5000] },
@@ -1730,7 +1730,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.ef_7_l2', rightKey: 'q.ef_7_r2' },
             { leftKey: 'q.ef_7_l3', rightKey: 'q.ef_7_r3' },
           ], 'q.ef_7_exp') as any,
-          fill_num('ef_8', 'q.ef_8', 1, 'q.ef_8_exp') as any,
+          fill_num('ef_8', 'q.ef_8', 2, 'q.ef_8_exp') as any,
           graph_pt('ef_9', 'q.ef_9', ['1 mes','2 meses','3 meses','4 meses','6 meses'], [1,2,3,4,6], '3 meses', 'q.ef_9_exp') as any,
           order_q('ef_10', 'q.ef_10', [
             { id: 'i1', labelKey: 'q.ef_10_i1', position: 0 },
@@ -1759,7 +1759,7 @@ export const SECTIONS: Section[] = [
           mc('sinstr_5', 'q.sinstr_5', ['', '', '', ''], 1, 'q.sinstr_5_exp'),
           classify('sinstr_6', 'q.sinstr_6', [
             { id: 'i1', labelKey: 'q.sinstr_6_i1', bucket: 'bajo' },
-            { id: 'i2', labelKey: 'q.sinstr_6_i2', bucket: 'alto' },
+            { id: 'i2', labelKey: 'q.sinstr_6_i2', bucket: 'bajo' },
             { id: 'i3', labelKey: 'q.sinstr_6_i3', bucket: 'bajo' },
             { id: 'i4', labelKey: 'q.sinstr_6_i4', bucket: 'alto' },
             { id: 'i5', labelKey: 'q.sinstr_6_i5', bucket: 'bajo' },
@@ -1772,7 +1772,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.sinstr_7_l2', rightKey: 'q.sinstr_7_r2' },
             { leftKey: 'q.sinstr_7_l3', rightKey: 'q.sinstr_7_r3' },
           ], 'q.sinstr_7_exp') as any,
-          fill_num('sinstr_8', 'q.sinstr_8', 2, 'q.sinstr_8_exp') as any,
+          fill_num('sinstr_8', 'q.sinstr_8', 3, 'q.sinstr_8_exp') as any,
           graph_pt('sinstr_9', 'q.sinstr_9', ['Caja ahorro','Plazo fijo','FCI','Acciones','Cripto'], [2,5,10,20,50], 'Cripto', 'q.sinstr_9_exp') as any,
           order_q('sinstr_10', 'q.sinstr_10', [
             { id: 'i1', labelKey: 'q.sinstr_10_i1', position: 0 },
@@ -1780,7 +1780,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.sinstr_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.sinstr_10_i4', position: 3 },
           ], 'q.sinstr_10_exp') as any,
-          slider_q('sinstr_11', 'q.sinstr_11', 5, 1, 0, 15, '%', 'q.sinstr_11_exp') as any,
+          slider_q('sinstr_11', 'q.sinstr_11', 90, 20, 0, 150, '%', 'q.sinstr_11_exp') as any,
           graph_id('sinstr_12', 'q.sinstr_12', 0, [
             { values: [2,5,10,20,50] },
             { values: [50,20,10,5,2] },
@@ -1814,7 +1814,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.swi_7_l2', rightKey: 'q.swi_7_r2' },
             { leftKey: 'q.swi_7_l3', rightKey: 'q.swi_7_r3' },
           ], 'q.swi_7_exp') as any,
-          fill_num('swi_8', 'q.swi_8', 0, 'q.swi_8_exp') as any,
+          fill_num('swi_8', 'q.swi_8', 2, 'q.swi_8_exp') as any,
           graph_pt('swi_9', 'q.swi_9', ['Año 1','Año 2','Año 3','Año 4','Año 5'], [100,90,81,73,66], 'Año 1', 'q.swi_9_exp') as any,
           order_q('swi_10', 'q.swi_10', [
             { id: 'i1', labelKey: 'q.swi_10_i1', position: 0 },
@@ -1867,7 +1867,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.gbd_7_l2', rightKey: 'q.gbd_7_r2' },
             { leftKey: 'q.gbd_7_l3', rightKey: 'q.gbd_7_r3' },
           ], 'q.gbd_7_exp') as any,
-          fill_num('gbd_8', 'q.gbd_8', 2, 'q.gbd_8_exp') as any,
+          fill_num('gbd_8', 'q.gbd_8', 1, 'q.gbd_8_exp') as any,
           graph_pt('gbd_9', 'q.gbd_9', ['10%','20%','30%','40%','50%'], [10,22,36,52,70], '50%', 'q.gbd_9_exp') as any,
           order_q('gbd_10', 'q.gbd_10', [
             { id: 'i1', labelKey: 'q.gbd_10_i1', position: 0 },
@@ -1909,7 +1909,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.ccard_7_l2', rightKey: 'q.ccard_7_r2' },
             { leftKey: 'q.ccard_7_l3', rightKey: 'q.ccard_7_r3' },
           ], 'q.ccard_7_exp') as any,
-          fill_num('ccard_8', 'q.ccard_8', 0, 'q.ccard_8_exp') as any,
+          fill_num('ccard_8', 'q.ccard_8', 2, 'q.ccard_8_exp') as any,
           graph_pt('ccard_9', 'q.ccard_9', ['Ene','Feb','Mar','Abr','May'], [5000,8000,12000,9000,15000], 'May', 'q.ccard_9_exp') as any,
           order_q('ccard_10', 'q.ccard_10', [
             { id: 'i1', labelKey: 'q.ccard_10_i1', position: 0 },
@@ -1917,7 +1917,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.ccard_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.ccard_10_i4', position: 3 },
           ], 'q.ccard_10_exp') as any,
-          slider_q('ccard_11', 'q.ccard_11', 60, 5, 0, 150, '%', 'q.ccard_11_exp') as any,
+          slider_q('ccard_11', 'q.ccard_11', 20, 5, 0, 150, 'días', 'q.ccard_11_exp') as any,
           graph_id('ccard_12', 'q.ccard_12', 0, [
             { values: [5000,8000,12000,9000,15000] },
             { values: [5000,5100,5200,5300,5400] },
@@ -1951,7 +1951,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.pln_7_l2', rightKey: 'q.pln_7_r2' },
             { leftKey: 'q.pln_7_l3', rightKey: 'q.pln_7_r3' },
           ], 'q.pln_7_exp') as any,
-          fill_num('pln_8', 'q.pln_8', 1, 'q.pln_8_exp') as any,
+          fill_num('pln_8', 'q.pln_8', 2, 'q.pln_8_exp') as any,
           graph_pt('pln_9', 'q.pln_9', ['12 m','24 m','36 m','48 m','60 m'], [8000,4500,3200,2500,2100], '12 m', 'q.pln_9_exp') as any,
           order_q('pln_10', 'q.pln_10', [
             { id: 'i1', labelKey: 'q.pln_10_i1', position: 0 },
@@ -1959,7 +1959,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.pln_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.pln_10_i4', position: 3 },
           ], 'q.pln_10_exp') as any,
-          slider_q('pln_11', 'q.pln_11', 36, 6, 6, 120, 'meses', 'q.pln_11_exp') as any,
+          slider_q('pln_11', 'q.pln_11', 36, 6, 6, 120, '%', 'q.pln_11_exp') as any,
           graph_id('pln_12', 'q.pln_12', 0, [
             { values: [8000,4500,3200,2500,2100] },
             { values: [2100,2500,3200,4500,8000] },
@@ -2001,7 +2001,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.god_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.god_10_i4', position: 3 },
           ], 'q.god_10_exp') as any,
-          slider_q('god_11', 'q.god_11', 24, 6, 6, 60, 'meses', 'q.god_11_exp') as any,
+          slider_q('god_11', 'q.god_11', 15, 6, 6, 60, 'meses', 'q.god_11_exp') as any,
           graph_id('god_12', 'q.god_12', 0, [
             { values: [50000,45000,35000,20000,0] },
             { values: [50000,52000,54000,56000,58000] },
@@ -2033,9 +2033,9 @@ export const SECTIONS: Section[] = [
           mc('wii_5', 'q.wii_5', ['', '', '', ''], 1, 'q.wii_5_exp'),
           classify('wii_6', 'q.wii_6', [
             { id: 'i1', labelKey: 'q.wii_6_i1', bucket: 'inversion' },
-            { id: 'i2', labelKey: 'q.wii_6_i2', bucket: 'ahorro' },
-            { id: 'i3', labelKey: 'q.wii_6_i3', bucket: 'inversion' },
-            { id: 'i4', labelKey: 'q.wii_6_i4', bucket: 'ahorro' },
+            { id: 'i2', labelKey: 'q.wii_6_i2', bucket: 'inversion' },
+            { id: 'i3', labelKey: 'q.wii_6_i3', bucket: 'ahorro' },
+            { id: 'i4', labelKey: 'q.wii_6_i4', bucket: 'inversion' },
             { id: 'i5', labelKey: 'q.wii_6_i5', bucket: 'inversion' },
           ], [
             { id: 'inversion', labelKey: 'q.wii_6_b1' },
@@ -2046,7 +2046,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.wii_7_l2', rightKey: 'q.wii_7_r2' },
             { leftKey: 'q.wii_7_l3', rightKey: 'q.wii_7_r3' },
           ], 'q.wii_7_exp') as any,
-          fill_num('wii_8', 'q.wii_8', 0, 'q.wii_8_exp') as any,
+          fill_num('wii_8', 'q.wii_8', 1, 'q.wii_8_exp') as any,
           graph_pt('wii_9', 'q.wii_9', ['Año 1','Año 2','Año 3','Año 4','Año 5'], [1000,1100,1210,1331,1464], 'Año 5', 'q.wii_9_exp') as any,
           order_q('wii_10', 'q.wii_10', [
             { id: 'i1', labelKey: 'q.wii_10_i1', position: 0 },
@@ -2054,7 +2054,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.wii_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.wii_10_i4', position: 3 },
           ], 'q.wii_10_exp') as any,
-          slider_q('wii_11', 'q.wii_11', 10, 3, 0, 30, '%', 'q.wii_11_exp') as any,
+          slider_q('wii_11', 'q.wii_11', 6, 3, 0, 30, '%', 'q.wii_11_exp') as any,
           graph_id('wii_12', 'q.wii_12', 0, [
             { values: [1000,1100,1210,1331,1464] },
             { values: [1000,1000,1000,1000,1000] },
@@ -2096,7 +2096,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.rr_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.rr_10_i4', position: 3 },
           ], 'q.rr_10_exp') as any,
-          slider_q('rr_11', 'q.rr_11', 10, 3, 0, 30, '%', 'q.rr_11_exp') as any,
+          slider_q('rr_11', 'q.rr_11', 70, 3, 0, 100, '%', 'q.rr_11_exp') as any,
           graph_id('rr_12', 'q.rr_12', 0, [
             { values: [3,6,10,15,25] },
             { values: [25,15,10,6,3] },
@@ -2138,7 +2138,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.r72_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.r72_10_i4', position: 3 },
           ], 'q.r72_10_exp') as any,
-          slider_q('r72_11', 'q.r72_11', 7, 1, 1, 20, 'años', 'q.r72_11_exp') as any,
+          slider_q('r72_11', 'q.r72_11', 7, 1, 1, 20, '%', 'q.r72_11_exp') as any,
           graph_id('r72_12', 'q.r72_12', 0, [
             { values: [1000,1260,1610,2040,2590] },
             { values: [1000,1100,1210,1331,1464] },
@@ -2258,9 +2258,9 @@ export const SECTIONS: Section[] = [
           classify('bon_6', 'q.bon_6', [
             { id: 'i1', labelKey: 'q.bon_6_i1', bucket: 'fijo' },
             { id: 'i2', labelKey: 'q.bon_6_i2', bucket: 'variable' },
-            { id: 'i3', labelKey: 'q.bon_6_i3', bucket: 'fijo' },
+            { id: 'i3', labelKey: 'q.bon_6_i3', bucket: 'variable' },
             { id: 'i4', labelKey: 'q.bon_6_i4', bucket: 'variable' },
-            { id: 'i5', labelKey: 'q.bon_6_i5', bucket: 'fijo' },
+            { id: 'i5', labelKey: 'q.bon_6_i5', bucket: 'variable' },
           ], [
             { id: 'fijo', labelKey: 'q.bon_6_b1' },
             { id: 'variable', labelKey: 'q.bon_6_b2' },
@@ -2270,7 +2270,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.bon_7_l2', rightKey: 'q.bon_7_r2' },
             { leftKey: 'q.bon_7_l3', rightKey: 'q.bon_7_r3' },
           ], 'q.bon_7_exp') as any,
-          fill_num('bon_8', 'q.bon_8', 2, 'q.bon_8_exp') as any,
+          fill_num('bon_8', 'q.bon_8', 1, 'q.bon_8_exp') as any,
           graph_pt('bon_9', 'q.bon_9', ['2%','4%','6%','8%','10%'], [110,105,100,95,90], '6%', 'q.bon_9_exp') as any,
           order_q('bon_10', 'q.bon_10', [
             { id: 'i1', labelKey: 'q.bon_10_i1', position: 0 },
@@ -2278,7 +2278,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.bon_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.bon_10_i4', position: 3 },
           ], 'q.bon_10_exp') as any,
-          slider_q('bon_11', 'q.bon_11', 5, 1, 0, 15, '%', 'q.bon_11_exp') as any,
+          slider_q('bon_11', 'q.bon_11', 20, 5, 0, 30, '%', 'q.bon_11_exp') as any,
           graph_id('bon_12', 'q.bon_12', 0, [
             { values: [110,105,100,95,90] },
             { values: [90,95,100,105,110] },
@@ -2299,10 +2299,10 @@ export const SECTIONS: Section[] = [
           mc('htb_5', 'q.htb_5', ['', '', '', ''], 3, 'q.htb_5_exp'),
           classify('htb_6', 'q.htb_6', [
             { id: 'i1', labelKey: 'q.htb_6_i1', bucket: 'cedear' },
-            { id: 'i2', labelKey: 'q.htb_6_i2', bucket: 'accion' },
-            { id: 'i3', labelKey: 'q.htb_6_i3', bucket: 'cedear' },
-            { id: 'i4', labelKey: 'q.htb_6_i4', bucket: 'accion' },
-            { id: 'i5', labelKey: 'q.htb_6_i5', bucket: 'cedear' },
+            { id: 'i2', labelKey: 'q.htb_6_i2', bucket: 'cedear' },
+            { id: 'i3', labelKey: 'q.htb_6_i3', bucket: 'accion' },
+            { id: 'i4', labelKey: 'q.htb_6_i4', bucket: 'cedear' },
+            { id: 'i5', labelKey: 'q.htb_6_i5', bucket: 'accion' },
           ], [
             { id: 'cedear', labelKey: 'q.htb_6_b1' },
             { id: 'accion', labelKey: 'q.htb_6_b2' },
@@ -2312,7 +2312,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.htb_7_l2', rightKey: 'q.htb_7_r2' },
             { leftKey: 'q.htb_7_l3', rightKey: 'q.htb_7_r3' },
           ], 'q.htb_7_exp') as any,
-          fill_num('htb_8', 'q.htb_8', 0, 'q.htb_8_exp') as any,
+          fill_num('htb_8', 'q.htb_8', 1, 'q.htb_8_exp') as any,
           graph_pt('htb_9', 'q.htb_9', ['Lun','Mar','Mié','Jue','Vie'], [100,102,99,105,103], 'Jue', 'q.htb_9_exp') as any,
           order_q('htb_10', 'q.htb_10', [
             { id: 'i1', labelKey: 'q.htb_10_i1', position: 0 },
@@ -2354,7 +2354,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.div_7_l2', rightKey: 'q.div_7_r2' },
             { leftKey: 'q.div_7_l3', rightKey: 'q.div_7_r3' },
           ], 'q.div_7_exp') as any,
-          fill_num('div_8', 'q.div_8', 0, 'q.div_8_exp') as any,
+          fill_num('div_8', 'q.div_8', 1, 'q.div_8_exp') as any,
           graph_pt('div_9', 'q.div_9', ['2019','2020','2021','2022','2023'], [3,2,4,5,4], '2022', 'q.div_9_exp') as any,
           order_q('div_10', 'q.div_10', [
             { id: 'i1', labelKey: 'q.div_10_i1', position: 0 },
@@ -2362,7 +2362,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.div_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.div_10_i4', position: 3 },
           ], 'q.div_10_exp') as any,
-          slider_q('div_11', 'q.div_11', 4, 1, 0, 10, '%', 'q.div_11_exp') as any,
+          slider_q('div_11', 'q.div_11', 2, 1, 0, 10, '%', 'q.div_11_exp') as any,
           graph_id('div_12', 'q.div_12', 0, [
             { values: [3,2,4,5,4] },
             { values: [1,1,1,2,1] },
@@ -2435,8 +2435,8 @@ export const SECTIONS: Section[] = [
           tf('wic_4', 'q.wic_4', 'true', 'q.wic_4_exp'),
           mc('wic_5', 'q.wic_5', ['', '', '', ''], 2, 'q.wic_5_exp'),
           classify('wic_6', 'q.wic_6', [
-            { id: 'i1', labelKey: 'q.wic_6_i1', bucket: 'crypto' },
-            { id: 'i2', labelKey: 'q.wic_6_i2', bucket: 'fiat' },
+            { id: 'i1', labelKey: 'q.wic_6_i1', bucket: 'fiat' },
+            { id: 'i2', labelKey: 'q.wic_6_i2', bucket: 'crypto' },
             { id: 'i3', labelKey: 'q.wic_6_i3', bucket: 'crypto' },
             { id: 'i4', labelKey: 'q.wic_6_i4', bucket: 'fiat' },
             { id: 'i5', labelKey: 'q.wic_6_i5', bucket: 'crypto' },
@@ -2449,7 +2449,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.wic_7_l2', rightKey: 'q.wic_7_r2' },
             { leftKey: 'q.wic_7_l3', rightKey: 'q.wic_7_r3' },
           ], 'q.wic_7_exp') as any,
-          fill_num('wic_8', 'q.wic_8', 0, 'q.wic_8_exp') as any,
+          fill_num('wic_8', 'q.wic_8', 2, 'q.wic_8_exp') as any,
           graph_pt('wic_9', 'q.wic_9', ['2019','2020','2021','2022','2023'], [7000,9000,60000,20000,30000], '2021', 'q.wic_9_exp') as any,
           order_q('wic_10', 'q.wic_10', [
             { id: 'i1', labelKey: 'q.wic_10_i1', position: 0 },
@@ -2457,7 +2457,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.wic_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.wic_10_i4', position: 3 },
           ], 'q.wic_10_exp') as any,
-          slider_q('wic_11', 'q.wic_11', 21, 2, 15, 30, 'M', 'q.wic_11_exp') as any,
+          slider_q('wic_11', 'q.wic_11', 21, 2, 15, 30, '%', 'q.wic_11_exp') as any,
           graph_id('wic_12', 'q.wic_12', 0, [
             { values: [7000,9000,60000,20000,30000] },
             { values: [30000,28000,25000,22000,20000] },
@@ -2499,7 +2499,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.bc_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.bc_10_i4', position: 3 },
           ], 'q.bc_10_exp') as any,
-          slider_q('bc_11', 'q.bc_11', 10, 2, 0, 30, 'min', 'q.bc_11_exp') as any,
+          slider_q('bc_11', 'q.bc_11', 7, 2, 0, 20, 'TPS', 'q.bc_11_exp') as any,
           graph_id('bc_12', 'q.bc_12', 0, [
             { values: [10,20,40,80,160] },
             { values: [160,80,40,20,10] },
@@ -2520,7 +2520,7 @@ export const SECTIONS: Section[] = [
           mc('stab_5', 'q.stab_5', ['', '', '', ''], 1, 'q.stab_5_exp'),
           classify('stab_6', 'q.stab_6', [
             { id: 'i1', labelKey: 'q.stab_6_i1', bucket: 'stable' },
-            { id: 'i2', labelKey: 'q.stab_6_i2', bucket: 'volatil' },
+            { id: 'i2', labelKey: 'q.stab_6_i2', bucket: 'stable' },
             { id: 'i3', labelKey: 'q.stab_6_i3', bucket: 'stable' },
             { id: 'i4', labelKey: 'q.stab_6_i4', bucket: 'volatil' },
             { id: 'i5', labelKey: 'q.stab_6_i5', bucket: 'stable' },
@@ -2533,7 +2533,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.stab_7_l2', rightKey: 'q.stab_7_r2' },
             { leftKey: 'q.stab_7_l3', rightKey: 'q.stab_7_r3' },
           ], 'q.stab_7_exp') as any,
-          fill_num('stab_8', 'q.stab_8', 0, 'q.stab_8_exp') as any,
+          fill_num('stab_8', 'q.stab_8', 2, 'q.stab_8_exp') as any,
           graph_pt('stab_9', 'q.stab_9', ['Ene','Feb','Mar','Abr','May'], [1.00,1.01,0.99,1.00,1.00], 'Feb', 'q.stab_9_exp') as any,
           order_q('stab_10', 'q.stab_10', [
             { id: 'i1', labelKey: 'q.stab_10_i1', position: 0 },
@@ -2541,7 +2541,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.stab_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.stab_10_i4', position: 3 },
           ], 'q.stab_10_exp') as any,
-          slider_q('stab_11', 'q.stab_11', 1, 0.05, 0.5, 1.5, 'USD', 'q.stab_11_exp') as any,
+          slider_q('stab_11', 'q.stab_11', 70, 10, 50, 90, '%', 'q.stab_11_exp') as any,
           graph_id('stab_12', 'q.stab_12', 0, [
             { values: [1.00,1.01,0.99,1.00,1.00] },
             { values: [1.00,1.50,0.80,1.20,0.90] },
@@ -2561,10 +2561,10 @@ export const SECTIONS: Section[] = [
           tf('defi_4', 'q.defi_4', 'false', 'q.defi_4_exp'),
           mc('defi_5', 'q.defi_5', ['', '', '', ''], 1, 'q.defi_5_exp'),
           classify('defi_6', 'q.defi_6', [
-            { id: 'i1', labelKey: 'q.defi_6_i1', bucket: 'defi' },
-            { id: 'i2', labelKey: 'q.defi_6_i2', bucket: 'cefi' },
-            { id: 'i3', labelKey: 'q.defi_6_i3', bucket: 'defi' },
-            { id: 'i4', labelKey: 'q.defi_6_i4', bucket: 'cefi' },
+            { id: 'i1', labelKey: 'q.defi_6_i1', bucket: 'cefi' },
+            { id: 'i2', labelKey: 'q.defi_6_i2', bucket: 'defi' },
+            { id: 'i3', labelKey: 'q.defi_6_i3', bucket: 'cefi' },
+            { id: 'i4', labelKey: 'q.defi_6_i4', bucket: 'defi' },
             { id: 'i5', labelKey: 'q.defi_6_i5', bucket: 'defi' },
           ], [
             { id: 'defi', labelKey: 'q.defi_6_b1' },
@@ -2583,7 +2583,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.defi_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.defi_10_i4', position: 3 },
           ], 'q.defi_10_exp') as any,
-          slider_q('defi_11', 'q.defi_11', 15, 5, 0, 50, '%', 'q.defi_11_exp') as any,
+          slider_q('defi_11', 'q.defi_11', 3800, 500, 0, 5000, 'M USD', 'q.defi_11_exp') as any,
           graph_id('defi_12', 'q.defi_12', 0, [
             { values: [5,15,40,80,120] },
             { values: [120,80,40,15,5] },
@@ -2617,7 +2617,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.clatam_7_l2', rightKey: 'q.clatam_7_r2' },
             { leftKey: 'q.clatam_7_l3', rightKey: 'q.clatam_7_r3' },
           ], 'q.clatam_7_exp') as any,
-          fill_num('clatam_8', 'q.clatam_8', 1, 'q.clatam_8_exp') as any,
+          fill_num('clatam_8', 'q.clatam_8', 0, 'q.clatam_8_exp') as any,
           graph_pt('clatam_9', 'q.clatam_9', ['2020','2021','2022','2023','2024'], [10,25,50,80,100], '2024', 'q.clatam_9_exp') as any,
           order_q('clatam_10', 'q.clatam_10', [
             { id: 'i1', labelKey: 'q.clatam_10_i1', position: 0 },
@@ -2658,9 +2658,9 @@ export const SECTIONS: Section[] = [
           classify('taxinv_6', 'q.taxinv_6', [
             { id: 'i1', labelKey: 'q.taxinv_6_i1', bucket: 'gravado' },
             { id: 'i2', labelKey: 'q.taxinv_6_i2', bucket: 'exento' },
-            { id: 'i3', labelKey: 'q.taxinv_6_i3', bucket: 'gravado' },
-            { id: 'i4', labelKey: 'q.taxinv_6_i4', bucket: 'exento' },
-            { id: 'i5', labelKey: 'q.taxinv_6_i5', bucket: 'gravado' },
+            { id: 'i3', labelKey: 'q.taxinv_6_i3', bucket: 'exento' },
+            { id: 'i4', labelKey: 'q.taxinv_6_i4', bucket: 'gravado' },
+            { id: 'i5', labelKey: 'q.taxinv_6_i5', bucket: 'exento' },
           ], [
             { id: 'gravado', labelKey: 'q.taxinv_6_b1' },
             { id: 'exento', labelKey: 'q.taxinv_6_b2' },
@@ -2670,7 +2670,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.taxinv_7_l2', rightKey: 'q.taxinv_7_r2' },
             { leftKey: 'q.taxinv_7_l3', rightKey: 'q.taxinv_7_r3' },
           ], 'q.taxinv_7_exp') as any,
-          fill_num('taxinv_8', 'q.taxinv_8', 0, 'q.taxinv_8_exp') as any,
+          fill_num('taxinv_8', 'q.taxinv_8', 1, 'q.taxinv_8_exp') as any,
           graph_pt('taxinv_9', 'q.taxinv_9', ['0%','15%','30%','45%','60%'], [100,85,70,55,40], '15%', 'q.taxinv_9_exp') as any,
           order_q('taxinv_10', 'q.taxinv_10', [
             { id: 'i1', labelKey: 'q.taxinv_10_i1', position: 0 },
@@ -2678,7 +2678,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.taxinv_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.taxinv_10_i4', position: 3 },
           ], 'q.taxinv_10_exp') as any,
-          slider_q('taxinv_11', 'q.taxinv_11', 15, 3, 0, 35, '%', 'q.taxinv_11_exp') as any,
+          slider_q('taxinv_11', 'q.taxinv_11', 1.1, 0.65, 0, 3, '%', 'q.taxinv_11_exp') as any,
           graph_id('taxinv_12', 'q.taxinv_12', 0, [
             { values: [100,85,70,55,40] },
             { values: [40,55,70,85,100] },
@@ -2702,7 +2702,7 @@ export const SECTIONS: Section[] = [
             { id: 'i2', labelKey: 'q.ret_6_i2', bucket: 'privado' },
             { id: 'i3', labelKey: 'q.ret_6_i3', bucket: 'publico' },
             { id: 'i4', labelKey: 'q.ret_6_i4', bucket: 'privado' },
-            { id: 'i5', labelKey: 'q.ret_6_i5', bucket: 'privado' },
+            { id: 'i5', labelKey: 'q.ret_6_i5', bucket: 'publico' },
           ], [
             { id: 'publico', labelKey: 'q.ret_6_b1' },
             { id: 'privado', labelKey: 'q.ret_6_b2' },
@@ -2720,7 +2720,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.ret_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.ret_10_i4', position: 3 },
           ], 'q.ret_10_exp') as any,
-          slider_q('ret_11', 'q.ret_11', 15, 5, 5, 40, '%', 'q.ret_11_exp') as any,
+          slider_q('ret_11', 'q.ret_11', 55, 10, 5, 80, '%', 'q.ret_11_exp') as any,
           graph_id('ret_12', 'q.ret_12', 0, [
             { values: [50,100,200,350,500] },
             { values: [500,350,200,100,50] },
@@ -2740,10 +2740,10 @@ export const SECTIONS: Section[] = [
           tf('insur_4', 'q.insur_4', 'false', 'q.insur_4_exp'),
           mc('insur_5', 'q.insur_5', ['', '', '', ''], 1, 'q.insur_5_exp'),
           classify('insur_6', 'q.insur_6', [
-            { id: 'i1', labelKey: 'q.insur_6_i1', bucket: 'vida' },
-            { id: 'i2', labelKey: 'q.insur_6_i2', bucket: 'pnv' },
-            { id: 'i3', labelKey: 'q.insur_6_i3', bucket: 'vida' },
-            { id: 'i4', labelKey: 'q.insur_6_i4', bucket: 'pnv' },
+            { id: 'i1', labelKey: 'q.insur_6_i1', bucket: 'pnv' },
+            { id: 'i2', labelKey: 'q.insur_6_i2', bucket: 'vida' },
+            { id: 'i3', labelKey: 'q.insur_6_i3', bucket: 'pnv' },
+            { id: 'i4', labelKey: 'q.insur_6_i4', bucket: 'vida' },
             { id: 'i5', labelKey: 'q.insur_6_i5', bucket: 'pnv' },
           ], [
             { id: 'vida', labelKey: 'q.insur_6_b1' },
@@ -2762,7 +2762,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.insur_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.insur_10_i4', position: 3 },
           ], 'q.insur_10_exp') as any,
-          slider_q('insur_11', 'q.insur_11', 500, 100, 0, 2000, 'ARS', 'q.insur_11_exp') as any,
+          slider_q('insur_11', 'q.insur_11', 7, 2, 0, 20, 'veces', 'q.insur_11_exp') as any,
           graph_id('insur_12', 'q.insur_12', 0, [
             { values: [800,600,500,700,1200] },
             { values: [200,300,400,500,600] },
@@ -2784,9 +2784,9 @@ export const SECTIONS: Section[] = [
           classify('homef_6', 'q.homef_6', [
             { id: 'i1', labelKey: 'q.homef_6_i1', bucket: 'fijo' },
             { id: 'i2', labelKey: 'q.homef_6_i2', bucket: 'variable' },
-            { id: 'i3', labelKey: 'q.homef_6_i3', bucket: 'fijo' },
-            { id: 'i4', labelKey: 'q.homef_6_i4', bucket: 'variable' },
-            { id: 'i5', labelKey: 'q.homef_6_i5', bucket: 'fijo' },
+            { id: 'i3', labelKey: 'q.homef_6_i3', bucket: 'variable' },
+            { id: 'i4', labelKey: 'q.homef_6_i4', bucket: 'fijo' },
+            { id: 'i5', labelKey: 'q.homef_6_i5', bucket: 'variable' },
           ], [
             { id: 'fijo', labelKey: 'q.homef_6_b1' },
             { id: 'variable', labelKey: 'q.homef_6_b2' },
@@ -2796,7 +2796,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.homef_7_l2', rightKey: 'q.homef_7_r2' },
             { leftKey: 'q.homef_7_l3', rightKey: 'q.homef_7_r3' },
           ], 'q.homef_7_exp') as any,
-          fill_num('homef_8', 'q.homef_8', 0, 'q.homef_8_exp') as any,
+          fill_num('homef_8', 'q.homef_8', 1, 'q.homef_8_exp') as any,
           graph_pt('homef_9', 'q.homef_9', ['Ene','Feb','Mar','Abr','May'], [50000,52000,49000,53000,51000], 'Abr', 'q.homef_9_exp') as any,
           order_q('homef_10', 'q.homef_10', [
             { id: 'i1', labelKey: 'q.homef_10_i1', position: 0 },
