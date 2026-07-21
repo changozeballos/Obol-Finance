@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { View, Text, StyleSheet, Animated, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { PigAvatar } from './PigAvatar';
@@ -29,6 +29,10 @@ const WORLD_IMAGE: Partial<Record<string, any>> = {
 export function WorldTransition({ pathId }: { pathId: string }) {
   const meta = WORLD_META[pathId] ?? WORLD_META.fundamentos;
   const image = WORLD_IMAGE[pathId];
+  // aspectRatio no se comporta bien acá combinado con ancho en %, así que el
+  // cuadrado se fuerza a mano: se mide el ancho real disponible y se usa
+  // ese mismo valor como alto.
+  const [boxSize, setBoxSize] = useState(0);
 
   // Animations
   const fadeAnim   = useRef(new Animated.Value(0)).current;
@@ -69,10 +73,21 @@ export function WorldTransition({ pathId }: { pathId: string }) {
   if (image) {
     return (
       <Animated.View style={[
-        styles.wrap,
+        styles.imageOuter,
         { opacity: fadeAnim, transform: [{ scale: scaleAnim }, { translateY: slideAnim }] },
       ]}>
-        <Image source={image} style={styles.fullImage} resizeMode="cover" />
+        <View
+          style={styles.imageMeasure}
+          onLayout={(e) => setBoxSize(e.nativeEvent.layout.width)}
+        >
+          {boxSize > 0 && (
+            <Image
+              source={image}
+              style={{ width: boxSize, height: boxSize }}
+              resizeMode="cover"
+            />
+          )}
+        </View>
       </Animated.View>
     );
   }
@@ -130,7 +145,8 @@ export function WorldTransition({ pathId }: { pathId: string }) {
 const styles = StyleSheet.create({
   wrap: { marginVertical: 0 },
 
-  fullImage: { width: '100%', aspectRatio: 1 },
+  imageOuter: { width: '100%' },
+  imageMeasure: { width: '100%' },
 
   edgeLine: { height: 2, width: '100%' },
 
