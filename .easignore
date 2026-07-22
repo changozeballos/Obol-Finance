@@ -1,0 +1,13 @@
+# Archivos de referencia de diseño — no hacen falta para compilar la app,
+# solo inflan el archivo que se sube a EAS Build (design-source/ pesa
+# ~136MB de mockups HTML que nunca se usan en runtime).
+design-source/
+
+# Herramientas de migración/visualización de contenido puntuales (ver .gitignore)
+*.html.bak
+plan_contenido.html
+design_prototype.html
+mockup_obol.html
+obol_prototype.html
+obol_standalone.html
+node-calibrator.html
