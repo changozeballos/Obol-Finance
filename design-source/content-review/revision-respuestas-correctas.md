@@ -2,7 +2,31 @@
 
 804 preguntas revisadas (todas las secciones). 158 problemas encontrados (~20%).
 
-## Estado: 111 corregidos, 48 pendientes de revisión humana
+## Estado final: 158 de 158 corregidos
+
+Segunda ronda: en vez de dejar "marcadas para revisión" las preguntas de gráfico/slider
+rotas de raíz, se le pidió a cada agente que reformulara enunciado + datos + explicación
+para que cuenten la misma historia real (mismo criterio usado en `iet_9`, `sdl_9`, `mkt_9`,
+`ret_9`, corregidas a mano primero como ejemplo). Resultado: **158 de 158 problemas
+corregidos**.
+
+El último caso, `ait_6` (¿el ancla cambiaria/tipo de cambio fijo es una herramienta
+"efectiva" contra la inflación o "suele fracasar en el largo plazo"?), era un juicio de
+valor más que un bug de datos — se decidió con el usuario: pasó al bucket "suele fracasar",
+con la explanation actualizada para basarse en el patrón repetido en varios países (México
+1994, Crisis Asiática 1997-98, Convertibilidad argentina 2001) en vez de un solo caso local.
+
+**Aviso**: todas las correcciones se hicieron sobre `es.json` (español). El proyecto tiene
+`en.json`/`pt.json` con las mismas keys de preguntas, pero no se tocaron — si hay usuarios
+activos en esos idiomas, van a ver la versión vieja (con los bugs) hasta que se haga la
+misma pasada ahí. Algunas de esas traducciones ya estaban incompletas de antes (ej. la
+lección de `historia` no tiene `harg_8*` traducido a inglés/portugués).
+
+Verificado con `tsc --noEmit`, build completo, validación de JSON, y re-extracción de las
+804 preguntas — todo consistente.
+
+<details>
+<summary>Estado anterior (antes de la segunda ronda) — 111 corregidos, 48 pendientes</summary>
 
 Los 6 agentes de revisión corrigieron directamente en el código los problemas de alta
 confianza (donde la propia `explanation` ya decía cuál era la respuesta correcta, o la
@@ -49,7 +73,9 @@ No son errores conceptuales aislados — son bugs de generación que afectan sob
 
 Las preguntas de opción múltiple y verdadero/falso están mayormente bien — los pocos errores ahí son conceptuales puntuales (datos de inflación desactualizados, confusión de fechas históricas, etc.), no el bug sistemático.
 
-## Detalle completo por lote
+</details>
+
+## Detalle completo por lote (diagnóstico original — la mayoría ya está corregida, ver arriba)
 
 ### Lote 1 — base_comun, inflation_prices, goods_markets_intro (6 problemas)
 

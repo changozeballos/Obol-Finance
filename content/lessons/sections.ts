@@ -213,7 +213,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.priceb_10_l3', rightKey: 'q.priceb_10_r3' },
             { leftKey: 'q.priceb_10_l4', rightKey: 'q.priceb_10_r4' },
           ], 'q.priceb_10_exp') as any,
-          slider_q('priceb_11', 'q.priceb_11', 38, 8, 5, 80, '%', 'q.priceb_11_exp') as any,
+          slider_q('priceb_11', 'q.priceb_11', 25, 5, 5, 60, '%', 'q.priceb_11_exp') as any,
           graph_id('priceb_12', 'q.priceb_12', 0,
             [{ values: [6.0,6.6,7.7,8.4,7.8,6.0,6.3,12.4,12.7,8.3,12.8,25.5] }],
             ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
@@ -736,7 +736,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.sdl_7_l3', rightKey: 'q.sdl_7_r3' },
           ], 'q.sdl_7_exp') as any,
           fill_num('sdl_8', 'q.sdl_8', 1, 'q.sdl_8_exp') as any,
-          graph_pt('sdl_9', 'q.sdl_9', ['$10','$20','$30','$40','$50'], [100,80,60,40,20], '$20', 'q.sdl_9_exp') as any,
+          graph_pt('sdl_9', 'q.sdl_9', ['$10','$20','$30','$40','$50'], [280,240,200,150,100], '$40', 'q.sdl_9_exp') as any,
           order_q('sdl_10', 'q.sdl_10', [
             { id: 'i1', labelKey: 'q.sdl_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.sdl_10_i2', position: 1 },
@@ -778,7 +778,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.mkt_7_l3', rightKey: 'q.mkt_7_r3' },
           ], 'q.mkt_7_exp') as any,
           fill_num('mkt_8', 'q.mkt_8', 1, 'q.mkt_8_exp') as any,
-          graph_pt('mkt_9', 'q.mkt_9', ['1 empresa','2 empresas','5 empresas','10 empresas','100 empresas'], [100,80,50,30,10], '1 empresa', 'q.mkt_9_exp') as any,
+          graph_pt('mkt_9', 'q.mkt_9', ['1 empresa','2 empresas','5 empresas','10 empresas','100 empresas'], [100,80,50,30,10], '100 empresas', 'q.mkt_9_exp') as any,
           order_q('mkt_10', 'q.mkt_10', [
             { id: 'i1', labelKey: 'q.mkt_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.mkt_10_i2', position: 1 },
@@ -915,7 +915,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.emp_7_l3', rightKey: 'q.emp_7_r3' },
           ], 'q.emp_7_exp') as any,
           fill_num('emp_8', 'q.emp_8', 1, 'q.emp_8_exp') as any,
-          graph_pt('emp_9', 'q.emp_9', ['2019','2020','2021','2022','2023'], [8,10,9,7,6], '2020', 'q.emp_9_exp') as any,
+          graph_pt('emp_9', 'q.emp_9', ['2019','2020','2021','2022','2023'], [8,11,9,7,6], '2020', 'q.emp_9_exp') as any,
           order_q('emp_10', 'q.emp_10', [
             { id: 'i1', labelKey: 'q.emp_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.emp_10_i2', position: 1 },
@@ -1125,7 +1125,7 @@ export const SECTIONS: Section[] = [
             { id: 'i2', labelKey: 'q.ait_6_i2', bucket: 'fiscal' },
             { id: 'i3', labelKey: 'q.ait_6_i3', bucket: 'monetaria' },
             { id: 'i4', labelKey: 'q.ait_6_i4', bucket: 'fiscal' },
-            { id: 'i5', labelKey: 'q.ait_6_i5', bucket: 'monetaria' },
+            { id: 'i5', labelKey: 'q.ait_6_i5', bucket: 'fiscal' },
           ], [
             { id: 'monetaria', labelKey: 'q.ait_6_b1' },
             { id: 'fiscal', labelKey: 'q.ait_6_b2' },
@@ -1189,7 +1189,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.exr_7_l3', rightKey: 'q.exr_7_r3' },
           ], 'q.exr_7_exp') as any,
           fill_num('exr_8', 'q.exr_8', 2, 'q.exr_8_exp') as any,
-          graph_pt('exr_9', 'q.exr_9', ['Ene','Feb','Mar','Abr','May'], [200,250,300,400,500], 'May', 'q.exr_9_exp') as any,
+          graph_pt('exr_9', 'q.exr_9', ['Ene','Feb','Mar','Abr','May'], [200,250,300,400,500], 'Abr', 'q.exr_9_exp') as any,
           order_q('exr_10', 'q.exr_10', [
             { id: 'i1', labelKey: 'q.exr_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.exr_10_i2', position: 1 },
@@ -1231,7 +1231,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.intr_7_l3', rightKey: 'q.intr_7_r3' },
           ], 'q.intr_7_exp') as any,
           fill_num('intr_8', 'q.intr_8', 1, 'q.intr_8_exp') as any,
-          graph_pt('intr_9', 'q.intr_9', ['2019','2020','2021','2022','2023'], [65,38,42,37,25], '2019', 'q.intr_9_exp') as any,
+          graph_pt('intr_9', 'q.intr_9', ['2019','2020','2021','2022','2023'], [65,38,5,-3,-12], '2022', 'q.intr_9_exp') as any,
           order_q('intr_10', 'q.intr_10', [
             { id: 'i1', labelKey: 'q.intr_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.intr_10_i2', position: 1 },
@@ -1273,7 +1273,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.ftr_7_l3', rightKey: 'q.ftr_7_r3' },
           ], 'q.ftr_7_exp') as any,
           fill_num('ftr_8', 'q.ftr_8', 0, 'q.ftr_8_exp') as any,
-          graph_pt('ftr_9', 'q.ftr_9', ['0%','5%','10%','20%','35%'], [200,180,160,130,100], '0%', 'q.ftr_9_exp') as any,
+          graph_pt('ftr_9', 'q.ftr_9', ['0%','5%','10%','20%','35%'], [200,180,160,130,100], '20%', 'q.ftr_9_exp') as any,
           order_q('ftr_10', 'q.ftr_10', [
             { id: 'i1', labelKey: 'q.ftr_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.ftr_10_i2', position: 1 },
@@ -1326,7 +1326,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.cyc_7_l3', rightKey: 'q.cyc_7_r3' },
           ], 'q.cyc_7_exp') as any,
           fill_num('cyc_8', 'q.cyc_8', 1, 'q.cyc_8_exp') as any,
-          graph_pt('cyc_9', 'q.cyc_9', ['T1','T2','T3','T4','T5'], [100,110,105,95,90], 'T4', 'q.cyc_9_exp') as any,
+          graph_pt('cyc_9', 'q.cyc_9', ['T1','T2','T3','T4','T5'], [100,110,105,95,90], 'T3', 'q.cyc_9_exp') as any,
           order_q('cyc_10', 'q.cyc_10', [
             { id: 'i1', labelKey: 'q.cyc_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.cyc_10_i2', position: 1 },
@@ -1368,7 +1368,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.fcrisis_7_l3', rightKey: 'q.fcrisis_7_r3' },
           ], 'q.fcrisis_7_exp') as any,
           fill_num('fcrisis_8', 'q.fcrisis_8', 2, 'q.fcrisis_8_exp') as any,
-          graph_pt('fcrisis_9', 'q.fcrisis_9', ['2006','2007','2008','2009','2010'], [100,105,80,75,90], '2008', 'q.fcrisis_9_exp') as any,
+          graph_pt('fcrisis_9', 'q.fcrisis_9', ['2006','2007','2008','2009','2010'], [20,35,95,60,30], '2008', 'q.fcrisis_9_exp') as any,
           order_q('fcrisis_10', 'q.fcrisis_10', [
             { id: 'i1', labelKey: 'q.fcrisis_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.fcrisis_10_i2', position: 1 },
@@ -1410,7 +1410,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.arh_7_l3', rightKey: 'q.arh_7_r3' },
           ], 'q.arh_7_exp') as any,
           fill_num('arh_8', 'q.arh_8', 2, 'q.arh_8_exp') as any,
-          graph_pt('arh_9', 'q.arh_9', ['1985','1989','1994','2001','2023'], [1000,3000,4,150,140], '1989', 'q.arh_9_exp') as any,
+          graph_pt('arh_9', 'q.arh_9', ['1985','1989','1994','2001','2023'], [-4.6,-7.0,5.8,-4.4,-1.6], '1989', 'q.arh_9_exp') as any,
           order_q('arh_10', 'q.arh_10', [
             { id: 'i1', labelKey: 'q.arh_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.arh_10_i2', position: 1 },
@@ -1452,7 +1452,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.prc_7_l3', rightKey: 'q.prc_7_r3' },
           ], 'q.prc_7_exp') as any,
           fill_num('prc_8', 'q.prc_8', 2, 'q.prc_8_exp') as any,
-          graph_pt('prc_9', 'q.prc_9', ['Plazo fijo','Dólar','Oro','Acciones','Cripto'], [5,40,30,60,80], 'Cripto', 'q.prc_9_exp') as any,
+          graph_pt('prc_9', 'q.prc_9', ['2019','2020','2021','2022','2023'], [65,195,205,370,1050], '2021', 'q.prc_9_exp') as any,
           order_q('prc_10', 'q.prc_10', [
             { id: 'i1', labelKey: 'q.prc_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.prc_10_i2', position: 1 },
@@ -1509,7 +1509,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.whyb_7_l3', rightKey: 'q.whyb_7_r3' },
           ], 'q.whyb_7_exp') as any,
           fill_num('whyb_8', 'q.whyb_8', 3, 'q.whyb_8_exp') as any,
-          graph_pt('whyb_9', 'q.whyb_9', ['Ene','Feb','Mar','Abr','May'], [50000,48000,52000,49000,55000], 'May', 'q.whyb_9_exp') as any,
+          graph_pt('whyb_9', 'q.whyb_9', ['Ene','Feb','Mar','Abr','May'], [50000,30000,10000,-15000,-40000], 'Abr', 'q.whyb_9_exp') as any,
           order_q('whyb_10', 'q.whyb_10', [
             { id: 'i1', labelKey: 'q.whyb_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.whyb_10_i2', position: 1 },
@@ -1551,7 +1551,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.bb_7_l3', rightKey: 'q.bb_7_r3' },
           ], 'q.bb_7_exp') as any,
           fill_num('bb_8', 'q.bb_8', 2, 'q.bb_8_exp') as any,
-          graph_pt('bb_9', 'q.bb_9', ['Ene','Feb','Mar','Abr','May'], [100000,95000,102000,98000,105000], 'May', 'q.bb_9_exp') as any,
+          graph_pt('bb_9', 'q.bb_9', ['Ene','Feb','Mar','Abr','May'], [150000,165000,178000,190000,205000], 'May', 'q.bb_9_exp') as any,
           order_q('bb_10', 'q.bb_10', [
             { id: 'i1', labelKey: 'q.bb_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.bb_10_i2', position: 1 },
@@ -1636,7 +1636,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.ante_7_l3', rightKey: 'q.ante_7_r3' },
           ], 'q.ante_7_exp') as any,
           fill_num('ante_8', 'q.ante_8', 2, 'q.ante_8_exp') as any,
-          graph_pt('ante_9', 'q.ante_9', ['Lun','Mar','Mié','Jue','Vie'], [50,80,30,60,90], 'Vie', 'q.ante_9_exp') as any,
+          graph_pt('ante_9', 'q.ante_9', ['Mes 1','Mes 2','Mes 3','Mes 4','Mes 5'], [40000,75000,105000,140000,175000], 'Mes 3', 'q.ante_9_exp') as any,
           order_q('ante_10', 'q.ante_10', [
             { id: 'i1', labelKey: 'q.ante_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.ante_10_i2', position: 1 },
@@ -1689,7 +1689,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.ws_7_l3', rightKey: 'q.ws_7_r3' },
           ], 'q.ws_7_exp') as any,
           fill_num('ws_8', 'q.ws_8', 1, 'q.ws_8_exp') as any,
-          graph_pt('ws_9', 'q.ws_9', ['Ene','Feb','Mar','Abr','May'], [5000,8000,12000,17000,23000], 'May', 'q.ws_9_exp') as any,
+          graph_pt('ws_9', 'q.ws_9', ['Ene','Feb','Mar','Abr','May'], [20000,40000,60000,80000,100000], 'May', 'q.ws_9_exp') as any,
           order_q('ws_10', 'q.ws_10', [
             { id: 'i1', labelKey: 'q.ws_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.ws_10_i2', position: 1 },
@@ -1731,7 +1731,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.ef_7_l3', rightKey: 'q.ef_7_r3' },
           ], 'q.ef_7_exp') as any,
           fill_num('ef_8', 'q.ef_8', 2, 'q.ef_8_exp') as any,
-          graph_pt('ef_9', 'q.ef_9', ['1 mes','2 meses','3 meses','4 meses','6 meses'], [1,2,3,4,6], '3 meses', 'q.ef_9_exp') as any,
+          graph_pt('ef_9', 'q.ef_9', ['3 meses','5 meses','7 meses','9 meses','11 meses'], [90000,150000,210000,270000,330000], '9 meses', 'q.ef_9_exp') as any,
           order_q('ef_10', 'q.ef_10', [
             { id: 'i1', labelKey: 'q.ef_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.ef_10_i2', position: 1 },
@@ -1773,7 +1773,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.sinstr_7_l3', rightKey: 'q.sinstr_7_r3' },
           ], 'q.sinstr_7_exp') as any,
           fill_num('sinstr_8', 'q.sinstr_8', 3, 'q.sinstr_8_exp') as any,
-          graph_pt('sinstr_9', 'q.sinstr_9', ['Caja ahorro','Plazo fijo','FCI','Acciones','Cripto'], [2,5,10,20,50], 'Cripto', 'q.sinstr_9_exp') as any,
+          graph_pt('sinstr_9', 'q.sinstr_9', ['2019','2020','2021','2022','2023'], [-15,-10,-12,-20,3], '2023', 'q.sinstr_9_exp') as any,
           order_q('sinstr_10', 'q.sinstr_10', [
             { id: 'i1', labelKey: 'q.sinstr_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.sinstr_10_i2', position: 1 },
@@ -1815,7 +1815,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.swi_7_l3', rightKey: 'q.swi_7_r3' },
           ], 'q.swi_7_exp') as any,
           fill_num('swi_8', 'q.swi_8', 2, 'q.swi_8_exp') as any,
-          graph_pt('swi_9', 'q.swi_9', ['Año 1','Año 2','Año 3','Año 4','Año 5'], [100,90,81,73,66], 'Año 1', 'q.swi_9_exp') as any,
+          graph_pt('swi_9', 'q.swi_9', ['Año 1','Año 2','Año 3','Año 4','Año 5'], [100,45,25,15,9], 'Año 2', 'q.swi_9_exp') as any,
           order_q('swi_10', 'q.swi_10', [
             { id: 'i1', labelKey: 'q.swi_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.swi_10_i2', position: 1 },
@@ -1868,7 +1868,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.gbd_7_l3', rightKey: 'q.gbd_7_r3' },
           ], 'q.gbd_7_exp') as any,
           fill_num('gbd_8', 'q.gbd_8', 1, 'q.gbd_8_exp') as any,
-          graph_pt('gbd_9', 'q.gbd_9', ['10%','20%','30%','40%','50%'], [10,22,36,52,70], '50%', 'q.gbd_9_exp') as any,
+          graph_pt('gbd_9', 'q.gbd_9', ['10%','20%','30%','40%','50%'], [10,22,36,52,70], '40%', 'q.gbd_9_exp') as any,
           order_q('gbd_10', 'q.gbd_10', [
             { id: 'i1', labelKey: 'q.gbd_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.gbd_10_i2', position: 1 },
@@ -1910,7 +1910,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.ccard_7_l3', rightKey: 'q.ccard_7_r3' },
           ], 'q.ccard_7_exp') as any,
           fill_num('ccard_8', 'q.ccard_8', 2, 'q.ccard_8_exp') as any,
-          graph_pt('ccard_9', 'q.ccard_9', ['Ene','Feb','Mar','Abr','May'], [5000,8000,12000,9000,15000], 'May', 'q.ccard_9_exp') as any,
+          graph_pt('ccard_9', 'q.ccard_9', ['Ene','Feb','Mar','Abr','May'], [50000,60000,72000,86000,104000], 'May', 'q.ccard_9_exp') as any,
           order_q('ccard_10', 'q.ccard_10', [
             { id: 'i1', labelKey: 'q.ccard_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.ccard_10_i2', position: 1 },
@@ -1952,7 +1952,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.pln_7_l3', rightKey: 'q.pln_7_r3' },
           ], 'q.pln_7_exp') as any,
           fill_num('pln_8', 'q.pln_8', 2, 'q.pln_8_exp') as any,
-          graph_pt('pln_9', 'q.pln_9', ['12 m','24 m','36 m','48 m','60 m'], [8000,4500,3200,2500,2100], '12 m', 'q.pln_9_exp') as any,
+          graph_pt('pln_9', 'q.pln_9', ['12 m','24 m','36 m','48 m','60 m'], [8000,4500,3200,2500,2100], '48 m', 'q.pln_9_exp') as any,
           order_q('pln_10', 'q.pln_10', [
             { id: 'i1', labelKey: 'q.pln_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.pln_10_i2', position: 1 },
@@ -2047,7 +2047,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.wii_7_l3', rightKey: 'q.wii_7_r3' },
           ], 'q.wii_7_exp') as any,
           fill_num('wii_8', 'q.wii_8', 1, 'q.wii_8_exp') as any,
-          graph_pt('wii_9', 'q.wii_9', ['Año 1','Año 2','Año 3','Año 4','Año 5'], [1000,1100,1210,1331,1464], 'Año 5', 'q.wii_9_exp') as any,
+          graph_pt('wii_9', 'q.wii_9', ['Año 1','Año 3','Año 5','Año 8','Año 11'], [107000,122500,140300,171800,210500], 'Año 11', 'q.wii_9_exp') as any,
           order_q('wii_10', 'q.wii_10', [
             { id: 'i1', labelKey: 'q.wii_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.wii_10_i2', position: 1 },
@@ -2131,7 +2131,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.r72_7_l3', rightKey: 'q.r72_7_r3' },
           ], 'q.r72_7_exp') as any,
           fill_num('r72_8', 'q.r72_8', 0, 'q.r72_8_exp') as any,
-          graph_pt('r72_9', 'q.r72_9', ['Año 1','Año 3','Año 5','Año 7','Año 10'], [1000,1260,1610,2040,2590], 'Año 10', 'q.r72_9_exp') as any,
+          graph_pt('r72_9', 'q.r72_9', ['Año 3','Año 6','Año 9','Año 12','Año 15'], [125000,159000,200000,252000,317000], 'Año 9', 'q.r72_9_exp') as any,
           order_q('r72_10', 'q.r72_10', [
             { id: 'i1', labelKey: 'q.r72_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.r72_10_i2', position: 1 },
@@ -2271,7 +2271,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.bon_7_l3', rightKey: 'q.bon_7_r3' },
           ], 'q.bon_7_exp') as any,
           fill_num('bon_8', 'q.bon_8', 1, 'q.bon_8_exp') as any,
-          graph_pt('bon_9', 'q.bon_9', ['2%','4%','6%','8%','10%'], [110,105,100,95,90], '6%', 'q.bon_9_exp') as any,
+          graph_pt('bon_9', 'q.bon_9', ['2%','4%','6%','8%','10%'], [110,105,100,95,90], '8%', 'q.bon_9_exp') as any,
           order_q('bon_10', 'q.bon_10', [
             { id: 'i1', labelKey: 'q.bon_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.bon_10_i2', position: 1 },
@@ -2320,7 +2320,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.htb_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.htb_10_i4', position: 3 },
           ], 'q.htb_10_exp') as any,
-          slider_q('htb_11', 'q.htb_11', 2, 1, 0, 10, '%', 'q.htb_11_exp') as any,
+          slider_q('htb_11', 'q.htb_11', 6, 1, 0, 12, 'horas', 'q.htb_11_exp') as any,
           graph_id('htb_12', 'q.htb_12', 0, [
             { values: [100,102,99,105,103] },
             { values: [100,98,95,92,90] },
@@ -2355,7 +2355,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.div_7_l3', rightKey: 'q.div_7_r3' },
           ], 'q.div_7_exp') as any,
           fill_num('div_8', 'q.div_8', 1, 'q.div_8_exp') as any,
-          graph_pt('div_9', 'q.div_9', ['2019','2020','2021','2022','2023'], [3,2,4,5,4], '2022', 'q.div_9_exp') as any,
+          graph_pt('div_9', 'q.div_9', ['2019','2020','2021','2022','2023'], [3,2,4,5,4], '2020', 'q.div_9_exp') as any,
           order_q('div_10', 'q.div_10', [
             { id: 'i1', labelKey: 'q.div_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.div_10_i2', position: 1 },
@@ -2397,14 +2397,14 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.etfp_7_l3', rightKey: 'q.etfp_7_r3' },
           ], 'q.etfp_7_exp') as any,
           fill_num('etfp_8', 'q.etfp_8', 2, 'q.etfp_8_exp') as any,
-          graph_pt('etfp_9', 'q.etfp_9', ['Ene','Mar','May','Jul','Sep'], [100,105,103,110,108], 'Jul', 'q.etfp_9_exp') as any,
+          graph_pt('etfp_9', 'q.etfp_9', ['Año 5','Año 10','Año 15','Año 18','Año 20'], [147,216,317,400,466], 'Año 15', 'q.etfp_9_exp') as any,
           order_q('etfp_10', 'q.etfp_10', [
             { id: 'i1', labelKey: 'q.etfp_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.etfp_10_i2', position: 1 },
             { id: 'i3', labelKey: 'q.etfp_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.etfp_10_i4', position: 3 },
           ], 'q.etfp_10_exp') as any,
-          slider_q('etfp_11', 'q.etfp_11', 0.2, 0.1, 0, 1, '%', 'q.etfp_11_exp') as any,
+          slider_q('etfp_11', 'q.etfp_11', 33, 3, 0, 50, 'años', 'q.etfp_11_exp') as any,
           graph_id('etfp_12', 'q.etfp_12', 0, [
             { values: [100,105,103,110,108] },
             { values: [100,95,90,85,80] },
@@ -2534,7 +2534,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.stab_7_l3', rightKey: 'q.stab_7_r3' },
           ], 'q.stab_7_exp') as any,
           fill_num('stab_8', 'q.stab_8', 2, 'q.stab_8_exp') as any,
-          graph_pt('stab_9', 'q.stab_9', ['Ene','Feb','Mar','Abr','May'], [1.00,1.01,0.99,1.00,1.00], 'Feb', 'q.stab_9_exp') as any,
+          graph_pt('stab_9', 'q.stab_9', ['Ene','Feb','Mar','Abr','May'], [1.00,1.00,0.87,1.00,1.00], 'Mar', 'q.stab_9_exp') as any,
           order_q('stab_10', 'q.stab_10', [
             { id: 'i1', labelKey: 'q.stab_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.stab_10_i2', position: 1 },
@@ -2576,7 +2576,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.defi_7_l3', rightKey: 'q.defi_7_r3' },
           ], 'q.defi_7_exp') as any,
           fill_num('defi_8', 'q.defi_8', 2, 'q.defi_8_exp') as any,
-          graph_pt('defi_9', 'q.defi_9', ['Q1','Q2','Q3','Q4','Q5'], [5,15,40,80,120], 'Q5', 'q.defi_9_exp') as any,
+          graph_pt('defi_9', 'q.defi_9', ['2020','2021 T2','2021 T4','2022 T2','2022 T4'], [5,40,180,78,40], '2022 T2', 'q.defi_9_exp') as any,
           order_q('defi_10', 'q.defi_10', [
             { id: 'i1', labelKey: 'q.defi_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.defi_10_i2', position: 1 },
@@ -2625,7 +2625,7 @@ export const SECTIONS: Section[] = [
             { id: 'i3', labelKey: 'q.clatam_10_i3', position: 2 },
             { id: 'i4', labelKey: 'q.clatam_10_i4', position: 3 },
           ], 'q.clatam_10_exp') as any,
-          slider_q('clatam_11', 'q.clatam_11', 50, 10, 0, 100, 'M USD', 'q.clatam_11_exp') as any,
+          slider_q('clatam_11', 'q.clatam_11', 12, 4, 0, 40, '%', 'q.clatam_11_exp') as any,
           graph_id('clatam_12', 'q.clatam_12', 0, [
             { values: [10,25,50,80,100] },
             { values: [100,80,50,25,10] },
@@ -2671,7 +2671,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.taxinv_7_l3', rightKey: 'q.taxinv_7_r3' },
           ], 'q.taxinv_7_exp') as any,
           fill_num('taxinv_8', 'q.taxinv_8', 1, 'q.taxinv_8_exp') as any,
-          graph_pt('taxinv_9', 'q.taxinv_9', ['0%','15%','30%','45%','60%'], [100,85,70,55,40], '15%', 'q.taxinv_9_exp') as any,
+          graph_pt('taxinv_9', 'q.taxinv_9', ['Nominal bruto','Impuesto (5% cedular)','Nominal neto','Real neto'], [80,4,76,-4], 'Real neto', 'q.taxinv_9_exp') as any,
           order_q('taxinv_10', 'q.taxinv_10', [
             { id: 'i1', labelKey: 'q.taxinv_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.taxinv_10_i2', position: 1 },
@@ -2713,7 +2713,7 @@ export const SECTIONS: Section[] = [
             { leftKey: 'q.ret_7_l3', rightKey: 'q.ret_7_r3' },
           ], 'q.ret_7_exp') as any,
           fill_num('ret_8', 'q.ret_8', 2, 'q.ret_8_exp') as any,
-          graph_pt('ret_9', 'q.ret_9', ['25','35','45','55','65'], [50,100,200,350,500], '45', 'q.ret_9_exp') as any,
+          graph_pt('ret_9', 'q.ret_9', ['2019','2020','2021','2022','2023'], [100,72,65,70,75], '2021', 'q.ret_9_exp') as any,
           order_q('ret_10', 'q.ret_10', [
             { id: 'i1', labelKey: 'q.ret_10_i1', position: 0 },
             { id: 'i2', labelKey: 'q.ret_10_i2', position: 1 },
