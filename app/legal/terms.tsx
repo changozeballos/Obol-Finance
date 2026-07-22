@@ -50,7 +50,7 @@ export default function TermsScreen() {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scroll}>
-        <Text style={styles.lastUpdated}>Última actualización: julio 2025</Text>
+        <Text style={styles.lastUpdated}>Última actualización: julio 2026</Text>
 
         <View style={styles.introBanner}>
           <Text style={styles.introIcon}>📄</Text>
@@ -70,7 +70,7 @@ export default function TermsScreen() {
           <Text style={styles.contactTitle}>¿Dudas sobre los términos?</Text>
           <Text style={styles.contactText}>
             Contactanos en{' '}
-            <Text style={styles.contactEmail}>legal@obol.app</Text>
+            <Text style={styles.contactEmail}>obol.finance2026@gmail.com</Text>
           </Text>
         </View>
 

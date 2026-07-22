@@ -6,7 +6,7 @@ import { Colors, Shadows } from '../../constants/Colors';
 const SECTIONS = [
   {
     title: '¿Qué información recopilamos?',
-    body: 'Obol recopila únicamente la información que vos nos proporcionás: tu dirección de correo electrónico al registrarte y tu progreso de aprendizaje (lecciones completadas, XP, racha de días). No recopilamos datos de ubicación, contactos, ni ninguna información sensible.',
+    body: 'Obol recopila únicamente la información que vos nos proporcionás: tu nombre y dirección de correo electrónico al registrarte, y tu progreso de aprendizaje (lecciones completadas, XP, racha de días, corazones). No recopilamos datos de ubicación, contactos, fotos, ni ninguna información sensible. No usamos herramientas de analítica, publicidad ni rastreo de terceros.',
   },
   {
     title: '¿Cómo usamos tu información?',
@@ -22,7 +22,7 @@ const SECTIONS = [
   },
   {
     title: 'Tus derechos',
-    body: 'Tenés derecho a:\n• Acceder a los datos que tenemos sobre vos\n• Solicitar la eliminación de tu cuenta y todos tus datos\n• Exportar tu información\n\nPara ejercer cualquiera de estos derechos, contactanos en: privacidad@obol.app',
+    body: 'Tenés derecho a:\n• Acceder a los datos que tenemos sobre vos\n• Solicitar la eliminación de tu cuenta y todos tus datos\n• Exportar tu información\n\nPara ejercer cualquiera de estos derechos, contactanos en: obol.finance2026@gmail.com',
   },
   {
     title: 'Notificaciones',
@@ -50,7 +50,7 @@ export default function PrivacyScreen() {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scroll}>
-        <Text style={styles.lastUpdated}>Última actualización: julio 2025</Text>
+        <Text style={styles.lastUpdated}>Última actualización: julio 2026</Text>
 
         <View style={styles.introBanner}>
           <Text style={styles.introIcon}>🔒</Text>
@@ -70,7 +70,7 @@ export default function PrivacyScreen() {
           <Text style={styles.contactTitle}>¿Preguntas?</Text>
           <Text style={styles.contactText}>
             Contactanos en{' '}
-            <Text style={styles.contactEmail}>privacidad@obol.app</Text>
+            <Text style={styles.contactEmail}>obol.finance2026@gmail.com</Text>
           </Text>
         </View>
 
