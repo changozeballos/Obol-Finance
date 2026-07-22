@@ -3,37 +3,357 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Obol — Educación financiera</title>
+<title>Obol — El Duolingo de las finanzas</title>
+<meta name="description" content="Aprendé economía y finanzas personales jugando, con ejemplos 100% argentinos: inflación real, dólar blue, plazo fijo. Gratis.">
+<link rel="icon" href="./assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --navy: #1B2A40;
+    --navy-deep: #0F1B2E;
+    --amber: #F59E0B;
+    --amber-deep: #B45309;
+    --blue: #3B82F6;
+    --green: #10B981;
+    --purple: #8B5CF6;
+    --cream: #FFFBEB;
+    --text: #1E1B4B;
+    --text-muted: #57547a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #EEF2FF;
-    color: #1E1B4B;
+    font-family: 'Baloo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    background: #fff;
+    overflow-x: hidden;
   }
-  .card { text-align: center; padding: 40px; }
-  .logo { font-size: 56px; }
-  h1 { margin: 8px 0 24px; }
-  a {
-    display: inline-block;
-    margin: 6px;
-    padding: 12px 24px;
-    background: #4F46E5;
+  img { max-width: 100%; display: block; }
+  a { text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---- Nav ---- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(27,42,64,0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; padding-bottom: 12px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand img { width: 34px; height: 34px; border-radius: 9px; }
+  .brand span { color: #fff; font-weight: 800; font-size: 18px; }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-links a { color: rgba(255,255,255,0.75); font-size: 14px; font-weight: 600; }
+  .nav-links a:hover { color: #fff; }
+
+  /* ---- Hero ---- */
+  .hero {
+    background: radial-gradient(ellipse at 50% -10%, #24395a 0%, var(--navy) 55%, var(--navy-deep) 100%);
     color: #fff;
-    text-decoration: none;
-    border-radius: 999px;
-    font-weight: 700;
+    padding: 64px 0 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
   }
+  .hero::before, .hero::after {
+    content: '✦';
+    position: absolute;
+    color: rgba(245,158,11,0.35);
+    font-size: 22px;
+  }
+  .hero::before { top: 18%; left: 8%; }
+  .hero::after { top: 30%; right: 10%; font-size: 30px; }
+  .hero-icon {
+    width: 120px; height: 120px;
+    border-radius: 30px;
+    margin: 0 auto 24px;
+    box-shadow: 0 20px 50px -12px rgba(0,0,0,0.55);
+  }
+  .eyebrow {
+    display: inline-block;
+    background: rgba(245,158,11,0.16);
+    border: 1.5px solid rgba(245,158,11,0.4);
+    color: var(--amber);
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: clamp(32px, 6vw, 52px);
+    line-height: 1.08;
+    margin: 0 0 16px;
+    letter-spacing: -0.5px;
+  }
+  h1 .accent { color: var(--amber); }
+  .hero p.sub {
+    font-size: clamp(16px, 2.4vw, 19px);
+    color: rgba(255,255,255,0.78);
+    max-width: 560px;
+    margin: 0 auto 34px;
+    line-height: 1.55;
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; }
+  .btn-primary {
+    background: linear-gradient(135deg, #ffe08a, var(--amber));
+    color: #3a2b06;
+    font-weight: 800;
+    font-size: 15.5px;
+    padding: 15px 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 26px -8px rgba(245,158,11,0.55);
+  }
+  .store-note {
+    color: rgba(255,255,255,0.55);
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+
+  /* ---- Worlds ---- */
+  .section { padding: 76px 0; }
+  .section-head { text-align: center; max-width: 620px; margin: 0 auto 44px; }
+  .section-head .kicker { color: var(--amber-deep); font-weight: 800; font-size: 12.5px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .section-head h2 { font-size: clamp(26px, 4vw, 36px); margin: 8px 0 12px; letter-spacing: -0.3px; }
+  .section-head p { color: var(--text-muted); font-size: 16px; line-height: 1.6; margin: 0; }
+
+  .worlds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+  .world-card {
+    border-radius: 20px;
+    padding: 26px 22px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    min-height: 168px;
+  }
+  .world-card .wm { position: absolute; right: -10px; bottom: -18px; font-size: 84px; opacity: 0.16; }
+  .world-card h3 { margin: 0 0 8px; font-size: 19px; position: relative; }
+  .world-card p { margin: 0; font-size: 13.5px; line-height: 1.5; opacity: 0.92; position: relative; }
+  .w-fundamentos { background: linear-gradient(135deg, var(--amber), var(--amber-deep)); }
+  .w-economia { background: linear-gradient(135deg, var(--blue), #1E3A8A); }
+  .w-finanzas { background: linear-gradient(135deg, var(--green), #064E3B); }
+  .w-desmitificando { background: linear-gradient(135deg, var(--purple), #4C1D95); }
+
+  /* ---- Argentina / features split ---- */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .split img { border-radius: 24px; box-shadow: 0 30px 60px -20px rgba(27,42,64,0.35); }
+  .split .copy .kicker { color: var(--amber-deep); font-weight: 800; font-size: 12.5px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .split .copy h2 { font-size: clamp(24px, 3.6vw, 32px); margin: 8px 0 16px; letter-spacing: -0.3px; }
+  .feature-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .feature-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--text-muted); line-height: 1.5; }
+  .feature-list .dot {
+    flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px;
+    background: #FEF3C7; display: flex; align-items: center; justify-content: center; font-size: 14px;
+  }
+  @media (max-width: 760px) {
+    .split { grid-template-columns: 1fr; }
+    .split .img-col { order: -1; }
+  }
+
+  /* ---- Showcase (phone mockups) ---- */
+  .showcase-bg { background: var(--cream); }
+  .phones-row { display: flex; gap: 24px; justify-content: center; align-items: flex-end; flex-wrap: wrap; }
+  .phone {
+    width: 230px;
+    border-radius: 32px;
+    background: #0c1220;
+    padding: 10px;
+    box-shadow: 0 40px 70px -24px rgba(27,42,64,0.4);
+  }
+  .phone-screen {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 9 / 19.5;
+    display: flex; flex-direction: column;
+  }
+  .phone.tall { transform: translateY(-16px); }
+  .ps-topbar { display: flex; justify-content: space-between; padding: 14px 12px 8px; font-size: 11px; font-weight: 700; color: var(--text); }
+  .ps-pill { background: #F3F4F6; border-radius: 999px; padding: 3px 8px; }
+  .ps-card-img { margin: 0 10px; border-radius: 14px; overflow: hidden; }
+  .ps-card-img img { width: 100%; }
+  .ps-quiz { padding: 14px 12px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .ps-q { font-weight: 800; font-size: 13px; color: var(--text); margin-bottom: 4px; }
+  .ps-opt { border: 2px solid #E5E7EB; border-radius: 12px; padding: 9px 12px; font-size: 11.5px; font-weight: 700; color: var(--text-muted); }
+  .ps-opt.correct { border-color: var(--green); background: #ECFDF5; color: #065F46; }
+  .ps-streak { display: flex; align-items: center; justify-content: center; gap: 14px; padding: 22px 12px; }
+  .ps-streak .num { font-size: 34px; font-weight: 800; }
+  .ps-streak .lbl { font-size: 11px; color: var(--text-muted); font-weight: 700; }
+  .ps-progress { height: 6px; background: #F3F4F6; border-radius: 99px; margin: 12px 12px 0; overflow: hidden; }
+  .ps-progress i { display: block; height: 100%; background: linear-gradient(90deg, #ffe08a, var(--amber)); }
+
+  /* ---- Final CTA ---- */
+  .final-cta {
+    background: linear-gradient(135deg, var(--navy), var(--navy-deep));
+    color: #fff;
+    text-align: center;
+    border-radius: 28px;
+    padding: 56px 28px;
+    margin: 0 24px;
+  }
+  .final-cta h2 { font-size: clamp(24px, 4vw, 34px); margin: 0 0 12px; }
+  .final-cta p { color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 28px; line-height: 1.55; }
+
+  /* ---- Footer ---- */
+  footer { background: var(--navy-deep); color: rgba(255,255,255,0.6); padding: 40px 0 28px; margin-top: 60px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+  footer a { color: rgba(255,255,255,0.75); font-size: 13.5px; font-weight: 600; }
+  footer a:hover { color: #fff; }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-note { font-size: 12.5px; color: rgba(255,255,255,0.4); margin-top: 18px; text-align: center; }
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="logo">🐷</div>
-    <h1>Obol — Educación financiera</h1>
-    <a href="./privacy.html">Política de privacidad</a>
-    <a href="./terms.html">Términos de uso</a>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">
+      <img src="./assets/icon.png" alt="Obol">
+      <span>Obol</span>
+    </div>
+    <div class="nav-links">
+      <a href="#mundos">Contenido</a>
+      <a href="#app">La app</a>
+      <a href="./privacy.html">Privacidad</a>
+    </div>
   </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="hero-icon" src="./assets/icon.png" alt="Obol — chanchito con lentes">
+    <div class="eyebrow">100% gratis · sin publicidad</div>
+    <h1>El <span class="accent">Duolingo</span> de las finanzas</h1>
+    <p class="sub">Aprendé economía y finanzas personales en minutos por día, con ejemplos 100% argentinos: inflación real, dólar blue, plazo fijo. Nada de PDFs aburridos.</p>
+    <div class="cta-row">
+      <a class="btn-primary" href="mailto:obol.finance2026@gmail.com?subject=Avisenme%20cuando%20Obol%20est%C3%A9%20disponible">Enterate cuando salga 🐷</a>
+    </div>
+    <p class="store-note" style="margin-top:16px;">Muy pronto en App Store y Google Play</p>
+  </div>
+</header>
+
+<section class="section" id="mundos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">17 mundos de contenido</div>
+      <h2>Todo lo que nadie te explicó de la plata</h2>
+      <p>Lecciones cortas y gamificadas, organizadas en 4 grandes mundos.</p>
+    </div>
+    <div class="worlds-grid">
+      <div class="world-card w-fundamentos">
+        <span class="wm">🌱</span>
+        <h3>Fundamentos</h3>
+        <p>Qué es el dinero, ingresos y gastos, y las bases que nadie te enseñó en el colegio.</p>
+      </div>
+      <div class="world-card w-economia">
+        <span class="wm">🏙️</span>
+        <h3>Economía</h3>
+        <p>Inflación y precios, oferta y demanda, macro, política económica, crisis y ciclos.</p>
+      </div>
+      <div class="world-card w-finanzas">
+        <span class="wm">💰</span>
+        <h3>Finanzas personales</h3>
+        <p>Presupuesto, ahorro, deuda y crédito, inversiones, mercado de capitales, cripto.</p>
+      </div>
+      <div class="world-card w-desmitificando">
+        <span class="wm">🔬</span>
+        <h3>Desmitificando</h3>
+        <p>Los mitos financieros más comunes, y cómo llegamos hasta acá: historia del dinero.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section showcase-bg" id="app">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Cómo se ve</div>
+      <h2>Aprender nunca se sintió tan bien</h2>
+      <p>Preguntas interactivas, rachas, corazones, y un chanchito que te acompaña en cada mundo.</p>
+    </div>
+    <div class="phones-row">
+      <div class="phone tall">
+        <div class="phone-screen">
+          <div class="ps-topbar"><span class="ps-pill">🔥 4</span><span class="ps-pill">❤️ 5</span><span class="ps-pill">⭐ 1.240</span></div>
+          <div class="ps-card-img"><img src="./assets/card-cripto.png" alt="Sección de criptomonedas"></div>
+          <div class="ps-progress"><i style="width:35%"></i></div>
+        </div>
+      </div>
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="ps-topbar"><span class="ps-pill">🔥 4</span><span class="ps-pill">❤️ 5</span><span class="ps-pill">⭐ 1.240</span></div>
+          <div class="ps-quiz">
+            <div class="ps-q">¿Cuál es la función principal del dinero?</div>
+            <div class="ps-opt">Decoración</div>
+            <div class="ps-opt correct">Medio de intercambio ✓</div>
+            <div class="ps-opt">Fuente de energía</div>
+            <div class="ps-opt">Herramienta de trabajo</div>
+          </div>
+        </div>
+      </div>
+      <div class="phone tall">
+        <div class="phone-screen">
+          <div class="ps-topbar"><span class="ps-pill">Obol</span><span class="ps-pill">Día 12</span></div>
+          <div class="ps-streak">
+            <div>
+              <div class="num">🔥 12</div>
+              <div class="lbl">DÍAS SEGUIDOS</div>
+            </div>
+          </div>
+          <div class="ps-quiz">
+            <div class="ps-q">¡Racha activa! Volvé mañana para no perderla.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div class="img-col">
+      <img src="./assets/world-finanzas.jpg" alt="Mundo de Finanzas en Obol">
+    </div>
+    <div class="copy">
+      <div class="kicker">Hecho para Argentina</div>
+      <h2>Nada de ejemplos genéricos en dólares del primer mundo</h2>
+      <ul class="feature-list">
+        <li><span class="dot">🇦🇷</span> Inflación argentina real, dólar blue vs. oficial, plazo fijo y modismos que entendés de una.</li>
+        <li><span class="dot">🎮</span> Gamificación que engancha: XP, rachas, corazones, y mundos que se van desbloqueando.</li>
+        <li><span class="dot">💡</span> Si te equivocás, la app te explica por qué — no solo te dice que está mal.</li>
+        <li><span class="dot">🔒</span> Sin publicidad, sin compras dentro de la app, sin venderte tus datos.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="final-cta">
+      <h2>Empezá a entender tu plata,<br>un día a la vez</h2>
+      <p>Obol está en desarrollo final. Dejanos tu mail y te avisamos apenas esté disponible para descargar.</p>
+      <a class="btn-primary" href="mailto:obol.finance2026@gmail.com?subject=Avisenme%20cuando%20Obol%20est%C3%A9%20disponible">Enterate cuando salga 🐷</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="./privacy.html">Política de privacidad</a>
+      <a href="./terms.html">Términos de uso</a>
+      <a href="mailto:obol.finance2026@gmail.com">obol.finance2026@gmail.com</a>
+    </div>
+    <div style="color:rgba(255,255,255,0.4); font-size:13px;">🐷 Obol</div>
+  </div>
+  <div class="footer-note">Obol — Educación financiera. Contenido con fines educativos, no constituye asesoramiento financiero.</div>
+</footer>
+
 </body>
 </html>
