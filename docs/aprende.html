@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Qué enseña Obol — Las 17 secciones de la app</title>
-<meta name="description" content="Todo lo que podés aprender en Obol: 17 secciones organizadas en 4 mundos, de lo más básico a lo más avanzado, más tips de finanzas y economía.">
+<title>Qué enseña Obol — Las 17 secciones y los juegos de la app</title>
+<meta name="description" content="Todo lo que podés aprender en Obol: 17 secciones organizadas en 4 mundos, más los juegos que tiene la app, de lo más básico a lo más avanzado.">
 <link rel="icon" href="./assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,8 @@
   a { color: #ffb24a; text-decoration: none; }
   .obol-card { transition: transform .18s ease, box-shadow .18s ease; }
   .obol-card:hover { transform: translateY(-4px); }
+  .sec-trigger { all: unset; cursor: pointer; display: block; width: 100%; box-sizing: border-box; }
+  .tab-btn { all: unset; cursor: pointer; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 14px; padding: 11px 22px; border-radius: 999px; }
   @media (max-width: 700px) {
     .nav-text-link { display: none; }
   }
@@ -34,34 +36,56 @@
 </div>
 
 <!-- Hero -->
-<div style="position:relative;overflow:hidden;background:linear-gradient(175deg,#16213e 0%,#0d1730 65%);padding:76px 40px 64px;">
+<div style="position:relative;overflow:hidden;background:linear-gradient(175deg,#16213e 0%,#0d1730 65%);padding:76px 40px 48px;">
   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 78%);mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 78%);pointer-events:none;"></div>
   <div style="position:relative;max-width:820px;margin:0 auto;text-align:center;">
     <span style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:7px 16px;border-radius:999px;text-transform:uppercase;margin-bottom:22px;">Qué enseña la app</span>
     <h1 style="margin:0 0 18px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(30px,5vw,46px);line-height:1.1;color:#fff;letter-spacing:-.01em;">Todo lo que vas a aprender en Obol</h1>
-    <p style="margin:0 auto;max-width:560px;font-weight:600;font-size:17px;line-height:1.6;color:rgba(255,255,255,.8);">17 secciones organizadas en 4 mundos, de lo más básico a lo más avanzado — cada una con su propio personaje y ejemplos pensados para Argentina.</p>
+    <p style="margin:0 auto;max-width:560px;font-weight:600;font-size:17px;line-height:1.6;color:rgba(255,255,255,.8);">17 secciones organizadas en 4 mundos, más los juegos que tiene la app — de lo más básico a lo más avanzado, con ejemplos pensados para Argentina.</p>
     <div style="display:flex;gap:32px;justify-content:center;margin-top:36px;flex-wrap:wrap;">
       <div><span style="display:block;font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:#fff;">17</span><span style="font-weight:600;font-size:13px;color:rgba(255,255,255,.55);">secciones</span></div>
       <div><span style="display:block;font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:#fff;">4</span><span style="font-weight:600;font-size:13px;color:rgba(255,255,255,.55);">mundos</span></div>
       <div><span style="display:block;font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:#fff;">804</span><span style="font-weight:600;font-size:13px;color:rgba(255,255,255,.55);">preguntas</span></div>
+      <div><span style="display:block;font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:#fff;">10</span><span style="font-weight:600;font-size:13px;color:rgba(255,255,255,.55);">juegos</span></div>
     </div>
   </div>
 </div>
 
+<!-- Tabs -->
+<div style="display:flex;justify-content:center;gap:10px;padding:26px 40px 6px;background:#eef1f7;">
+  <button id="tab-btn-secciones" class="tab-btn" onclick="showTab('secciones')" style="background:#16213e;color:#fff;">📚 Secciones</button>
+  <button id="tab-btn-juegos" class="tab-btn" onclick="showTab('juegos')" style="background:transparent;color:#16213e;border:2px solid #16213e33;">🎮 Juegos</button>
+</div>
+
+<div id="tab-secciones">
+
 <!-- Fundamentos -->
-<div style="display:flex;justify-content:center;padding:60px 40px 10px;">
+<div style="display:flex;justify-content:center;padding:34px 40px 10px;">
   <div style="width:100%;max-width:1160px;">
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:26px;">
       <span style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;color:#fff;background:linear-gradient(90deg,#ffb24a,#e8952f);padding:8px 18px;border-radius:999px;text-transform:uppercase;">🌱 Fundamentos</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,360px));gap:24px;">
+
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_fundamentos.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_fundamentos.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">3 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-base_comun')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Base Común</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Qué es el dinero, de dónde sale su valor y para qué sirve en la vida real.</p>
+          <span id="chev-les-base_comun" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#e8952f;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-base_comun" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">¿Qué es el dinero?</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Precios e inflación básica</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Ingresos, gastos y tiempo</li>
+          </ul>
         </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -75,58 +99,140 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_inflation_prices.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_inflation_prices.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">4 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-inflation_prices')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Inflación y Precios</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Por qué suben los precios y cómo se mide la inflación en Argentina.</p>
+          <span id="chev-les-inflation_prices" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#1d4ed8;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-inflation_prices" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Causas de la inflación</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Cómo se mide la inflación</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Efectos de la inflación</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Hiperinflación</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_bienes_mercados.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_bienes_mercados.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">5 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-goods_markets_intro')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Bienes, Mercados y Precios</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Cómo se forma el precio de lo que comprás todos los días.</p>
+          <span id="chev-les-goods_markets_intro" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#1d4ed8;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-goods_markets_intro" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Bienes y Servicios</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">¿Qué es la Oferta?</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">¿Qué es la Demanda?</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">El Precio de Equilibrio</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Sustitutos, Complementos y Competencia</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_oferta_demanda.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_oferta_demanda.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">3 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-supply_demand_markets')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Oferta, Demanda y Mercados</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">El mecanismo detrás de por qué algo escasea o sobra.</p>
+          <span id="chev-les-supply_demand_markets" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#1d4ed8;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-supply_demand_markets" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Ley de oferta y demanda</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Tipos de mercados</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Elasticidad</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_macroeconomia.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_macroeconomia.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">4 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-macro_indicators')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Macroeconomía: Indicadores</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">PBI, desempleo y los números que resumen cómo anda un país.</p>
+          <span id="chev-les-macro_indicators" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#1d4ed8;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-macro_indicators" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">PBI / PIB</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Empleo y desempleo</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Pobreza e indigencia</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Balanza comercial</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_politica_economica.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_politica_economica.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">3 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-economic_policy')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Política Económica</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Qué palancas tiene el Estado y qué efecto tiene mover cada una.</p>
+          <span id="chev-les-economic_policy" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#1d4ed8;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-economic_policy" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Política monetaria</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Política fiscal</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Herramientas anti-inflación</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_dinero_internacional.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_dinero_internacional.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">3 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-international_money')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Dinero Internacional</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Tipo de cambio, dólar, y cómo se conecta la economía local con el mundo.</p>
+          <span id="chev-les-international_money" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#1d4ed8;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-international_money" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Tipos de cambio</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Reservas internacionales</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Comercio exterior</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_crisis_ciclos.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_crisis_ciclos.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">4 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-crises_cycles')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Crisis y Ciclos</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Por qué la economía sube y baja, y cómo reconocer cada fase.</p>
+          <span id="chev-les-crises_cycles" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#1d4ed8;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-crises_cycles" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Ciclos económicos</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Crisis financieras históricas</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Historia económica argentina</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Cómo protegerte en una crisis</li>
+          </ul>
         </div>
       </div>
 
@@ -143,58 +249,144 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_presupuesto.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_presupuesto.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">4 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-personal_budgeting')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Presupuesto Personal</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Organizar ingresos y gastos sin que la plata se te escape.</p>
+          <span id="chev-les-personal_budgeting" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#065f46;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-personal_budgeting" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">¿Por qué presupuestar?</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Armá tu presupuesto</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Regla 50/30/20</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Gastos hormiga y fugas</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_ahorro.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_ahorro.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">4 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-saving_track')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Ahorro</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Cómo armar el hábito y elegir dónde poner lo que ahorrás.</p>
+          <span id="chev-les-saving_track" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#065f46;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-saving_track" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Por qué y cómo ahorrar</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Fondo de emergencia</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Instrumentos de ahorro</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Ahorrar con inflación alta</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_deuda_credito.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_deuda_credito.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">4 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-debt_credit')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Deuda y Crédito</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Tarjetas, préstamos e interés: usar la deuda a tu favor, no en contra.</p>
+          <span id="chev-les-debt_credit" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#065f46;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-debt_credit" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Deuda buena vs mala</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Tarjeta de crédito</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Préstamos personales</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Cómo salir de la deuda</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_inversiones_base.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_inversiones_base.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">4 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-investments_base')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Inversiones: Base</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Los conceptos que necesitás antes de poner el primer peso.</p>
+          <span id="chev-les-investments_base" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#065f46;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-investments_base" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">¿Qué es invertir?</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Riesgo y rendimiento</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Interés compuesto</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Fondos de inversión (FCI)</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_mercado_de_capitales.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_mercado_de_capitales.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">5 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-capital_markets')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Mercado de Capitales</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Acciones, bonos y cómo funciona la bolsa, en criollo.</p>
+          <span id="chev-les-capital_markets" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#065f46;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-capital_markets" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Acciones</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Bonos y renta fija</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Cómo operar en Argentina</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Dividendos y rentabilidad</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">ETFs y portfolios</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_criptomonedas.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_criptomonedas.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">5 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-crypto_track')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Criptomonedas</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Qué son, cómo funcionan y qué riesgos reales tienen.</p>
+          <span id="chev-les-crypto_track" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#065f46;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-crypto_track" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">¿Qué es cripto?</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Blockchain</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Stablecoins</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">DeFi y Web3</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Cripto en LatAm</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_finanzas_avanzadas.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_finanzas_avanzadas.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">4 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-advanced_finance')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Finanzas Avanzadas</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Para cuando ya manejás lo básico y querés ir un paso más allá.</p>
+          <span id="chev-les-advanced_finance" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#065f46;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-advanced_finance" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Impuestos sobre inversiones</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Jubilación y largo plazo</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Seguros</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Finanzas del hogar</li>
+          </ul>
         </div>
       </div>
 
@@ -211,18 +403,42 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_desmitificando.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_desmitificando.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">4 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-myths_busting')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Ideas que parecen ciertas… pero no</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">Los mitos financieros más comunes, desarmados uno por uno.</p>
+          <span id="chev-les-myths_busting" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#5b21b6;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-myths_busting" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Mitos del dinero y la economía</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Mitos de las inversiones</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Mitos del ahorro y la deuda</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Mitos de cripto y tecnología</li>
+          </ul>
         </div>
       </div>
 
       <div class="obol-card" style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
-        <img src="./assets/aprende/header_historia.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
-        <div style="padding:20px 22px 24px;">
+        <div style="position:relative;">
+          <img src="./assets/aprende/header_historia.jpg" alt="" style="width:100%;display:block;aspect-ratio:840/400;object-fit:cover;">
+          <span style="position:absolute;top:10px;right:10px;background:rgba(13,20,40,.72);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:999px;">4 lecciones</span>
+        </div>
+        <button class="sec-trigger" onclick="toggleLessons('les-historia')" style="padding:20px 22px 18px;">
           <h3 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#16213e;">Historia Financiera</h3>
           <p style="margin:0;font-weight:600;font-size:14px;color:#6b738a;line-height:1.5;">De las primeras monedas al bitcoin: 2700 años de inventar el dinero.</p>
+          <span id="chev-les-historia" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12.5px;color:#5b21b6;">Ver lecciones ▾</span>
+        </button>
+        <div id="les-historia" style="display:none;padding:0 22px 20px;">
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Origen del dinero</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">El patrón oro y Bretton Woods</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Las grandes crisis mundiales</li>
+            <li style="font-weight:600;font-size:13.5px;color:#3a4258;">Historia económica argentina</li>
+          </ul>
         </div>
       </div>
 
@@ -272,6 +488,94 @@
   </div>
 </div>
 
+</div>
+<!-- /tab-secciones -->
+
+<div id="tab-juegos" style="display:none;">
+  <div style="display:flex;justify-content:center;padding:34px 40px 10px;">
+    <div style="width:100%;max-width:1160px;">
+      <span style="display:inline-flex;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;color:#8a92a8;text-transform:uppercase;margin-bottom:14px;">Además de las lecciones</span>
+      <h2 style="margin:0 0 8px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:28px;color:#16213e;">Aprender jugando, en serio</h2>
+      <p style="margin:0 0 34px;font-weight:600;font-size:15px;color:#6b738a;max-width:640px;">Las lecciones no son la única forma de practicar. Obol tiene juegos cortos para poner a prueba lo que aprendiste, de otra manera.</p>
+
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+        <span style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;color:#fff;background:linear-gradient(90deg,#10b981,#065f46);padding:7px 16px;border-radius:999px;text-transform:uppercase;">✓ Disponibles hoy</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-bottom:44px;">
+
+        <div class="obol-card" style="background:#fff;border-radius:20px;padding:24px;border:1px solid #e6ebf4;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);">
+          <span style="font-size:30px;">🧠</span>
+          <h3 style="margin:12px 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;color:#16213e;">Trivia Financiera</h3>
+          <p style="margin:0;font-weight:600;font-size:13.5px;color:#6b738a;line-height:1.5;">30+ preguntas sobre economía y finanzas, contra el reloj y con sistema de rachas.</p>
+        </div>
+
+        <div class="obol-card" style="background:#fff;border-radius:20px;padding:24px;border:1px solid #e6ebf4;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);">
+          <span style="font-size:30px;">💵</span>
+          <h3 style="margin:12px 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;color:#16213e;">¿Cuánto Cuesta?</h3>
+          <p style="margin:0;font-weight:600;font-size:13.5px;color:#6b738a;line-height:1.5;">Adiviná el precio real de productos argentinos con el slider.</p>
+        </div>
+
+        <div class="obol-card" style="background:#fff;border-radius:20px;padding:24px;border:1px solid #e6ebf4;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);">
+          <span style="font-size:30px;">🏃</span>
+          <h3 style="margin:12px 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;color:#16213e;">Inflación Run</h3>
+          <p style="margin:0;font-weight:600;font-size:13.5px;color:#6b738a;line-height:1.5;">Protegé $100.000 durante 12 meses eligiendo dónde invertir.</p>
+        </div>
+
+        <div class="obol-card" style="background:#fff;border-radius:20px;padding:24px;border:1px solid #e6ebf4;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);">
+          <span style="font-size:30px;">📊</span>
+          <h3 style="margin:12px 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;color:#16213e;">Mercado Virtual</h3>
+          <p style="margin:0;font-weight:600;font-size:13.5px;color:#6b738a;line-height:1.5;">Operá acciones y bonos argentinos durante 20 días.</p>
+        </div>
+
+        <div class="obol-card" style="background:#fff;border-radius:20px;padding:24px;border:1px solid #e6ebf4;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);">
+          <span style="font-size:30px;">👛</span>
+          <h3 style="margin:12px 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;color:#16213e;">Desafío Presupuesto</h3>
+          <p style="margin:0;font-weight:600;font-size:13.5px;color:#6b738a;line-height:1.5;">Distribuí el sueldo, enfrentá imprevistos y maximizá tu ahorro.</p>
+        </div>
+
+      </div>
+
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+        <span style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;color:#16213e;background:#fff3e0;border:1px solid #ffdca8;padding:7px 16px;border-radius:999px;text-transform:uppercase;">🚧 Próximamente</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;">
+
+        <div class="obol-card" style="background:#fff;border-radius:20px;padding:24px;border:1px dashed #d8dfec;box-shadow:0 10px 26px -18px rgba(20,30,60,.2);opacity:.85;">
+          <span style="font-size:30px;">📉</span>
+          <h3 style="margin:12px 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;color:#16213e;">Crypto Crash</h3>
+          <p style="margin:0;font-weight:600;font-size:13.5px;color:#6b738a;line-height:1.5;">Elegí el momento justo para retirarte antes de que la curva se desplome.</p>
+        </div>
+
+        <div class="obol-card" style="background:#fff;border-radius:20px;padding:24px;border:1px dashed #d8dfec;box-shadow:0 10px 26px -18px rgba(20,30,60,.2);opacity:.85;">
+          <span style="font-size:30px;">🕵️</span>
+          <h3 style="margin:12px 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;color:#16213e;">Detector de Estafa</h3>
+          <p style="margin:0;font-weight:600;font-size:13.5px;color:#6b738a;line-height:1.5;">Cinco casos reales: ¿es una inversión genuina o una estafa piramidal?</p>
+        </div>
+
+        <div class="obol-card" style="background:#fff;border-radius:20px;padding:24px;border:1px dashed #d8dfec;box-shadow:0 10px 26px -18px rgba(20,30,60,.2);opacity:.85;">
+          <span style="font-size:30px;">📅</span>
+          <h3 style="margin:12px 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;color:#16213e;">Línea de Tiempo</h3>
+          <p style="margin:0;font-weight:600;font-size:13.5px;color:#6b738a;line-height:1.5;">Ordená cronológicamente las grandes crisis económicas argentinas.</p>
+        </div>
+
+        <div class="obol-card" style="background:#fff;border-radius:20px;padding:24px;border:1px dashed #d8dfec;box-shadow:0 10px 26px -18px rgba(20,30,60,.2);opacity:.85;">
+          <span style="font-size:30px;">🏠</span>
+          <h3 style="margin:12px 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;color:#16213e;">Simulador de Alquiler</h3>
+          <p style="margin:0;font-weight:600;font-size:13.5px;color:#6b738a;line-height:1.5;">¿Conviene alquilar o comprar? Simulá los números de tu decisión.</p>
+        </div>
+
+        <div class="obol-card" style="background:#fff;border-radius:20px;padding:24px;border:1px dashed #d8dfec;box-shadow:0 10px 26px -18px rgba(20,30,60,.2);opacity:.85;">
+          <span style="font-size:30px;">🐂</span>
+          <h3 style="margin:12px 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;color:#16213e;">Bull vs Bear</h3>
+          <p style="margin:0;font-weight:600;font-size:13.5px;color:#6b738a;line-height:1.5;">¿Podés ganarle al mercado en una simulación de tendencias alcistas y bajistas?</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /tab-juegos -->
+
 <!-- CTA -->
 <div style="display:flex;justify-content:center;padding:56px 40px 60px;">
   <div style="width:100%;max-width:1160px;border-radius:28px;background:linear-gradient(120deg,#16213e,#1c2c52);padding:48px 56px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 24px 48px -18px rgba(15,20,45,.45);">
@@ -296,6 +600,32 @@
     <a href="./terms.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Términos</a>
   </div>
 </div>
+
+<script>
+function toggleLessons(id) {
+  var panel = document.getElementById(id);
+  var chevron = document.getElementById('chev-' + id);
+  var isOpen = panel.style.display === 'block';
+  panel.style.display = isOpen ? 'none' : 'block';
+  if (chevron) chevron.textContent = isOpen ? 'Ver lecciones ▾' : 'Ocultar lecciones ▴';
+}
+function showTab(tab) {
+  var secciones = document.getElementById('tab-secciones');
+  var juegos = document.getElementById('tab-juegos');
+  var btnSecciones = document.getElementById('tab-btn-secciones');
+  var btnJuegos = document.getElementById('tab-btn-juegos');
+  var active = tab === 'secciones';
+  secciones.style.display = active ? 'block' : 'none';
+  juegos.style.display = active ? 'none' : 'block';
+  btnSecciones.style.background = active ? '#16213e' : 'transparent';
+  btnSecciones.style.color = active ? '#fff' : '#16213e';
+  btnSecciones.style.border = active ? 'none' : '2px solid #16213e33';
+  btnJuegos.style.background = active ? 'transparent' : '#16213e';
+  btnJuegos.style.color = active ? '#16213e' : '#fff';
+  btnJuegos.style.border = active ? '2px solid #16213e33' : 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>
