@@ -40,11 +40,14 @@
     .obol-reveal { opacity: 0; animation: obolRise linear both; animation-timeline: view(); animation-range: entry 2% cover 26%; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .obol-rise, .obol-reveal, [style*="obolSway"], [style*="obolSpin"], [style*="obolGlowPulse"] { animation: none !important; opacity: 1 !important; transform: none !important; }
+    .obol-rise, .obol-reveal, .obol-mark, [style*="obolSpin"], [style*="obolGlowPulse"] { animation: none !important; opacity: 1 !important; transform: none !important; }
   }
   @media (max-width: 640px) {
     .nav-text-link { display: none; }
   }
+
+  .obol-mark { transform-style: preserve-3d; }
+  .obol-mark:hover, .obol-mark.obol-mark-play { animation: obolSway 1.6s ease-in-out; }
 </style>
 </head>
 <body>
@@ -101,7 +104,7 @@
 
       <div style="position:relative;display:flex;align-items:center;justify-content:center;min-height:520px;">
         <div style="position:absolute;width:440px;height:440px;border-radius:999px;background:radial-gradient(circle,rgba(74,124,224,.4),transparent 66%);filter:blur(6px);animation:obolGlowPulse 4.5s ease-in-out infinite;"></div>
-        <div style="position:relative;transform-style:preserve-3d;animation:obolReveal3d 1.2s cubic-bezier(.2,.8,.25,1) .2s both,obolSway 7s ease-in-out 1.5s infinite;">
+        <div id="obolMark" class="obol-mark" style="position:relative;transform-style:preserve-3d;">
           <img src="./assets/home/obol_mark3.png" alt="Logo de Obol" style="display:block;width:clamp(260px,34vw,420px);height:auto;filter:drop-shadow(0 22px 34px rgba(4,8,22,.6));">
         </div>
       </div>
@@ -219,5 +222,32 @@
   </div>
 
 </div>
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+  var el = document.getElementById('obolMark');
+  if (!el) return;
+  el.addEventListener('animationend', function () {
+    el.classList.remove('obol-mark-play');
+  });
+  var lastY = window.scrollY;
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var y = window.scrollY;
+      if (y > lastY + 4) {
+        el.classList.remove('obol-mark-play');
+        void el.offsetWidth;
+        el.classList.add('obol-mark-play');
+      }
+      lastY = y;
+      ticking = false;
+    });
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
