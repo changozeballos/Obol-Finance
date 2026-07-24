@@ -2,102 +2,205 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>El colchón que sí sirve: cómo armar tu fondo de emergencia — Obol Blog</title>
-<meta name="description" content="La plata más aburrida que vas a ahorrar en tu vida, y la más importante: qué es un fondo de emergencia, cuánto necesitás y dónde ponerlo.">
+<meta name="description" content="La plata más aburrida que vas a ahorrar en tu vida — y probablemente la más importante.">
 <link rel="icon" href="../assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/blog.css">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/article.css">
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="wrap">
-    <a class="brand" href="../index.html">
-      <img src="../assets/icon.png" alt="Obol">
-      <span class="masthead">Obol <em>Blog</em></span>
+<div style="font-family:'Nunito',system-ui,sans-serif;color:#1b2436;position:relative;--hero:#1e3b2c;--acc:#5ed69a;--accDeep:#1e8a58;--tint:#eafaf0;">
+
+  <div style="position:fixed;top:0;left:0;right:0;height:5px;z-index:60;background:rgba(15,40,55,.08);">
+    <div id="progress" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accDeep),var(--acc),#ffb24a);transition:width .08s linear;"></div>
+  </div>
+
+  <div style="position:sticky;top:0;z-index:40;background:rgba(15,33,62,.9);backdrop-filter:blur(10px);padding:13px 34px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(10,15,30,.22);">
+    <a href="../index.html" style="display:flex;align-items:center;gap:11px;color:#fff;">
+      <img src="../assets/icon.png" alt="Obol" style="width:32px;height:32px;border-radius:9px;">
+      <span style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#fff;">Obol <span style="font-weight:500;color:#ffb24a;">Blog</span></span>
     </a>
-    <div class="nav-links">
-      <a href="../index.html">Notas</a>
-      <a href="../../aprende.html">Qué enseña la app</a>
-      <a class="btn-nav" href="../../index.html">Conocé Obol</a>
-    </div>
+    <a href="../index.html" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13.5px;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:8px 16px;border-radius:999px;">← Volver a las notas</a>
   </div>
-</nav>
 
-<article>
-  <header class="article-hero" style="--accent:var(--c-ahorro);">
-    <div class="wrap">
-      <span class="tag" style="--accent:var(--c-ahorro);">Ahorro</span>
-      <h1 class="display">El colchón que sí sirve: cómo armar tu fondo de emergencia</h1>
-      <p class="dek">La plata más aburrida que vas a ahorrar en tu vida — y probablemente la más importante.</p>
-      <div class="byline">
-        <img src="../assets/char-ahorro.png" alt="">
-        <span>Por la Guardiana del Ahorro · 6 min de lectura</span>
+  <!-- HERO -->
+  <div style="position:relative;overflow:hidden;background:var(--hero);padding:54px 34px 128px;">
+    <div style="position:absolute;inset:0;background-image:url('../assets/bg_ahorro.jpg');background-size:cover;background-position:center 38%;opacity:.35;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg,var(--hero) 0%,var(--hero) 40%,rgba(0,0,0,0) 100%);"></div>
+    <div style="position:absolute;right:-30px;top:-30px;width:320px;height:320px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%);"></div>
+    <div style="position:relative;max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:36px;">
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:20px;">
+        <div class="obol-rise" style="display:flex;align-items:center;gap:10px;animation-delay:.05s;">
+          <span style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;color:var(--hero);background:var(--acc);padding:7px 15px;border-radius:999px;text-transform:uppercase;">Ahorro</span>
+          <span style="font-weight:800;font-size:13px;color:rgba(255,255,255,.62);">6 min de lectura</span>
+        </div>
+        <h1 class="obol-rise" style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(32px,4.4vw,54px);line-height:1.05;color:#fff;letter-spacing:-.02em;animation-delay:.13s;">El colchón que sí sirve: cómo armar tu fondo de emergencia</h1>
+        <p class="obol-rise" style="margin:0;max-width:560px;font-weight:600;font-size:19px;line-height:1.55;color:rgba(255,255,255,.85);animation-delay:.22s;">La plata más aburrida que vas a ahorrar en tu vida — y probablemente la más importante.</p>
+        <div class="obol-rise" style="display:flex;align-items:center;gap:13px;margin-top:4px;animation-delay:.3s;">
+          <div style="width:52px;height:52px;border-radius:999px;background:rgba(255,255,255,.1);border:2px solid var(--acc);overflow:hidden;display:grid;place-items:center;flex:none;">
+            <img src="../assets/char-ahorro.png" alt="" style="width:48px;height:48px;object-fit:contain;transform:translateY(3px);">
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#fff;">La Guardiana del Ahorro</span>
+            <span style="font-weight:700;font-size:13px;color:rgba(255,255,255,.55);">Escribe en Obol</span>
+          </div>
+        </div>
+      </div>
+      <div class="obol-hero-pig" style="position:relative;flex:none;width:290px;display:grid;place-items:center;">
+        <div style="position:absolute;width:220px;height:220px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 68%);"></div>
+        <img src="../assets/char-ahorro.png" alt="La Guardiana del Ahorro" style="position:relative;width:270px;height:auto;filter:drop-shadow(0 22px 30px rgba(4,14,20,.55));animation:obolRise .8s cubic-bezier(.22,.61,.36,1) .35s both, obolFloat 7s ease-in-out 1.2s infinite;">
       </div>
     </div>
-  </header>
+    <div style="position:absolute;left:0;right:0;bottom:-1px;height:66px;background:#eef1f7;clip-path:polygon(0 55%,100% 0,100% 100%,0 100%);"></div>
+  </div>
 
-  <div class="article-art"><img src="../assets/char-ahorro.png" alt="Guardiana del ahorro"></div>
+  <!-- BODY -->
+  <div style="display:flex;justify-content:center;padding:0 24px;">
+    <div style="width:100%;max-width:820px;margin-top:-60px;position:relative;z-index:5;">
+      <article class="obol-art" style="background:#fff;border-radius:28px;padding:58px clamp(28px,6vw,74px) 54px;box-shadow:0 30px 70px -30px rgba(15,40,55,.4);">
 
-  <div class="narrow article-body">
-    <p>Hay un tipo de ahorro que no es para cumplir un sueño ni para hacerse rico: es para no arruinarte cuando algo sale mal. Se llama fondo de emergencia, y es, probablemente, la base sobre la que se construye cualquier otra decisión financiera sana.</p>
+        <div style="display:flex;align-items:center;gap:10px;padding-bottom:24px;margin-bottom:8px;border-bottom:2px dashed #e2e7f0;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:#8a92a8;letter-spacing:.04em;">COMPARTIR</span>
+          <div style="display:flex;gap:9px;">
+            <a href="#" class="obol-btn" aria-label="Compartir en X" style="width:38px;height:38px;border-radius:11px;background:#f1f4fa;display:grid;place-items:center;color:#0f2837;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;">𝕏</a>
+            <a href="#" class="obol-btn" aria-label="Compartir en WhatsApp" style="width:38px;height:38px;border-radius:11px;background:#f1f4fa;display:grid;place-items:center;color:#0f2837;font-weight:800;font-size:14px;">Wa</a>
+            <a href="#" class="obol-btn" aria-label="Copiar enlace" style="width:38px;height:38px;border-radius:11px;background:#f1f4fa;display:grid;place-items:center;font-size:15px;">🔗</a>
+          </div>
+        </div>
 
-    <h2>No es lo mismo que "ahorrar para algo"</h2>
-    <p>Ahorrar para un viaje o para cambiar de celular tiene una fecha y un objetivo lindo. El fondo de emergencia es distinto: existe exclusivamente para cubrirte si perdés tu trabajo, si tenés un gasto médico inesperado, o si se rompe algo que necesitás sí o sí arreglar. No tiene un objetivo "positivo" — su único trabajo es estar ahí cuando todo lo demás falla.</p>
+        <p class="lead"><span style="float:left;font-family:'Fredoka',sans-serif;font-weight:700;font-size:74px;line-height:.72;padding:8px 12px 0 0;color:var(--accDeep);">H</span>ay un tipo de ahorro que no es para cumplir un sueño ni para hacerse rico: es para <strong>no arruinarte cuando algo sale mal</strong>. Se llama fondo de emergencia, y es la base sobre la que se construye cualquier otra decisión financiera sana.</p>
 
-    <h2>¿Cuánto necesitás?</h2>
-    <p>La referencia más usada es entre 3 y 6 meses de tus gastos esenciales (no de tu sueldo completo): alquiler, comida, servicios, transporte. Si tus gastos fijos son más impredecibles, o si tu ingreso depende de un solo cliente o changas, conviene acercarse a los 6 meses. Si tenés estabilidad laboral alta, con 3 meses puede alcanzar.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">01</span>No es lo mismo que "ahorrar para algo"</h2>
+        <p>Ahorrar para un viaje tiene una fecha y un objetivo lindo. El fondo de emergencia existe solo para cubrirte si perdés el trabajo, tenés un gasto médico o se rompe algo que necesitás sí o sí. Su único trabajo es <span class="obol-mark">estar ahí cuando todo lo demás falla</span>.</p>
 
-    <blockquote>El fondo de emergencia no busca hacerte ganar plata. Busca que nunca tengas que vender una inversión de largo plazo justo en el peor momento posible.</blockquote>
+        <div class="obol-reveal" style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin:36px 0;padding:30px 34px;border-radius:22px;background:linear-gradient(120deg,var(--hero),var(--accDeep));box-shadow:0 22px 44px -22px rgba(15,40,55,.55);">
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(50px,8vw,80px);line-height:.9;color:var(--acc);letter-spacing:-.03em;">3 a 6</span>
+          <span style="font-weight:700;font-size:16px;line-height:1.5;color:rgba(255,255,255,.9);max-width:340px;">meses de tus gastos esenciales es la referencia más usada para el tamaño del fondo.</span>
+        </div>
 
-    <h2>¿Dónde ponerlo? Liquidez antes que rendimiento</h2>
-    <p>Este es el error más común: meter el fondo de emergencia en algo que rinde bien pero que no podés sacar rápido sin perder plata (un plazo fijo a 90 días, una inversión en acciones). El requisito número uno de este fondo específico es que esté disponible en cuestión de horas, no de semanas. Un rendimiento moderado con disponibilidad inmediata le gana, para este objetivo puntual, a un rendimiento alto con la plata trabada.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">02</span>¿Cuánto necesitás?</h2>
+        <p>Entre 3 y 6 meses de tus <strong>gastos esenciales</strong> (no del sueldo completo): alquiler, comida, servicios, transporte. Si tu ingreso es impredecible, más cerca de 6. Si tenés estabilidad alta, con 3 puede alcanzar.</p>
 
-    <h2>¿Cómo empezar si hoy no tenés nada ahorrado?</h2>
-    <p>No hace falta juntar los 3-6 meses de una sola vez — de hecho, intentar eso suele ser la razón por la que la gente nunca arranca. Un camino más realista: definir un monto fijo, aunque sea chico, que se transfiera automáticamente apenas cobrás, antes de que ese dinero tenga la chance de gastarse en otra cosa. El objetivo del primer mes no es "tener el fondo completo" — es tener el hábito funcionando.</p>
+        <div class="obol-reveal" style="position:relative;margin:40px 0;padding:34px 32px 30px 40px;border-radius:22px;background:var(--tint);border-left:6px solid var(--acc);box-shadow:0 16px 34px -24px rgba(15,40,55,.4);">
+          <span style="position:absolute;top:-16px;left:22px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:76px;line-height:1;color:var(--acc);opacity:.6;">"</span>
+          <p style="margin:0;font-family:'Fredoka',sans-serif;font-weight:600;font-size:22px;line-height:1.4;color:#243244;">El fondo de emergencia no busca hacerte ganar plata. Busca que nunca tengas que vender una inversión de largo plazo justo en el peor momento posible.</p>
+          <span style="display:inline-block;margin-top:14px;font-weight:800;font-size:14px;color:var(--accDeep);">— La Guardiana del Ahorro</span>
+        </div>
 
-    <h2>Errores comunes</h2>
-    <ul>
-      <li>Usar el fondo de emergencia para gastos que en realidad son previsibles (regalos de fin de año, por ejemplo) — eso no es una emergencia, es falta de planificación.</li>
-      <li>No reponerlo después de usarlo. Si tuviste que recurrir a él, la prioridad siguiente es volver a llenarlo, no relajarte.</li>
-      <li>Dejarlo en un instrumento que pierde contra la inflación de forma extrema, solo por comodidad.</li>
-    </ul>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">03</span>¿Dónde ponerlo? Liquidez antes que rendimiento</h2>
+        <p>El error más común: meterlo en algo que rinde bien pero que no podés sacar rápido. El requisito número uno es que esté disponible en <strong>horas, no en semanas</strong>. Un rendimiento moderado con disponibilidad inmediata le gana, para esto, a un rendimiento alto con la plata trabada.</p>
 
-    <div class="cta-inline" style="--accent:var(--c-ahorro);">
-      <div class="txt">
-        <h4>¿Querés practicar esto paso a paso?</h4>
-        <p>En Obol, el mundo de Finanzas Personales tiene lecciones enteras sobre ahorro y presupuesto, con ejercicios reales.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">04</span>¿Cómo empezar si hoy no tenés nada?</h2>
+        <p>No hace falta juntar todo de una vez. Definí un monto fijo, aunque sea chico, que se transfiera <span class="obol-mark">automáticamente apenas cobrás</span>. El objetivo del primer mes no es tener el fondo completo — es tener el hábito funcionando.</p>
+
+        <div class="obol-reveal" style="margin:28px 0;padding:24px 26px;border-radius:20px;background:#f7f9fc;border:1px solid #e6ebf4;">
+          <span style="display:block;font-family:'Fredoka',sans-serif;font-weight:700;font-size:15px;color:var(--accDeep);margin-bottom:12px;">Errores comunes</span>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="width:8px;height:8px;border-radius:999px;background:var(--acc);margin-top:9px;flex:none;"></span>
+              <span style="font-weight:700;font-size:16px;line-height:1.55;color:#33404f;">Usarlo para gastos que en realidad son previsibles (regalos de fin de año) — eso no es una emergencia.</span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="width:8px;height:8px;border-radius:999px;background:var(--acc);margin-top:9px;flex:none;"></span>
+              <span style="font-weight:700;font-size:16px;line-height:1.55;color:#33404f;">No reponerlo después de usarlo.</span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="width:8px;height:8px;border-radius:999px;background:var(--acc);margin-top:9px;flex:none;"></span>
+              <span style="font-weight:700;font-size:16px;line-height:1.55;color:#33404f;">Dejarlo en un instrumento que pierde fuerte contra la inflación, solo por comodidad.</span>
+            </div>
+          </div>
+        </div>
+
+        <p>Un fondo de emergencia no es glamoroso. Pero es, silenciosamente, lo que separa a alguien que atraviesa un imprevisto sin sobresaltos de alguien que tiene que endeudarse a las apuradas.</p>
+
+        <div class="obol-reveal" style="position:relative;overflow:hidden;margin:44px 0 4px;border-radius:24px;background:linear-gradient(120deg,var(--hero),var(--accDeep));padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+          <div style="position:absolute;right:-30px;bottom:-30px;width:190px;height:190px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);"></div>
+          <div style="position:relative;max-width:440px;display:flex;flex-direction:column;gap:8px;">
+            <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.12em;color:var(--acc);text-transform:uppercase;">Seguí aprendiendo</span>
+            <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:24px;color:#fff;line-height:1.2;">¿Querés practicar esto paso a paso?</h3>
+            <p style="margin:0;font-weight:600;font-size:15px;color:rgba(255,255,255,.85);line-height:1.5;">En Obol, el mundo de Finanzas Personales tiene lecciones enteras sobre ahorro y presupuesto, con ejercicios reales.</p>
+          </div>
+          <a href="../../index.html" class="obol-btn" style="position:relative;display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#0f2837;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:16px 30px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px -12px rgba(255,178,74,.6);">Conocé la app 🐷</a>
+        </div>
+      </article>
+
+      <div style="margin:56px 0 20px;">
+        <h2 style="margin:0 0 22px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:#0f2837;text-align:center;">Seguí leyendo</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;">
+
+          <a href="./mitos-que-cuestan-caro.html" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:block;position:relative;">
+            <div class="obol-card" style="position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:0 16px 32px -18px rgba(15,40,55,.5);">
+              <div style="position:absolute;inset:0;background-image:url('../assets/bg_desmitificando.jpg');background-size:cover;background-position:center 45%;"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,55,.05) 0%,rgba(15,40,55,.55) 48%,rgba(9,27,37,.94) 100%);"></div>
+              <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+                <span style="display:inline-flex;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#0f2837;background:rgba(255,255,255,.92);padding:4px 10px;border-radius:999px;text-transform:uppercase;">Mitos</span>
+                <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;line-height:1.2;color:#fff;">5 mitos financieros que te están costando plata</h3>
+              </div>
+            </div>
+            <img src="../assets/char-mito.png" alt="" style="position:absolute;right:-6px;bottom:-10px;width:96px;height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 12px 14px rgba(15,40,55,.4));">
+          </a>
+
+          <a href="./acciones-bonos-cedears.html" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:block;position:relative;">
+            <div class="obol-card" style="position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:0 16px 32px -18px rgba(15,40,55,.5);">
+              <div style="position:absolute;inset:0;background-image:url('../assets/bg_inversiones_base.jpg');background-size:cover;background-position:center 45%;"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,55,.05) 0%,rgba(15,40,55,.55) 48%,rgba(9,27,37,.94) 100%);"></div>
+              <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+                <span style="display:inline-flex;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#0f2837;background:rgba(255,255,255,.92);padding:4px 10px;border-radius:999px;text-transform:uppercase;">Inversión</span>
+                <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;line-height:1.2;color:#fff;">Acciones, bonos y CEDEARs: la guía para no perderte</h3>
+              </div>
+            </div>
+            <img src="../assets/char-inversor-pro.png" alt="" style="position:absolute;right:-6px;bottom:-10px;width:96px;height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 12px 14px rgba(15,40,55,.4));">
+          </a>
+
+          <a href="./tarjeta-de-credito-mal-usada.html" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:block;position:relative;">
+            <div class="obol-card" style="position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:0 16px 32px -18px rgba(15,40,55,.5);">
+              <div style="position:absolute;inset:0;background-image:url('../assets/bg_deuda_credito.jpg');background-size:cover;background-position:center 45%;"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,55,.05) 0%,rgba(15,40,55,.55) 48%,rgba(9,27,37,.94) 100%);"></div>
+              <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+                <span style="display:inline-flex;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#0f2837;background:rgba(255,255,255,.92);padding:4px 10px;border-radius:999px;text-transform:uppercase;">Deuda y crédito</span>
+                <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;line-height:1.2;color:#fff;">Tarjeta de crédito: la herramienta financiera más mal usada de Argentina</h3>
+              </div>
+            </div>
+            <img src="../assets/char-ciudadano.png" alt="" style="position:absolute;right:-6px;bottom:-10px;width:96px;height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 12px 14px rgba(15,40,55,.4));">
+          </a>
+
+        </div>
       </div>
-      <a class="btn btn-amber" href="../../index.html">Conocé la app 🐷</a>
-    </div>
-
-    <p>Un fondo de emergencia no es glamoroso. No vas a postear en redes que lo armaste. Pero es, silenciosamente, lo que separa a alguien que atraviesa un imprevisto sin sobresaltos de alguien que tiene que endeudarse a las apuradas para resolverlo.</p>
-  </div>
-
-  <div class="related narrow">
-    <h3>Seguí leyendo</h3>
-    <div class="related-grid">
-      <a href="./mitos-que-cuestan-caro.html"><img src="../assets/char-mito.png" alt="">5 mitos financieros que cuestan caro</a>
-      <a href="./acciones-bonos-cedears.html"><img src="../assets/char-inversor-pro.png" alt="">Acciones, bonos y CEDEARs</a>
-      <a href="./tarjeta-de-credito-mal-usada.html"><img src="../assets/char-ciudadano.png" alt="">Tarjeta de crédito, mal usada</a>
     </div>
   </div>
-</article>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-links">
-      <a href="../../index.html">Obol</a>
-      <a href="../../aprende.html">Qué enseña la app</a>
-      <a href="../../privacy.html">Privacidad</a>
-      <a href="../../terms.html">Términos</a>
+  <div style="background:#0f1730;margin-top:40px;padding:34px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="../assets/icon.png" alt="Obol" style="width:26px;height:26px;border-radius:7px;">
+      <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:rgba(255,255,255,.7);">Obol Blog</span>
     </div>
-    <div style="font-size:13px;">🐷 Obol Blog</div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;">
+      <a href="../../index.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Obol</a>
+      <a href="../../aprende.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Qué enseña la app</a>
+      <a href="../../privacy.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Privacidad</a>
+      <a href="../../terms.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Términos</a>
+    </div>
   </div>
-</footer>
+
+</div>
+
+<script>
+(function() {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = (h.scrollHeight - h.clientHeight) || 1;
+    var pct = Math.min(100, Math.max(0, (window.scrollY || h.scrollTop) / max * 100));
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 
 </body>
 </html>

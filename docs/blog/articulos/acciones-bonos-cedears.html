@@ -2,98 +2,193 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Acciones, bonos y CEDEARs: la guía para no perderte — Obol Blog</title>
-<meta name="description" content="La jerga de invertir, traducida al español de todos los días: qué es una acción, qué es un bono, y cómo un argentino compra Apple sin salir del país.">
+<meta name="description" content="Tres palabras que aparecen todo el tiempo en las noticias económicas y que casi nadie te explicó bien alguna vez.">
 <link rel="icon" href="../assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/blog.css">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/article.css">
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="wrap">
-    <a class="brand" href="../index.html">
-      <img src="../assets/icon.png" alt="Obol">
-      <span class="masthead">Obol <em>Blog</em></span>
+<div style="font-family:'Nunito',system-ui,sans-serif;color:#1b2436;position:relative;--hero:#1c3a34;--acc:#4fd0a0;--accDeep:#148a62;--tint:#eafaf3;">
+
+  <div style="position:fixed;top:0;left:0;right:0;height:5px;z-index:60;background:rgba(15,40,55,.08);">
+    <div id="progress" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accDeep),var(--acc),#ffb24a);transition:width .08s linear;"></div>
+  </div>
+
+  <div style="position:sticky;top:0;z-index:40;background:rgba(15,33,62,.9);backdrop-filter:blur(10px);padding:13px 34px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(10,15,30,.22);">
+    <a href="../index.html" style="display:flex;align-items:center;gap:11px;color:#fff;">
+      <img src="../assets/icon.png" alt="Obol" style="width:32px;height:32px;border-radius:9px;">
+      <span style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#fff;">Obol <span style="font-weight:500;color:#ffb24a;">Blog</span></span>
     </a>
-    <div class="nav-links">
-      <a href="../index.html">Notas</a>
-      <a href="../../aprende.html">Qué enseña la app</a>
-      <a class="btn-nav" href="../../index.html">Conocé Obol</a>
-    </div>
+    <a href="../index.html" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13.5px;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:8px 16px;border-radius:999px;">← Volver a las notas</a>
   </div>
-</nav>
 
-<article>
-  <header class="article-hero" style="--accent:var(--c-inversion);">
-    <div class="wrap">
-      <span class="tag" style="--accent:var(--c-inversion);">Inversión</span>
-      <h1 class="display">Acciones, bonos y CEDEARs: la guía para no perderte</h1>
-      <p class="dek">Tres palabras que aparecen todo el tiempo en las noticias económicas y que casi nadie te explicó bien alguna vez.</p>
-      <div class="byline">
-        <img src="../assets/char-inversor-pro.png" alt="">
-        <span>Por la Inversora Pro · 7 min de lectura</span>
+  <!-- HERO -->
+  <div style="position:relative;overflow:hidden;background:var(--hero);padding:54px 34px 128px;">
+    <div style="position:absolute;inset:0;background-image:url('../assets/bg_inversiones_base.jpg');background-size:cover;background-position:center 38%;opacity:.35;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg,var(--hero) 0%,var(--hero) 40%,rgba(0,0,0,0) 100%);"></div>
+    <div style="position:absolute;right:-30px;top:-30px;width:320px;height:320px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%);"></div>
+    <div style="position:relative;max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:36px;">
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:20px;">
+        <div class="obol-rise" style="display:flex;align-items:center;gap:10px;animation-delay:.05s;">
+          <span style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;color:var(--hero);background:var(--acc);padding:7px 15px;border-radius:999px;text-transform:uppercase;">Inversión</span>
+          <span style="font-weight:800;font-size:13px;color:rgba(255,255,255,.62);">7 min de lectura</span>
+        </div>
+        <h1 class="obol-rise" style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(32px,4.4vw,54px);line-height:1.05;color:#fff;letter-spacing:-.02em;animation-delay:.13s;">Acciones, bonos y CEDEARs: la guía para no perderte</h1>
+        <p class="obol-rise" style="margin:0;max-width:560px;font-weight:600;font-size:19px;line-height:1.55;color:rgba(255,255,255,.85);animation-delay:.22s;">Tres palabras que aparecen todo el tiempo en las noticias económicas y que casi nadie te explicó bien alguna vez.</p>
+        <div class="obol-rise" style="display:flex;align-items:center;gap:13px;margin-top:4px;animation-delay:.3s;">
+          <div style="width:52px;height:52px;border-radius:999px;background:rgba(255,255,255,.1);border:2px solid var(--acc);overflow:hidden;display:grid;place-items:center;flex:none;">
+            <img src="../assets/char-inversor-pro.png" alt="" style="width:48px;height:48px;object-fit:contain;transform:translateY(3px);">
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#fff;">La Inversora Pro</span>
+            <span style="font-weight:700;font-size:13px;color:rgba(255,255,255,.55);">Escribe en Obol</span>
+          </div>
+        </div>
+      </div>
+      <div class="obol-hero-pig" style="position:relative;flex:none;width:290px;display:grid;place-items:center;">
+        <div style="position:absolute;width:220px;height:220px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 68%);"></div>
+        <img src="../assets/char-inversor-pro.png" alt="La Inversora Pro" style="position:relative;width:270px;height:auto;filter:drop-shadow(0 22px 30px rgba(4,14,20,.55));animation:obolRise .8s cubic-bezier(.22,.61,.36,1) .35s both, obolFloat 7s ease-in-out 1.2s infinite;">
       </div>
     </div>
-  </header>
+    <div style="position:absolute;left:0;right:0;bottom:-1px;height:66px;background:#eef1f7;clip-path:polygon(0 55%,100% 0,100% 100%,0 100%);"></div>
+  </div>
 
-  <div class="article-art"><img src="../assets/char-inversor-pro.png" alt="Inversora Pro"></div>
+  <!-- BODY -->
+  <div style="display:flex;justify-content:center;padding:0 24px;">
+    <div style="width:100%;max-width:820px;margin-top:-60px;position:relative;z-index:5;">
+      <article class="obol-art" style="background:#fff;border-radius:28px;padding:58px clamp(28px,6vw,74px) 54px;box-shadow:0 30px 70px -30px rgba(15,40,55,.4);">
 
-  <div class="narrow article-body">
-    <p>Invertir suena complicado principalmente por el vocabulario, no por las ideas. Una vez que entendés qué representa cada instrumento, el resto es cuestión de práctica. Empecemos por las bases.</p>
+        <div style="display:flex;align-items:center;gap:10px;padding-bottom:24px;margin-bottom:8px;border-bottom:2px dashed #e2e7f0;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:#8a92a8;letter-spacing:.04em;">COMPARTIR</span>
+          <div style="display:flex;gap:9px;">
+            <a href="#" class="obol-btn" aria-label="Compartir en X" style="width:38px;height:38px;border-radius:11px;background:#f1f4fa;display:grid;place-items:center;color:#0f2837;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;">𝕏</a>
+            <a href="#" class="obol-btn" aria-label="Compartir en WhatsApp" style="width:38px;height:38px;border-radius:11px;background:#f1f4fa;display:grid;place-items:center;color:#0f2837;font-weight:800;font-size:14px;">Wa</a>
+            <a href="#" class="obol-btn" aria-label="Copiar enlace" style="width:38px;height:38px;border-radius:11px;background:#f1f4fa;display:grid;place-items:center;font-size:15px;">🔗</a>
+          </div>
+        </div>
 
-    <h2>Una acción es ser dueño de un pedacito de empresa</h2>
-    <p>Cuando comprás una acción de una empresa, no le estás "prestando" plata: te convertís en dueño de una fracción minúscula de esa compañía. Si a la empresa le va bien, el valor de tu parte tiende a subir (y a veces te paga dividendos, una parte de sus ganancias). Si le va mal, tu parte vale menos. No hay garantía de nada — ganás o perdés según cómo le vaya al negocio real detrás del papel.</p>
+        <p class="lead"><span style="float:left;font-family:'Fredoka',sans-serif;font-weight:700;font-size:74px;line-height:.72;padding:8px 12px 0 0;color:var(--accDeep);">I</span>nvertir suena complicado principalmente por <strong>el vocabulario</strong>, no por las ideas. Una vez que entendés qué representa cada instrumento, el resto es cuestión de práctica. Empecemos por las bases.</p>
 
-    <h2>Un bono es prestarle plata a alguien a cambio de interés</h2>
-    <p>Un bono funciona distinto: en vez de comprar una parte de una empresa, le prestás dinero a quien lo emite (puede ser un gobierno o una empresa), que se compromete a devolvértelo en una fecha futura junto con un interés pactado de antemano. Por eso los bonos suelen considerarse más "predecibles" que las acciones — sabés de antemano cuánto deberías cobrar, salvo que quien te debe no pueda pagar (lo que se llama default, y en la historia argentina no es precisamente raro).</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">01</span>Una acción es ser dueño de un pedacito de empresa</h2>
+        <p>Cuando comprás una acción no le "prestás" plata: te convertís en dueño de una fracción de la compañía. Si le va bien, tu parte tiende a subir (a veces paga <span class="obol-mark">dividendos</span>). Si le va mal, vale menos. <strong>No hay garantía de nada</strong>.</p>
 
-    <h2>CEDEARs: comprar Apple sin salir de Argentina</h2>
-    <p>Un CEDEAR (Certificado de Depósito Argentino) es un papel que cotiza en la bolsa local y que representa una acción de una empresa extranjera — Apple, Google, Coca-Cola — sin que tengas que abrir una cuenta en el exterior ni transferir dólares afuera. Comprás y vendés en pesos, en el mercado argentino, pero tu resultado sigue de cerca lo que hace esa acción en Wall Street (ajustado, además, por el tipo de cambio). Es la puerta de entrada más simple que tiene un argentino para invertir en empresas globales.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">02</span>Un bono es prestarle plata a alguien a cambio de interés</h2>
+        <p>Le prestás dinero a quien lo emite (un gobierno o una empresa), que se compromete a devolverlo con interés en una fecha futura. Más "predecible" que una acción — salvo que no puedan pagar, lo que se llama <strong>default</strong> (en la historia argentina, no tan raro).</p>
 
-    <blockquote>Ningún instrumento es "el mejor" en abstracto. Cada uno resuelve un objetivo distinto — la pregunta correcta no es "¿qué compro?" sino "¿qué estoy tratando de lograr?".</blockquote>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">03</span>CEDEARs: comprar Apple sin salir de Argentina</h2>
+        <p>Un CEDEAR es un papel que cotiza en la bolsa local y representa una acción extranjera —Apple, Google, Coca-Cola— sin abrir cuenta afuera. Comprás y vendés <span class="obol-mark">en pesos</span>, siguiendo de cerca lo que hace esa acción en Wall Street.</p>
 
-    <h2>El riesgo no se elimina, se administra</h2>
-    <p>Todo instrumento financiero tiene riesgo — la diferencia está en qué tipo de riesgo y cuánto. Las acciones suelen tener mayor volatilidad de corto plazo pero, históricamente, mejor retorno de largo plazo. Los bonos suelen ser más estables pero dependen de la capacidad de pago del emisor. La estrategia clásica para manejar esto es la diversificación: no poner todos los huevos en la misma canasta, para que un mal resultado en un instrumento no te arruine el resultado total.</p>
+        <div class="obol-reveal" style="position:relative;margin:40px 0;padding:34px 32px 30px 40px;border-radius:22px;background:var(--tint);border-left:6px solid var(--acc);box-shadow:0 16px 34px -24px rgba(15,40,55,.4);">
+          <span style="position:absolute;top:-16px;left:22px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:76px;line-height:1;color:var(--acc);opacity:.6;">"</span>
+          <p style="margin:0;font-family:'Fredoka',sans-serif;font-weight:600;font-size:22px;line-height:1.4;color:#243244;">Ningún instrumento es "el mejor" en abstracto. La pregunta correcta no es "¿qué compro?" sino "¿qué estoy tratando de lograr?".</p>
+          <span style="display:inline-block;margin-top:14px;font-weight:800;font-size:14px;color:var(--accDeep);">— La Inversora Pro</span>
+        </div>
 
-    <h2>El horizonte de tiempo lo cambia todo</h2>
-    <p>La misma inversión puede ser una buena o una mala idea según cuánto tiempo estés dispuesto a sostenerla. Si necesitás la plata en tres meses, la volatilidad de las acciones es un riesgo real. Si no la vas a tocar en cinco años, esa misma volatilidad de corto plazo importa mucho menos. Antes de elegir un instrumento, conviene definir para qué es esa plata y cuándo la vas a necesitar.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">04</span>El riesgo no se elimina, se administra</h2>
+        <p>Las acciones: más volatilidad de corto plazo, mejor retorno histórico de largo. Los bonos: más estables, pero dependen del emisor. La estrategia clásica es <strong>la diversificación</strong>: no poner todos los huevos en la misma canasta.</p>
 
-    <div class="cta-inline" style="--accent:var(--c-inversion);">
-      <div class="txt">
-        <h4>Nota importante</h4>
-        <p>Esto es contenido educativo, no una recomendación de inversión. En Obol practicás estos conceptos con ejercicios, sin arriesgar un peso real.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">05</span>El horizonte de tiempo lo cambia todo</h2>
+        <p>La misma inversión puede ser buena o mala según cuánto la sostengas. ¿La necesitás en tres meses? La volatilidad es un riesgo real. ¿No la tocás en cinco años? Importa mucho menos. Definí <strong>para qué es esa plata</strong>.</p>
+
+        <div class="obol-reveal" style="display:flex;gap:16px;margin:26px 0;padding:22px 24px;border-radius:20px;background:var(--tint);border:1.5px solid var(--acc);">
+          <div style="width:46px;height:46px;border-radius:13px;background:var(--accDeep);display:grid;place-items:center;font-size:24px;flex:none;">📈</div>
+          <div>
+            <span style="display:block;font-family:'Fredoka',sans-serif;font-weight:700;font-size:14px;letter-spacing:.06em;color:var(--accDeep);text-transform:uppercase;margin-bottom:4px;">Nota importante</span>
+            <span style="font-weight:700;font-size:16.5px;line-height:1.6;color:#1b2436;">Esto es contenido educativo, no una recomendación de inversión. En Obol practicás estos conceptos con ejercicios, sin arriesgar un peso real.</span>
+          </div>
+        </div>
+
+        <p>Entender la diferencia entre una acción, un bono y un CEDEAR no te convierte en inversor de la noche a la mañana. Pero te saca de tener que confiar ciegamente en lo que te recomienda otra persona — y esa es la primera inversión que vale la pena hacer.</p>
+
+        <div class="obol-reveal" style="position:relative;overflow:hidden;margin:44px 0 4px;border-radius:24px;background:linear-gradient(120deg,var(--hero),var(--accDeep));padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+          <div style="position:absolute;right:-30px;bottom:-30px;width:190px;height:190px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);"></div>
+          <div style="position:relative;max-width:440px;display:flex;flex-direction:column;gap:8px;">
+            <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.12em;color:var(--acc);text-transform:uppercase;">Seguí aprendiendo</span>
+            <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:24px;color:#fff;line-height:1.2;">¿Querés practicar sin arriesgar plata?</h3>
+            <p style="margin:0;font-weight:600;font-size:15px;color:rgba(255,255,255,.85);line-height:1.5;">En Obol el mundo de Finanzas e Inversiones tiene ejercicios para practicar antes de invertir de verdad.</p>
+          </div>
+          <a href="../../index.html" class="obol-btn" style="position:relative;display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#0f2837;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:16px 30px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px -12px rgba(255,178,74,.6);">Conocé la app 🐷</a>
+        </div>
+      </article>
+
+      <div style="margin:56px 0 20px;">
+        <h2 style="margin:0 0 22px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:#0f2837;text-align:center;">Seguí leyendo</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;">
+
+          <a href="./bitcoin-en-criollo.html" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:block;position:relative;">
+            <div class="obol-card" style="position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:0 16px 32px -18px rgba(15,40,55,.5);">
+              <div style="position:absolute;inset:0;background-image:url('../assets/bg_criptomonedas.jpg');background-size:cover;background-position:center 45%;"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,55,.05) 0%,rgba(15,40,55,.55) 48%,rgba(9,27,37,.94) 100%);"></div>
+              <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+                <span style="display:inline-flex;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#0f2837;background:rgba(255,255,255,.92);padding:4px 10px;border-radius:999px;text-transform:uppercase;">Cripto</span>
+                <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;line-height:1.2;color:#fff;">Bitcoin en criollo: qué es, qué no es, y los riesgos que nadie te cuenta</h3>
+              </div>
+            </div>
+            <img src="../assets/char-broker.png" alt="" style="position:absolute;right:-6px;bottom:-10px;width:96px;height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 12px 14px rgba(15,40,55,.4));">
+          </a>
+
+          <a href="./burbujas-crashes-panicos.html" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:block;position:relative;">
+            <div class="obol-card" style="position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:0 16px 32px -18px rgba(15,40,55,.5);">
+              <div style="position:absolute;inset:0;background-image:url('../assets/bg_crisis_ciclos.jpg');background-size:cover;background-position:center 45%;"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,55,.05) 0%,rgba(15,40,55,.55) 48%,rgba(9,27,37,.94) 100%);"></div>
+              <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+                <span style="display:inline-flex;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#0f2837;background:rgba(255,255,255,.92);padding:4px 10px;border-radius:999px;text-transform:uppercase;">Crisis</span>
+                <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;line-height:1.2;color:#fff;">Burbujas, crashes y pánicos: por qué la economía sube y baja</h3>
+              </div>
+            </div>
+            <img src="../assets/char-domador.png" alt="" style="position:absolute;right:-6px;bottom:-10px;width:96px;height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 12px 14px rgba(15,40,55,.4));">
+          </a>
+
+          <a href="./fondo-de-emergencia.html" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:block;position:relative;">
+            <div class="obol-card" style="position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:0 16px 32px -18px rgba(15,40,55,.5);">
+              <div style="position:absolute;inset:0;background-image:url('../assets/bg_ahorro.jpg');background-size:cover;background-position:center 45%;"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,55,.05) 0%,rgba(15,40,55,.55) 48%,rgba(9,27,37,.94) 100%);"></div>
+              <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+                <span style="display:inline-flex;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#0f2837;background:rgba(255,255,255,.92);padding:4px 10px;border-radius:999px;text-transform:uppercase;">Ahorro</span>
+                <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;line-height:1.2;color:#fff;">El colchón que sí sirve: cómo armar tu fondo de emergencia</h3>
+              </div>
+            </div>
+            <img src="../assets/char-ahorro.png" alt="" style="position:absolute;right:-6px;bottom:-10px;width:96px;height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 12px 14px rgba(15,40,55,.4));">
+          </a>
+
+        </div>
       </div>
-      <a class="btn btn-amber" href="../../index.html">Conocé la app 🐷</a>
-    </div>
-
-    <p>Entender la diferencia entre una acción, un bono y un CEDEAR no te convierte en inversor de la noche a la mañana. Pero te saca de la posición de tener que confiar ciegamente en lo que te recomienda otra persona — y esa es, en el fondo, la primera inversión que vale la pena hacer.</p>
-  </div>
-
-  <div class="related narrow">
-    <h3>Seguí leyendo</h3>
-    <div class="related-grid">
-      <a href="./bitcoin-en-criollo.html"><img src="../assets/char-broker.png" alt="">Bitcoin en criollo</a>
-      <a href="./burbujas-crashes-panicos.html"><img src="../assets/char-domador.png" alt="">Burbujas, crashes y pánicos</a>
-      <a href="./fondo-de-emergencia.html"><img src="../assets/char-ahorro.png" alt="">Cómo armar tu fondo de emergencia</a>
     </div>
   </div>
-</article>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-links">
-      <a href="../../index.html">Obol</a>
-      <a href="../../aprende.html">Qué enseña la app</a>
-      <a href="../../privacy.html">Privacidad</a>
-      <a href="../../terms.html">Términos</a>
+  <div style="background:#0f1730;margin-top:40px;padding:34px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="../assets/icon.png" alt="Obol" style="width:26px;height:26px;border-radius:7px;">
+      <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:rgba(255,255,255,.7);">Obol Blog</span>
     </div>
-    <div style="font-size:13px;">🐷 Obol Blog</div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;">
+      <a href="../../index.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Obol</a>
+      <a href="../../aprende.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Qué enseña la app</a>
+      <a href="../../privacy.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Privacidad</a>
+      <a href="../../terms.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Términos</a>
+    </div>
   </div>
-</footer>
+
+</div>
+
+<script>
+(function() {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = (h.scrollHeight - h.clientHeight) || 1;
+    var pct = Math.min(100, Math.max(0, (window.scrollY || h.scrollTop) / max * 100));
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 
 </body>
 </html>

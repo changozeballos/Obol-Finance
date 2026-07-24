@@ -2,98 +2,184 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>5 mitos financieros que te están costando plata — Obol Blog</title>
-<meta name="description" content="Frases sobre plata que repetimos sin pensar y que, en la práctica, nos hacen tomar peores decisiones financieras.">
+<meta name="description" content="Ideas que suenan lógicas, que repetimos en asados y grupos familiares, y que en la práctica nos llevan a peores decisiones.">
 <link rel="icon" href="../assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/blog.css">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/article.css">
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="wrap">
-    <a class="brand" href="../index.html">
-      <img src="../assets/icon.png" alt="Obol">
-      <span class="masthead">Obol <em>Blog</em></span>
+<div style="font-family:'Nunito',system-ui,sans-serif;color:#1b2436;position:relative;--hero:#2c1e3f;--acc:#b98cf0;--accDeep:#7a4fc0;--tint:#f5eeff;">
+
+  <div style="position:fixed;top:0;left:0;right:0;height:5px;z-index:60;background:rgba(15,40,55,.08);">
+    <div id="progress" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accDeep),var(--acc),#ffb24a);transition:width .08s linear;"></div>
+  </div>
+
+  <div style="position:sticky;top:0;z-index:40;background:rgba(15,33,62,.9);backdrop-filter:blur(10px);padding:13px 34px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(10,15,30,.22);">
+    <a href="../index.html" style="display:flex;align-items:center;gap:11px;color:#fff;">
+      <img src="../assets/icon.png" alt="Obol" style="width:32px;height:32px;border-radius:9px;">
+      <span style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#fff;">Obol <span style="font-weight:500;color:#ffb24a;">Blog</span></span>
     </a>
-    <div class="nav-links">
-      <a href="../index.html">Notas</a>
-      <a href="../../aprende.html">Qué enseña la app</a>
-      <a class="btn-nav" href="../../index.html">Conocé Obol</a>
-    </div>
+    <a href="../index.html" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13.5px;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:8px 16px;border-radius:999px;">← Volver a las notas</a>
   </div>
-</nav>
 
-<article>
-  <header class="article-hero" style="--accent:var(--c-mitos);">
-    <div class="wrap">
-      <span class="tag" style="--accent:var(--c-mitos);">Mitos</span>
-      <h1 class="display">5 mitos financieros que te están costando plata</h1>
-      <p class="dek">Ideas que suenan lógicas, que repetimos en asados y grupos familiares, y que en la práctica nos llevan a tomar peores decisiones.</p>
-      <div class="byline">
-        <img src="../assets/char-mito.png" alt="">
-        <span>Por el Cazador de Mitos · 6 min de lectura</span>
+  <!-- HERO -->
+  <div style="position:relative;overflow:hidden;background:var(--hero);padding:54px 34px 128px;">
+    <div style="position:absolute;inset:0;background-image:url('../assets/bg_desmitificando.jpg');background-size:cover;background-position:center 38%;opacity:.35;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg,var(--hero) 0%,var(--hero) 40%,rgba(0,0,0,0) 100%);"></div>
+    <div style="position:absolute;right:-30px;top:-30px;width:320px;height:320px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%);"></div>
+    <div style="position:relative;max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:36px;">
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:20px;">
+        <div class="obol-rise" style="display:flex;align-items:center;gap:10px;animation-delay:.05s;">
+          <span style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;color:var(--hero);background:var(--acc);padding:7px 15px;border-radius:999px;text-transform:uppercase;">Mitos</span>
+          <span style="font-weight:800;font-size:13px;color:rgba(255,255,255,.62);">6 min de lectura</span>
+        </div>
+        <h1 class="obol-rise" style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(32px,4.4vw,54px);line-height:1.05;color:#fff;letter-spacing:-.02em;animation-delay:.13s;">5 mitos financieros que te están costando plata</h1>
+        <p class="obol-rise" style="margin:0;max-width:560px;font-weight:600;font-size:19px;line-height:1.55;color:rgba(255,255,255,.85);animation-delay:.22s;">Ideas que suenan lógicas, que repetimos en asados y grupos familiares, y que en la práctica nos llevan a peores decisiones.</p>
+        <div class="obol-rise" style="display:flex;align-items:center;gap:13px;margin-top:4px;animation-delay:.3s;">
+          <div style="width:52px;height:52px;border-radius:999px;background:rgba(255,255,255,.1);border:2px solid var(--acc);overflow:hidden;display:grid;place-items:center;flex:none;">
+            <img src="../assets/char-mito.png" alt="" style="width:48px;height:48px;object-fit:contain;transform:translateY(3px);">
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#fff;">El Cazador de Mitos</span>
+            <span style="font-weight:700;font-size:13px;color:rgba(255,255,255,.55);">Escribe en Obol</span>
+          </div>
+        </div>
+      </div>
+      <div class="obol-hero-pig" style="position:relative;flex:none;width:290px;display:grid;place-items:center;">
+        <div style="position:absolute;width:220px;height:220px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 68%);"></div>
+        <img src="../assets/char-mito.png" alt="El Cazador de Mitos" style="position:relative;width:270px;height:auto;filter:drop-shadow(0 22px 30px rgba(4,14,20,.55));animation:obolRise .8s cubic-bezier(.22,.61,.36,1) .35s both, obolFloat 7s ease-in-out 1.2s infinite;">
       </div>
     </div>
-  </header>
+    <div style="position:absolute;left:0;right:0;bottom:-1px;height:66px;background:#eef1f7;clip-path:polygon(0 55%,100% 0,100% 100%,0 100%);"></div>
+  </div>
 
-  <div class="article-art"><img src="../assets/char-mito.png" alt="Cazador de mitos"></div>
+  <!-- BODY -->
+  <div style="display:flex;justify-content:center;padding:0 24px;">
+    <div style="width:100%;max-width:820px;margin-top:-60px;position:relative;z-index:5;">
+      <article class="obol-art" style="background:#fff;border-radius:28px;padding:58px clamp(28px,6vw,74px) 54px;box-shadow:0 30px 70px -30px rgba(15,40,55,.4);">
 
-  <div class="narrow article-body">
-    <p>No hace falta ser un experto en finanzas para tomar buenas decisiones con la plata. Pero sí hace falta desarmar algunas creencias que damos por ciertas sin cuestionarlas nunca. Estas cinco son las que más veces nos hacen tropezar.</p>
+        <div style="display:flex;align-items:center;gap:10px;padding-bottom:24px;margin-bottom:8px;border-bottom:2px dashed #e2e7f0;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:#8a92a8;letter-spacing:.04em;">COMPARTIR</span>
+          <div style="display:flex;gap:9px;">
+            <a href="#" class="obol-btn" aria-label="Compartir en X" style="width:38px;height:38px;border-radius:11px;background:#f1f4fa;display:grid;place-items:center;color:#0f2837;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;">𝕏</a>
+            <a href="#" class="obol-btn" aria-label="Compartir en WhatsApp" style="width:38px;height:38px;border-radius:11px;background:#f1f4fa;display:grid;place-items:center;color:#0f2837;font-weight:800;font-size:14px;">Wa</a>
+            <a href="#" class="obol-btn" aria-label="Copiar enlace" style="width:38px;height:38px;border-radius:11px;background:#f1f4fa;display:grid;place-items:center;font-size:15px;">🔗</a>
+          </div>
+        </div>
 
-    <h2>1. "Si ahorro poco, no sirve de nada"</h2>
-    <p>Es probablemente el mito más caro de todos, porque frena a la gente antes de arrancar. La matemática dice otra cosa: si ganás $500.000 por mes y lográs gastar $490.000, tu tasa de ahorro es del 2%. Poca, sí — pero no es cero. Lo que de verdad importa al principio no es el monto, es el hábito: la persona que ahorra 2% con disciplina es la que va a poder ahorrar 15% el día que tenga más margen. La que nunca empezó, no.</p>
+        <p class="lead"><span style="float:left;font-family:'Fredoka',sans-serif;font-weight:700;font-size:74px;line-height:.72;padding:8px 12px 0 0;color:var(--accDeep);">N</span>o hace falta ser un experto para tomar buenas decisiones con la plata. Pero sí hace falta desarmar algunas creencias que damos por ciertas <strong>sin cuestionarlas nunca</strong>. Estas cinco son las que más veces nos hacen tropezar.</p>
 
-    <h2>2. "Hay que ser rico para invertir"</h2>
-    <p>Esta creencia viene de una época en la que invertir significaba llamar a un asesor de traje y poner una suma mínima de miles de dólares. Hoy existen instrumentos accesibles con montos bajos de entrada. La barrera ya no es el capital — es la información. Por eso mismo, entender qué es una acción, un bono o un CEDEAR antes de poner un peso vale más que "esperar a tener más plata".</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">01</span>"Si ahorro poco, no sirve de nada"</h2>
+        <p>Es probablemente el mito más caro, porque frena a la gente antes de arrancar. Si ganás $500.000 y gastás $490.000, tu tasa de ahorro es del 2%. Poca, sí — pero no es cero. Lo que importa al principio no es el monto: es <strong>el hábito</strong>.</p>
 
-    <h2>3. "La deuda siempre es mala"</h2>
-    <p>Depende para qué la uses. Endeudarte para financiar un gasto que se licúa (un viaje, una salida) con una tasa alta es, en general, mala idea. Endeudarte a tasa razonable para algo que te genera ingresos o te ahorra más de lo que te cuesta el interés puede ser una herramienta perfectamente racional. El problema nunca es la deuda en sí — es la deuda mal calculada.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">02</span>"Hay que ser rico para invertir"</h2>
+        <p>Viene de una época en la que invertir era llamar a un asesor de traje. Hoy existen instrumentos accesibles con montos bajos. La barrera ya no es el capital — es <span class="obol-mark">la información</span>.</p>
 
-    <blockquote>No existen las decisiones financieras "siempre buenas" o "siempre malas". Existen decisiones que tienen sentido para un contexto y una tasa de interés específicos.</blockquote>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">03</span>"La deuda siempre es mala"</h2>
+        <p>Depende para qué la uses. A tasa alta para un gasto que se licúa, mala idea. A tasa razonable para algo que genera ingresos, puede ser racional. El problema nunca es la deuda: es <strong>la deuda mal calculada</strong>.</p>
 
-    <h2>4. "Con que gane más ya está resuelto"</h2>
-    <p>Ganar más ayuda, pero no resuelve nada por sí solo si los gastos crecen a la misma velocidad que los ingresos — un fenómeno tan común que tiene nombre propio: "inflación de estilo de vida". Sin un plan de gastos, un aumento de sueldo simplemente sube el nivel de gasto, no la capacidad de ahorro.</p>
+        <div class="obol-reveal" style="position:relative;margin:40px 0;padding:34px 32px 30px 40px;border-radius:22px;background:var(--tint);border-left:6px solid var(--acc);box-shadow:0 16px 34px -24px rgba(15,40,55,.4);">
+          <span style="position:absolute;top:-16px;left:22px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:76px;line-height:1;color:var(--acc);opacity:.6;">"</span>
+          <p style="margin:0;font-family:'Fredoka',sans-serif;font-weight:600;font-size:22px;line-height:1.4;color:#243244;">No existen las decisiones financieras "siempre buenas" o "siempre malas". Existen decisiones que tienen sentido para un contexto y una tasa de interés específicos.</p>
+          <span style="display:inline-block;margin-top:14px;font-weight:800;font-size:14px;color:var(--accDeep);">— El Cazador de Mitos</span>
+        </div>
 
-    <h2>5. "Los bancos son los únicos lugares seguros para la plata"</h2>
-    <p>Los bancos son seguros para custodiar dinero, sí, pero "seguro" no es lo mismo que "conveniente". Dejar todos tus ahorros en una caja de ahorro sin remunerar, en un país con inflación como la Argentina, significa perder poder adquisitivo mes a mes de forma garantizada. Seguridad y rendimiento son preguntas distintas, y conviene resolver las dos.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">04</span>"Con que gane más ya está resuelto"</h2>
+        <p>Ganar más no resuelve nada por sí solo si los gastos crecen a la misma velocidad — un fenómeno con nombre propio: la <span class="obol-mark">"inflación de estilo de vida"</span>. Sin un plan, un aumento simplemente sube el nivel de gasto, no el ahorro.</p>
 
-    <div class="cta-inline" style="--accent:var(--c-mitos);">
-      <div class="txt">
-        <h4>¿Cuántos mitos más creías ciertos?</h4>
-        <p>Obol tiene un mundo entero, "Desmitificando", dedicado a desarmar ideas como estas con preguntas interactivas.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">05</span>"Los bancos son los únicos lugares seguros"</h2>
+        <p>Seguros para custodiar, sí, pero "seguro" no es lo mismo que "conveniente". Dejar todo en una caja de ahorro sin remunerar, en un país con inflación, significa <strong>perder poder adquisitivo garantizado</strong> mes a mes.</p>
+        <p>Ninguno de estos mitos es "tonto" — todos tienen algo de sentido común detrás, por eso se repiten tanto. Pero la plata no funciona solo con sentido común: funciona con reglas específicas, y vale la pena conocerlas.</p>
+
+        <div class="obol-reveal" style="position:relative;overflow:hidden;margin:44px 0 4px;border-radius:24px;background:linear-gradient(120deg,var(--hero),var(--accDeep));padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+          <div style="position:absolute;right:-30px;bottom:-30px;width:190px;height:190px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);"></div>
+          <div style="position:relative;max-width:440px;display:flex;flex-direction:column;gap:8px;">
+            <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.12em;color:var(--acc);text-transform:uppercase;">Seguí aprendiendo</span>
+            <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:24px;color:#fff;line-height:1.2;">¿Cuántos mitos más creías ciertos?</h3>
+            <p style="margin:0;font-weight:600;font-size:15px;color:rgba(255,255,255,.85);line-height:1.5;">Obol tiene un mundo entero, "Desmitificando", dedicado a desarmar ideas como estas con preguntas interactivas.</p>
+          </div>
+          <a href="../../index.html" class="obol-btn" style="position:relative;display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#0f2837;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:16px 30px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px -12px rgba(255,178,74,.6);">Conocé la app 🐷</a>
+        </div>
+      </article>
+
+      <div style="margin:56px 0 20px;">
+        <h2 style="margin:0 0 22px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:#0f2837;text-align:center;">Seguí leyendo</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;">
+
+          <a href="./fondo-de-emergencia.html" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:block;position:relative;">
+            <div class="obol-card" style="position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:0 16px 32px -18px rgba(15,40,55,.5);">
+              <div style="position:absolute;inset:0;background-image:url('../assets/bg_ahorro.jpg');background-size:cover;background-position:center 45%;"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,55,.05) 0%,rgba(15,40,55,.55) 48%,rgba(9,27,37,.94) 100%);"></div>
+              <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+                <span style="display:inline-flex;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#0f2837;background:rgba(255,255,255,.92);padding:4px 10px;border-radius:999px;text-transform:uppercase;">Ahorro</span>
+                <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;line-height:1.2;color:#fff;">El colchón que sí sirve: cómo armar tu fondo de emergencia</h3>
+              </div>
+            </div>
+            <img src="../assets/char-ahorro.png" alt="" style="position:absolute;right:-6px;bottom:-10px;width:96px;height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 12px 14px rgba(15,40,55,.4));">
+          </a>
+
+          <a href="./tarjeta-de-credito-mal-usada.html" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:block;position:relative;">
+            <div class="obol-card" style="position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:0 16px 32px -18px rgba(15,40,55,.5);">
+              <div style="position:absolute;inset:0;background-image:url('../assets/bg_deuda_credito.jpg');background-size:cover;background-position:center 45%;"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,55,.05) 0%,rgba(15,40,55,.55) 48%,rgba(9,27,37,.94) 100%);"></div>
+              <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+                <span style="display:inline-flex;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#0f2837;background:rgba(255,255,255,.92);padding:4px 10px;border-radius:999px;text-transform:uppercase;">Deuda y crédito</span>
+                <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;line-height:1.2;color:#fff;">Tarjeta de crédito: la herramienta financiera más mal usada de Argentina</h3>
+              </div>
+            </div>
+            <img src="../assets/char-ciudadano.png" alt="" style="position:absolute;right:-6px;bottom:-10px;width:96px;height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 12px 14px rgba(15,40,55,.4));">
+          </a>
+
+          <a href="./acciones-bonos-cedears.html" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:block;position:relative;">
+            <div class="obol-card" style="position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:0 16px 32px -18px rgba(15,40,55,.5);">
+              <div style="position:absolute;inset:0;background-image:url('../assets/bg_inversiones_base.jpg');background-size:cover;background-position:center 45%;"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,55,.05) 0%,rgba(15,40,55,.55) 48%,rgba(9,27,37,.94) 100%);"></div>
+              <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+                <span style="display:inline-flex;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#0f2837;background:rgba(255,255,255,.92);padding:4px 10px;border-radius:999px;text-transform:uppercase;">Inversión</span>
+                <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;line-height:1.2;color:#fff;">Acciones, bonos y CEDEARs: la guía para no perderte</h3>
+              </div>
+            </div>
+            <img src="../assets/char-inversor-pro.png" alt="" style="position:absolute;right:-6px;bottom:-10px;width:96px;height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 12px 14px rgba(15,40,55,.4));">
+          </a>
+
+        </div>
       </div>
-      <a class="btn btn-amber" href="../../index.html">Conocé la app 🐷</a>
-    </div>
-
-    <p>Ninguno de estos mitos es "tonto" — todos tienen algo de sentido común detrás, y por eso se repiten tanto. El problema es que la plata no funciona con sentido común solamente: funciona con reglas específicas, y vale la pena conocerlas.</p>
-  </div>
-
-  <div class="related narrow">
-    <h3>Seguí leyendo</h3>
-    <div class="related-grid">
-      <a href="./fondo-de-emergencia.html"><img src="../assets/char-ahorro.png" alt="">Cómo armar tu fondo de emergencia</a>
-      <a href="./tarjeta-de-credito-mal-usada.html"><img src="../assets/char-ciudadano.png" alt="">La herramienta financiera más mal usada</a>
-      <a href="./acciones-bonos-cedears.html"><img src="../assets/char-inversor-pro.png" alt="">Acciones, bonos y CEDEARs</a>
     </div>
   </div>
-</article>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-links">
-      <a href="../../index.html">Obol</a>
-      <a href="../../aprende.html">Qué enseña la app</a>
-      <a href="../../privacy.html">Privacidad</a>
-      <a href="../../terms.html">Términos</a>
+  <div style="background:#0f1730;margin-top:40px;padding:34px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="../assets/icon.png" alt="Obol" style="width:26px;height:26px;border-radius:7px;">
+      <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:rgba(255,255,255,.7);">Obol Blog</span>
     </div>
-    <div style="font-size:13px;">🐷 Obol Blog</div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;">
+      <a href="../../index.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Obol</a>
+      <a href="../../aprende.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Qué enseña la app</a>
+      <a href="../../privacy.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Privacidad</a>
+      <a href="../../terms.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Términos</a>
+    </div>
   </div>
-</footer>
+
+</div>
+
+<script>
+(function() {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = (h.scrollHeight - h.clientHeight) || 1;
+    var pct = Math.min(100, Math.max(0, (window.scrollY || h.scrollTop) / max * 100));
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 
 </body>
 </html>

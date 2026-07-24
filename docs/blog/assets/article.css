@@ -1,0 +1,25 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #eef1f7; font-family: 'Nunito', system-ui, sans-serif; color: #1b2436; }
+a { color: #0f6e7d; text-decoration: none; }
+a:hover { filter: brightness(1.15); }
+::selection { background: #ffd68f; color: #0f2837; }
+.obol-card { transition: transform .2s ease, box-shadow .2s ease; }
+.obol-card:hover { transform: translateY(-6px); box-shadow: 0 26px 46px -20px rgba(15,40,55,.5); }
+.obol-btn { transition: transform .18s ease, filter .18s ease, box-shadow .18s ease; }
+.obol-btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.obol-art h2 { margin: 46px 0 4px; font-family: 'Fredoka',sans-serif; font-weight: 700; font-size: 30px; line-height: 1.15; color: #0f2837; letter-spacing: -.01em; }
+.obol-art p { margin: 18px 0; font-weight: 600; font-size: 18.5px; line-height: 1.72; color: #33404f; }
+.obol-art p.lead { font-size: 21px; color: #1b2436; }
+.obol-art strong { color: #0f2837; font-weight: 800; }
+.obol-mark { background: linear-gradient(180deg,transparent 58%,#ffe08a 58%); padding: 0 2px; font-weight: 800; color: #1b2436; }
+@keyframes obolRise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+@keyframes obolFloat { 0%,100% { transform: translateY(0) rotate(-1.5deg); } 50% { transform: translateY(-14px) rotate(1.5deg); } }
+@keyframes obolBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(9px); } }
+.obol-rise { opacity: 0; animation: obolRise .7s cubic-bezier(.22,.61,.36,1) forwards; }
+.obol-reveal { opacity: 1; }
+@supports (animation-timeline: view()) {
+  .obol-reveal { opacity: 0; animation: obolRise linear both; animation-timeline: view(); animation-range: entry 2% cover 22%; }
+}
+@media (prefers-reduced-motion: reduce) { .obol-rise,.obol-reveal,[style*="obolFloat"],[style*="obolBob"] { animation: none !important; opacity: 1 !important; } }
+@media (max-width: 900px) { .obol-hero-pig { display: none !important; } .obol-art h2 { font-size: 25px; } .obol-art p { font-size: 17px; } }

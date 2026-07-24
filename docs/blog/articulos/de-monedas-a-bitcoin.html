@@ -2,105 +2,198 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>De las monedas de Lidia al bitcoin: 2700 años de inventar el dinero — Obol Blog</title>
-<meta name="description" content="Una historia corta del dinero: del trueque a las primeras monedas, del papel moneda al patrón oro, y de ahí al bitcoin. El mismo problema, resuelto una y otra vez.">
+<meta name="description" content="El mismo problema —intercambiar valor con un desconocido sin que nadie te estafe— resuelto una y otra vez, con herramientas cada vez más raras.">
 <link rel="icon" href="../assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/blog.css">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/article.css">
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="wrap">
-    <a class="brand" href="../index.html">
-      <img src="../assets/icon.png" alt="Obol">
-      <span class="masthead">Obol <em>Blog</em></span>
+<div style="font-family:'Nunito',system-ui,sans-serif;color:#1b2436;position:relative;--hero:#3a2417;--acc:#e0a94a;--accDeep:#a9760f;--tint:#fbf3e4;">
+
+  <div style="position:fixed;top:0;left:0;right:0;height:5px;z-index:60;background:rgba(15,40,55,.08);">
+    <div id="progress" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accDeep),var(--acc),#ffb24a);transition:width .08s linear;"></div>
+  </div>
+
+  <div style="position:sticky;top:0;z-index:40;background:rgba(15,33,62,.9);backdrop-filter:blur(10px);padding:13px 34px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(10,15,30,.22);">
+    <a href="../index.html" style="display:flex;align-items:center;gap:11px;color:#fff;">
+      <img src="../assets/icon.png" alt="Obol" style="width:32px;height:32px;border-radius:9px;">
+      <span style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:18px;color:#fff;">Obol <span style="font-weight:500;color:#ffb24a;">Blog</span></span>
     </a>
-    <div class="nav-links">
-      <a href="../index.html">Notas</a>
-      <a href="../../aprende.html">Qué enseña la app</a>
-      <a class="btn-nav" href="../../index.html">Conocé Obol</a>
-    </div>
+    <a href="../index.html" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13.5px;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:8px 16px;border-radius:999px;">← Volver a las notas</a>
   </div>
-</nav>
 
-<article>
-  <header class="article-hero" style="--accent:var(--c-historia);">
-    <div class="wrap">
-      <span class="tag" style="--accent:var(--c-historia);">Historia</span>
-      <h1 class="display">De las monedas de Lidia al bitcoin: 2700 años de inventar el dinero</h1>
-      <p class="dek">El mismo problema —cómo intercambiar valor con un desconocido sin que nadie te estafe— resuelto una y otra vez, con herramientas cada vez más raras.</p>
-      <div class="byline">
-        <img src="../assets/char-griego.png" alt="">
-        <span>Por El Griego · 8 min de lectura</span>
+  <!-- HERO -->
+  <div style="position:relative;overflow:hidden;background:var(--hero);padding:54px 34px 128px;">
+    <div style="position:absolute;inset:0;background-image:url('../assets/bg_historia.jpg');background-size:cover;background-position:center 38%;opacity:.35;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg,var(--hero) 0%,var(--hero) 40%,rgba(0,0,0,0) 100%);"></div>
+    <div style="position:absolute;right:-30px;top:-30px;width:320px;height:320px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%);"></div>
+    <div style="position:relative;max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:36px;">
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:20px;">
+        <div class="obol-rise" style="display:flex;align-items:center;gap:10px;animation-delay:.05s;">
+          <span style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;color:var(--hero);background:var(--acc);padding:7px 15px;border-radius:999px;text-transform:uppercase;">Historia</span>
+          <span style="font-weight:800;font-size:13px;color:rgba(255,255,255,.62);">8 min de lectura</span>
+        </div>
+        <h1 class="obol-rise" style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(32px,4.4vw,54px);line-height:1.05;color:#fff;letter-spacing:-.02em;animation-delay:.13s;">De las monedas de Lidia al bitcoin: 2700 años de inventar el dinero</h1>
+        <p class="obol-rise" style="margin:0;max-width:560px;font-weight:600;font-size:19px;line-height:1.55;color:rgba(255,255,255,.85);animation-delay:.22s;">El mismo problema —intercambiar valor con un desconocido sin que nadie te estafe— resuelto una y otra vez, con herramientas cada vez más raras.</p>
+        <div class="obol-rise" style="display:flex;align-items:center;gap:13px;margin-top:4px;animation-delay:.3s;">
+          <div style="width:52px;height:52px;border-radius:999px;background:rgba(255,255,255,.1);border:2px solid var(--acc);overflow:hidden;display:grid;place-items:center;flex:none;">
+            <img src="../assets/char-griego.png" alt="" style="width:48px;height:48px;object-fit:contain;transform:translateY(3px);">
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#fff;">El Griego</span>
+            <span style="font-weight:700;font-size:13px;color:rgba(255,255,255,.55);">Escribe en Obol</span>
+          </div>
+        </div>
+      </div>
+      <div class="obol-hero-pig" style="position:relative;flex:none;width:290px;display:grid;place-items:center;">
+        <div style="position:absolute;width:220px;height:220px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 68%);"></div>
+        <img src="../assets/char-griego.png" alt="El Griego" style="position:relative;width:270px;height:auto;filter:drop-shadow(0 22px 30px rgba(4,14,20,.55));animation:obolRise .8s cubic-bezier(.22,.61,.36,1) .35s both, obolFloat 7s ease-in-out 1.2s infinite;">
       </div>
     </div>
-  </header>
+    <div style="position:absolute;left:0;right:0;bottom:-1px;height:66px;background:#eef1f7;clip-path:polygon(0 55%,100% 0,100% 100%,0 100%);"></div>
+  </div>
 
-  <div class="article-art"><img src="../assets/char-griego.png" alt="El Griego"></div>
+  <!-- BODY -->
+  <div style="display:flex;justify-content:center;padding:0 24px;">
+    <div style="width:100%;max-width:820px;margin-top:-60px;position:relative;z-index:5;">
+      <article class="obol-art" style="background:#fff;border-radius:28px;padding:58px clamp(28px,6vw,74px) 54px;box-shadow:0 30px 70px -30px rgba(15,40,55,.4);">
 
-  <div class="narrow article-body">
-    <p>Antes de que existiera el dinero, si vos tenías gallinas y necesitabas zapatos, tenías que encontrar a alguien que tuviera zapatos <em>y</em> que justo quisiera gallinas. Ese problema tiene nombre: los economistas lo llaman "doble coincidencia de necesidades", y durante milenios fue el principal freno del comercio.</p>
+        <div style="display:flex;align-items:center;gap:10px;padding-bottom:24px;margin-bottom:8px;border-bottom:2px dashed #e2e7f0;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:#8a92a8;letter-spacing:.04em;">COMPARTIR</span>
+          <div style="display:flex;gap:9px;">
+            <a href="#" class="obol-btn" aria-label="Compartir en X" style="width:38px;height:38px;border-radius:11px;background:#f1f4fa;display:grid;place-items:center;color:#0f2837;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;">𝕏</a>
+            <a href="#" class="obol-btn" aria-label="Compartir en WhatsApp" style="width:38px;height:38px;border-radius:11px;background:#f1f4fa;display:grid;place-items:center;color:#0f2837;font-weight:800;font-size:14px;">Wa</a>
+            <a href="#" class="obol-btn" aria-label="Copiar enlace" style="width:38px;height:38px;border-radius:11px;background:#f1f4fa;display:grid;place-items:center;font-size:15px;">🔗</a>
+          </div>
+        </div>
 
-    <p>La solución no apareció de golpe. Apareció como una serie de parches, cada uno mejor que el anterior, hasta llegar a lo que hoy llamamos "plata".</p>
+        <p class="lead"><span style="float:left;font-family:'Fredoka',sans-serif;font-weight:700;font-size:74px;line-height:.72;padding:8px 12px 0 0;color:var(--accDeep);">A</span>ntes de que existiera el dinero, si tenías gallinas y necesitabas zapatos, tenías que encontrar a alguien con zapatos <strong>que justo quisiera gallinas</strong>. Los economistas lo llaman "doble coincidencia de necesidades", y durante milenios fue el principal freno del comercio.</p>
+        <p>La solución no apareció de golpe. Apareció como una serie de parches, cada uno mejor que el anterior, hasta llegar a lo que hoy llamamos "plata".</p>
 
-    <h2>El primer parche: objetos que todos aceptaban</h2>
-    <p>Mucho antes de las monedas, distintas culturas usaron objetos que funcionaban como dinero sin serlo del todo: conchas de cauri en partes de África y Asia, sal en el Imperio Romano (de ahí viene la palabra "salario"), cacao en Mesoamérica. La regla era simple: tenía que ser algo escaso, difícil de falsificar, y que todos quisieran aunque solo fuera para volver a intercambiarlo.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">01</span>El primer parche: objetos que todos aceptaban</h2>
+        <p>Distintas culturas usaron objetos como dinero: conchas de cauri, sal en el Imperio Romano (de ahí viene "salario"), cacao en Mesoamérica. La regla era simple: algo <span class="obol-mark">escaso, difícil de falsificar y que todos quisieran</span>.</p>
 
-    <h2>Lidia, ~700 a.C.: la primera moneda de verdad</h2>
-    <p>El salto grande lo dio el reino de Lidia, en la actual Turquía, alrededor del siglo VII antes de Cristo. Empezaron a acuñar piezas de electrum (una aleación natural de oro y plata) con un peso y una pureza garantizados por el propio Estado. La idea era genial: en vez de pesar y evaluar la pureza del metal cada vez que hacías una transacción, confiabas en el sello del rey.</p>
+        <div class="obol-reveal" style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin:36px 0;padding:30px 34px;border-radius:22px;background:linear-gradient(120deg,var(--hero),var(--accDeep));box-shadow:0 22px 44px -22px rgba(15,40,55,.55);">
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(50px,8vw,80px);line-height:.9;color:var(--acc);letter-spacing:-.03em;">~700 a.C.</span>
+          <span style="font-weight:700;font-size:16px;line-height:1.5;color:rgba(255,255,255,.9);max-width:340px;">el reino de Lidia acuña las primeras monedas, con peso y pureza garantizados por el Estado.</span>
+        </div>
 
-    <p>Grecia tomó la idea y la llevó más lejos con el dracma, que circuló entre ciudades-estado que ni siquiera se llevaban bien entre sí. Eso ya es algo poderoso: dos enemigos podían confiar en la misma moneda.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">02</span>Lidia: la primera moneda de verdad</h2>
+        <p>Lidia, en la actual Turquía, empezó a acuñar piezas de electrum con peso y pureza garantizados. En vez de pesar el metal en cada transacción, <strong>confiabas en el sello del rey</strong>. Grecia lo llevó más lejos con el dracma, que circuló entre ciudades-estado que ni se llevaban bien.</p>
 
-    <blockquote>El dinero nunca fue el metal en sí. Siempre fue la confianza colectiva de que ese objeto iba a seguir sirviendo para pagar mañana.</blockquote>
+        <div class="obol-reveal" style="position:relative;margin:40px 0;padding:34px 32px 30px 40px;border-radius:22px;background:var(--tint);border-left:6px solid var(--acc);box-shadow:0 16px 34px -24px rgba(15,40,55,.4);">
+          <span style="position:absolute;top:-16px;left:22px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:76px;line-height:1;color:var(--acc);opacity:.6;">"</span>
+          <p style="margin:0;font-family:'Fredoka',sans-serif;font-weight:600;font-size:22px;line-height:1.4;color:#243244;">El dinero nunca fue el metal en sí. Siempre fue la confianza colectiva de que ese objeto iba a seguir sirviendo para pagar mañana.</p>
+          <span style="display:inline-block;margin-top:14px;font-weight:800;font-size:14px;color:var(--accDeep);">— El Griego</span>
+        </div>
 
-    <h2>China inventa el papel moneda (y también la inflación)</h2>
-    <p>Cargar bolsas de monedas de metal para hacer negocios a larga distancia era poco práctico. Durante la dinastía Tang, los comerciantes chinos empezaron a usar certificados de depósito: dejabas tus monedas en un lugar seguro y te llevabas un papel que las representaba. Para la dinastía Song, esos papeles ya circulaban como dinero por derecho propio: nació el papel moneda.</p>
-    <p>Fue también la primera vez que un gobierno descubrió lo tentador que es imprimir más papeles cuando necesita financiarse — y la primera vez que la gente sufrió inflación por ese motivo. Un patrón que, como sabemos en Argentina, no se fue a ningún lado.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">03</span>China inventa el papel moneda (y también la inflación)</h2>
+        <p>Los comerciantes chinos empezaron a usar certificados de depósito; para la dinastía Song ya circulaban como dinero por derecho propio. Fue también la primera vez que un gobierno descubrió lo tentador que es <strong>imprimir más papeles</strong> para financiarse.</p>
 
-    <h2>El patrón oro y los bancos centrales</h2>
-    <p>Durante buena parte de los siglos XIX y XX, muchos países ataron el valor de su moneda a una cantidad fija de oro: el famoso patrón oro. La promesa era tranquilizadora — tu billete siempre podía "canjearse" por oro real — pero también atada de manos: un país no podía emitir más dinero del que su reserva de oro permitía, ni siquiera en medio de una crisis.</p>
-    <p>Ese sistema terminó de romperse en 1971, cuando Estados Unidos abandonó la convertibilidad del dólar a oro. Desde entonces, el dinero que usamos en casi todo el mundo es "fiat": vale porque el Estado lo dice y porque todos aceptamos que vale, no porque esté respaldado por un metal en una bóveda.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">04</span>El patrón oro y los bancos centrales</h2>
+        <p>Durante los siglos XIX y XX muchos países ataron su moneda a una cantidad fija de oro. Tranquilizador, pero atado de manos. Ese sistema se rompió en <strong>1971</strong>, cuando Estados Unidos abandonó la convertibilidad del dólar a oro.</p>
 
-    <h2>2009: alguien intenta sacar al Estado de la ecuación</h2>
-    <p>En plena crisis financiera global, una persona (o grupo de personas) bajo el seudónimo de Satoshi Nakamoto publicó un documento de nueve páginas proponiendo el bitcoin: un dinero digital que no depende de ningún banco central ni gobierno para funcionar, sino de una red de computadoras que se ponen de acuerdo entre sí (la blockchain).</p>
-    <p>Es, en el fondo, el mismo intento de siempre: resolver el problema de la confianza entre desconocidos. Solo que esta vez, en lugar de confiar en el sello de un rey o la promesa de un banco central, confiás en un código que cualquiera puede auditar.</p>
+        <div class="obol-reveal" style="display:flex;gap:16px;margin:26px 0;padding:22px 24px;border-radius:20px;background:var(--tint);border:1.5px solid var(--acc);">
+          <div style="width:46px;height:46px;border-radius:13px;background:var(--accDeep);display:grid;place-items:center;font-size:24px;flex:none;">🏺</div>
+          <div>
+            <span style="display:block;font-family:'Fredoka',sans-serif;font-weight:700;font-size:14px;letter-spacing:.06em;color:var(--accDeep);text-transform:uppercase;margin-bottom:4px;">En criollo</span>
+            <span style="font-weight:700;font-size:16.5px;line-height:1.6;color:#1b2436;">Desde 1971 el dinero es "fiat": vale porque el Estado lo dice y porque todos aceptamos que vale, no porque haya un metal en una bóveda.</span>
+          </div>
+        </div>
 
-    <div class="cta-inline" style="--accent:var(--c-historia);">
-      <div class="txt">
-        <h4>¿Te gustó viajar por la historia del dinero?</h4>
-        <p>En Obol tenés todo un mundo dedicado a esto: "Desmitificando", con historia financiera y mitos comunes, en formato de juego.</p>
+        <h2><span style="font-family:'Space Grotesk',sans-serif;color:var(--accDeep);font-size:20px;margin-right:10px;">05</span>2009: alguien intenta sacar al Estado de la ecuación</h2>
+        <p>En plena crisis global, Satoshi Nakamoto propuso el bitcoin: dinero digital que no depende de ningún banco central, sino de una red de computadoras (la blockchain). El mismo intento de siempre: <span class="obol-mark">resolver la confianza entre desconocidos</span>.</p>
+        <p>2700 años después de Lidia, seguimos discutiendo la misma pregunta: ¿en qué confiamos para guardar y transferir valor? La respuesta cambió muchas veces. Lo más probable es que vuelva a cambiar.</p>
+
+        <div class="obol-reveal" style="position:relative;overflow:hidden;margin:44px 0 4px;border-radius:24px;background:linear-gradient(120deg,var(--hero),var(--accDeep));padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+          <div style="position:absolute;right:-30px;bottom:-30px;width:190px;height:190px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);"></div>
+          <div style="position:relative;max-width:440px;display:flex;flex-direction:column;gap:8px;">
+            <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.12em;color:var(--acc);text-transform:uppercase;">Seguí aprendiendo</span>
+            <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:24px;color:#fff;line-height:1.2;">¿Te gustó viajar por la historia del dinero?</h3>
+            <p style="margin:0;font-weight:600;font-size:15px;color:rgba(255,255,255,.85);line-height:1.5;">En Obol tenés un mundo dedicado a esto: "Desmitificando", con historia financiera y mitos comunes, en formato de juego.</p>
+          </div>
+          <a href="../../index.html" class="obol-btn" style="position:relative;display:inline-flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#0f2837;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:16px 30px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px -12px rgba(255,178,74,.6);">Conocé la app 🐷</a>
+        </div>
+      </article>
+
+      <div style="margin:56px 0 20px;">
+        <h2 style="margin:0 0 22px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:#0f2837;text-align:center;">Seguí leyendo</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;">
+
+          <a href="./bitcoin-en-criollo.html" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:block;position:relative;">
+            <div class="obol-card" style="position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:0 16px 32px -18px rgba(15,40,55,.5);">
+              <div style="position:absolute;inset:0;background-image:url('../assets/bg_criptomonedas.jpg');background-size:cover;background-position:center 45%;"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,55,.05) 0%,rgba(15,40,55,.55) 48%,rgba(9,27,37,.94) 100%);"></div>
+              <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+                <span style="display:inline-flex;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#0f2837;background:rgba(255,255,255,.92);padding:4px 10px;border-radius:999px;text-transform:uppercase;">Cripto</span>
+                <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;line-height:1.2;color:#fff;">Bitcoin en criollo: qué es, qué no es, y los riesgos que nadie te cuenta</h3>
+              </div>
+            </div>
+            <img src="../assets/char-broker.png" alt="" style="position:absolute;right:-6px;bottom:-10px;width:96px;height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 12px 14px rgba(15,40,55,.4));">
+          </a>
+
+          <a href="./mitos-que-cuestan-caro.html" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:block;position:relative;">
+            <div class="obol-card" style="position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:0 16px 32px -18px rgba(15,40,55,.5);">
+              <div style="position:absolute;inset:0;background-image:url('../assets/bg_desmitificando.jpg');background-size:cover;background-position:center 45%;"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,55,.05) 0%,rgba(15,40,55,.55) 48%,rgba(9,27,37,.94) 100%);"></div>
+              <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+                <span style="display:inline-flex;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#0f2837;background:rgba(255,255,255,.92);padding:4px 10px;border-radius:999px;text-transform:uppercase;">Mitos</span>
+                <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;line-height:1.2;color:#fff;">5 mitos financieros que te están costando plata</h3>
+              </div>
+            </div>
+            <img src="../assets/char-mito.png" alt="" style="position:absolute;right:-6px;bottom:-10px;width:96px;height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 12px 14px rgba(15,40,55,.4));">
+          </a>
+
+          <a href="./burbujas-crashes-panicos.html" style="border:none;padding:0;background:none;cursor:pointer;text-align:left;display:block;position:relative;">
+            <div class="obol-card" style="position:relative;border-radius:22px;overflow:hidden;height:210px;box-shadow:0 16px 32px -18px rgba(15,40,55,.5);">
+              <div style="position:absolute;inset:0;background-image:url('../assets/bg_crisis_ciclos.jpg');background-size:cover;background-position:center 45%;"></div>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,55,.05) 0%,rgba(15,40,55,.55) 48%,rgba(9,27,37,.94) 100%);"></div>
+              <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+                <span style="display:inline-flex;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#0f2837;background:rgba(255,255,255,.92);padding:4px 10px;border-radius:999px;text-transform:uppercase;">Crisis</span>
+                <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:17px;line-height:1.2;color:#fff;">Burbujas, crashes y pánicos: por qué la economía sube y baja</h3>
+              </div>
+            </div>
+            <img src="../assets/char-domador.png" alt="" style="position:absolute;right:-6px;bottom:-10px;width:96px;height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 12px 14px rgba(15,40,55,.4));">
+          </a>
+
+        </div>
       </div>
-      <a class="btn btn-amber" href="../../index.html">Conocé la app 🐷</a>
-    </div>
-
-    <p>2700 años después de las primeras monedas de Lidia, seguimos discutiendo la misma pregunta de siempre: ¿en qué confiamos para guardar y transferir valor? La respuesta cambió muchas veces. Lo más probable es que vuelva a cambiar.</p>
-  </div>
-
-  <div class="related narrow">
-    <h3>Seguí leyendo</h3>
-    <div class="related-grid">
-      <a href="./bitcoin-en-criollo.html"><img src="../assets/char-broker.png" alt="">Bitcoin en criollo: qué es y qué no es</a>
-      <a href="./mitos-que-cuestan-caro.html"><img src="../assets/char-mito.png" alt="">5 mitos financieros que te cuestan plata</a>
-      <a href="./burbujas-crashes-panicos.html"><img src="../assets/char-domador.png" alt="">Burbujas, crashes y pánicos</a>
     </div>
   </div>
-</article>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-links">
-      <a href="../../index.html">Obol</a>
-      <a href="../../aprende.html">Qué enseña la app</a>
-      <a href="../../privacy.html">Privacidad</a>
-      <a href="../../terms.html">Términos</a>
+  <div style="background:#0f1730;margin-top:40px;padding:34px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="../assets/icon.png" alt="Obol" style="width:26px;height:26px;border-radius:7px;">
+      <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:rgba(255,255,255,.7);">Obol Blog</span>
     </div>
-    <div style="font-size:13px;">🐷 Obol Blog</div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;">
+      <a href="../../index.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Obol</a>
+      <a href="../../aprende.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Qué enseña la app</a>
+      <a href="../../privacy.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Privacidad</a>
+      <a href="../../terms.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Términos</a>
+    </div>
   </div>
-</footer>
+
+</div>
+
+<script>
+(function() {
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = (h.scrollHeight - h.clientHeight) || 1;
+    var pct = Math.min(100, Math.max(0, (window.scrollY || h.scrollTop) / max * 100));
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 
 </body>
 </html>
