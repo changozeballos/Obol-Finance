@@ -23,3 +23,4 @@ a:hover { filter: brightness(1.15); }
 }
 @media (prefers-reduced-motion: reduce) { .obol-rise,.obol-reveal,[style*="obolFloat"],[style*="obolBob"] { animation: none !important; opacity: 1 !important; } }
 @media (max-width: 900px) { .obol-hero-pig { display: none !important; } .obol-art h2 { font-size: 25px; } .obol-art p { font-size: 17px; } }
+@media (max-width: 700px) { .nav-text-link { display: none; } }
