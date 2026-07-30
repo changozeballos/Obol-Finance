@@ -57,7 +57,7 @@
     75%  { transform: perspective(900px) rotateX(6deg) rotateY(-36deg) scale(.985); }
     100% { transform: perspective(900px) rotateX(4deg) rotateY(0deg) scale(1); }
   }
-  .obol-planet { position: absolute; opacity: 0; z-index: 1; animation: obolFadeIn 1.2s ease .25s forwards, obolFloat 6s ease-in-out 1.4s infinite; }
+  .obol-planet { position: absolute; opacity: 0; z-index: 1; animation: obolFadeIn 1.2s ease .25s forwards; }
   .obol-planet > span { display: block; transition: transform .4s cubic-bezier(.22,.61,.36,1); }
   .obol-planet:hover > span { transform: scale(1.05); }
   .obol-planet img { display: block; width: 100%; height: auto; }
@@ -96,16 +96,16 @@
     <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 82% 18%,rgba(74,124,224,.26),transparent 55%);pointer-events:none;"></div>
     <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.85),transparent 82%);mask-image:linear-gradient(180deg,rgba(0,0,0,.85),transparent 82%);pointer-events:none;"></div>
 
-    <div class="obol-planet" aria-hidden="true" style="left:4%;top:16%;width:clamp(150px,15vw,225px);">
+    <div class="obol-planet" aria-hidden="true" style="left:9%;top:16%;width:clamp(150px,15vw,225px);">
       <span><img src="./assets/aprende2/planet_ahorro.png" alt="Mundo del ahorro" style="filter:drop-shadow(0 26px 30px rgba(4,10,26,.5)) drop-shadow(0 0 46px rgba(94,196,160,.22));"></span>
     </div>
-    <div class="obol-planet" aria-hidden="true" style="right:4%;top:16%;width:clamp(150px,15vw,225px);animation-delay:.3s;">
+    <div class="obol-planet" aria-hidden="true" style="right:9%;top:16%;width:clamp(150px,15vw,225px);animation-delay:.3s;">
       <span><img src="./assets/aprende2/planet_mercados.png" alt="Mundo de mercados e inversiones" style="filter:drop-shadow(0 26px 30px rgba(4,10,26,.5)) drop-shadow(0 0 48px rgba(150,110,235,.28));"></span>
     </div>
-    <div class="obol-planet" aria-hidden="true" style="left:4%;top:52%;width:clamp(150px,15vw,225px);animation-delay:.55s;">
+    <div class="obol-planet" aria-hidden="true" style="left:9%;top:52%;width:clamp(150px,15vw,225px);animation-delay:.55s;">
       <span><img src="./assets/aprende2/planet_argentina.png" alt="Mundo de la economía argentina" style="filter:drop-shadow(0 26px 30px rgba(4,10,26,.5)) drop-shadow(0 0 44px rgba(120,180,235,.22));"></span>
     </div>
-    <div class="obol-planet" aria-hidden="true" style="right:4%;top:52%;width:clamp(150px,15vw,225px);animation-delay:.15s;">
+    <div class="obol-planet" aria-hidden="true" style="right:9%;top:52%;width:clamp(150px,15vw,225px);animation-delay:.15s;">
       <span><img src="./assets/aprende2/planet_conocimiento.png" alt="Mundo del conocimiento" style="filter:drop-shadow(0 26px 30px rgba(4,10,26,.5)) drop-shadow(0 0 46px rgba(255,150,80,.26));"></span>
     </div>
 
