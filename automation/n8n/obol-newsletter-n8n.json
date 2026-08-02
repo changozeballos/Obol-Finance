@@ -1,0 +1,152 @@
+{
+  "name": "Obol · Newsletter semanal",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [5],
+              "triggerAtHour": 8,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "id": "b2000000-0000-4000-8000-000000000001",
+      "name": "Cada viernes 8am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-620, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://dolarapi.com/v1/dolares",
+        "options": {}
+      },
+      "id": "b2000000-0000-4000-8000-000000000002",
+      "name": "Dólares de hoy",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-400, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.argentinadatos.com/v1/cotizaciones/dolares/blue/{{ $now.minus({ days: 7 }).toFormat('yyyy/MM/dd') }}",
+        "options": {}
+      },
+      "id": "b2000000-0000-4000-8000-000000000003",
+      "name": "Blue hace una semana",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-180, 300],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.argentinadatos.com/v1/finanzas/indices/inflacion",
+        "options": {}
+      },
+      "id": "b2000000-0000-4000-8000-000000000004",
+      "name": "Serie de inflación",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [40, 300],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.argentinadatos.com/v1/finanzas/indices/riesgo-pais/ultimo",
+        "options": {}
+      },
+      "id": "b2000000-0000-4000-8000-000000000005",
+      "name": "Riesgo país",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [260, 300],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ============================================================\n// Arma el briefing de datos y el prompt para Claude.\n// No inventa nada: todo lo que va al prompt sale de las APIs.\n// ============================================================\n\nfunction sacar(nodo) {\n  try { return $(nodo).all().map(i => i.json); } catch (e) { return []; }\n}\n\n// --- Dolares de hoy ---\nconst dolaresRaw = sacar('Dólares de hoy');\nconst dolares = Array.isArray(dolaresRaw[0]) ? dolaresRaw[0] : dolaresRaw;\nconst casa = id => dolares.find(d => d && d.casa === id);\n\nconst blue = casa('blue');\nconst oficial = casa('oficial');\nconst mep = casa('bolsa');\nconst ccl = casa('contadoconliqui');\n\n// --- Variacion semanal del blue ---\nconst semanaRaw = sacar('Blue hace una semana')[0];\nconst blueAntes = semanaRaw && semanaRaw.venta ? Number(semanaRaw.venta) : null;\nconst varBlue = (blue && blueAntes)\n  ? ((blue.venta - blueAntes) / blueAntes * 100)\n  : null;\n\n// --- Brecha ---\nconst brecha = (blue && oficial)\n  ? ((blue.venta - oficial.venta) / oficial.venta * 100)\n  : null;\n\n// --- Inflacion ---\nconst ipcRaw = sacar('Serie de inflación');\nconst ipc = Array.isArray(ipcRaw[0]) ? ipcRaw[0] : ipcRaw;\nconst ultInfl = ipc.length ? ipc[ipc.length - 1] : null;\nconst doce = ipc.slice(-12);\nconst acum12 = doce.length\n  ? (doce.reduce((a, m) => a * (1 + m.valor / 100), 1) - 1) * 100\n  : null;\n\n// --- Riesgo pais ---\nconst rp = sacar('Riesgo país')[0];\nconst riesgo = rp && rp.valor ? rp.valor : null;\n\nconst n = v => v === null || v === undefined ? 'sin dato' : Number(v).toLocaleString('es-AR', { maximumFractionDigits: 1 });\nconst MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];\nconst mesNombre = f => { const p = String(f).split('-'); return MESES[parseInt(p[1],10)-1] + ' de ' + p[0]; };\n\n// --- Personajes del blog: rota uno por semana ---\nconst VOCES = [\n  { nombre: 'el Analista de Datos', estilo: 'mira los numeros antes que las opiniones, ordena la semana con datos concretos y desconfia de las explicaciones de una sola causa' },\n  { nombre: 'la Guardiana del Ahorro', estilo: 'traduce todo a lo que le pasa al ahorro de una persona comun, prioriza el habito sobre el timing' },\n  { nombre: 'el Cazador de Mitos', estilo: 'agarra una frase que se repite mucho esta semana y la desarma con datos' },\n  { nombre: 'el Domador de Tormentas', estilo: 'ubica lo de esta semana en el ciclo economico, con perspectiva historica y sin dramatismo' },\n  { nombre: 'el Ciudadano', estilo: 'pregunta lo que preguntaria cualquiera y lo responde en criollo, sin jerga' }\n];\nconst semanaDelAnio = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 1)) / 604800000);\nconst voz = VOCES[semanaDelAnio % VOCES.length];\n\n// --- Briefing ---\nconst hoy = new Date().toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });\n\nconst datos = [\n  `Fecha: ${hoy}`,\n  `Dolar blue: $${n(blue?.venta)} (venta)`,\n  `Dolar oficial: $${n(oficial?.venta)} (venta)`,\n  `Dolar MEP: $${n(mep?.venta)}`,\n  `Dolar CCL: $${n(ccl?.venta)}`,\n  `Brecha blue vs oficial: ${n(brecha)}%`,\n  varBlue !== null\n    ? `Variacion del blue en los ultimos 7 dias: ${varBlue >= 0 ? '+' : ''}${n(varBlue)}%`\n    : 'Variacion semanal del blue: sin dato disponible',\n  ultInfl ? `Ultima inflacion mensual publicada: ${n(ultInfl.valor)}% (${mesNombre(ultInfl.fecha)})` : 'Inflacion mensual: sin dato',\n  acum12 !== null ? `Inflacion acumulada de los ultimos 12 meses: ${n(acum12)}%` : '',\n  riesgo !== null ? `Riesgo pais: ${n(riesgo)} puntos basicos` : ''\n].filter(Boolean).join('\\n');\n\nconst system = `Sos ${voz.nombre}, uno de los personajes que escriben el blog de Obol Finance, una app argentina de educacion financiera gamificada.\n\nVoz: ${voz.estilo}.\n\nReglas que no se negocian:\n- Escribis en espanol rioplatense (vos, tenes, sabes). Tono conversacional y directo, sin solemnidad.\n- Nunca das recomendaciones de inversion ni decis que comprar o vender. Explicas que significan los numeros.\n- Usas UNICAMENTE los datos que te paso. Si un dato dice \"sin dato\", no lo mencionas y no lo estimas.\n- No inventas cifras, fuentes, declaraciones ni hechos de actualidad. No tenes acceso a noticias: solo tenes estos numeros.\n- Nada de clickbait, ni signos de exclamacion, ni frases como \"en un mundo donde\".\n- Explicas el mecanismo detras del numero, que es lo que hace util a la nota.`;\n\nconst prompt = `Escribi la nota semanal del blog de Obol con estos datos:\n\n${datos}\n\nEstructura:\n- Un titulo de menos de 70 caracteres, sin dos puntos si podes evitarlos.\n- Una bajada de una sola oracion.\n- Entre 350 y 450 palabras en 4 o 5 parrafos.\n- Arranca por el dato que mas se movio esta semana, no por un resumen general.\n- Al menos un parrafo tiene que explicar POR QUE pasa lo que pasa, en terminos que entienda alguien que recien empieza.\n- Cerra conectando con algo practico que la persona pueda entender de su propia plata. Sin recomendar nada.\n\nRespondes SOLO con un objeto JSON valido, sin backticks ni texto alrededor:\n{\"titulo\": \"...\", \"bajada\": \"...\", \"asunto\": \"asunto del mail, menos de 60 caracteres\", \"parrafos\": [\"parrafo 1\", \"parrafo 2\", \"...\"]}`;\n\nreturn [{ json: { system, prompt, datos, voz: voz.nombre, fecha: hoy } }];"
+      },
+      "id": "b2000000-0000-4000-8000-000000000006",
+      "name": "Arma el briefing",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "anthropicApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'claude-sonnet-5', max_tokens: 2000, system: $json.system, messages: [ { role: 'user', content: $json.prompt } ] }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "b2000000-0000-4000-8000-000000000007",
+      "name": "Claude escribe la nota",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [700, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Toma la respuesta de Claude, la parsea y arma el HTML del borrador.\nconst r = $input.first().json;\n\nconst texto = (r.content || [])\n  .filter(b => b.type === 'text')\n  .map(b => b.text)\n  .join('\\n')\n  .replace(/```json|```/g, '')\n  .trim();\n\nlet nota;\ntry {\n  nota = JSON.parse(texto);\n} catch (e) {\n  // Si no devolvio JSON limpio, no rompemos: mandamos el texto crudo para revisar a mano.\n  nota = {\n    titulo: 'Revisar: Claude no devolvio JSON',\n    bajada: '',\n    asunto: 'Newsletter Obol — revisar borrador',\n    parrafos: [texto]\n  };\n}\n\nconst brief = $('Arma el briefing').first().json;\nconst parrafos = (nota.parrafos || []).map(p => `<p style=\"margin:0 0 16px\">${p}</p>`).join('\\n');\n\nconst html = `<div style=\"font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:560px;margin:0 auto;color:#12212E;line-height:1.65\">\n  <p style=\"font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#B8862A;margin:0 0 14px\">Obol Finance · La semana en números</p>\n  <h1 style=\"font-family:Georgia,serif;font-size:26px;font-weight:600;line-height:1.25;margin:0 0 10px\">${nota.titulo || ''}</h1>\n  <p style=\"font-size:17px;color:#5B6B78;margin:0 0 24px\">${nota.bajada || ''}</p>\n  ${parrafos}\n  <p style=\"font-size:13px;color:#5B6B78;margin:26px 0 0\">Por ${brief.voz} · ${brief.fecha}</p>\n  <hr style=\"border:none;border-top:1px solid #E5E0D6;margin:22px 0 14px\">\n  <p style=\"margin:0 0 14px\"><a href=\"https://changozeballos.github.io/Obol-Finance/dolar.html\" style=\"color:#B8862A\">Ver el dólar y la inflación actualizados →</a></p>\n  <p style=\"font-size:12px;color:#8a8378;margin:0\">Contenido educativo. No es asesoramiento financiero ni una recomendación de inversión.<br>Para darte de baja, respondé este mail con la palabra BAJA.</p>\n</div>\n\n<!-- ===== DATOS QUE USÓ CLAUDE (verificar antes de enviar) =====\n${brief.datos}\n-->`;\n\nreturn [{ json: {\n  asunto: nota.asunto || nota.titulo || 'Newsletter Obol',\n  titulo: nota.titulo,\n  html,\n  datos: brief.datos,\n  voz: brief.voz\n} }];"
+      },
+      "id": "b2000000-0000-4000-8000-000000000008",
+      "name": "Arma el borrador",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [920, 300]
+    },
+    {
+      "parameters": {
+        "resource": "draft",
+        "operation": "create",
+        "subject": "={{ $json.asunto }}",
+        "emailType": "html",
+        "message": "={{ $json.html }}",
+        "options": {
+          "sendTo": "obol.finance2026@gmail.com"
+        }
+      },
+      "id": "b2000000-0000-4000-8000-000000000009",
+      "name": "Borrador en Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1140, 300]
+    }
+  ],
+  "connections": {
+    "Cada viernes 8am": { "main": [[{ "node": "Dólares de hoy", "type": "main", "index": 0 }]] },
+    "Dólares de hoy": { "main": [[{ "node": "Blue hace una semana", "type": "main", "index": 0 }]] },
+    "Blue hace una semana": { "main": [[{ "node": "Serie de inflación", "type": "main", "index": 0 }]] },
+    "Serie de inflación": { "main": [[{ "node": "Riesgo país", "type": "main", "index": 0 }]] },
+    "Riesgo país": { "main": [[{ "node": "Arma el briefing", "type": "main", "index": 0 }]] },
+    "Arma el briefing": { "main": [[{ "node": "Claude escribe la nota", "type": "main", "index": 0 }]] },
+    "Claude escribe la nota": { "main": [[{ "node": "Arma el borrador", "type": "main", "index": 0 }]] },
+    "Arma el borrador": { "main": [[{ "node": "Borrador en Gmail", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {},
+  "meta": { "instanceId": "obol-newsletter" },
+  "tags": []
+}
