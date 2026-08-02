@@ -1,0 +1,8 @@
+# Obol Finance
+User-agent: *
+Allow: /
+
+Disallow: /privacy.html
+Disallow: /terms.html
+
+Sitemap: https://changozeballos.github.io/Obol-Finance/sitemap.xml
