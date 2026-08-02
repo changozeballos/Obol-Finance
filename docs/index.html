@@ -202,6 +202,400 @@
     </div>
   </div>
 
+  <!-- Trivia -->
+  <div style="background:#eef1f7;padding:70px 40px;display:flex;justify-content:center;">
+    <section class="obol-quiz" id="obol-quiz" aria-labelledby="oq-titulo">
+<style>
+/* ---------- Tokens: paleta y tipografía de Obol Finance ---------- */
+.obol-quiz{
+  --oq-ink:#16213e;          /* fondo de la tarjeta */
+  --oq-ink-soft:#1c2c52;     /* superficies internas */
+  --oq-gold:#ffb24a;         /* acento: el óbolo */
+  --oq-gold-deep:#e0932e;    /* canto de la moneda */
+  --oq-cream:#ffffff;        /* texto principal */
+  --oq-muted:rgba(255,255,255,.62); /* texto secundario */
+  --oq-border:rgba(255,255,255,.16);
+  --oq-ok:#4fd0a0;
+  --oq-no:#ff6b6b;
+  --oq-font-display:'Fredoka',sans-serif;
+  --oq-font-body:'Nunito',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+
+  background:linear-gradient(120deg,var(--oq-ink),var(--oq-ink-soft));
+  color:var(--oq-cream);
+  font-family:var(--oq-font-body);
+  border-radius:28px;
+  padding:44px 40px;
+  max-width:720px;
+  margin:0 auto;
+  box-sizing:border-box;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 24px 48px -18px rgba(15,20,45,.45);
+}
+.obol-quiz *,.obol-quiz *::before,.obol-quiz *::after{box-sizing:border-box;}
+.obol-quiz::before{ /* brillo de moneda, muy sutil */
+  content:"";position:absolute;inset:-40% -20% auto auto;width:420px;height:420px;
+  background:radial-gradient(circle,rgba(255,178,74,.16),transparent 62%);pointer-events:none;
+}
+
+/* ---------- Encabezado ---------- */
+.obol-quiz .oq-eyebrow{
+  font-family:var(--oq-font-display);
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--oq-gold);margin:0 0 10px;font-weight:600;
+}
+.obol-quiz .oq-titulo{
+  font-family:var(--oq-font-display);font-size:clamp(24px,4.4vw,32px);
+  line-height:1.2;margin:0 0 8px;font-weight:700;letter-spacing:-.01em;
+}
+.obol-quiz .oq-bajada{color:var(--oq-muted);font-size:15px;font-weight:600;line-height:1.55;margin:0 0 26px;max-width:52ch;}
+
+/* ---------- Monedas de progreso (el marcador) ---------- */
+.obol-quiz .oq-monedas{display:flex;gap:10px;margin:0 0 26px;padding:0;list-style:none;}
+.obol-quiz .oq-moneda{
+  width:26px;height:26px;border-radius:50%;
+  border:2px solid var(--oq-border);background:transparent;
+  transition:transform .35s ease,background .35s ease,border-color .35s ease;
+  position:relative;
+}
+.obol-quiz .oq-moneda.es-actual{border-color:var(--oq-gold);}
+.obol-quiz .oq-moneda.es-ok{
+  background:radial-gradient(circle at 32% 28%,#ffe08a,var(--oq-gold-deep));
+  border-color:var(--oq-gold-deep);transform:rotateY(180deg);
+}
+.obol-quiz .oq-moneda.es-no{background:rgba(255,107,107,.22);border-color:var(--oq-no);transform:rotateY(180deg);}
+
+/* ---------- Pregunta ---------- */
+.obol-quiz .oq-mundo{
+  display:inline-block;font-family:var(--oq-font-display);
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  color:var(--oq-gold);border:1px solid rgba(255,178,74,.35);background:rgba(255,178,74,.1);
+  border-radius:999px;padding:5px 13px;margin-bottom:16px;
+}
+.obol-quiz .oq-pregunta{
+  font-family:var(--oq-font-display);font-size:clamp(19px,3.2vw,23px);
+  line-height:1.38;margin:0 0 22px;font-weight:600;
+}
+.obol-quiz .oq-opciones{display:grid;gap:10px;margin:0 0 20px;padding:0;list-style:none;}
+.obol-quiz .oq-opcion{
+  width:100%;text-align:left;font:inherit;font-size:15.5px;font-weight:600;color:var(--oq-cream);
+  background:rgba(255,255,255,.055);border:1.5px solid var(--oq-border);
+  border-radius:16px;padding:15px 17px;cursor:pointer;
+  transition:border-color .18s ease,background .18s ease,transform .12s ease;
+}
+.obol-quiz .oq-opcion:hover:not(:disabled){border-color:var(--oq-gold);transform:translateX(3px);}
+.obol-quiz .oq-opcion:focus-visible{outline:2px solid var(--oq-gold);outline-offset:2px;}
+.obol-quiz .oq-opcion:disabled{cursor:default;}
+.obol-quiz .oq-opcion.es-ok{border-color:var(--oq-ok);background:rgba(79,208,160,.14);}
+.obol-quiz .oq-opcion.es-no{border-color:var(--oq-no);background:rgba(255,107,107,.14);}
+.obol-quiz .oq-opcion.es-apagada{opacity:.42;}
+
+/* ---------- Explicación ---------- */
+.obol-quiz .oq-porque{
+  border-left:3px solid var(--oq-gold);background:rgba(255,178,74,.08);
+  border-radius:0 16px 16px 0;padding:16px 19px;margin:0 0 20px;
+  font-size:14.5px;font-weight:600;line-height:1.6;color:var(--oq-cream);
+}
+.obol-quiz .oq-porque strong{font-family:var(--oq-font-display);color:var(--oq-gold);display:block;margin-bottom:5px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+
+/* ---------- Botones ---------- */
+.obol-quiz .oq-btn{
+  font-family:var(--oq-font-display);font-size:15px;font-weight:600;cursor:pointer;
+  border-radius:999px;padding:14px 28px;border:none;
+  background:linear-gradient(90deg,#ffe08a,#ffb24a);color:#16213e;
+  transition:filter .18s ease,transform .12s ease;
+}
+.obol-quiz .oq-btn:hover:not(:disabled){filter:brightness(1.05);transform:translateY(-1px);}
+.obol-quiz .oq-btn:focus-visible{outline:2px solid var(--oq-cream);outline-offset:3px;}
+.obol-quiz .oq-btn:disabled{opacity:.55;cursor:wait;transform:none;}
+.obol-quiz .oq-btn-fantasma{
+  background:rgba(255,255,255,.08);color:var(--oq-cream);border:1.5px solid var(--oq-border);
+}
+
+/* ---------- Resultado + formulario ---------- */
+.obol-quiz .oq-marcador{
+  font-family:var(--oq-font-display);font-size:clamp(40px,9vw,60px);
+  line-height:1;color:var(--oq-gold);margin:0 0 6px;font-weight:700;
+}
+.obol-quiz .oq-marcador span{font-size:.42em;color:var(--oq-muted);}
+.obol-quiz .oq-veredicto{font-size:17px;font-weight:600;line-height:1.5;margin:0 0 24px;max-width:46ch;}
+.obol-quiz .oq-form{display:grid;gap:11px;margin:0;}
+.obol-quiz .oq-fila{display:grid;gap:11px;grid-template-columns:1fr 1fr;}
+@media (max-width:560px){.obol-quiz .oq-fila{grid-template-columns:1fr;} .obol-quiz{padding:32px 24px;}}
+.obol-quiz .oq-input{
+  font:inherit;font-size:15px;font-weight:600;color:var(--oq-cream);background:rgba(255,255,255,.055);
+  border:1.5px solid var(--oq-border);border-radius:14px;padding:14px 16px;width:100%;
+}
+.obol-quiz .oq-input::placeholder{color:rgba(255,255,255,.45);}
+.obol-quiz .oq-input:focus{outline:2px solid var(--oq-gold);outline-offset:1px;border-color:transparent;}
+.obol-quiz .oq-legal{font-size:12.5px;font-weight:600;color:var(--oq-muted);line-height:1.5;margin:4px 0 0;}
+.obol-quiz .oq-error{color:var(--oq-no);font-size:13.5px;font-weight:600;margin:2px 0 0;}
+.obol-quiz .oq-trampa{position:absolute;left:-9999px;opacity:0;height:0;width:0;}
+.obol-quiz .oq-listo{
+  border:1.5px dashed var(--oq-gold);border-radius:20px;padding:26px;text-align:center;
+}
+.obol-quiz .oq-listo p{margin:0 0 8px;}
+.obol-quiz .oq-listo .oq-grande{font-family:var(--oq-font-display);font-weight:700;font-size:22px;color:var(--oq-gold);}
+
+.obol-quiz .oq-oculto{display:none;}
+@media (prefers-reduced-motion:reduce){
+  .obol-quiz *{transition:none !important;transform:none !important;}
+}
+</style>
+
+  <p class="oq-eyebrow">Probalo ahora</p>
+  <h2 class="oq-titulo" id="oq-titulo">Cinco preguntas. A ver cómo te va.</h2>
+  <p class="oq-bajada">Son cinco de las 804 que tiene la app, una por cada área. Sin registro, sin descargar nada.</p>
+
+  <ol class="oq-monedas" id="oq-monedas" aria-hidden="true"></ol>
+
+  <!-- Pantalla de juego -->
+  <div id="oq-juego">
+    <span class="oq-mundo" id="oq-mundo"></span>
+    <p class="oq-pregunta" id="oq-pregunta"></p>
+    <div class="oq-opciones" id="oq-opciones" role="group" aria-labelledby="oq-pregunta"></div>
+    <div class="oq-porque oq-oculto" id="oq-porque" role="status" aria-live="polite"></div>
+    <button class="oq-btn oq-oculto" id="oq-siguiente" type="button">Siguiente</button>
+  </div>
+
+  <!-- Pantalla de resultado + lista de espera -->
+  <div id="oq-final" class="oq-oculto">
+    <p class="oq-marcador" id="oq-marcador"></p>
+    <p class="oq-veredicto" id="oq-veredicto"></p>
+
+    <div class="oq-form" id="oq-form">
+      <div class="oq-fila">
+        <input class="oq-input" id="oq-nombre" type="text" placeholder="Tu nombre" autocomplete="given-name" aria-label="Tu nombre">
+        <input class="oq-input" id="oq-email" type="email" placeholder="tu@mail.com" autocomplete="email" required aria-label="Tu correo" aria-describedby="oq-legal">
+      </div>
+      <input class="oq-trampa" id="oq-trampa" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="oq-btn" id="oq-enviar" type="button">Avisame cuando salga</button>
+      <p class="oq-error oq-oculto" id="oq-error" role="alert"></p>
+      <p class="oq-legal" id="oq-legal">Un solo mail cuando abra la beta. Nada más, y te podés dar de baja cuando quieras.</p>
+    </div>
+
+    <div class="oq-listo oq-oculto" id="oq-listo">
+      <p class="oq-grande">Listo, quedaste anotado.</p>
+      <p style="color:var(--oq-muted);font-size:14.5px;font-weight:600;">Te escribimos al mail apenas abra la beta. Mientras tanto, el blog tiene bastante para leer.</p>
+      <p style="margin-top:16px;"><a class="oq-btn oq-btn-fantasma" style="display:inline-block;text-decoration:none;" href="./blog/index.html">Ir al blog</a></p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ====== CONFIGURACIÓN — pegá acá la URL del webhook de n8n ====== */
+  var WEBHOOK = ""; // ej: "https://changozeballos.app.n8n.cloud/webhook/obol-waitlist"
+
+  var PREGUNTAS = [
+    {
+      mundo: "Economía",
+      texto: "La inflación anual fue 100% y tu sueldo subió 80%. ¿Qué pasó con lo que podés comprar?",
+      opciones: ["Comprás un poco más que antes", "Comprás lo mismo", "Comprás cerca de un 10% menos", "Depende del dólar"],
+      correcta: 2,
+      porque: "Tu sueldo se multiplicó por 1,8 y los precios por 2. Dividido: 0,9. Perdiste un 10% de poder de compra aunque el número del recibo haya subido. Un aumento nominal no es un aumento real."
+    },
+    {
+      mundo: "Finanzas",
+      texto: "Ponés $100.000 al 5% mensual y reinvertís los intereses todos los meses. ¿Cuánto tenés al año?",
+      opciones: ["$160.000", "$179.586", "$150.000", "$205.000"],
+      correcta: 1,
+      porque: "5% doce veces seguidas no da 60%: da 79,6%. Esos $19.586 de diferencia son interés compuesto — el interés que generan los intereses que ya ganaste."
+    },
+    {
+      mundo: "Finanzas",
+      texto: "¿De cuánto conviene que sea un fondo de emergencia?",
+      opciones: ["Un sueldo", "Entre 3 y 6 meses de gastos", "El 10% de lo que ganás", "Lo que sobre a fin de mes"],
+      correcta: 1,
+      porque: "Se mide en gastos, no en sueldos, y en meses, no en montos. Con 3 a 6 meses cubiertos, un imprevisto deja de convertirse en deuda de tarjeta."
+    },
+    {
+      mundo: "Desmitificando",
+      texto: "“Comprar dólares siempre le gana a cualquier otra inversión en Argentina.”",
+      opciones: ["Verdadero", "Falso"],
+      correcta: 1,
+      porque: "El dólar protege en los saltos, pero pasa años planchado mientras los precios siguen corriendo. En varios períodos largos un plazo fijo o una acción rindieron más. El error no es comprar dólares: es poner todo en un solo lugar."
+    },
+    {
+      mundo: "Historia",
+      texto: "El óbolo, la moneda que le da nombre a esta app, ¿de dónde viene?",
+      opciones: ["Del Imperio Romano", "De la Grecia antigua", "De la China de los Han", "De Mesopotamia"],
+      correcta: 1,
+      porque: "Era una moneda griega de plata, de las primeras del mundo. Servía para el pan del día — y también se ponía bajo la lengua de los muertos, para pagarle el pasaje a Caronte."
+    }
+  ];
+
+  var VEREDICTOS = [
+    "Bueno, para eso está la app. Ninguna de estas se aprende sola.",
+    "Bueno, para eso está la app. Ninguna de estas se aprende sola.",
+    "Algo sabés. Lo que falta es el resto, que son otras 799 preguntas.",
+    "Nada mal. Te faltó poco para el pleno.",
+    "Muy bien. Ya estás arriba del promedio.",
+    "Impecable. Cinco de cinco — vas a aburrirte con las primeras lecciones."
+  ];
+
+  var $ = function (id) { return document.getElementById(id); };
+  var indice = 0, aciertos = 0, respondida = false;
+
+  /* ---- monedas de progreso ---- */
+  var monedas = $("oq-monedas");
+  PREGUNTAS.forEach(function () {
+    var li = document.createElement("li");
+    li.className = "oq-moneda";
+    monedas.appendChild(li);
+  });
+  function pintarMonedas() {
+    Array.prototype.forEach.call(monedas.children, function (li, i) {
+      li.classList.toggle("es-actual", i === indice && !respondida);
+    });
+  }
+
+  /* ---- render de pregunta ---- */
+  function mostrarPregunta() {
+    var p = PREGUNTAS[indice];
+    respondida = false;
+    $("oq-mundo").textContent = p.mundo;
+    $("oq-pregunta").textContent = p.texto;
+    $("oq-porque").classList.add("oq-oculto");
+    $("oq-siguiente").classList.add("oq-oculto");
+
+    var cont = $("oq-opciones");
+    cont.innerHTML = "";
+    p.opciones.forEach(function (texto, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "oq-opcion";
+      b.textContent = texto;
+      b.addEventListener("click", function () { responder(i); });
+      cont.appendChild(b);
+    });
+    pintarMonedas();
+  }
+
+  function responder(elegida) {
+    if (respondida) return;
+    respondida = true;
+    var p = PREGUNTAS[indice];
+    var acerto = elegida === p.correcta;
+    if (acerto) aciertos++;
+
+    Array.prototype.forEach.call($("oq-opciones").children, function (b, i) {
+      b.disabled = true;
+      if (i === p.correcta) b.classList.add("es-ok");
+      else if (i === elegida) b.classList.add("es-no");
+      else b.classList.add("es-apagada");
+    });
+
+    var moneda = monedas.children[indice];
+    moneda.classList.remove("es-actual");
+    moneda.classList.add(acerto ? "es-ok" : "es-no");
+
+    var porque = $("oq-porque");
+    porque.innerHTML = "";
+    var t = document.createElement("strong");
+    t.textContent = acerto ? "Correcto" : "La respuesta era otra";
+    porque.appendChild(t);
+    porque.appendChild(document.createTextNode(p.porque));
+    porque.classList.remove("oq-oculto");
+
+    var sig = $("oq-siguiente");
+    sig.textContent = indice === PREGUNTAS.length - 1 ? "Ver mi resultado" : "Siguiente";
+    sig.classList.remove("oq-oculto");
+    sig.focus();
+  }
+
+  $("oq-siguiente").addEventListener("click", function () {
+    indice++;
+    if (indice < PREGUNTAS.length) { mostrarPregunta(); }
+    else { terminar(); }
+  });
+
+  function terminar() {
+    $("oq-juego").classList.add("oq-oculto");
+    $("oq-final").classList.remove("oq-oculto");
+    $("oq-marcador").innerHTML = aciertos + "<span>/" + PREGUNTAS.length + "</span>";
+    $("oq-veredicto").textContent = VEREDICTOS[aciertos];
+    $("oq-email").focus();
+  }
+
+  /* ---- envío a la lista de espera ---- */
+  function emailValido(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+
+  function mostrarError(msg) {
+    var e = $("oq-error");
+    e.textContent = msg;
+    e.classList.remove("oq-oculto");
+  }
+
+  $("oq-enviar").addEventListener("click", function () {
+    var btn = this;
+    var email = $("oq-email").value.trim().toLowerCase();
+    $("oq-error").classList.add("oq-oculto");
+
+    if (!emailValido(email)) {
+      mostrarError("Ese mail no parece válido. Revisalo y probá de nuevo.");
+      $("oq-email").focus();
+      return;
+    }
+    if ($("oq-trampa").value !== "") { return; } // bot
+
+    var datos = {
+      email: email,
+      nombre: $("oq-nombre").value.trim(),
+      puntaje: aciertos,
+      total: PREGUNTAS.length,
+      origen: "trivia-home",
+      pagina: location.pathname,
+      referrer: document.referrer || "directo",
+      fecha: new Date().toISOString()
+    };
+
+    btn.disabled = true;
+    btn.textContent = "Anotándote…";
+
+    if (!WEBHOOK) {
+      console.warn("[Obol] Falta configurar WEBHOOK. Datos que se enviarían:", datos);
+      exito();
+      return;
+    }
+
+    fetch(WEBHOOK, {
+      method: "POST",
+      // text/plain evita el preflight CORS: el navegador manda el POST directo
+      headers: { "Content-Type": "text/plain;charset=UTF-8" },
+      body: JSON.stringify(datos)
+    })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.text();
+      })
+      .then(exito)
+      .catch(function (err) {
+        console.error("[Obol] Error al anotar:", err);
+        btn.disabled = false;
+        btn.textContent = "Avisame cuando salga";
+        mostrarError("No pudimos guardarte ahora. Probá de nuevo en un minuto o escribinos a obol.finance2026@gmail.com");
+      });
+  });
+
+  function exito() {
+    $("oq-form").classList.add("oq-oculto");
+    $("oq-listo").classList.remove("oq-oculto");
+    if (window.plausible) window.plausible("waitlist", { props: { origen: "trivia" } });
+    if (window.gtag) window.gtag("event", "waitlist_signup", { origen: "trivia" });
+  }
+
+  $("oq-email").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") $("oq-enviar").click();
+  });
+
+  mostrarPregunta();
+})();
+</script>
+  </div>
+
   <!-- CTA -->
   <div style="background:#eef1f7;padding:0 40px 80px;">
     <div class="obol-reveal" style="max-width:1160px;margin:0 auto;border-radius:28px;background:linear-gradient(120deg,#16213e,#1c2c52);padding:48px 56px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 24px 48px -18px rgba(15,20,45,.45);">
