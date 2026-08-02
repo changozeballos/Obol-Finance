@@ -664,8 +664,248 @@
 </script>
   </div>
 
+  <!-- Chat del Chancho -->
+  <div style="background:#eef1f7;padding:0 40px 70px;display:flex;justify-content:center;">
+    <section class="obol-chat" id="obol-chat" aria-labelledby="oc-titulo">
+<style>
+.obol-chat{
+  --oc-ink:#16213e; --oc-ink-soft:#1c2c52; --oc-gold:#ffb24a; --oc-gold-deep:#e0932e;
+  --oc-cream:#ffffff; --oc-muted:rgba(255,255,255,.62); --oc-no:#ff6b6b;
+  --oc-display:'Fredoka',sans-serif;
+  --oc-sans:'Nunito',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+
+  background:linear-gradient(120deg,var(--oc-ink),var(--oc-ink-soft));color:var(--oc-cream);font-family:var(--oc-sans);
+  border-radius:28px;padding:34px 30px;max-width:720px;margin:0 auto;
+  position:relative;overflow:hidden;box-sizing:border-box;
+  box-shadow:0 24px 48px -18px rgba(15,20,45,.45);
+}
+.obol-chat *,.obol-chat *::before,.obol-chat *::after{box-sizing:border-box;}
+.obol-chat::before{content:"";position:absolute;inset:-40% -20% auto auto;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(255,178,74,.16),transparent 62%);pointer-events:none;}
+.obol-chat > *{position:relative;}
+
+.obol-chat .oc-eyebrow{font-family:var(--oc-display);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--oc-gold);margin:0 0 10px;font-weight:600;}
+.obol-chat .oc-titulo{font-family:var(--oc-display);font-size:clamp(23px,4.2vw,30px);line-height:1.2;margin:0 0 8px;font-weight:700;}
+.obol-chat .oc-bajada{color:var(--oc-muted);font-size:15px;font-weight:600;line-height:1.55;margin:0 0 22px;max-width:54ch;}
+
+/* --- hilo --- */
+.obol-chat .oc-hilo{
+  background:rgba(0,0,0,.16);border-radius:16px;padding:18px;
+  min-height:190px;max-height:420px;overflow-y:auto;margin-bottom:14px;
+  display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth;
+}
+.obol-chat .oc-msg{max-width:88%;font-size:15px;font-weight:600;line-height:1.6;border-radius:16px;padding:12px 15px;}
+.obol-chat .oc-msg.de-chancho{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);align-self:flex-start;border-bottom-left-radius:4px;}
+.obol-chat .oc-msg.de-vos{background:linear-gradient(90deg,#ffe08a,#ffb24a);color:var(--oc-ink);align-self:flex-end;border-bottom-right-radius:4px;font-weight:700;}
+.obol-chat .oc-msg.es-error{background:rgba(255,107,107,.16);border-color:var(--oc-no);color:var(--oc-cream);}
+.obol-chat .oc-msg p{margin:0 0 9px;}
+.obol-chat .oc-msg p:last-child{margin:0;}
+
+/* --- puntitos de "escribiendo" --- */
+.obol-chat .oc-puntos{display:flex;gap:5px;align-items:center;padding:14px 15px;}
+.obol-chat .oc-puntos i{width:7px;height:7px;border-radius:50%;background:var(--oc-muted);animation:oc-late 1.3s infinite;}
+.obol-chat .oc-puntos i:nth-child(2){animation-delay:.18s;}
+.obol-chat .oc-puntos i:nth-child(3){animation-delay:.36s;}
+@keyframes oc-late{0%,60%,100%{opacity:.28;transform:translateY(0);}30%{opacity:1;transform:translateY(-3px);}}
+
+/* --- sugerencias --- */
+.obol-chat .oc-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+.obol-chat .oc-chip{
+  font:inherit;font-family:var(--oc-display);font-size:13.5px;font-weight:600;color:var(--oc-cream);cursor:pointer;
+  background:transparent;border:1.5px solid rgba(255,255,255,.2);border-radius:999px;padding:8px 15px;
+  transition:border-color .18s ease,background .18s ease;
+}
+.obol-chat .oc-chip:hover{border-color:var(--oc-gold);background:rgba(255,178,74,.1);}
+
+/* --- entrada --- */
+.obol-chat .oc-entrada{display:flex;gap:9px;}
+.obol-chat .oc-input{
+  flex:1;font:inherit;font-size:15.5px;font-weight:600;color:var(--oc-cream);background:rgba(255,255,255,.06);
+  border:1.5px solid rgba(255,255,255,.16);border-radius:14px;padding:14px 16px;min-width:0;
+}
+.obol-chat .oc-input::placeholder{color:rgba(255,255,255,.45);}
+.obol-chat .oc-input:focus{outline:2px solid var(--oc-gold);outline-offset:1px;border-color:transparent;}
+.obol-chat .oc-enviar{
+  font:inherit;font-family:var(--oc-display);font-size:15px;font-weight:600;cursor:pointer;border:none;border-radius:999px;
+  padding:14px 22px;background:linear-gradient(90deg,#ffe08a,#ffb24a);color:var(--oc-ink);white-space:nowrap;
+  transition:filter .18s ease,transform .12s ease;
+}
+.obol-chat .oc-enviar:hover:not(:disabled){filter:brightness(1.05);transform:translateY(-1px);}
+.obol-chat .oc-enviar:disabled{opacity:.5;cursor:not-allowed;}
+.obol-chat .oc-pie{font-size:12.5px;font-weight:600;color:var(--oc-muted);margin:12px 0 0;line-height:1.5;}
+.obol-chat .oc-pie a{color:var(--oc-gold);}
+
+/* --- invitación a la lista --- */
+.obol-chat .oc-invite{
+  border:1.5px dashed var(--oc-gold);border-radius:16px;padding:16px 18px;margin-top:16px;
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+}
+.obol-chat .oc-invite p{margin:0;flex:1;min-width:200px;font-size:14.5px;font-weight:600;}
+.obol-chat .oc-invite a{color:var(--oc-gold);font-weight:700;text-decoration:none;white-space:nowrap;}
+.obol-chat .oc-oculto{display:none;}
+.obol-chat :focus-visible{outline:2px solid var(--oc-gold);outline-offset:2px;}
+@media (max-width:560px){.obol-chat{padding:26px 20px;} .obol-chat .oc-enviar{padding:14px 17px;}}
+@media (prefers-reduced-motion:reduce){.obol-chat *{animation:none !important;transition:none !important;}}
+</style>
+
+  <p class="oc-eyebrow">Probá la app antes de que salga</p>
+  <h2 class="oc-titulo" id="oc-titulo">Preguntale al Chancho</h2>
+  <p class="oc-bajada">Responde sobre lo mismo que enseña Obol: economía, finanzas personales, mitos e historia del dinero. Sin tecnicismos y en criollo.</p>
+
+  <div class="oc-hilo" id="oc-hilo" role="log" aria-live="polite" aria-label="Conversación con el Chancho"></div>
+
+  <div class="oc-chips" id="oc-chips">
+    <button class="oc-chip" type="button">¿Por qué sube el dólar?</button>
+    <button class="oc-chip" type="button">¿Qué es el interés compuesto?</button>
+    <button class="oc-chip" type="button">¿Conviene el plazo fijo?</button>
+    <button class="oc-chip" type="button">¿Qué es un CEDEAR?</button>
+  </div>
+
+  <div class="oc-entrada">
+    <input class="oc-input" id="oc-input" type="text" maxlength="300"
+           placeholder="Escribí tu pregunta…" aria-label="Tu pregunta" autocomplete="off">
+    <button class="oc-enviar" id="oc-enviar" type="button">Preguntar</button>
+  </div>
+
+  <p class="oc-pie">Contenido educativo, no asesoramiento financiero. Para cotizaciones al día mirá <a href="./dolar.html">dólar e inflación hoy</a>.</p>
+
+  <div class="oc-invite oc-oculto" id="oc-invite">
+    <p>Esto es una muestra chica. La app tiene 17 secciones, 804 preguntas y 10 juegos.</p>
+    <a href="./index.html#anotarse">Anotarme en la lista →</a>
+  </div>
+</section>
+
+<script>
+(function(){
+"use strict";
+
+/* ====== CONFIGURACIÓN ====== */
+var ENDPOINT = ""; // ej: "https://changozeballos.app.n8n.cloud/webhook/obol-chat"
+
+var MAX_TURNOS = 8;              // preguntas por sesión
+var SALUDO = "¡Hola! Soy el Chancho de Obol. Preguntame lo que quieras sobre plata: inflación, ahorro, deuda, inversiones, o de dónde salió el dinero. Trato de explicarlo como se lo explicaría a un amigo.";
+
+var $ = function(id){return document.getElementById(id);};
+var hilo = $("oc-hilo"), input = $("oc-input"), btn = $("oc-enviar");
+var historial = [];   // [{role, content}] para darle contexto a Claude
+var turnos = 0, ocupado = false;
+
+function burbuja(texto, quien, esError){
+  var div = document.createElement("div");
+  div.className = "oc-msg de-" + quien + (esError ? " es-error" : "");
+  String(texto).split(/\n{2,}/).forEach(function(p){
+    var el = document.createElement("p");
+    el.textContent = p.trim();
+    div.appendChild(el);
+  });
+  hilo.appendChild(div);
+  hilo.scrollTop = hilo.scrollHeight;
+  return div;
+}
+
+function puntitos(){
+  var div = document.createElement("div");
+  div.className = "oc-msg de-chancho oc-puntos";
+  div.innerHTML = "<i></i><i></i><i></i>";
+  div.setAttribute("aria-label","El Chancho está escribiendo");
+  hilo.appendChild(div);
+  hilo.scrollTop = hilo.scrollHeight;
+  return div;
+}
+
+function bloquear(estado, texto){
+  ocupado = estado;
+  btn.disabled = estado;
+  input.disabled = estado;
+  btn.textContent = texto || "Preguntar";
+}
+
+function preguntar(texto){
+  if(ocupado || !texto.trim()) return;
+  if(turnos >= MAX_TURNOS){
+    burbuja("Por hoy llegamos hasta acá — es una demo, no la app completa. Anotate en la lista y seguimos cuando salga.", "chancho");
+    $("oc-invite").classList.remove("oc-oculto");
+    input.disabled = true; btn.disabled = true;
+    return;
+  }
+
+  burbuja(texto, "vos");
+  input.value = "";
+  turnos++;
+  bloquear(true, "Pensando…");
+  var espera = puntitos();
+
+  var cuerpo = {
+    pregunta: texto,
+    historial: historial.slice(-6),   // últimos 3 intercambios
+    pagina: location.pathname
+  };
+
+  var terminar = function(respuesta, esError){
+    espera.remove();
+    burbuja(respuesta, "chancho", esError);
+    bloquear(false);
+    input.focus();
+    if(!esError){
+      historial.push({role:"user", content:texto});
+      historial.push({role:"assistant", content:respuesta});
+    }
+    if(turnos >= 3) $("oc-invite").classList.remove("oc-oculto");
+  };
+
+  if(!ENDPOINT){
+    setTimeout(function(){
+      terminar("Falta configurar el ENDPOINT del webhook de n8n. Mientras tanto esto es solo la interfaz: mirá la consola para ver qué se enviaría.");
+      console.warn("[Obol] Falta ENDPOINT. Se enviaría:", cuerpo);
+    }, 700);
+    return;
+  }
+
+  var ctrl = new AbortController();
+  var corte = setTimeout(function(){ ctrl.abort(); }, 45000);
+
+  fetch(ENDPOINT, {
+    method:"POST",
+    headers:{"Content-Type":"text/plain;charset=UTF-8"},
+    body: JSON.stringify(cuerpo),
+    signal: ctrl.signal
+  })
+  .then(function(r){
+    clearTimeout(corte);
+    return r.json().then(function(d){ return {ok:r.ok, d:d}; });
+  })
+  .then(function(res){
+    if(res.d && res.d.respuesta){ terminar(res.d.respuesta); return; }
+    if(res.d && res.d.motivo === "limite"){
+      terminar("Por hoy el Chancho ya contestó todo lo que podía. Volvé mañana, o anotate en la lista para tener la app completa.");
+      $("oc-invite").classList.remove("oc-oculto");
+      return;
+    }
+    throw new Error("respuesta inesperada");
+  })
+  .catch(function(e){
+    clearTimeout(corte);
+    console.error("[Obol chat]", e);
+    terminar(e.name === "AbortError"
+      ? "Tardó demasiado y corté la espera. Probá de nuevo con una pregunta más corta."
+      : "No pude responder ahora mismo. Probá de nuevo en un minuto.", true);
+  });
+}
+
+btn.addEventListener("click", function(){ preguntar(input.value); });
+input.addEventListener("keydown", function(e){ if(e.key === "Enter") preguntar(input.value); });
+
+Array.prototype.forEach.call($("oc-chips").querySelectorAll(".oc-chip"), function(c){
+  c.addEventListener("click", function(){ preguntar(c.textContent); });
+});
+
+burbuja(SALUDO, "chancho");
+})();
+</script>
+  </div>
+
   <!-- CTA -->
-  <div style="background:#eef1f7;padding:0 40px 80px;">
+  <div id="anotarse" style="background:#eef1f7;padding:0 40px 80px;">
     <div class="obol-reveal" style="max-width:1160px;margin:0 auto;border-radius:28px;background:linear-gradient(120deg,#16213e,#1c2c52);padding:48px 56px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 24px 48px -18px rgba(15,20,45,.45);">
       <div style="display:flex;flex-direction:column;gap:8px;max-width:520px;">
         <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:24px;color:#fff;">Obol todavía no está disponible.</h3>

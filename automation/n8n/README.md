@@ -41,3 +41,37 @@ Todos los viernes a las 8am: junta cotizaciones (DolarAPI) e inflación/riesgo p
 - El prompt está armado para que Claude use únicamente los números del briefing (nunca inventa cifras, noticias ni recomienda comprar/vender). Los datos exactos que recibió quedan pegados en un comentario HTML al final del borrador, así podés auditar cada cifra antes de mandar el mail.
 - Si el endpoint del blue de hace 7 días falla, el nodo sigue de largo (`continueRegularOutput`) y la nota simplemente omite la variación semanal en vez de cortar todo el flujo.
 - Si Claude devuelve algo que no es JSON válido, el workflow no se rompe: arma un borrador con asunto "revisar borrador" y el texto crudo, para que lo corrijas a mano.
+
+---
+
+## 3. Chat del Chancho (`obol-chat-n8n.json`)
+
+Recibe las preguntas del widget de chat en `docs/index.html` (sección `#obol-chat`), las filtra con un "portero" antes de gastar un solo token, le pasa la pregunta a Claude (Haiku) con un system prompt que fija el personaje y sus límites, y registra cada intercambio en Google Sheets — clasificado por área — para saber qué le interesa de verdad a la gente que visita el sitio.
+
+### Por qué hace falta el proxy
+
+El widget nunca habla directo con la API de Anthropic: si la key estuviera en el JavaScript del navegador, cualquiera que abra "ver código fuente" te la roba. El widget habla con este webhook de n8n, y n8n —con la key guardada del lado del servidor vía credencial— habla con Claude.
+
+### El nodo "Portero"
+
+Antes de tocar un token, valida: origen del pedido (filtra ruido, no es seguridad real — está anotado en el código), largo máximo de 300 caracteres, tope diario global de 300 preguntas (contador persistente vía `$getWorkflowStaticData`), e historial acotado a los últimos 3 intercambios con roles saneados.
+
+### Pasos para activarlo
+
+1. **Credencial de Anthropic**: la misma credencial `Anthropic account` que uses en el workflow de la newsletter sirve acá también (mismo mecanismo: `Predefined Credential Type`, la key nunca queda en el JSON).
+2. **Importar**: `Import from File` → `obol-chat-n8n.json`.
+3. **Google Sheet**: crear una planilla con la hoja "Preguntas" y estos headers en la primera fila:
+   `fecha · pregunta · area · respuesta · pagina · tokens_entrada · tokens_salida · consumo_hoy`
+4. Abrir el nodo "Registra la pregunta" y pegar el ID real de la planilla en lugar de `PEGAR_ID_DEL_GOOGLE_SHEET`.
+5. **Copiar la URL de producción** del nodo "Recibe la pregunta" y pegarla en `docs/index.html`, dentro del `<script>` del chat, en la línea:
+   ```js
+   var ENDPOINT = ""; // pegar acá la URL de producción
+   ```
+6. **Activar** el workflow.
+
+### Notas
+
+- `TOPE_DIARIO` (dentro del código del nodo "Portero") arranca en 300. Empezá más bajo — tipo 100 — y subilo cuando veas el consumo real en la planilla.
+- El system prompt tiene tres reglas no negociables: nunca recomienda comprar/vender nada, dice explícitamente que no tiene datos del día (y manda a `dolar.html` si le preguntan una cotización), e ignora instrucciones que vengan metidas en el mensaje del usuario.
+- Cada pregunta se clasifica por área (economía, finanzas, mitos, historia, fuera de tema) automáticamente — con eso podés armar una tabla dinámica y ver qué le interesa a la audiencia y qué no cubre la app todavía.
+- El widget responde primero y registra en la planilla después (la respuesta no espera a que termine de guardarse la fila), así que el Chancho contesta rápido aunque Sheets tarde.
