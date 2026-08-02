@@ -410,10 +410,10 @@ function etiquetaMes(fecha){
 }
 
 function dibujarSpark(serie){
-  var W=700, H=120, n=serie.length, gap=8;
+  var W=$("spark").clientWidth || 700, H=120, n=serie.length, gap=8;
   var max = Math.max.apply(null, serie.map(function(m){return m.valor;})) || 1;
   var ancho = (W - gap*(n-1))/n;
-  var svg = '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Inflación mensual de los últimos 12 meses" preserveAspectRatio="none">';
+  var svg = '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Inflación mensual de los últimos 12 meses">';
   serie.forEach(function(m,i){
     var h = Math.max(3, (m.valor/max)*(H-30));
     var x = i*(ancho+gap), y = H-22-h;
