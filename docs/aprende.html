@@ -120,11 +120,35 @@
     .obol-planet { display: none; }
   }
   @media (max-width: 640px) {
-    .nav-text-link { display: none; }
+    .nav-text-link { display: none !important; }
   }
   @media (prefers-reduced-motion: reduce) {
     .obol-planet { animation: none !important; opacity: 1 !important; }
     .obol-planet > span, .obol-planet img { animation: none !important; transform: none !important; }
+  }
+
+  /* ---------- Pill nav (efecto tipo React Bits PillNav, sin dependencias) ---------- */
+  .pill-nav { display: inline-flex; align-items: center; gap: 4px; }
+  .pill-nav .pill {
+    position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center;
+    height: 38px; padding: 0 20px; border-radius: 999px; color: rgba(255,255,255,.85);
+    font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 14px; text-decoration: none;
+  }
+  .pill-nav .pill-circle {
+    position: absolute; left: 50%; bottom: 0; width: 100%; aspect-ratio: 1; border-radius: 50%;
+    background: linear-gradient(90deg,#ffe08a,#ffb24a);
+    transform: translate(-50%,38%) scale(0);
+    transition: transform .45s cubic-bezier(.22,.61,.36,1);
+    pointer-events: none; z-index: 0;
+  }
+  .pill-nav .pill:hover .pill-circle, .pill-nav .pill.is-active .pill-circle { transform: translate(-50%,38%) scale(1.35); }
+  .pill-nav .pill-stack { position: relative; display: inline-block; overflow: hidden; height: 1.2em; z-index: 1; }
+  .pill-nav .pill-label, .pill-nav .pill-label-hover { display: block; transition: transform .35s cubic-bezier(.22,.61,.36,1); }
+  .pill-nav .pill-label-hover { position: absolute; left: 0; top: 100%; color: #16213e; }
+  .pill-nav .pill:hover .pill-label, .pill-nav .pill.is-active .pill-label { transform: translateY(-100%); }
+  .pill-nav .pill:hover .pill-label-hover, .pill-nav .pill.is-active .pill-label-hover { transform: translateY(-100%); }
+  @media (prefers-reduced-motion: reduce) {
+    .pill-nav .pill-circle, .pill-nav .pill-label, .pill-nav .pill-label-hover { transition: none !important; }
   }
 </style>
 </head>
@@ -133,15 +157,17 @@
 <div style="font-family:'Nunito',system-ui,sans-serif;color:#1b2436;">
 
   <!-- Nav -->
-  <div style="position:sticky;top:0;z-index:30;background:#0f1730;padding:15px 40px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(6,10,26,.35);">
+  <div style="position:sticky;top:0;z-index:30;background:#0f1730;padding:13px 40px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(6,10,26,.35);">
     <a href="./index.html" aria-label="Obol Finance" style="display:flex;align-items:center;color:#fff;">
       <img src="./assets/home/obol_wordmark_small.png" alt="Obol Finance" style="height:27px;width:auto;">
     </a>
-    <div style="display:flex;align-items:center;gap:30px;">
-      <a href="./index.html" class="nav-text-link" style="color:rgba(255,255,255,.85);font-weight:700;font-size:14px;">Inicio</a>
-      <a href="./aprende.html" class="nav-text-link" style="color:rgba(255,255,255,.85);font-weight:700;font-size:14px;">Qué enseña la app</a>
-      <a href="./dolar.html" class="nav-text-link" style="color:rgba(255,255,255,.85);font-weight:700;font-size:14px;">Dólar hoy</a>
-      <a href="./blog/index.html" class="nav-text-link" style="color:rgba(255,255,255,.85);font-weight:700;font-size:14px;">Blog</a>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <nav class="pill-nav" aria-label="Principal">
+        <a href="./index.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Inicio</span><span class="pill-label-hover" aria-hidden="true">Inicio</span></span></a>
+        <a href="./aprende.html" class="pill nav-text-link is-active"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Qué enseña la app</span><span class="pill-label-hover" aria-hidden="true">Qué enseña la app</span></span></a>
+        <a href="./dolar.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Dólar hoy</span><span class="pill-label-hover" aria-hidden="true">Dólar hoy</span></span></a>
+        <a href="./blog/index.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Blog</span><span class="pill-label-hover" aria-hidden="true">Blog</span></span></a>
+      </nav>
       <a href="mailto:obol.finance2026@gmail.com?subject=Avisenme%20cuando%20Obol%20est%C3%A9%20disponible" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#0d1730;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:9px 20px;border-radius:999px;">Enterate cuando salga</a>
     </div>
   </div>

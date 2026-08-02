@@ -110,11 +110,47 @@
     .obol-rise, .obol-reveal, .obol-mark, [style*="obolSpin"], [style*="obolGlowPulse"] { animation: none !important; opacity: 1 !important; transform: none !important; }
   }
   @media (max-width: 640px) {
-    .nav-text-link { display: none; }
+    .nav-text-link { display: none !important; }
+  }
+  @media (max-width: 760px) {
+    .obol-hero-grid { grid-template-columns: minmax(0,1fr) !important; }
   }
 
   .obol-mark { transform-style: preserve-3d; }
   .obol-mark:hover, .obol-mark.obol-mark-play { animation: obolSway 1.6s ease-in-out; }
+
+  @keyframes obolDot { 0%,100% { opacity: .3; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }
+
+  @media (max-width: 820px) {
+    .obol-demo-grid { grid-template-columns: minmax(0,1fr) !important; height: auto !important; min-height: 0 !important; }
+    .obol-demo-body { max-height: 520px !important; padding: 24px 22px !important; }
+    .obol-demo-rail { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.09) !important; padding-bottom: 24px !important; }
+    .obol-demo-art { width: 176px !important; }
+  }
+
+  /* ---------- Pill nav (efecto tipo React Bits PillNav, sin dependencias) ---------- */
+  .pill-nav { display: inline-flex; align-items: center; gap: 4px; }
+  .pill-nav .pill {
+    position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center;
+    height: 38px; padding: 0 20px; border-radius: 999px; color: rgba(255,255,255,.85);
+    font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 14px; text-decoration: none;
+  }
+  .pill-nav .pill-circle {
+    position: absolute; left: 50%; bottom: 0; width: 100%; aspect-ratio: 1; border-radius: 50%;
+    background: linear-gradient(90deg,#ffe08a,#ffb24a);
+    transform: translate(-50%,38%) scale(0);
+    transition: transform .45s cubic-bezier(.22,.61,.36,1);
+    pointer-events: none; z-index: 0;
+  }
+  .pill-nav .pill:hover .pill-circle, .pill-nav .pill.is-active .pill-circle { transform: translate(-50%,38%) scale(1.35); }
+  .pill-nav .pill-stack { position: relative; display: inline-block; overflow: hidden; height: 1.2em; z-index: 1; }
+  .pill-nav .pill-label, .pill-nav .pill-label-hover { display: block; transition: transform .35s cubic-bezier(.22,.61,.36,1); }
+  .pill-nav .pill-label-hover { position: absolute; left: 0; top: 100%; color: #16213e; }
+  .pill-nav .pill:hover .pill-label, .pill-nav .pill.is-active .pill-label { transform: translateY(-100%); }
+  .pill-nav .pill:hover .pill-label-hover, .pill-nav .pill.is-active .pill-label-hover { transform: translateY(-100%); }
+  @media (prefers-reduced-motion: reduce) {
+    .pill-nav .pill-circle, .pill-nav .pill-label, .pill-nav .pill-label-hover { transition: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -122,15 +158,17 @@
 <div style="font-family:'Nunito',system-ui,sans-serif;color:#1b2436;">
 
   <!-- Nav -->
-  <div style="position:sticky;top:0;z-index:20;background:#0f1730;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(6,10,26,.35);">
+  <div style="position:sticky;top:0;z-index:20;background:#0f1730;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(6,10,26,.35);">
     <a href="./index.html" aria-label="Obol Finance" style="display:flex;align-items:center;color:#fff;">
       <img src="./assets/home/obol_wordmark_small.png" alt="Obol Finance" style="height:27px;width:auto;">
     </a>
-    <div style="display:flex;align-items:center;gap:32px;">
-      <a href="./index.html" class="nav-text-link" style="color:rgba(255,255,255,.85);font-weight:700;font-size:14px;">Inicio</a>
-      <a href="./aprende.html" class="nav-text-link" style="color:rgba(255,255,255,.85);font-weight:700;font-size:14px;">Qué enseña la app</a>
-      <a href="./dolar.html" class="nav-text-link" style="color:rgba(255,255,255,.85);font-weight:700;font-size:14px;">Dólar hoy</a>
-      <a href="./blog/index.html" class="nav-text-link" style="color:rgba(255,255,255,.85);font-weight:700;font-size:14px;">Blog</a>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <nav class="pill-nav" aria-label="Principal">
+        <a href="#probalo" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Probalo</span><span class="pill-label-hover" aria-hidden="true">Probalo</span></span></a>
+        <a href="./aprende.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Qué enseña la app</span><span class="pill-label-hover" aria-hidden="true">Qué enseña la app</span></span></a>
+        <a href="./dolar.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Dólar hoy</span><span class="pill-label-hover" aria-hidden="true">Dólar hoy</span></span></a>
+        <a href="./blog/index.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Blog</span><span class="pill-label-hover" aria-hidden="true">Blog</span></span></a>
+      </nav>
       <a href="mailto:obol.finance2026@gmail.com?subject=Avisenme%20cuando%20Obol%20est%C3%A9%20disponible" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#0d1730;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:9px 20px;border-radius:999px;">Enterate cuando salga</a>
     </div>
   </div>
@@ -140,7 +178,7 @@
     <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 82% 22%,rgba(74,124,224,.28),transparent 55%),radial-gradient(circle at 8% 90%,rgba(74,124,224,.14),transparent 45%);pointer-events:none;"></div>
     <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 78%);mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 78%);pointer-events:none;"></div>
 
-    <div style="position:relative;max-width:1200px;margin:0 auto;padding:100px 40px 84px;display:grid;grid-template-columns:minmax(360px,1fr) minmax(320px,0.86fr);gap:48px;align-items:center;">
+    <div class="obol-hero-grid" style="position:relative;max-width:1200px;margin:0 auto;padding:100px 40px 84px;display:grid;grid-template-columns:minmax(360px,1fr) minmax(320px,0.86fr);gap:48px;align-items:center;">
 
       <div style="display:flex;flex-direction:column;gap:24px;">
         <span class="obol-rise" style="display:inline-flex;align-items:center;width:fit-content;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:7px 16px;border-radius:999px;text-transform:uppercase;animation-delay:.05s;">Educación financiera gamificada</span>
@@ -153,7 +191,7 @@
 
         <div class="obol-rise" style="display:flex;gap:14px;flex-wrap:wrap;animation-delay:.34s;">
           <a href="mailto:obol.finance2026@gmail.com?subject=Avisenme%20cuando%20Obol%20est%C3%A9%20disponible" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#16213e;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:15px 28px;border-radius:999px;">Enterate cuando salga</a>
-          <a href="./blog/index.html" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:15px 28px;border-radius:999px;">Leer el blog</a>
+          <a href="#probalo" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:15px 28px;border-radius:999px;">Probalo sin registrarte</a>
         </div>
 
         <div class="obol-rise" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px;padding-top:28px;border-top:1px solid rgba(255,255,255,.1);animation-delay:.44s;">
@@ -270,640 +308,319 @@
     </div>
   </div>
 
-  <!-- Trivia -->
-  <div style="background:#eef1f7;padding:70px 40px;display:flex;justify-content:center;">
-    <section class="obol-quiz" id="obol-quiz" aria-labelledby="oq-titulo">
-<style>
-/* ---------- Tokens: paleta y tipografía de Obol Finance ---------- */
-.obol-quiz{
-  --oq-ink:#16213e;          /* fondo de la tarjeta */
-  --oq-ink-soft:#1c2c52;     /* superficies internas */
-  --oq-gold:#ffb24a;         /* acento: el óbolo */
-  --oq-gold-deep:#e0932e;    /* canto de la moneda */
-  --oq-cream:#ffffff;        /* texto principal */
-  --oq-muted:rgba(255,255,255,.62); /* texto secundario */
-  --oq-border:rgba(255,255,255,.16);
-  --oq-ok:#4fd0a0;
-  --oq-no:#ff6b6b;
-  --oq-font-display:'Fredoka',sans-serif;
-  --oq-font-body:'Nunito',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  <!-- Probalo: quiz + chat en un panel -->
+  <div id="probalo" style="background:#ffffff;padding:72px 40px 76px;">
+    <div style="max-width:1160px;margin:0 auto;">
 
-  background:linear-gradient(120deg,var(--oq-ink),var(--oq-ink-soft));
-  color:var(--oq-cream);
-  font-family:var(--oq-font-body);
-  border-radius:28px;
-  padding:44px 40px;
-  max-width:720px;
-  margin:0 auto;
-  box-sizing:border-box;
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 24px 48px -18px rgba(15,20,45,.45);
-}
-.obol-quiz *,.obol-quiz *::before,.obol-quiz *::after{box-sizing:border-box;}
-.obol-quiz::before{ /* brillo de moneda, muy sutil */
-  content:"";position:absolute;inset:-40% -20% auto auto;width:420px;height:420px;
-  background:radial-gradient(circle,rgba(255,178,74,.16),transparent 62%);pointer-events:none;
-}
-
-/* ---------- Encabezado ---------- */
-.obol-quiz .oq-eyebrow{
-  font-family:var(--oq-font-display);
-  font-size:12px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--oq-gold);margin:0 0 10px;font-weight:600;
-}
-.obol-quiz .oq-titulo{
-  font-family:var(--oq-font-display);font-size:clamp(24px,4.4vw,32px);
-  line-height:1.2;margin:0 0 8px;font-weight:700;letter-spacing:-.01em;
-}
-.obol-quiz .oq-bajada{color:var(--oq-muted);font-size:15px;font-weight:600;line-height:1.55;margin:0 0 26px;max-width:52ch;}
-
-/* ---------- Monedas de progreso (el marcador) ---------- */
-.obol-quiz .oq-monedas{display:flex;gap:10px;margin:0 0 26px;padding:0;list-style:none;}
-.obol-quiz .oq-moneda{
-  width:26px;height:26px;border-radius:50%;
-  border:2px solid var(--oq-border);background:transparent;
-  transition:transform .35s ease,background .35s ease,border-color .35s ease;
-  position:relative;
-}
-.obol-quiz .oq-moneda.es-actual{border-color:var(--oq-gold);}
-.obol-quiz .oq-moneda.es-ok{
-  background:radial-gradient(circle at 32% 28%,#ffe08a,var(--oq-gold-deep));
-  border-color:var(--oq-gold-deep);transform:rotateY(180deg);
-}
-.obol-quiz .oq-moneda.es-no{background:rgba(255,107,107,.22);border-color:var(--oq-no);transform:rotateY(180deg);}
-
-/* ---------- Pregunta ---------- */
-.obol-quiz .oq-mundo{
-  display:inline-block;font-family:var(--oq-font-display);
-  font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
-  color:var(--oq-gold);border:1px solid rgba(255,178,74,.35);background:rgba(255,178,74,.1);
-  border-radius:999px;padding:5px 13px;margin-bottom:16px;
-}
-.obol-quiz .oq-pregunta{
-  font-family:var(--oq-font-display);font-size:clamp(19px,3.2vw,23px);
-  line-height:1.38;margin:0 0 22px;font-weight:600;
-}
-.obol-quiz .oq-opciones{display:grid;gap:10px;margin:0 0 20px;padding:0;list-style:none;}
-.obol-quiz .oq-opcion{
-  width:100%;text-align:left;font:inherit;font-size:15.5px;font-weight:600;color:var(--oq-cream);
-  background:rgba(255,255,255,.055);border:1.5px solid var(--oq-border);
-  border-radius:16px;padding:15px 17px;cursor:pointer;
-  transition:border-color .18s ease,background .18s ease,transform .12s ease;
-}
-.obol-quiz .oq-opcion:hover:not(:disabled){border-color:var(--oq-gold);transform:translateX(3px);}
-.obol-quiz .oq-opcion:focus-visible{outline:2px solid var(--oq-gold);outline-offset:2px;}
-.obol-quiz .oq-opcion:disabled{cursor:default;}
-.obol-quiz .oq-opcion.es-ok{border-color:var(--oq-ok);background:rgba(79,208,160,.14);}
-.obol-quiz .oq-opcion.es-no{border-color:var(--oq-no);background:rgba(255,107,107,.14);}
-.obol-quiz .oq-opcion.es-apagada{opacity:.42;}
-
-/* ---------- Explicación ---------- */
-.obol-quiz .oq-porque{
-  border-left:3px solid var(--oq-gold);background:rgba(255,178,74,.08);
-  border-radius:0 16px 16px 0;padding:16px 19px;margin:0 0 20px;
-  font-size:14.5px;font-weight:600;line-height:1.6;color:var(--oq-cream);
-}
-.obol-quiz .oq-porque strong{font-family:var(--oq-font-display);color:var(--oq-gold);display:block;margin-bottom:5px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
-
-/* ---------- Botones ---------- */
-.obol-quiz .oq-btn{
-  font-family:var(--oq-font-display);font-size:15px;font-weight:600;cursor:pointer;
-  border-radius:999px;padding:14px 28px;border:none;
-  background:linear-gradient(90deg,#ffe08a,#ffb24a);color:#16213e;
-  transition:filter .18s ease,transform .12s ease;
-}
-.obol-quiz .oq-btn:hover:not(:disabled){filter:brightness(1.05);transform:translateY(-1px);}
-.obol-quiz .oq-btn:focus-visible{outline:2px solid var(--oq-cream);outline-offset:3px;}
-.obol-quiz .oq-btn:disabled{opacity:.55;cursor:wait;transform:none;}
-.obol-quiz .oq-btn-fantasma{
-  background:rgba(255,255,255,.08);color:var(--oq-cream);border:1.5px solid var(--oq-border);
-}
-
-/* ---------- Resultado + formulario ---------- */
-.obol-quiz .oq-marcador{
-  font-family:var(--oq-font-display);font-size:clamp(40px,9vw,60px);
-  line-height:1;color:var(--oq-gold);margin:0 0 6px;font-weight:700;
-}
-.obol-quiz .oq-marcador span{font-size:.42em;color:var(--oq-muted);}
-.obol-quiz .oq-veredicto{font-size:17px;font-weight:600;line-height:1.5;margin:0 0 24px;max-width:46ch;}
-.obol-quiz .oq-form{display:grid;gap:11px;margin:0;}
-.obol-quiz .oq-fila{display:grid;gap:11px;grid-template-columns:1fr 1fr;}
-@media (max-width:560px){.obol-quiz .oq-fila{grid-template-columns:1fr;} .obol-quiz{padding:32px 24px;}}
-.obol-quiz .oq-input{
-  font:inherit;font-size:15px;font-weight:600;color:var(--oq-cream);background:rgba(255,255,255,.055);
-  border:1.5px solid var(--oq-border);border-radius:14px;padding:14px 16px;width:100%;
-}
-.obol-quiz .oq-input::placeholder{color:rgba(255,255,255,.45);}
-.obol-quiz .oq-input:focus{outline:2px solid var(--oq-gold);outline-offset:1px;border-color:transparent;}
-.obol-quiz .oq-legal{font-size:12.5px;font-weight:600;color:var(--oq-muted);line-height:1.5;margin:4px 0 0;}
-.obol-quiz .oq-error{color:var(--oq-no);font-size:13.5px;font-weight:600;margin:2px 0 0;}
-.obol-quiz .oq-trampa{position:absolute;left:-9999px;opacity:0;height:0;width:0;}
-.obol-quiz .oq-listo{
-  border:1.5px dashed var(--oq-gold);border-radius:20px;padding:26px;text-align:center;
-}
-.obol-quiz .oq-listo p{margin:0 0 8px;}
-.obol-quiz .oq-listo .oq-grande{font-family:var(--oq-font-display);font-weight:700;font-size:22px;color:var(--oq-gold);}
-
-.obol-quiz .oq-oculto{display:none;}
-@media (prefers-reduced-motion:reduce){
-  .obol-quiz *{transition:none !important;transform:none !important;}
-}
-</style>
-
-  <p class="oq-eyebrow">Probalo ahora</p>
-  <h2 class="oq-titulo" id="oq-titulo">Cinco preguntas. A ver cómo te va.</h2>
-  <p class="oq-bajada">Son cinco de las 804 que tiene la app, una por cada área. Sin registro, sin descargar nada.</p>
-
-  <ol class="oq-monedas" id="oq-monedas" aria-hidden="true"></ol>
-
-  <!-- Pantalla de juego -->
-  <div id="oq-juego">
-    <span class="oq-mundo" id="oq-mundo"></span>
-    <p class="oq-pregunta" id="oq-pregunta"></p>
-    <div class="oq-opciones" id="oq-opciones" role="group" aria-labelledby="oq-pregunta"></div>
-    <div class="oq-porque oq-oculto" id="oq-porque" role="status" aria-live="polite"></div>
-    <button class="oq-btn oq-oculto" id="oq-siguiente" type="button">Siguiente</button>
-  </div>
-
-  <!-- Pantalla de resultado + lista de espera -->
-  <div id="oq-final" class="oq-oculto">
-    <p class="oq-marcador" id="oq-marcador"></p>
-    <p class="oq-veredicto" id="oq-veredicto"></p>
-
-    <div class="oq-form" id="oq-form">
-      <div class="oq-fila">
-        <input class="oq-input" id="oq-nombre" type="text" placeholder="Tu nombre" autocomplete="given-name" aria-label="Tu nombre">
-        <input class="oq-input" id="oq-email" type="email" placeholder="tu@mail.com" autocomplete="email" required aria-label="Tu correo" aria-describedby="oq-legal">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:28px;">
+        <div style="display:flex;flex-direction:column;gap:10px;max-width:600px;">
+          <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;color:#6b738a;text-transform:uppercase;">Probalo ahora</span>
+          <h2 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:32px;color:#16213e;">No hace falta esperar a que salga.</h2>
+          <p style="margin:0;font-weight:600;font-size:16px;color:#6b738a;line-height:1.55;">Dos maneras de ver cómo es Obol por dentro: contestá cinco preguntas reales o preguntale directo al Chancho.</p>
+        </div>
+        <div style="display:flex;gap:4px;padding:4px;background:#eef1f7;border-radius:999px;flex:none;">
+          <button type="button" id="pb-tab-quiz" style="border:none;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;padding:11px 22px;border-radius:999px;transition:background .2s ease,color .2s ease;">5 preguntas</button>
+          <button type="button" id="pb-tab-chat" style="border:none;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;padding:11px 22px;border-radius:999px;transition:background .2s ease,color .2s ease;">Chat con el Chancho</button>
+        </div>
       </div>
-      <input class="oq-trampa" id="oq-trampa" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="oq-btn" id="oq-enviar" type="button">Avisame cuando salga</button>
-      <p class="oq-error oq-oculto" id="oq-error" role="alert"></p>
-      <p class="oq-legal" id="oq-legal">Un solo mail cuando abra la beta. Nada más, y te podés dar de baja cuando quieras.</p>
-    </div>
 
-    <div class="oq-listo oq-oculto" id="oq-listo">
-      <p class="oq-grande">Listo, quedaste anotado.</p>
-      <p style="color:var(--oq-muted);font-size:14.5px;font-weight:600;">Te escribimos al mail apenas abra la beta. Mientras tanto, el blog tiene bastante para leer.</p>
-      <p style="margin-top:16px;"><a class="oq-btn oq-btn-fantasma" style="display:inline-block;text-decoration:none;" href="./blog/index.html">Ir al blog</a></p>
+      <div class="obol-demo-grid" style="display:grid;grid-template-columns:minmax(0,308px) minmax(0,1fr);border-radius:28px;overflow:hidden;background:linear-gradient(140deg,#16213e,#101b36);border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -26px rgba(15,22,50,.5);height:534px;">
+
+        <!-- Rail -->
+        <div class="obol-demo-rail" style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:32px 28px;background:rgba(255,255,255,.04);border-right:1px solid rgba(255,255,255,.09);overflow:hidden;">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <span style="display:inline-flex;align-items:center;width:fit-content;font-family:'Fredoka',sans-serif;font-weight:600;font-size:11px;letter-spacing:.12em;color:#ffd68f;background:rgba(255,178,74,.14);border:1px solid rgba(255,178,74,.3);padding:6px 13px;border-radius:999px;text-transform:uppercase;">Demo gratis</span>
+            <h3 id="pb-rail-title" style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:23px;color:#fff;line-height:1.2;">Cinco preguntas</h3>
+            <p id="pb-rail-text" style="margin:0;font-weight:600;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.62);">Una de cada área temática. Sin registro y sin descargar nada.</p>
+            <span id="pb-rail-stat" style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:12.5px;color:rgba(255,255,255,.42);letter-spacing:.02em;">804 preguntas en la app</span>
+          </div>
+          <div class="obol-demo-art" style="position:relative;display:flex;justify-content:center;">
+            <div style="position:absolute;bottom:6px;width:130px;height:22px;border-radius:999px;background:rgba(0,0,0,.35);filter:blur(13px);"></div>
+            <img src="./assets/icon.png" alt="El Chancho de Obol" style="position:relative;width:148px;height:148px;border-radius:22px;display:block;object-fit:cover;filter:drop-shadow(0 18px 26px rgba(4,8,22,.45));">
+          </div>
+        </div>
+
+        <!-- Contenido -->
+        <div class="obol-demo-body" id="pb-body" style="display:flex;flex-direction:column;padding:30px 34px 30px;min-width:0;min-height:0;overflow:hidden;"></div>
+      </div>
     </div>
   </div>
-</section>
 
 <script>
 (function () {
   "use strict";
 
-  /* ====== CONFIGURACIÓN — pegá acá la URL del webhook de n8n ====== */
-  var WEBHOOK = ""; // ej: "https://changozeballos.app.n8n.cloud/webhook/obol-waitlist"
-
-  var PREGUNTAS = [
-    {
-      mundo: "Economía",
-      texto: "La inflación anual fue 100% y tu sueldo subió 80%. ¿Qué pasó con lo que podés comprar?",
-      opciones: ["Comprás un poco más que antes", "Comprás lo mismo", "Comprás cerca de un 10% menos", "Depende del dólar"],
-      correcta: 2,
-      porque: "Tu sueldo se multiplicó por 1,8 y los precios por 2. Dividido: 0,9. Perdiste un 10% de poder de compra aunque el número del recibo haya subido. Un aumento nominal no es un aumento real."
-    },
-    {
-      mundo: "Finanzas",
-      texto: "Ponés $100.000 al 5% mensual y reinvertís los intereses todos los meses. ¿Cuánto tenés al año?",
-      opciones: ["$160.000", "$179.586", "$150.000", "$205.000"],
-      correcta: 1,
-      porque: "5% doce veces seguidas no da 60%: da 79,6%. Esos $19.586 de diferencia son interés compuesto — el interés que generan los intereses que ya ganaste."
-    },
-    {
-      mundo: "Finanzas",
-      texto: "¿De cuánto conviene que sea un fondo de emergencia?",
-      opciones: ["Un sueldo", "Entre 3 y 6 meses de gastos", "El 10% de lo que ganás", "Lo que sobre a fin de mes"],
-      correcta: 1,
-      porque: "Se mide en gastos, no en sueldos, y en meses, no en montos. Con 3 a 6 meses cubiertos, un imprevisto deja de convertirse en deuda de tarjeta."
-    },
-    {
-      mundo: "Desmitificando",
-      texto: "“Comprar dólares siempre le gana a cualquier otra inversión en Argentina.”",
-      opciones: ["Verdadero", "Falso"],
-      correcta: 1,
-      porque: "El dólar protege en los saltos, pero pasa años planchado mientras los precios siguen corriendo. En varios períodos largos un plazo fijo o una acción rindieron más. El error no es comprar dólares: es poner todo en un solo lugar."
-    },
-    {
-      mundo: "Historia",
-      texto: "El óbolo, la moneda que le da nombre a esta app, ¿de dónde viene?",
-      opciones: ["Del Imperio Romano", "De la Grecia antigua", "De la China de los Han", "De Mesopotamia"],
-      correcta: 1,
-      porque: "Era una moneda griega de plata, de las primeras del mundo. Servía para el pan del día — y también se ponía bajo la lengua de los muertos, para pagarle el pasaje a Caronte."
-    }
+  var QUESTIONS = [
+    { area: 'Economía', color: '#7fa8f5',
+      q: 'Los precios subieron 5% este mes y tu sueldo 3%. ¿Qué pasó con tu poder de compra?',
+      opts: ['Subió un 2%', 'Bajó un 2%', 'Quedó igual', 'Depende del banco'],
+      correct: 1,
+      why: 'Los precios corrieron más rápido que tu sueldo: con la misma plata comprás menos cosas.' },
+    { area: 'Finanzas', color: '#6ddbaa',
+      q: '¿Qué es el interés compuesto?',
+      opts: ['Un interés que te cobran dos veces', 'Interés que se calcula sobre el capital más los intereses ya ganados', 'Un impuesto sobre el plazo fijo', 'La tasa que fija el banco central'],
+      correct: 1,
+      why: 'Es interés sobre interés. $100.000 al 5% mensual son $179.500 al año, no $160.000.' },
+    { area: 'Desmitificando', color: '#c39bf0',
+      q: '¿Cuál de estas frases es un mito?',
+      opts: ['Alquilar es tirar la plata', 'Diversificar reduce el riesgo', 'La inflación erosiona el ahorro en pesos', 'Ahorrar de a poco también sirve'],
+      correct: 0,
+      why: 'Alquilar es pagar por usar algo hoy. Puede convenir o no, pero no es plata tirada.' },
+    { area: 'Historia', color: '#f0c07a',
+      q: '¿De dónde viene la palabra "salario"?',
+      opts: ['Del latín "salire", salir a trabajar', 'De la sal con la que se pagaba a los soldados romanos', 'Del griego "salarion", contrato', 'Del nombre de un banquero florentino'],
+      correct: 1,
+      why: 'La sal era escasa y valiosa: funcionaba como dinero mucho antes que el papel.' },
+    { area: 'Finanzas', color: '#6ddbaa',
+      q: 'Tenés una tarjeta con 15% mensual de interés y $100.000 ahorrados. ¿Qué conviene?',
+      opts: ['Pagar el mínimo e invertir el resto', 'Cancelar la deuda de la tarjeta', 'Sacar un préstamo para pagarla', 'Esperar a que baje la tasa'],
+      correct: 1,
+      why: 'Ninguna inversión común te paga 15% mensual seguro. Cancelar deuda cara es la mejor "inversión".' }
   ];
 
-  var VEREDICTOS = [
-    "Bueno, para eso está la app. Ninguna de estas se aprende sola.",
-    "Bueno, para eso está la app. Ninguna de estas se aprende sola.",
-    "Algo sabés. Lo que falta es el resto, que son otras 799 preguntas.",
-    "Nada mal. Te faltó poco para el pleno.",
-    "Muy bien. Ya estás arriba del promedio.",
-    "Impecable. Cinco de cinco — vas a aburrirte con las primeras lecciones."
+  var CHAT_QA = [
+    { chip: '¿Por qué sube el dólar?', keys: ['dolar', 'dólar', 'blue', 'divisa'],
+      a: 'Cuando hay más pesos dando vueltas que ganas de tenerlos, la gente se pasa al dólar y su precio sube. Sumale las expectativas: si creés que mañana va a estar más caro, comprás hoy — y eso mismo lo empuja.' },
+    { chip: '¿Qué es el interés compuesto?', keys: ['compuesto', 'interes', 'interés'],
+      a: 'Es interés sobre interés. Ponés $100.000 al 5% mensual: el primer mes ganás $5.000, el segundo el 5% se calcula sobre $105.000. A 12 meses son $79.500 en vez de $60.000.' },
+    { chip: '¿Conviene el plazo fijo?', keys: ['plazo', 'fijo'],
+      a: 'Depende de una sola cuenta: tasa contra inflación. Si la tasa mensual le gana a la inflación del mes, ganás poder de compra. Si no, estás perdiendo más despacio.' },
+    { chip: '¿Qué es un CEDEAR?', keys: ['cedear', 'accion', 'acción', 'exterior'],
+      a: 'Un certificado que cotiza en pesos acá y representa una acción del exterior. Comprás Apple sin sacar la plata del país y, de paso, seguís al dólar CCL.' },
+    { chip: '', keys: ['inflacion', 'inflación', 'precios', 'ipc'],
+      a: 'Inflación es la suba general y sostenida de los precios. No es que una cosa esté cara: es que tu plata vale menos todos los meses.' }
   ];
 
+  var pb = {
+    mode: 'quiz', qi: 0, picked: null, score: 0, done: false,
+    draft: '', typing: false,
+    messages: [{ who: 'pig', text: 'Hola, soy el Chancho. Preguntame lo que quieras sobre plata — te lo explico en criollo, sin tecnicismos.' }]
+  };
+  var pbTimers = [];
   var $ = function (id) { return document.getElementById(id); };
-  var indice = 0, aciertos = 0, respondida = false;
 
-  /* ---- monedas de progreso ---- */
-  var monedas = $("oq-monedas");
-  PREGUNTAS.forEach(function () {
-    var li = document.createElement("li");
-    li.className = "oq-moneda";
-    monedas.appendChild(li);
-  });
-  function pintarMonedas() {
-    Array.prototype.forEach.call(monedas.children, function (li, i) {
-      li.classList.toggle("es-actual", i === indice && !respondida);
-    });
+  function pbEsc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; });
   }
 
-  /* ---- render de pregunta ---- */
-  function mostrarPregunta() {
-    var p = PREGUNTAS[indice];
-    respondida = false;
-    $("oq-mundo").textContent = p.mundo;
-    $("oq-pregunta").textContent = p.texto;
-    $("oq-porque").classList.add("oq-oculto");
-    $("oq-siguiente").classList.add("oq-oculto");
-
-    var cont = $("oq-opciones");
-    cont.innerHTML = "";
-    p.opciones.forEach(function (texto, i) {
-      var b = document.createElement("button");
-      b.type = "button";
-      b.className = "oq-opcion";
-      b.textContent = texto;
-      b.addEventListener("click", function () { responder(i); });
-      cont.appendChild(b);
-    });
-    pintarMonedas();
+  function pbSetMode(m) {
+    pb.mode = m;
+    pbRenderTabs();
+    pbRenderRail();
+    pbRenderBody();
   }
 
-  function responder(elegida) {
-    if (respondida) return;
-    respondida = true;
-    var p = PREGUNTAS[indice];
-    var acerto = elegida === p.correcta;
-    if (acerto) aciertos++;
-
-    Array.prototype.forEach.call($("oq-opciones").children, function (b, i) {
-      b.disabled = true;
-      if (i === p.correcta) b.classList.add("es-ok");
-      else if (i === elegida) b.classList.add("es-no");
-      else b.classList.add("es-apagada");
-    });
-
-    var moneda = monedas.children[indice];
-    moneda.classList.remove("es-actual");
-    moneda.classList.add(acerto ? "es-ok" : "es-no");
-
-    var porque = $("oq-porque");
-    porque.innerHTML = "";
-    var t = document.createElement("strong");
-    t.textContent = acerto ? "Correcto" : "La respuesta era otra";
-    porque.appendChild(t);
-    porque.appendChild(document.createTextNode(p.porque));
-    porque.classList.remove("oq-oculto");
-
-    var sig = $("oq-siguiente");
-    sig.textContent = indice === PREGUNTAS.length - 1 ? "Ver mi resultado" : "Siguiente";
-    sig.classList.remove("oq-oculto");
-    sig.focus();
+  function pbRenderTabs() {
+    var quizOn = pb.mode === 'quiz';
+    var tq = $('pb-tab-quiz'), tc = $('pb-tab-chat');
+    tq.style.background = quizOn ? '#16213e' : 'transparent';
+    tq.style.color = quizOn ? '#ffffff' : '#6b738a';
+    tc.style.background = quizOn ? 'transparent' : '#16213e';
+    tc.style.color = quizOn ? '#6b738a' : '#ffffff';
   }
 
-  $("oq-siguiente").addEventListener("click", function () {
-    indice++;
-    if (indice < PREGUNTAS.length) { mostrarPregunta(); }
-    else { terminar(); }
-  });
-
-  function terminar() {
-    $("oq-juego").classList.add("oq-oculto");
-    $("oq-final").classList.remove("oq-oculto");
-    $("oq-marcador").innerHTML = aciertos + "<span>/" + PREGUNTAS.length + "</span>";
-    $("oq-veredicto").textContent = VEREDICTOS[aciertos];
-    $("oq-email").focus();
+  function pbRenderRail() {
+    var quizOn = pb.mode === 'quiz';
+    $('pb-rail-title').textContent = quizOn ? 'Cinco preguntas' : 'Preguntale al Chancho';
+    $('pb-rail-text').textContent = quizOn ? 'Una de cada área temática. Sin registro y sin descargar nada.' : 'Economía, finanzas personales, mitos e historia del dinero. En criollo.';
+    $('pb-rail-stat').textContent = quizOn ? '804 preguntas en la app' : '17 secciones · 10 juegos';
   }
 
-  /* ---- envío a la lista de espera ---- */
-  function emailValido(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
-
-  function mostrarError(msg) {
-    var e = $("oq-error");
-    e.textContent = msg;
-    e.classList.remove("oq-oculto");
+  function pbPick(i) {
+    if (pb.picked !== null) return;
+    if (i === QUESTIONS[pb.qi].correct) pb.score++;
+    pb.picked = i;
+    pbRenderBody();
+  }
+  function pbNext() {
+    if (pb.qi + 1 >= QUESTIONS.length) { pb.done = true; }
+    else { pb.qi++; pb.picked = null; }
+    pbRenderBody();
+  }
+  function pbRestart() {
+    pb.qi = 0; pb.picked = null; pb.score = 0; pb.done = false;
+    pbRenderBody();
   }
 
-  $("oq-enviar").addEventListener("click", function () {
-    var btn = this;
-    var email = $("oq-email").value.trim().toLowerCase();
-    $("oq-error").classList.add("oq-oculto");
-
-    if (!emailValido(email)) {
-      mostrarError("Ese mail no parece válido. Revisalo y probá de nuevo.");
-      $("oq-email").focus();
-      return;
+  function pbAsk(text) {
+    var t = (text || '').trim();
+    if (!t || pb.typing) return;
+    var norm = t.toLowerCase();
+    var hit = null;
+    for (var i = 0; i < CHAT_QA.length && !hit; i++) {
+      var c = CHAT_QA[i];
+      for (var j = 0; j < c.keys.length; j++) { if (norm.indexOf(c.keys[j]) !== -1) { hit = c; break; } }
     }
-    if ($("oq-trampa").value !== "") { return; } // bot
+    var answer = hit ? hit.a : 'Buena pregunta. Esa la tengo en la app, que cubre 17 secciones — por acá todavía manejo un puñado de temas. Probá con alguna de las sugeridas.';
+    pb.messages.push({ who: 'me', text: t });
+    pb.draft = '';
+    pb.typing = true;
+    pbRenderBody();
+    pbTimers.push(setTimeout(function () {
+      pb.messages.push({ who: 'pig', text: answer });
+      pb.typing = false;
+      pbRenderBody();
+    }, 780));
+  }
 
-    var datos = {
-      email: email,
-      nombre: $("oq-nombre").value.trim(),
-      puntaje: aciertos,
-      total: PREGUNTAS.length,
-      origen: "trivia-home",
-      pagina: location.pathname,
-      referrer: document.referrer || "directo",
-      fecha: new Date().toISOString()
-    };
+  function pbRenderBody() {
+    var body = $('pb-body');
+    if (pb.mode === 'quiz' && !pb.done) {
+      body.innerHTML = pbQuizPlayingHtml();
+      pbWireQuizPlaying();
+    } else if (pb.mode === 'quiz' && pb.done) {
+      body.innerHTML = pbQuizDoneHtml();
+      pbWireQuizDone();
+    } else {
+      body.innerHTML = pbChatHtml();
+      pbWireChat();
+    }
+  }
 
-    btn.disabled = true;
-    btn.textContent = "Anotándote…";
+  function pbQuizPlayingHtml() {
+    var q = QUESTIONS[pb.qi];
+    var answered = pb.picked !== null;
+    var progress = Math.round(((pb.qi + (answered ? 1 : 0)) / QUESTIONS.length) * 100);
+    var optsHtml = q.opts.map(function (label, i) {
+      var bg = 'rgba(255,255,255,.06)', bd = 'rgba(255,255,255,.15)', fg = '#ffffff', mark = '';
+      if (answered) {
+        if (i === q.correct) { bg = 'rgba(46,168,120,.18)'; bd = '#2ea878'; fg = '#b9f0d7'; mark = '✓'; }
+        else if (i === pb.picked) { bg = 'rgba(224,84,84,.16)'; bd = '#e05454'; fg = '#ffc7c7'; mark = '✕'; }
+        else { bg = 'rgba(255,255,255,.02)'; bd = 'rgba(255,255,255,.07)'; fg = 'rgba(255,255,255,.4)'; }
+      }
+      return '<button type="button" data-i="' + i + '" ' + (answered ? 'disabled' : '') + ' class="pb-opt" style="display:flex;align-items:center;gap:13px;text-align:left;cursor:pointer;font-family:\'Nunito\',sans-serif;font-weight:700;font-size:14.5px;line-height:1.4;padding:14px 16px;border-radius:14px;transition:background .18s ease,border-color .18s ease,transform .18s ease;background:' + bg + ';border:1.5px solid ' + bd + ';color:' + fg + ';">'
+        + '<span style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:8px;background:rgba(255,255,255,.1);font-family:\'Fredoka\',sans-serif;font-weight:700;font-size:12px;">' + 'ABCD'[i] + '</span>'
+        + '<span style="flex:1;">' + pbEsc(label) + '</span>'
+        + '<span style="flex:none;font-size:14px;font-weight:700;">' + mark + '</span>'
+        + '</button>';
+    }).join('');
 
-    if (!WEBHOOK) {
-      console.warn("[Obol] Falta configurar WEBHOOK. Datos que se enviarían:", datos);
-      exito();
-      return;
+    var feedbackHtml = '';
+    if (answered) {
+      var right = pb.picked === q.correct;
+      var feedColor = right ? '#6ddbaa' : '#ffb24a';
+      var nextLabel = pb.qi + 1 >= QUESTIONS.length ? 'Ver resultado' : 'Siguiente pregunta';
+      feedbackHtml = '<div style="margin-top:auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-top:6px;">'
+        + '<div style="flex:1;min-width:240px;display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.05);border-left:3px solid ' + feedColor + ';">'
+        + '<span style="font-family:\'Fredoka\',sans-serif;font-weight:700;font-size:13px;color:' + feedColor + ';">' + (right ? 'Correcto' : 'No exactamente') + '</span>'
+        + '<span style="font-weight:600;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.72);">' + pbEsc(q.why) + '</span>'
+        + '</div>'
+        + '<button type="button" id="pb-next" class="obol-btn" style="flex:none;border:none;cursor:pointer;font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:14.5px;color:#16213e;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:14px 24px;border-radius:999px;">' + nextLabel + '</button>'
+        + '</div>';
     }
 
-    fetch(WEBHOOK, {
-      method: "POST",
-      // text/plain evita el preflight CORS: el navegador manda el POST directo
-      headers: { "Content-Type": "text/plain;charset=UTF-8" },
-      body: JSON.stringify(datos)
-    })
-      .then(function (r) {
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        return r.text();
-      })
-      .then(exito)
-      .catch(function (err) {
-        console.error("[Obol] Error al anotar:", err);
-        btn.disabled = false;
-        btn.textContent = "Avisame cuando salga";
-        mostrarError("No pudimos guardarte ahora. Probá de nuevo en un minuto o escribinos a obol.finance2026@gmail.com");
+    return '<div style="display:flex;flex-direction:column;height:100%;gap:20px;">'
+      + '<div style="display:flex;flex-direction:column;gap:12px;">'
+      + '<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">'
+      + '<span style="font-family:\'Fredoka\',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:' + q.color + ';">' + pbEsc(q.area) + '</span>'
+      + '<span style="font-weight:700;font-size:12.5px;color:rgba(255,255,255,.45);">Pregunta ' + (pb.qi + 1) + ' de ' + QUESTIONS.length + '</span>'
+      + '</div>'
+      + '<div style="height:4px;border-radius:999px;background:rgba(255,255,255,.1);overflow:hidden;">'
+      + '<div style="height:100%;border-radius:999px;background:linear-gradient(90deg,#ffe08a,#ffb24a);transition:width .4s cubic-bezier(.22,.61,.36,1);width:' + progress + '%;"></div>'
+      + '</div></div>'
+      + '<h4 style="margin:0;font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:21px;line-height:1.35;color:#fff;">' + pbEsc(q.q) + '</h4>'
+      + '<div style="display:grid;gap:9px;">' + optsHtml + '</div>'
+      + feedbackHtml
+      + '</div>';
+  }
+
+  function pbWireQuizPlaying() {
+    var body = $('pb-body');
+    Array.prototype.forEach.call(body.querySelectorAll('.pb-opt'), function (b) {
+      b.addEventListener('click', function () { pbPick(parseInt(b.getAttribute('data-i'), 10)); });
+    });
+    var next = $('pb-next');
+    if (next) next.addEventListener('click', pbNext);
+  }
+
+  function pbQuizDoneHtml() {
+    var scoreMsg = pb.score >= 4 ? 'Muy bien. Ya arrancás con ventaja.'
+      : pb.score >= 2 ? 'Nada mal. Hay margen para afilar.'
+      : 'Para eso está la app. Se aprende rápido.';
+    return '<div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:16px;height:100%;">'
+      + '<span style="font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);">Resultado</span>'
+      + '<div style="display:flex;align-items:baseline;gap:8px;">'
+      + '<span style="font-family:\'Fredoka\',sans-serif;font-weight:700;font-size:72px;line-height:.9;color:#ffb24a;">' + pb.score + '</span>'
+      + '<span style="font-family:\'Fredoka\',sans-serif;font-weight:700;font-size:30px;color:rgba(255,255,255,.4);">/ ' + QUESTIONS.length + '</span>'
+      + '</div>'
+      + '<p style="margin:0;font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:22px;color:#fff;">' + scoreMsg + '</p>'
+      + '<p style="margin:0;max-width:440px;font-weight:600;font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.62);">Esto fueron 5 de las 804 preguntas. La app tiene 17 secciones, 10 juegos y una racha diaria para que no se te haga cuesta arriba.</p>'
+      + '<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;">'
+      + '<a href="mailto:obol.finance2026@gmail.com?subject=Avisenme%20cuando%20Obol%20est%C3%A9%20disponible" class="obol-btn" style="display:inline-flex;align-items:center;font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:14.5px;color:#16213e;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:14px 24px;border-radius:999px;">Anotarme en la lista</a>'
+      + '<button type="button" id="pb-restart" class="obol-btn" style="border:1px solid rgba(255,255,255,.2);cursor:pointer;font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:14.5px;color:#fff;background:rgba(255,255,255,.07);padding:14px 24px;border-radius:999px;">Volver a probar</button>'
+      + '</div></div>';
+  }
+  function pbWireQuizDone() {
+    var r = $('pb-restart');
+    if (r) r.addEventListener('click', pbRestart);
+  }
+
+  function pbChatHtml() {
+    var msgsHtml = pb.messages.map(function (m) {
+      var isPig = m.who === 'pig';
+      var justify = isPig ? 'flex-start' : 'flex-end';
+      var bg = isPig ? 'rgba(255,255,255,.08)' : 'linear-gradient(90deg,#ffe08a,#ffb24a)';
+      var fg = isPig ? 'rgba(255,255,255,.92)' : '#16213e';
+      var radius = isPig ? '4px 16px 16px 16px' : '16px 16px 4px 16px';
+      var avatar = isPig ? '<div style="flex:none;width:34px;height:34px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.1);"><img src="./assets/icon.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"></div>' : '';
+      return '<div style="display:flex;align-items:flex-end;gap:9px;justify-content:' + justify + ';">' + avatar
+        + '<div style="max-width:80%;padding:12px 15px;font-weight:600;font-size:14.5px;line-height:1.55;border-radius:' + radius + ';background:' + bg + ';color:' + fg + ';">' + pbEsc(m.text) + '</div></div>';
+    }).join('');
+
+    var typingHtml = pb.typing
+      ? '<div style="display:flex;align-items:center;gap:9px;">'
+        + '<div style="flex:none;width:34px;height:34px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.1);"><img src="./assets/icon.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"></div>'
+        + '<div style="display:flex;gap:5px;padding:14px 16px;border-radius:4px 16px 16px 16px;background:rgba(255,255,255,.08);">'
+        + '<span style="width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.6);animation:obolDot 1.1s ease-in-out infinite;"></span>'
+        + '<span style="width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.6);animation:obolDot 1.1s ease-in-out .18s infinite;"></span>'
+        + '<span style="width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.6);animation:obolDot 1.1s ease-in-out .36s infinite;"></span>'
+        + '</div></div>'
+      : '';
+
+    var chipsHtml = CHAT_QA.filter(function (c) { return c.chip; }).map(function (c, i) {
+      return '<button type="button" data-chip="' + i + '" class="pb-chip" style="cursor:pointer;font-family:\'Nunito\',sans-serif;font-weight:700;font-size:13px;color:rgba(255,255,255,.8);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:9px 15px;border-radius:999px;transition:background .18s ease,color .18s ease;">' + pbEsc(c.chip) + '</button>';
+    }).join('');
+
+    return '<div style="display:flex;flex-direction:column;height:100%;gap:14px;">'
+      + '<div id="pb-thread" style="flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding-right:6px;">' + msgsHtml + typingHtml + '</div>'
+      + '<div style="display:flex;gap:8px;flex-wrap:wrap;">' + chipsHtml + '</div>'
+      + '<div style="display:flex;gap:10px;align-items:center;padding:6px 6px 6px 18px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);">'
+      + '<input type="text" id="pb-draft" placeholder="Escribí tu pregunta…" value="' + pbEsc(pb.draft) + '" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font-family:\'Nunito\',sans-serif;font-weight:600;font-size:14.5px;color:#fff;padding:8px 0;">'
+      + '<button type="button" id="pb-send" class="obol-btn" style="flex:none;border:none;cursor:pointer;font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:14px;color:#16213e;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:11px 22px;border-radius:999px;">Preguntar</button>'
+      + '</div>'
+      + '<span style="font-weight:600;font-size:12px;color:rgba(255,255,255,.38);line-height:1.5;">Contenido educativo, no asesoramiento financiero.</span>'
+      + '</div>';
+  }
+
+  function pbWireChat() {
+    var body = $('pb-body');
+    var thread = $('pb-thread');
+    if (thread) thread.scrollTop = thread.scrollHeight;
+
+    var draft = $('pb-draft');
+    var send = $('pb-send');
+    if (draft) {
+      draft.focus();
+      draft.addEventListener('input', function (e) { pb.draft = e.target.value; });
+      draft.addEventListener('keydown', function (e) { if (e.key === 'Enter') pbAsk(draft.value); });
+    }
+    if (send) send.addEventListener('click', function () { pbAsk(draft ? draft.value : pb.draft); });
+
+    Array.prototype.forEach.call(body.querySelectorAll('.pb-chip'), function (b) {
+      b.addEventListener('click', function () {
+        var i = parseInt(b.getAttribute('data-chip'), 10);
+        var chips = CHAT_QA.filter(function (c) { return c.chip; });
+        pbAsk(chips[i].chip);
       });
-  });
-
-  function exito() {
-    $("oq-form").classList.add("oq-oculto");
-    $("oq-listo").classList.remove("oq-oculto");
-    if (window.plausible) window.plausible("waitlist", { props: { origen: "trivia" } });
-    if (window.gtag) window.gtag("event", "waitlist_signup", { origen: "trivia" });
+    });
   }
 
-  $("oq-email").addEventListener("keydown", function (e) {
-    if (e.key === "Enter") $("oq-enviar").click();
-  });
+  $('pb-tab-quiz').addEventListener('click', function () { pbSetMode('quiz'); });
+  $('pb-tab-chat').addEventListener('click', function () { pbSetMode('chat'); });
 
-  mostrarPregunta();
+  pbSetMode('quiz');
 })();
 </script>
-  </div>
-
-  <!-- Chat del Chancho -->
-  <div style="background:#eef1f7;padding:0 40px 70px;display:flex;justify-content:center;">
-    <section class="obol-chat" id="obol-chat" aria-labelledby="oc-titulo">
-<style>
-.obol-chat{
-  --oc-ink:#16213e; --oc-ink-soft:#1c2c52; --oc-gold:#ffb24a; --oc-gold-deep:#e0932e;
-  --oc-cream:#ffffff; --oc-muted:rgba(255,255,255,.62); --oc-no:#ff6b6b;
-  --oc-display:'Fredoka',sans-serif;
-  --oc-sans:'Nunito',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-
-  background:linear-gradient(120deg,var(--oc-ink),var(--oc-ink-soft));color:var(--oc-cream);font-family:var(--oc-sans);
-  border-radius:28px;padding:34px 30px;max-width:720px;margin:0 auto;
-  position:relative;overflow:hidden;box-sizing:border-box;
-  box-shadow:0 24px 48px -18px rgba(15,20,45,.45);
-}
-.obol-chat *,.obol-chat *::before,.obol-chat *::after{box-sizing:border-box;}
-.obol-chat::before{content:"";position:absolute;inset:-40% -20% auto auto;width:400px;height:400px;
-  background:radial-gradient(circle,rgba(255,178,74,.16),transparent 62%);pointer-events:none;}
-.obol-chat > *{position:relative;}
-
-.obol-chat .oc-eyebrow{font-family:var(--oc-display);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--oc-gold);margin:0 0 10px;font-weight:600;}
-.obol-chat .oc-titulo{font-family:var(--oc-display);font-size:clamp(23px,4.2vw,30px);line-height:1.2;margin:0 0 8px;font-weight:700;}
-.obol-chat .oc-bajada{color:var(--oc-muted);font-size:15px;font-weight:600;line-height:1.55;margin:0 0 22px;max-width:54ch;}
-
-/* --- hilo --- */
-.obol-chat .oc-hilo{
-  background:rgba(0,0,0,.16);border-radius:16px;padding:18px;
-  min-height:190px;max-height:420px;overflow-y:auto;margin-bottom:14px;
-  display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth;
-}
-.obol-chat .oc-msg{max-width:88%;font-size:15px;font-weight:600;line-height:1.6;border-radius:16px;padding:12px 15px;}
-.obol-chat .oc-msg.de-chancho{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);align-self:flex-start;border-bottom-left-radius:4px;}
-.obol-chat .oc-msg.de-vos{background:linear-gradient(90deg,#ffe08a,#ffb24a);color:var(--oc-ink);align-self:flex-end;border-bottom-right-radius:4px;font-weight:700;}
-.obol-chat .oc-msg.es-error{background:rgba(255,107,107,.16);border-color:var(--oc-no);color:var(--oc-cream);}
-.obol-chat .oc-msg p{margin:0 0 9px;}
-.obol-chat .oc-msg p:last-child{margin:0;}
-
-/* --- puntitos de "escribiendo" --- */
-.obol-chat .oc-puntos{display:flex;gap:5px;align-items:center;padding:14px 15px;}
-.obol-chat .oc-puntos i{width:7px;height:7px;border-radius:50%;background:var(--oc-muted);animation:oc-late 1.3s infinite;}
-.obol-chat .oc-puntos i:nth-child(2){animation-delay:.18s;}
-.obol-chat .oc-puntos i:nth-child(3){animation-delay:.36s;}
-@keyframes oc-late{0%,60%,100%{opacity:.28;transform:translateY(0);}30%{opacity:1;transform:translateY(-3px);}}
-
-/* --- sugerencias --- */
-.obol-chat .oc-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
-.obol-chat .oc-chip{
-  font:inherit;font-family:var(--oc-display);font-size:13.5px;font-weight:600;color:var(--oc-cream);cursor:pointer;
-  background:transparent;border:1.5px solid rgba(255,255,255,.2);border-radius:999px;padding:8px 15px;
-  transition:border-color .18s ease,background .18s ease;
-}
-.obol-chat .oc-chip:hover{border-color:var(--oc-gold);background:rgba(255,178,74,.1);}
-
-/* --- entrada --- */
-.obol-chat .oc-entrada{display:flex;gap:9px;}
-.obol-chat .oc-input{
-  flex:1;font:inherit;font-size:15.5px;font-weight:600;color:var(--oc-cream);background:rgba(255,255,255,.06);
-  border:1.5px solid rgba(255,255,255,.16);border-radius:14px;padding:14px 16px;min-width:0;
-}
-.obol-chat .oc-input::placeholder{color:rgba(255,255,255,.45);}
-.obol-chat .oc-input:focus{outline:2px solid var(--oc-gold);outline-offset:1px;border-color:transparent;}
-.obol-chat .oc-enviar{
-  font:inherit;font-family:var(--oc-display);font-size:15px;font-weight:600;cursor:pointer;border:none;border-radius:999px;
-  padding:14px 22px;background:linear-gradient(90deg,#ffe08a,#ffb24a);color:var(--oc-ink);white-space:nowrap;
-  transition:filter .18s ease,transform .12s ease;
-}
-.obol-chat .oc-enviar:hover:not(:disabled){filter:brightness(1.05);transform:translateY(-1px);}
-.obol-chat .oc-enviar:disabled{opacity:.5;cursor:not-allowed;}
-.obol-chat .oc-pie{font-size:12.5px;font-weight:600;color:var(--oc-muted);margin:12px 0 0;line-height:1.5;}
-.obol-chat .oc-pie a{color:var(--oc-gold);}
-
-/* --- invitación a la lista --- */
-.obol-chat .oc-invite{
-  border:1.5px dashed var(--oc-gold);border-radius:16px;padding:16px 18px;margin-top:16px;
-  display:flex;gap:10px;align-items:center;flex-wrap:wrap;
-}
-.obol-chat .oc-invite p{margin:0;flex:1;min-width:200px;font-size:14.5px;font-weight:600;}
-.obol-chat .oc-invite a{color:var(--oc-gold);font-weight:700;text-decoration:none;white-space:nowrap;}
-.obol-chat .oc-oculto{display:none;}
-.obol-chat :focus-visible{outline:2px solid var(--oc-gold);outline-offset:2px;}
-@media (max-width:560px){.obol-chat{padding:26px 20px;} .obol-chat .oc-enviar{padding:14px 17px;}}
-@media (prefers-reduced-motion:reduce){.obol-chat *{animation:none !important;transition:none !important;}}
-</style>
-
-  <p class="oc-eyebrow">Probá la app antes de que salga</p>
-  <h2 class="oc-titulo" id="oc-titulo">Preguntale al Chancho</h2>
-  <p class="oc-bajada">Responde sobre lo mismo que enseña Obol: economía, finanzas personales, mitos e historia del dinero. Sin tecnicismos y en criollo.</p>
-
-  <div class="oc-hilo" id="oc-hilo" role="log" aria-live="polite" aria-label="Conversación con el Chancho"></div>
-
-  <div class="oc-chips" id="oc-chips">
-    <button class="oc-chip" type="button">¿Por qué sube el dólar?</button>
-    <button class="oc-chip" type="button">¿Qué es el interés compuesto?</button>
-    <button class="oc-chip" type="button">¿Conviene el plazo fijo?</button>
-    <button class="oc-chip" type="button">¿Qué es un CEDEAR?</button>
-  </div>
-
-  <div class="oc-entrada">
-    <input class="oc-input" id="oc-input" type="text" maxlength="300"
-           placeholder="Escribí tu pregunta…" aria-label="Tu pregunta" autocomplete="off">
-    <button class="oc-enviar" id="oc-enviar" type="button">Preguntar</button>
-  </div>
-
-  <p class="oc-pie">Contenido educativo, no asesoramiento financiero. Para cotizaciones al día mirá <a href="./dolar.html">dólar e inflación hoy</a>.</p>
-
-  <div class="oc-invite oc-oculto" id="oc-invite">
-    <p>Esto es una muestra chica. La app tiene 17 secciones, 804 preguntas y 10 juegos.</p>
-    <a href="./index.html#anotarse">Anotarme en la lista →</a>
-  </div>
-</section>
-
-<script>
-(function(){
-"use strict";
-
-/* ====== CONFIGURACIÓN ====== */
-var ENDPOINT = ""; // ej: "https://changozeballos.app.n8n.cloud/webhook/obol-chat"
-
-var MAX_TURNOS = 8;              // preguntas por sesión
-var SALUDO = "¡Hola! Soy el Chancho de Obol. Preguntame lo que quieras sobre plata: inflación, ahorro, deuda, inversiones, o de dónde salió el dinero. Trato de explicarlo como se lo explicaría a un amigo.";
-
-var $ = function(id){return document.getElementById(id);};
-var hilo = $("oc-hilo"), input = $("oc-input"), btn = $("oc-enviar");
-var historial = [];   // [{role, content}] para darle contexto a Claude
-var turnos = 0, ocupado = false;
-
-function burbuja(texto, quien, esError){
-  var div = document.createElement("div");
-  div.className = "oc-msg de-" + quien + (esError ? " es-error" : "");
-  String(texto).split(/\n{2,}/).forEach(function(p){
-    var el = document.createElement("p");
-    el.textContent = p.trim();
-    div.appendChild(el);
-  });
-  hilo.appendChild(div);
-  hilo.scrollTop = hilo.scrollHeight;
-  return div;
-}
-
-function puntitos(){
-  var div = document.createElement("div");
-  div.className = "oc-msg de-chancho oc-puntos";
-  div.innerHTML = "<i></i><i></i><i></i>";
-  div.setAttribute("aria-label","El Chancho está escribiendo");
-  hilo.appendChild(div);
-  hilo.scrollTop = hilo.scrollHeight;
-  return div;
-}
-
-function bloquear(estado, texto){
-  ocupado = estado;
-  btn.disabled = estado;
-  input.disabled = estado;
-  btn.textContent = texto || "Preguntar";
-}
-
-function preguntar(texto){
-  if(ocupado || !texto.trim()) return;
-  if(turnos >= MAX_TURNOS){
-    burbuja("Por hoy llegamos hasta acá — es una demo, no la app completa. Anotate en la lista y seguimos cuando salga.", "chancho");
-    $("oc-invite").classList.remove("oc-oculto");
-    input.disabled = true; btn.disabled = true;
-    return;
-  }
-
-  burbuja(texto, "vos");
-  input.value = "";
-  turnos++;
-  bloquear(true, "Pensando…");
-  var espera = puntitos();
-
-  var cuerpo = {
-    pregunta: texto,
-    historial: historial.slice(-6),   // últimos 3 intercambios
-    pagina: location.pathname
-  };
-
-  var terminar = function(respuesta, esError){
-    espera.remove();
-    burbuja(respuesta, "chancho", esError);
-    bloquear(false);
-    input.focus();
-    if(!esError){
-      historial.push({role:"user", content:texto});
-      historial.push({role:"assistant", content:respuesta});
-    }
-    if(turnos >= 3) $("oc-invite").classList.remove("oc-oculto");
-  };
-
-  if(!ENDPOINT){
-    setTimeout(function(){
-      terminar("Falta configurar el ENDPOINT del webhook de n8n. Mientras tanto esto es solo la interfaz: mirá la consola para ver qué se enviaría.");
-      console.warn("[Obol] Falta ENDPOINT. Se enviaría:", cuerpo);
-    }, 700);
-    return;
-  }
-
-  var ctrl = new AbortController();
-  var corte = setTimeout(function(){ ctrl.abort(); }, 45000);
-
-  fetch(ENDPOINT, {
-    method:"POST",
-    headers:{"Content-Type":"text/plain;charset=UTF-8"},
-    body: JSON.stringify(cuerpo),
-    signal: ctrl.signal
-  })
-  .then(function(r){
-    clearTimeout(corte);
-    return r.json().then(function(d){ return {ok:r.ok, d:d}; });
-  })
-  .then(function(res){
-    if(res.d && res.d.respuesta){ terminar(res.d.respuesta); return; }
-    if(res.d && res.d.motivo === "limite"){
-      terminar("Por hoy el Chancho ya contestó todo lo que podía. Volvé mañana, o anotate en la lista para tener la app completa.");
-      $("oc-invite").classList.remove("oc-oculto");
-      return;
-    }
-    throw new Error("respuesta inesperada");
-  })
-  .catch(function(e){
-    clearTimeout(corte);
-    console.error("[Obol chat]", e);
-    terminar(e.name === "AbortError"
-      ? "Tardó demasiado y corté la espera. Probá de nuevo con una pregunta más corta."
-      : "No pude responder ahora mismo. Probá de nuevo en un minuto.", true);
-  });
-}
-
-btn.addEventListener("click", function(){ preguntar(input.value); });
-input.addEventListener("keydown", function(e){ if(e.key === "Enter") preguntar(input.value); });
-
-Array.prototype.forEach.call($("oc-chips").querySelectorAll(".oc-chip"), function(c){
-  c.addEventListener("click", function(){ preguntar(c.textContent); });
-});
-
-burbuja(SALUDO, "chancho");
-})();
-</script>
-  </div>
-
   <!-- CTA -->
   <div id="anotarse" style="background:#eef1f7;padding:0 40px 80px;">
     <div class="obol-reveal" style="max-width:1160px;margin:0 auto;border-radius:28px;background:linear-gradient(120deg,#16213e,#1c2c52);padding:48px 56px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:0 24px 48px -18px rgba(15,20,45,.45);">
