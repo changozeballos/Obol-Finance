@@ -27,259 +27,291 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --ink:#16213e; --ink-soft:#1c2c52; --gold:#ffb24a; --gold-light:#ffe08a; --gold-deep:#e0932e;
-  --cream:#ffffff; --paper:#eef1f7; --muted:rgba(255,255,255,.62); --muted-ink:#5b6b78;
-  --ok:#46b98a; --no:#e0685e; --linea:rgba(18,33,46,.12);
-  --display:'Fredoka',sans-serif;
-  --sans:'Nunito',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-}
-*,*::before,*::after{box-sizing:border-box;}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:600;line-height:1.6;}
-.envoltura{max-width:940px;margin:0 auto;padding:0 20px;}
-a{color:var(--gold-deep);}
-@media (max-width:640px){.nav-text-link{display:none;}}
-
-/* ---------- encabezado ---------- */
-.encabezado{padding:52px 0 32px;}
-.eyebrow{font-family:var(--display);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin:0 0 12px;}
-h1{font-family:var(--display);font-size:clamp(30px,5.5vw,46px);line-height:1.14;margin:0 0 14px;font-weight:700;}
-.bajada{font-size:17px;color:var(--muted-ink);max-width:60ch;margin:0;}
-.sello{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted-ink);margin-top:18px;}
-.punto{width:8px;height:8px;border-radius:50%;background:var(--ok);}
-.punto.viejo{background:var(--no);}
-.recargar{background:none;border:none;font:inherit;font-size:13px;color:var(--gold-deep);cursor:pointer;text-decoration:underline;padding:0;}
-
-h2{font-family:var(--display);font-size:clamp(22px,3.6vw,29px);line-height:1.24;margin:0 0 8px;font-weight:700;}
-.seccion{padding:34px 0;border-top:1px solid var(--linea);}
-.intro{color:var(--muted-ink);margin:0 0 24px;max-width:62ch;}
-
-/* ---------- cotizaciones ---------- */
-.grilla{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));}
-.cotiz{background:linear-gradient(120deg,var(--ink),var(--ink-soft));color:var(--cream);border-radius:16px;padding:18px 19px;}
-.cotiz .nombre{font-family:var(--display);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;font-weight:600;}
-.cotiz .venta{font-family:var(--display);font-size:31px;line-height:1;margin:0 0 3px;font-weight:700;}
-.cotiz .compra{font-size:13px;color:var(--muted);margin:0 0 11px;}
-.cotiz .brecha{font-size:12.5px;color:var(--muted);border-top:1px solid rgba(255,255,255,.16);padding-top:9px;margin:0;}
-.cotiz .brecha b{color:var(--gold);font-weight:700;}
-
-/* ---------- estadísticas ---------- */
-.stats{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:26px;}
-.stat{border:1px solid var(--linea);border-radius:16px;padding:17px 19px;background:#fff;}
-.stat .rot{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-ink);margin:0 0 7px;}
-.stat .val{font-family:var(--display);font-size:30px;line-height:1;margin:0 0 4px;font-weight:700;}
-.stat .pie{font-size:12.5px;color:var(--muted-ink);margin:0;}
-
-/* ---------- sparkline ---------- */
-.spark{border:1px solid var(--linea);border-radius:16px;padding:20px;background:#fff;}
-.spark h3{font-size:14px;margin:0 0 16px;font-weight:700;color:var(--muted-ink);letter-spacing:.04em;}
-.spark svg{width:100%;height:120px;display:block;}
-
-/* ---------- veredicto plazo fijo ---------- */
-.veredicto{border-left:4px solid var(--gold);background:#fff;border-radius:0 16px 16px 0;padding:20px 22px;}
-.veredicto .titular{font-family:var(--display);font-size:21px;margin:0 0 8px;font-weight:700;}
-.veredicto p{margin:0;color:var(--muted-ink);font-size:14.5px;}
-.veredicto.gana{border-left-color:var(--ok);}
-.veredicto.pierde{border-left-color:var(--no);}
-
-/* ---------- calculadora ---------- */
-.calc{background:linear-gradient(120deg,var(--ink),var(--ink-soft));color:var(--cream);border-radius:24px;padding:34px 30px;position:relative;overflow:hidden;}
-.calc::before{content:"";position:absolute;inset:-45% -25% auto auto;width:420px;height:420px;
-  background:radial-gradient(circle,rgba(255,178,74,.16),transparent 62%);pointer-events:none;}
-.calc h2{color:var(--cream);position:relative;}
-.calc .intro{color:var(--muted);position:relative;}
-.campos{display:grid;gap:13px;grid-template-columns:1fr 1fr;position:relative;margin-bottom:26px;}
-@media (max-width:620px){.campos{grid-template-columns:1fr;} .calc{padding:26px 20px;}}
-.campo label{display:block;font-family:var(--display);font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;font-weight:600;}
-.campo input,.campo select{
-  font:inherit;font-size:17px;width:100%;color:var(--cream);background:rgba(255,255,255,.08);
-  border:1.5px solid rgba(255,255,255,.16);border-radius:14px;padding:14px 15px;
-}
-.campo input:focus,.campo select:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent;}
-.campo select option{background:var(--ink-soft);color:var(--cream);}
-
-.resultado{position:relative;border-top:1px solid rgba(255,255,255,.16);padding-top:26px;}
-.grande{font-family:var(--display);font-size:clamp(34px,7vw,52px);line-height:1.05;color:var(--gold);margin:0 0 6px;font-weight:700;}
-.explica{font-size:16px;line-height:1.55;margin:0 0 24px;max-width:56ch;}
-.explica b{color:var(--gold);}
-.barra-poder{height:44px;border-radius:12px;background:rgba(224,104,94,.22);overflow:hidden;display:flex;margin-bottom:9px;}
-.barra-poder .queda{background:linear-gradient(180deg,var(--gold-light),var(--gold-deep));min-width:2px;transition:width .7s cubic-bezier(.2,.8,.3,1);}
-.leyenda{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);margin:0;gap:12px;}
-
-/* ---------- prosa ---------- */
-.prosa h3{font-family:var(--display);font-size:19px;margin:26px 0 7px;font-weight:700;}
-.prosa p{margin:0 0 12px;color:#33424e;}
-
-/* ---------- CTA ---------- */
-.cta{background:#fff;border:1.5px dashed var(--gold);border-radius:20px;padding:30px;text-align:center;}
-.cta h2{margin-bottom:10px;}
-.cta p{color:var(--muted-ink);margin:0 auto 20px;max-width:48ch;}
-.fila-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
-.fila-cta input{font:inherit;font-size:15px;font-weight:600;padding:13px 15px;border:1.5px solid var(--linea);border-radius:14px;min-width:240px;}
-.boton{font-family:var(--display);font-size:15px;font-weight:600;cursor:pointer;border:none;border-radius:999px;
-  padding:13px 24px;background:linear-gradient(90deg,var(--gold-light),var(--gold));color:var(--ink);}
-.boton:hover{filter:brightness(1.05);}
-.boton:disabled{opacity:.55;cursor:wait;}
-.aviso{font-size:13.5px;margin:12px 0 0;}
-.aviso.mal{color:var(--no);}
-
-/* ---------- pie ---------- */
-footer{border-top:1px solid var(--linea);margin-top:40px;padding:28px 0 46px;font-size:13px;color:var(--muted-ink);}
-footer a{color:var(--muted-ink);}
-.error{background:rgba(224,104,94,.1);border:1px solid var(--no);border-radius:12px;padding:14px 17px;font-size:14.5px;color:#8c3229;}
-.cargando{color:var(--muted-ink);font-size:14.5px;}
-:focus-visible{outline:2px solid var(--gold-deep);outline-offset:2px;}
-@media (prefers-reduced-motion:reduce){*{transition:none !important;}}
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #eef1f7; font-family:'Nunito',system-ui,sans-serif; color:#1b2436; }
+  a { color: #ffb24a; text-decoration: none; }
+  a:hover { color: #ffd68f; }
+  .obol-card { transition: transform .22s cubic-bezier(.22,.61,.36,1), box-shadow .22s ease, border-color .22s ease; }
+  .obol-card:hover { transform: translateY(-6px); box-shadow: 0 26px 46px -22px rgba(20,30,60,.45); }
+  .obol-btn { transition: transform .18s ease, filter .18s ease; }
+  .obol-btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+  .obol-seg { transition: background .18s ease, color .18s ease; }
+  .obol-seg:hover { background: #f1f4fa; }
+  .obol-chip { transition: background .16s ease, color .16s ease, border-color .16s ease; }
+  .obol-chip:hover { border-color: #b9c6de; }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .obol-chev { transform: rotate(45deg); }
+  .obol-chev { transition: transform .25s cubic-bezier(.22,.61,.36,1); display: inline-block; }
+  @keyframes obolRise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  .obol-rise { opacity: 0; animation: obolRise .7s cubic-bezier(.22,.61,.36,1) forwards; }
+  .obol-reveal { animation: obolRise linear both; animation-timeline: view(); animation-range: entry 2% cover 18%; }
+  @keyframes obolFloat { 0%, 100% { transform: translate3d(0,-9px,0); } 50% { transform: translate3d(0,9px,0); } }
+  @keyframes obolPulse { 0%, 100% { opacity: .35; } 50% { opacity: .9; } }
+  @keyframes obolSpin { to { transform: rotate(360deg); } }
+  @keyframes obolShimmer { 0% { background-position: -420px 0; } 100% { background-position: 420px 0; } }
+  .obol-sk { background: linear-gradient(90deg,#eaeef6 8%,#f4f7fc 20%,#eaeef6 32%); background-size: 620px 100%; animation: obolShimmer 1.3s linear infinite; border-radius: 10px; }
+  .obol-live { animation: obolPulse 1.8s ease-in-out infinite; }
+  .obol-analista { animation: obolFloat 7.5s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .obol-rise, .obol-reveal, .obol-analista, .obol-live, .obol-sk { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+  @media (max-width: 680px) {
+    .obol-calc-grid { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 640px) {
+    .nav-text-link { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<!-- Nav -->
-<div style="position:sticky;top:0;z-index:20;background:#0f1730;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(6,10,26,.35);">
+<div style="position:sticky;top:0;z-index:30;background:#0f1730;padding:15px 40px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(6,10,26,.35);">
   <a href="./index.html" aria-label="Obol Finance" style="display:flex;align-items:center;color:#fff;">
     <img src="./assets/home/obol_wordmark_small.png" alt="Obol Finance" style="height:27px;width:auto;">
   </a>
-  <div style="display:flex;align-items:center;gap:32px;">
-    <a href="./index.html" class="nav-text-link" style="color:rgba(255,255,255,.85);text-decoration:none;font-weight:700;font-size:14px;">Inicio</a>
-    <a href="./aprende.html" class="nav-text-link" style="color:rgba(255,255,255,.85);text-decoration:none;font-weight:700;font-size:14px;">Qué enseña la app</a>
-    <a href="./blog/index.html" class="nav-text-link" style="color:rgba(255,255,255,.85);text-decoration:none;font-weight:700;font-size:14px;">Blog</a>
-    <a href="mailto:obol.finance2026@gmail.com?subject=Avisenme%20cuando%20Obol%20est%C3%A9%20disponible" style="display:inline-flex;align-items:center;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#0d1730;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:9px 20px;border-radius:999px;">Enterate cuando salga</a>
+  <div style="display:flex;align-items:center;gap:30px;">
+    <a href="./aprende.html" class="nav-text-link" style="color:rgba(255,255,255,.85);font-weight:700;font-size:14px;">Qué enseña la app</a>
+    <a href="./blog/index.html" class="nav-text-link" style="color:rgba(255,255,255,.85);font-weight:700;font-size:14px;">Blog</a>
+    <a href="mailto:obol.finance2026@gmail.com?subject=Avisenme%20cuando%20Obol%20est%C3%A9%20disponible" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#0d1730;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:9px 20px;border-radius:999px;">Enterate cuando salga</a>
   </div>
 </div>
 
-<header class="encabezado">
-  <div class="envoltura">
-    <p class="eyebrow">Datos en vivo</p>
-    <h1>Dólar e inflación hoy</h1>
-    <p class="bajada">Las cotizaciones al minuto y los últimos datos de inflación del INDEC. Abajo, una calculadora para ver qué pasó de verdad con tu plata.</p>
-    <p class="sello"><span class="punto" id="punto"></span><span id="sello-txt">Cargando…</span> · <button class="recargar" id="recargar" type="button">Actualizar</button></p>
-  </div>
-</header>
+<div style="position:relative;overflow:hidden;background:linear-gradient(175deg,#16213e 0%,#0d1730 72%);padding:62px 40px 130px;">
+  <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 76% 26%,rgba(94,196,160,.22),transparent 52%),radial-gradient(circle at 18% 12%,rgba(74,124,224,.22),transparent 55%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.85),transparent 80%);mask-image:linear-gradient(180deg,rgba(0,0,0,.85),transparent 80%);pointer-events:none;"></div>
 
-<main>
-
-<!-- ============ COTIZACIONES ============ -->
-<section class="seccion">
-  <div class="envoltura">
-    <h2>Cotizaciones</h2>
-    <p class="intro">La brecha es cuánto más caro está cada dólar respecto del oficial. Es el número que mejor resume la tensión cambiaria del momento.</p>
-    <div id="cotizaciones" class="grilla"><p class="cargando">Buscando cotizaciones…</p></div>
-  </div>
-</section>
-
-<!-- ============ INFLACIÓN ============ -->
-<section class="seccion">
-  <div class="envoltura">
-    <h2>Inflación</h2>
-    <p class="intro">El INDEC publica el IPC cerca del día 15 de cada mes, con el dato del mes anterior.</p>
-    <div id="stats-inflacion" class="stats"><p class="cargando">Buscando datos del INDEC…</p></div>
-    <div class="spark" id="spark-caja">
-      <h3>Inflación mensual, últimos 12 meses</h3>
-      <div id="spark"></div>
+  <div style="position:relative;z-index:2;max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:40px;flex-wrap:wrap;">
+    <div style="flex:1 1 400px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;">
+      <span class="obol-rise" style="display:inline-flex;align-items:center;gap:9px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:7px 16px;border-radius:999px;text-transform:uppercase;animation-delay:.05s;">
+        <span class="obol-live" style="width:8px;height:8px;border-radius:50%;background:#5ec4a0;box-shadow:0 0 12px #5ec4a0;"></span>Datos en vivo
+      </span>
+      <h1 class="obol-rise" style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(38px,5.4vw,62px);line-height:1.03;color:#fff;letter-spacing:-.015em;animation-delay:.13s;">Dólar e inflación hoy</h1>
+      <p class="obol-rise" style="margin:0;max-width:520px;font-weight:600;font-size:17px;line-height:1.6;color:rgba(255,255,255,.76);animation-delay:.2s;">Las cotizaciones al minuto y los últimos datos del INDEC. Abajo, una calculadora para ver qué pasó de verdad con tu plata.</p>
+      <div class="obol-rise" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;animation-delay:.28s;">
+        <span style="display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;color:rgba(255,255,255,.6);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:9px 15px;border-radius:999px;">Actualizado <span id="updatedTxt">buscando…</span></span>
+        <button id="btnRefresh" type="button" class="obol-btn" style="display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#fff;padding:9px 20px;border-radius:999px;">
+          <span id="refreshSpinner" style="display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:obolSpin .8s linear infinite;"></span>Actualizar
+        </button>
+      </div>
+    </div>
+    <div style="flex:1 1 300px;display:flex;justify-content:center;position:relative;min-width:260px;">
+      <div style="position:absolute;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,rgba(94,196,160,.3),transparent 66%);filter:blur(6px);"></div>
+      <img src="./assets/char-analista.png" alt="Analista de datos de Obol" class="obol-analista" style="position:relative;width:100%;max-width:400px;height:auto;display:block;filter:drop-shadow(0 30px 34px rgba(4,10,26,.5));">
     </div>
   </div>
-</section>
+</div>
 
-<!-- ============ PLAZO FIJO ============ -->
-<section class="seccion">
-  <div class="envoltura">
-    <h2>¿El plazo fijo le gana a la inflación?</h2>
-    <p class="intro">Comparamos la mejor tasa mensual que ofrecen hoy los bancos contra la última inflación mensual publicada. Si la tasa queda abajo, tu plata pierde poder de compra aunque el número crezca.</p>
-    <div id="plazo-fijo"><p class="cargando">Comparando tasas…</p></div>
+<div style="max-width:1180px;margin:-86px auto 0;padding:0 40px;position:relative;z-index:5;">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:18px;">
+    <div>
+      <h2 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:28px;color:#fff;letter-spacing:-.01em;">Cotizaciones</h2>
+      <p style="margin:0;max-width:560px;font-weight:600;font-size:14px;line-height:1.55;color:rgba(255,255,255,.66);">La brecha es cuánto más caro está cada dólar respecto del oficial.</p>
+    </div>
+    <div style="display:inline-flex;gap:5px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:5px;border-radius:999px;">
+      <button id="btnVenta" type="button" style="border:none;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13px;padding:8px 20px;border-radius:999px;transition:background .18s ease,color .18s ease;">Venta</button>
+      <button id="btnCompra" type="button" style="border:none;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13px;padding:8px 20px;border-radius:999px;transition:background .18s ease,color .18s ease;">Compra</button>
+    </div>
   </div>
-</section>
 
-<!-- ============ CALCULADORA ============ -->
-<section class="seccion">
-  <div class="envoltura">
-    <div class="calc">
-      <h2>¿Cuánto valen hoy tus pesos de antes?</h2>
-      <p class="intro">Elegí un monto y un mes. Calculamos con la serie real del IPC, mes por mes.</p>
+  <div id="cotizSkeleton" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;">
+    <div class="obol-sk" style="height:168px;"></div>
+    <div class="obol-sk" style="height:168px;"></div>
+    <div class="obol-sk" style="height:168px;"></div>
+    <div class="obol-sk" style="height:168px;"></div>
+  </div>
 
-      <div class="campos">
-        <div class="campo">
-          <label for="monto">Tenías esta plata</label>
-          <input id="monto" type="text" inputmode="numeric" value="100.000" aria-describedby="explica">
+  <div id="cotizError" style="display:none;background:#fff;border:1px solid #f0d6d0;border-radius:18px;padding:26px;text-align:center;font-weight:700;color:#b4503c;">No pudimos traer las cotizaciones ahora mismo. Probá de nuevo en unos segundos.</div>
+
+  <div id="cotizCards" style="display:none;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;"></div>
+</div>
+
+<div style="max-width:1180px;margin:0 auto;padding:56px 40px 0;">
+  <div class="obol-reveal" style="margin-bottom:20px;">
+    <h2 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:30px;color:#16213e;letter-spacing:-.01em;">Inflación</h2>
+    <p style="margin:0;max-width:600px;font-weight:600;font-size:15px;line-height:1.6;color:#5d6880;">El INDEC publica el IPC cerca del día 15 de cada mes, con el dato del mes anterior.</p>
+  </div>
+
+  <div class="obol-reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-bottom:18px;">
+    <div class="obol-card" style="background:#fff;border:1px solid #e6ebf4;border-radius:18px;padding:20px 22px;">
+      <span style="font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8892a6;">Mensual</span>
+      <div style="display:flex;align-items:baseline;gap:4px;margin-top:8px;">
+        <span id="statMensualVal" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:38px;line-height:1;color:#2f5fd0;">—</span>
+        <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:20px;color:#2f5fd0;">%</span>
+      </div>
+      <span id="statMensualLabel" style="display:block;margin-top:6px;font-weight:700;font-size:12px;color:#8892a6;">—</span>
+    </div>
+    <div class="obol-card" style="background:#fff;border:1px solid #e6ebf4;border-radius:18px;padding:20px 22px;">
+      <span style="font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8892a6;">Interanual</span>
+      <div style="display:flex;align-items:baseline;gap:4px;margin-top:8px;">
+        <span id="statInteranualVal" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:38px;line-height:1;color:#16213e;">—</span>
+        <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:20px;color:#16213e;">%</span>
+      </div>
+      <span style="display:block;margin-top:6px;font-weight:700;font-size:12px;color:#8892a6;">últimos 12 meses</span>
+    </div>
+    <div class="obol-card" style="background:#fff;border:1px solid #e6ebf4;border-radius:18px;padding:20px 22px;">
+      <span id="statAcumuladaLabel" style="font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8892a6;">Acumulada</span>
+      <div style="display:flex;align-items:baseline;gap:4px;margin-top:8px;">
+        <span id="statAcumuladaVal" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:38px;line-height:1;color:#16213e;">—</span>
+        <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:20px;color:#16213e;">%</span>
+      </div>
+      <span style="display:block;margin-top:6px;font-weight:700;font-size:12px;color:#8892a6;">en lo que va del año</span>
+    </div>
+  </div>
+
+  <div class="obol-reveal obol-card" style="background:#fff;border:1px solid #e6ebf4;border-radius:22px;padding:26px 28px 20px;box-shadow:0 16px 40px -30px rgba(15,20,45,.6);">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:20px;">
+      <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:17px;color:#16213e;">Inflación mensual, últimos 12 meses</span>
+      <span id="chartHint" style="font-weight:700;font-size:12px;color:#8892a6;">cargando serie del INDEC…</span>
+    </div>
+    <div id="chartBars" style="display:flex;align-items:flex-end;gap:8px;height:210px;"></div>
+  </div>
+</div>
+
+<div style="max-width:1180px;margin:0 auto;padding:56px 40px 0;">
+  <div class="obol-reveal obol-card" style="background:linear-gradient(150deg,#16213e,#0d1730);border-radius:24px;padding:34px 36px;box-shadow:0 24px 50px -34px rgba(10,16,40,.9);">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:22px;flex-wrap:wrap;margin-bottom:26px;">
+      <div style="max-width:560px;">
+        <h2 style="margin:0 0 8px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:27px;color:#fff;letter-spacing:-.01em;">¿El plazo fijo le gana a la inflación?</h2>
+        <p style="margin:0;font-weight:600;font-size:14px;line-height:1.6;color:rgba(255,255,255,.66);">Mejor tasa mensual que ofrecen hoy los bancos contra la última inflación publicada. Si la tasa queda abajo, tu plata pierde poder de compra aunque el número crezca.</p>
+      </div>
+      <span id="verdictBadge" style="display:inline-flex;align-items:center;gap:9px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:15px;padding:11px 20px;border-radius:999px;white-space:nowrap;">Comparando tasas…</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
+          <span id="pfEntidadLabel" style="font-weight:700;font-size:13px;color:rgba(255,255,255,.72);">Plazo fijo · —</span>
+          <span id="pfMensualVal" style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:19px;color:#5ec4a0;">—% mensual</span>
         </div>
-        <div class="campo">
-          <label for="mes">En este mes</label>
-          <select id="mes" aria-describedby="explica"><option>Cargando…</option></select>
+        <div style="height:14px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;">
+          <div id="pfBarFill" style="height:100%;border-radius:999px;width:0%;background:linear-gradient(90deg,#5ec4a0,#8fe0c2);transition:width 1s cubic-bezier(.22,.61,.36,1);"></div>
         </div>
       </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
+          <span id="inflMesLabel2" style="font-weight:700;font-size:13px;color:rgba(255,255,255,.72);">Inflación · —</span>
+          <span id="inflMesVal2" style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:19px;color:#ff9a7f;">—% mensual</span>
+        </div>
+        <div style="height:14px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;">
+          <div id="inflBarFill" style="height:100%;border-radius:999px;width:0%;background:linear-gradient(90deg,#e0674a,#ff9a7f);transition:width 1s cubic-bezier(.22,.61,.36,1);"></div>
+        </div>
+      </div>
+    </div>
+    <p style="margin:22px 0 0;font-weight:700;font-size:13px;color:rgba(255,255,255,.5);">TNA de plazo fijo para clientes, dividida en doce. La inflación de un mes no predice la del siguiente: esto es una foto, no un pronóstico.</p>
+  </div>
+</div>
 
-      <div class="resultado">
-        <p class="grande" id="grande">—</p>
-        <p class="explica" id="explica">Elegí un monto y un mes para ver el cálculo.</p>
-        <div class="barra-poder"><div class="queda" id="queda" style="width:100%"></div></div>
-        <p class="leyenda">
-          <span id="leyenda-queda">Poder de compra que queda</span>
-          <span id="leyenda-come">Lo que se comió la inflación</span>
-        </p>
+<div style="max-width:1180px;margin:0 auto;padding:56px 40px 0;">
+  <div class="obol-reveal" style="margin-bottom:20px;">
+    <h2 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:30px;color:#16213e;letter-spacing:-.01em;">¿Cuánto valen hoy tus pesos de antes?</h2>
+    <p style="margin:0;max-width:600px;font-weight:600;font-size:15px;line-height:1.6;color:#5d6880;">Elegí un monto y un mes. Calculamos con la serie real del IPC, mes por mes.</p>
+  </div>
+
+  <div class="obol-reveal obol-calc-grid" style="display:grid;grid-template-columns:minmax(280px,0.85fr) minmax(300px,1.15fr);gap:18px;align-items:stretch;">
+    <div style="min-width:0;background:#fff;border:1px solid #e6ebf4;border-radius:22px;padding:26px 28px;display:flex;flex-direction:column;gap:22px;">
+      <div>
+        <label for="amountInput" style="display:block;font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8892a6;margin-bottom:10px;">Tenías esta plata</label>
+        <div style="display:flex;align-items:center;gap:10px;background:#f5f7fb;border:1.5px solid #e2e8f2;border-radius:14px;padding:12px 16px;">
+          <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:22px;color:#9aa4b8;">$</span>
+          <input id="amountInput" inputmode="numeric" style="flex:1;min-width:0;border:none;background:transparent;outline:none;font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px;color:#16213e;">
+        </div>
+        <div id="amountChips" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;"></div>
+      </div>
+      <div>
+        <label for="monthSelect" style="display:block;font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8892a6;margin-bottom:10px;">En este mes</label>
+        <select id="monthSelect" style="width:100%;appearance:none;cursor:pointer;background:#f5f7fb;border:1.5px solid #e2e8f2;border-radius:14px;padding:14px 16px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:17px;color:#16213e;outline:none;"></select>
+        <div id="jumpChips" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;"></div>
+      </div>
+    </div>
+
+    <div style="min-width:0;background:linear-gradient(150deg,#1c2b4d,#0d1730);border-radius:22px;padding:30px 32px;display:flex;flex-direction:column;justify-content:center;gap:20px;box-shadow:0 22px 46px -32px rgba(10,16,40,.9);">
+      <span style="font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);">Para comprar lo mismo, hoy necesitás</span>
+      <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
+        <span style="font-family:'Fredoka',sans-serif;font-weight:500;font-size:30px;color:rgba(255,255,255,.45);">$</span>
+        <span id="calcResult" style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(40px,5.4vw,62px);line-height:1;color:#ffb24a;letter-spacing:-.02em;">—</span>
+      </div>
+      <p id="calcNote" style="margin:0;font-weight:600;font-size:14px;line-height:1.6;color:rgba(255,255,255,.72);">Elegí un monto y un mes para ver el cálculo.</p>
+      <div>
+        <div style="display:flex;height:16px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.08);">
+          <div id="calcKeepFill" style="width:0%;background:linear-gradient(90deg,#5ec4a0,#8fe0c2);transition:width .9s cubic-bezier(.22,.61,.36,1);"></div>
+          <div id="calcLostFill" style="width:0%;background:linear-gradient(90deg,#e0674a,#ff9a7f);transition:width .9s cubic-bezier(.22,.61,.36,1);"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:12px;margin-top:12px;">
+          <span style="display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;color:rgba(255,255,255,.72);"><span style="width:9px;height:9px;border-radius:50%;background:#5ec4a0;"></span>Poder de compra que queda · <span id="calcKeepTxt">—</span>%</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;color:rgba(255,255,255,.72);"><span style="width:9px;height:9px;border-radius:50%;background:#e0674a;"></span>Se lo comió la inflación · <span id="calcLostTxt">—</span>%</span>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ============ PROSA / SEO ============ -->
-<section class="seccion prosa">
-  <div class="envoltura">
-    <h2>Cómo leer estos números</h2>
-
-    <h3>Qué es el dólar blue</h3>
-    <p>Es el dólar que se compra fuera del circuito bancario. No es una cotización oficial: es el precio al que efectivamente se consiguen billetes cuando el acceso al mercado formal está restringido. Su brecha contra el oficial funciona como termómetro de las expectativas.</p>
-
-    <h3>Qué diferencia hay entre el MEP y el CCL</h3>
-    <p>Los dos son dólares legales que se obtienen operando bonos o acciones. Comprás un activo en pesos y lo vendés en dólares. La diferencia es dónde quedan esos dólares: con el MEP quedan en una cuenta local; con el contado con liquidación, en el exterior. Por eso el CCL suele cotizar un poco más alto.</p>
-
-    <h3>Qué es el dólar tarjeta</h3>
-    <p>Es el oficial con los impuestos que se aplican a los consumos en moneda extranjera. Es el que pagás cuando comprás afuera o suscribís un servicio internacional.</p>
-
-    <h3>Cómo se mide la inflación</h3>
-    <p>El INDEC releva miles de precios en todo el país y arma una canasta ponderada según cuánto pesa cada rubro en el gasto de un hogar promedio. El IPC mide cuánto cambió el precio de esa canasta. Por eso tu inflación personal casi nunca coincide con la publicada: tu canasta no es la del promedio.</p>
-
-    <h3>Por qué el número nominal engaña</h3>
-    <p>Si tu plazo fijo rinde 4% mensual y la inflación de ese mes fue 5%, tenés más pesos y menos poder de compra al mismo tiempo. Los dos hechos son ciertos. Casi todos los errores financieros en Argentina salen de mirar solo el primero.</p>
-
-    <p style="margin-top:20px"><a href="./blog/articulos/por-que-argentina-tiene-tanta-inflacion.html">Leé la nota completa sobre por qué Argentina tiene tanta inflación →</a></p>
+<div style="max-width:1180px;margin:0 auto;padding:56px 40px 0;">
+  <h2 class="obol-reveal" style="margin:0 0 20px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:30px;color:#16213e;letter-spacing:-.01em;">Cómo leer estos números</h2>
+  <div class="obol-reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;">
+    <details style="background:#fff;border:1px solid #e6ebf4;border-radius:18px;padding:20px 24px;">
+      <summary style="display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:17px;color:#16213e;">Qué es el dólar blue<span class="obol-chev" style="font-size:22px;color:#4a7ce0;line-height:1;">+</span></summary>
+      <p style="margin:12px 0 0;font-weight:600;font-size:14px;line-height:1.65;color:#5d6880;">Es el dólar que se compra fuera del circuito bancario. No es una cotización oficial: es el precio al que efectivamente se consiguen billetes cuando el acceso al mercado formal está restringido. Su brecha contra el oficial funciona como termómetro de las expectativas.</p>
+    </details>
+    <details style="background:#fff;border:1px solid #e6ebf4;border-radius:18px;padding:20px 24px;">
+      <summary style="display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:17px;color:#16213e;">Qué diferencia hay entre el MEP y el CCL<span class="obol-chev" style="font-size:22px;color:#6b3fa0;line-height:1;">+</span></summary>
+      <p style="margin:12px 0 0;font-weight:600;font-size:14px;line-height:1.65;color:#5d6880;">Los dos son dólares legales que se obtienen operando bonos o acciones: comprás un activo en pesos y lo vendés en dólares. La diferencia es dónde quedan esos dólares. Con el MEP quedan en una cuenta local; con el contado con liquidación, en el exterior. Por eso el CCL suele cotizar un poco más alto.</p>
+    </details>
+    <details style="background:#fff;border:1px solid #e6ebf4;border-radius:18px;padding:20px 24px;">
+      <summary style="display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:17px;color:#16213e;">Qué es el dólar tarjeta<span class="obol-chev" style="font-size:22px;color:#e0674a;line-height:1;">+</span></summary>
+      <p style="margin:12px 0 0;font-weight:600;font-size:14px;line-height:1.65;color:#5d6880;">Es el oficial con los impuestos que se aplican a los consumos en moneda extranjera. Es el que pagás cuando comprás afuera o suscribís un servicio internacional.</p>
+    </details>
+    <details style="background:#fff;border:1px solid #e6ebf4;border-radius:18px;padding:20px 24px;">
+      <summary style="display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:17px;color:#16213e;">Cómo se mide la inflación<span class="obol-chev" style="font-size:22px;color:#2f9e5f;line-height:1;">+</span></summary>
+      <p style="margin:12px 0 0;font-weight:600;font-size:14px;line-height:1.65;color:#5d6880;">El INDEC releva miles de precios en todo el país y arma una canasta ponderada según cuánto pesa cada rubro en el gasto de un hogar promedio. El IPC mide cuánto cambió el precio de esa canasta. Por eso tu inflación personal casi nunca coincide con la publicada: tu canasta no es la del promedio.</p>
+    </details>
+    <details style="background:#fff;border:1px solid #e6ebf4;border-radius:18px;padding:20px 24px;">
+      <summary style="display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:17px;color:#16213e;">Por qué el número nominal engaña<span class="obol-chev" style="font-size:22px;color:#b8791f;line-height:1;">+</span></summary>
+      <p style="margin:12px 0 0;font-weight:600;font-size:14px;line-height:1.65;color:#5d6880;">Si tu plazo fijo rinde 4% mensual y la inflación de ese mes fue 5%, tenés más pesos y menos poder de compra al mismo tiempo. Los dos hechos son ciertos. Casi todos los errores financieros en Argentina salen de mirar solo el primero.</p>
+    </details>
+    <a href="./blog/articulos/por-que-argentina-tiene-tanta-inflacion.html" class="obol-card" style="display:flex;flex-direction:column;justify-content:center;gap:10px;background:#16213e;border:1px solid #16213e;border-radius:18px;padding:24px;color:#fff;">
+      <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:18px;color:#fff;">Por qué Argentina tiene tanta inflación</span>
+      <span style="font-weight:700;font-size:13px;color:#ffb24a;">Leé la nota completa →</span>
+    </a>
   </div>
-</section>
+</div>
 
-<!-- ============ CTA ============ -->
-<section class="seccion">
-  <div class="envoltura">
-    <div class="cta">
-      <h2>Esto es una de las 17 secciones de Obol</h2>
-      <p>La app enseña todo esto desde cero: inflación, ahorro, deuda, inversión e historia financiera. Con lecciones cortas, rachas y 804 preguntas.</p>
-      <div class="fila-cta">
-        <input id="mail" type="email" placeholder="tu@mail.com" aria-label="Tu correo">
-        <button class="boton" id="anotar" type="button">Avisame cuando salga</button>
-      </div>
-      <p class="aviso" id="aviso" hidden></p>
+<div style="max-width:1180px;margin:0 auto;padding:56px 40px 0;">
+  <div class="obol-reveal" style="background:linear-gradient(120deg,#ffe08a,#ffb24a);border-radius:24px;padding:38px 40px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;">
+    <div style="max-width:620px;">
+      <h2 style="margin:0 0 8px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:28px;color:#0d1730;letter-spacing:-.01em;">Esto es una de las 17 secciones de Obol</h2>
+      <p style="margin:0;font-weight:700;font-size:15px;line-height:1.6;color:rgba(13,23,48,.72);">La app enseña todo esto desde cero: inflación, ahorro, deuda, inversión e historia financiera. Con lecciones cortas, rachas y 804 preguntas.</p>
+    </div>
+    <a href="mailto:obol.finance2026@gmail.com?subject=Avisenme%20cuando%20Obol%20est%C3%A9%20disponible" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#fff;background:#0d1730;padding:15px 30px;border-radius:999px;white-space:nowrap;">Avisame cuando salga</a>
+  </div>
+</div>
+
+<div style="max-width:1180px;margin:0 auto;padding:26px 40px 0;">
+  <p style="margin:0;font-weight:700;font-size:13px;line-height:1.7;color:#8892a6;">Fuentes: cotizaciones de DolarAPI · inflación y tasas de ArgentinaDatos, con datos del INDEC y el BCRA. Los valores son de referencia y pueden diferir de los de tu banco o casa de cambio. Contenido educativo: no es asesoramiento financiero ni una recomendación de inversión.</p>
+</div>
+
+<div style="margin-top:44px;background:#0f1730;padding:30px 40px;">
+  <div style="max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+    <span style="font-weight:700;font-size:13px;color:rgba(255,255,255,.45);">© 2026 Obol Finance</span>
+    <div style="display:flex;gap:22px;flex-wrap:wrap;">
+      <a href="./index.html" style="color:rgba(255,255,255,.7);font-weight:700;font-size:13px;">Inicio</a>
+      <a href="./aprende.html" style="color:rgba(255,255,255,.7);font-weight:700;font-size:13px;">Qué enseña la app</a>
+      <a href="./blog/index.html" style="color:rgba(255,255,255,.7);font-weight:700;font-size:13px;">Blog</a>
     </div>
   </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="envoltura">
-    <p><strong>Fuentes:</strong> cotizaciones de DolarAPI · inflación, tasas y riesgo país de ArgentinaDatos, con datos del INDEC y el BCRA. Los valores son de referencia y pueden diferir de los de tu banco o casa de cambio.</p>
-    <p>Contenido educativo. No es asesoramiento financiero ni una recomendación de inversión.</p>
-    <p><a href="./index.html">Inicio</a> · <a href="./aprende.html">Qué enseña la app</a> · <a href="./blog/index.html">Blog</a> · <a href="./privacy.html">Privacidad</a> · <a href="./terms.html">Términos</a></p>
-  </div>
-</footer>
+</div>
 
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"Qué es el dólar blue","acceptedAnswer":{"@type":"Answer","text":"Es el dólar que se compra fuera del circuito bancario. No es una cotización oficial: es el precio al que se consiguen billetes cuando el acceso al mercado formal está restringido. Su brecha contra el oficial funciona como termómetro de las expectativas."}},
-    {"@type":"Question","name":"Qué diferencia hay entre el dólar MEP y el CCL","acceptedAnswer":{"@type":"Answer","text":"Los dos se obtienen comprando un activo en pesos y vendiéndolo en dólares. La diferencia es dónde quedan esos dólares: con el MEP quedan en una cuenta local y con el contado con liquidación en el exterior. Por eso el CCL suele cotizar más alto."}},
-    {"@type":"Question","name":"Qué es el dólar tarjeta","acceptedAnswer":{"@type":"Answer","text":"Es el dólar oficial con los impuestos que se aplican a los consumos en moneda extranjera. Es el que se paga al comprar en el exterior o suscribir servicios internacionales."}},
+    {"@type":"Question","name":"Qué es el dólar blue","acceptedAnswer":{"@type":"Answer","text":"Es el dólar que se compra fuera del circuito bancario. No es una cotización oficial: es el precio al que efectivamente se consiguen billetes cuando el acceso al mercado formal está restringido. Su brecha contra el oficial funciona como termómetro de las expectativas."}},
+    {"@type":"Question","name":"Qué diferencia hay entre el dólar MEP y el CCL","acceptedAnswer":{"@type":"Answer","text":"Los dos son dólares legales que se obtienen operando bonos o acciones: comprás un activo en pesos y lo vendés en dólares. La diferencia es dónde quedan esos dólares. Con el MEP quedan en una cuenta local; con el contado con liquidación, en el exterior. Por eso el CCL suele cotizar un poco más alto."}},
+    {"@type":"Question","name":"Qué es el dólar tarjeta","acceptedAnswer":{"@type":"Answer","text":"Es el oficial con los impuestos que se aplican a los consumos en moneda extranjera. Es el que pagás cuando comprás afuera o suscribís un servicio internacional."}},
     {"@type":"Question","name":"Cómo se mide la inflación en Argentina","acceptedAnswer":{"@type":"Answer","text":"El INDEC releva miles de precios en todo el país y arma una canasta ponderada según cuánto pesa cada rubro en el gasto de un hogar promedio. El IPC mide cuánto cambió el precio de esa canasta, por eso la inflación personal casi nunca coincide con la publicada."}}
   ]
 }
@@ -289,285 +321,324 @@ footer a{color:var(--muted-ink);}
 (function(){
 "use strict";
 
-/* ====== configuración ====== */
-var WEBHOOK = ""; // misma URL de n8n que usás en la trivia
-var API_DOLAR = "https://dolarapi.com/v1";
-var API_DATOS = "https://api.argentinadatos.com/v1";
-
 var CASAS = [
-  {id:"blue", rot:"Blue"},
-  {id:"oficial", rot:"Oficial"},
-  {id:"bolsa", rot:"MEP"},
-  {id:"contadoconliqui", rot:"CCL"},
-  {id:"cripto", rot:"Cripto"},
-  {id:"tarjeta", rot:"Tarjeta"}
+  { casa:'blue', label:'Blue', sub:'Informal', accent:'#2f9e5f', tint:'#e4f4ea' },
+  { casa:'oficial', label:'Oficial', sub:'Banco Nación', accent:'#4a7ce0', tint:'#e5ecfb' },
+  { casa:'bolsa', label:'MEP', sub:'Dólar bolsa', accent:'#6b3fa0', tint:'#efe6f7' },
+  { casa:'contadoconliqui', label:'CCL', sub:'Contado con liqui', accent:'#b8791f', tint:'#f6ecda' },
+  { casa:'tarjeta', label:'Tarjeta', sub:'Oficial + impuestos', accent:'#e0674a', tint:'#fbe4dd' },
+  { casa:'cripto', label:'Cripto', sub:'Stablecoins', accent:'#1f8f8f', tint:'#ddf1f1' }
 ];
-var MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+var MES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+var $ = function(id){ return document.getElementById(id); };
 
-var pesos = new Intl.NumberFormat("es-AR",{style:"currency",currency:"ARS",maximumFractionDigits:0});
-var numero = new Intl.NumberFormat("es-AR",{maximumFractionDigits:1});
-var $ = function(id){return document.getElementById(id);};
+var state = {
+  rates: null, infl: null, anual: null, pf: null,
+  loading: true, error: false, mode: 'venta',
+  amount: 100000, monthIdx: null, grow: 0, updated: ''
+};
+var barEls = []; // {fill, tip, tipLabel, m}
 
-var ipc = [];   // [{fecha, valor}] mensual
-
-function escapeHtml(s){
-  return String(s).replace(/[&<>"']/g, function(c){
-    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
-  });
+function num(n, dec){
+  var d = dec === undefined ? 2 : dec;
+  return (n || 0).toLocaleString('es-AR', { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+function monthLabel(fecha){
+  var p = String(fecha).split('-');
+  return MES[parseInt(p[1], 10) - 1] + ' ' + p[0];
+}
+function cap(s){
+  return String(s || '').toLowerCase().replace(/(^|\s)\S/g, function(m){ return m.toUpperCase(); });
 }
 
-function traer(url){
-  return fetch(url,{cache:"no-store"}).then(function(r){
-    if(!r.ok) throw new Error(url+" → HTTP "+r.status);
-    return r.json();
-  });
-}
-function fallo(caja, msg){
-  caja.innerHTML = '<p class="error">'+msg+'</p>';
-}
+function load(){
+  state.loading = true; state.error = false; state.grow = 0;
+  $('cotizSkeleton').style.display = 'grid';
+  $('cotizError').style.display = 'none';
+  $('cotizCards').style.display = 'none';
+  $('updatedTxt').textContent = 'buscando…';
+  $('refreshSpinner').style.display = 'inline-block';
+  $('chartHint').textContent = 'cargando serie del INDEC…';
+  $('verdictBadge').textContent = 'Comparando tasas…';
+  $('verdictBadge').style.color = 'rgba(255,255,255,.7)';
+  $('verdictBadge').style.background = 'rgba(255,255,255,.08)';
+  $('verdictBadge').style.border = '1px solid rgba(255,255,255,.16)';
 
-/* ================= COTIZACIONES ================= */
-function cargarDolares(){
-  var caja = $("cotizaciones");
-  return traer(API_DOLAR+"/dolares").then(function(datos){
-    var oficial = datos.find(function(d){return d.casa==="oficial";});
-    var html = "";
-    CASAS.forEach(function(c){
-      var d = datos.find(function(x){return x.casa===c.id;});
-      if(!d) return;
-      var brecha = (oficial && c.id!=="oficial")
-        ? ((d.venta - oficial.venta)/oficial.venta*100) : null;
-      html += '<article class="cotiz">'
-        + '<p class="nombre">'+c.rot+'</p>'
-        + '<p class="venta">'+pesos.format(d.venta)+'</p>'
-        + '<p class="compra">'+(d.compra ? "Compra "+pesos.format(d.compra) : "Solo venta")+'</p>'
-        + '<p class="brecha">'+(brecha!==null
-            ? 'Brecha con el oficial <b>'+numero.format(brecha)+'%</b>'
-            : 'Referencia del mercado')+'</p>'
-        + '</article>';
-    });
-    caja.innerHTML = html;
+  var get = function(u){ return fetch(u).then(function(r){ if (!r.ok) throw new Error(u); return r.json(); }); };
 
-    // sello de última actualización
-    var ult = datos.map(function(d){return new Date(d.fechaActualizacion);})
-                   .sort(function(a,b){return b-a;})[0];
-    if(ult && !isNaN(ult)){
-      var mins = Math.round((Date.now()-ult)/60000);
-      $("sello-txt").textContent = "Actualizado " + (mins<2 ? "recién" :
-        mins<60 ? "hace "+mins+" min" : "el "+ult.toLocaleString("es-AR",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}));
-      $("punto").classList.toggle("viejo", mins>240);
-    }
-  }).catch(function(e){
-    console.error(e);
-    fallo(caja,"No pudimos traer las cotizaciones. Puede ser un corte momentáneo de la fuente: probá con Actualizar en un rato.");
-    $("sello-txt").textContent = "Sin conexión con la fuente";
-    $("punto").classList.add("viejo");
-  });
-}
-
-/* ================= INFLACIÓN ================= */
-function cargarInflacion(){
-  var caja = $("stats-inflacion");
-  return Promise.all([
-    traer(API_DATOS+"/finanzas/indices/inflacion"),
-    traer(API_DATOS+"/finanzas/indices/inflacionInteranual").catch(function(){return null;}),
-    traer(API_DATOS+"/finanzas/indices/riesgo-pais/ultimo").catch(function(){return null;})
+  Promise.all([
+    get('https://dolarapi.com/v1/dolares'),
+    get('https://api.argentinadatos.com/v1/finanzas/indices/inflacion'),
+    get('https://api.argentinadatos.com/v1/finanzas/indices/inflacionInteranual').catch(function(){ return null; }),
+    get('https://api.argentinadatos.com/v1/finanzas/tasas/plazoFijo').catch(function(){ return null; })
   ]).then(function(res){
-    ipc = res[0] || [];
-    var inter = res[1], riesgo = res[2];
-    if(!ipc.length) throw new Error("serie IPC vacía");
+    var rates = res[0], infl = res[1], anual = res[2], pf = res[3];
+    var serie = (infl || []).filter(function(d){ return d && d.fecha && typeof d.valor === 'number'; });
+    var last = serie.length - 1;
+    var back = Math.max(0, last - 60);
+    var stamp = (rates && rates[0] && rates[0].fechaActualizacion) ? new Date(rates[0].fechaActualizacion) : new Date();
 
-    var ultimo = ipc[ipc.length-1];
-    var doce = ipc.slice(-12);
-    var acum12 = doce.reduce(function(a,m){return a*(1+m.valor/100);},1);
-    var interanual = (inter && inter.length) ? inter[inter.length-1].valor : (acum12-1)*100;
+    state.rates = rates; state.infl = serie; state.anual = anual; state.pf = pf; state.loading = false;
+    if (state.monthIdx === null) state.monthIdx = back;
+    state.updated = stamp.toLocaleString('es-AR', { day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' });
 
-    var html = tarjetaStat("Último mes", numero.format(ultimo.valor)+"%", etiquetaMes(ultimo.fecha))
-             + tarjetaStat("Interanual", numero.format(interanual)+"%", "Últimos 12 meses")
-             + tarjetaStat("Acumulado 12 meses", numero.format((acum12-1)*100)+"%", "Calculado mes a mes");
-    if(riesgo && riesgo.valor){
-      html += tarjetaStat("Riesgo país", numero.format(riesgo.valor)+" pb", "Fuente BCRA");
-    }
-    caja.innerHTML = html;
+    $('cotizSkeleton').style.display = 'none';
+    $('refreshSpinner').style.display = 'none';
+    $('updatedTxt').textContent = state.updated;
 
-    dibujarSpark(doce);
-    armarSelectorMeses();
-    calcular();
-  }).catch(function(e){
-    console.error(e);
-    fallo(caja,"No pudimos traer los datos de inflación. La calculadora de abajo necesita esta serie, así que también va a quedar en pausa.");
-    $("spark-caja").hidden = true;
-    $("explica").textContent = "La calculadora necesita la serie del IPC, que ahora no está disponible. Probá recargando la página.";
+    buildCards();
+    buildBars();
+    buildChipsAndSelect();
+    renderStats();
+    renderPlazoFijo();
+    renderCalc();
+
+    setTimeout(function(){
+      state.grow = 1;
+      growIn();
+    }, 90);
+  }).catch(function(){
+    state.loading = false; state.error = true;
+    $('cotizSkeleton').style.display = 'none';
+    $('refreshSpinner').style.display = 'none';
+    $('cotizError').style.display = 'block';
+    $('updatedTxt').textContent = '—';
   });
 }
 
-function tarjetaStat(rot,val,pie){
-  return '<div class="stat"><p class="rot">'+rot+'</p><p class="val">'+val+'</p><p class="pie">'+pie+'</p></div>';
-}
-function etiquetaMes(fecha){
-  var p = String(fecha).split("-");
-  return MESES[parseInt(p[1],10)-1] + " de " + p[0];
+function setMode(m){
+  state.mode = m;
+  $('btnVenta').style.background = m === 'venta' ? '#fff' : 'transparent';
+  $('btnVenta').style.color = m === 'venta' ? '#16213e' : 'rgba(255,255,255,.7)';
+  $('btnCompra').style.background = m === 'compra' ? '#fff' : 'transparent';
+  $('btnCompra').style.color = m === 'compra' ? '#16213e' : 'rgba(255,255,255,.7)';
+  if (!state.loading && !state.error) buildCards();
 }
 
-function dibujarSpark(serie){
-  var W=$("spark").clientWidth || 700, H=120, n=serie.length, gap=8;
-  var max = Math.max.apply(null, serie.map(function(m){return m.valor;})) || 1;
-  var ancho = (W - gap*(n-1))/n;
-  var svg = '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Inflación mensual de los últimos 12 meses">';
-  serie.forEach(function(m,i){
-    var h = Math.max(3, (m.valor/max)*(H-30));
-    var x = i*(ancho+gap), y = H-22-h;
-    svg += '<rect x="'+x+'" y="'+y+'" width="'+ancho+'" height="'+h+'" rx="3" fill="#ffb24a"><title>'+etiquetaMes(m.fecha)+': '+numero.format(m.valor)+'%</title></rect>';
-    svg += '<text x="'+(x+ancho/2)+'" y="'+(H-6)+'" text-anchor="middle" font-size="11" fill="#5b6b78" font-family="Nunito,system-ui,sans-serif" font-weight="700">'+MESES[parseInt(String(m.fecha).split("-")[1],10)-1].slice(0,3)+'</text>';
+function buildCards(){
+  var byCasa = {};
+  (state.rates || []).forEach(function(r){ byCasa[r.casa] = r; });
+  var oficial = byCasa.oficial ? byCasa.oficial.venta : 0;
+  var g = state.grow;
+
+  var html = '';
+  CASAS.forEach(function(c){
+    var r = byCasa[c.casa];
+    if (!r) return;
+    var big = state.mode === 'venta' ? r.venta : (r.compra || r.venta);
+    var other = state.mode === 'venta' ? (r.compra || r.venta) : r.venta;
+    var otherLabel = state.mode === 'venta' ? 'compra' : 'venta';
+    var brecha = (oficial && c.casa !== 'oficial') ? ((r.venta / oficial - 1) * 100) : 0;
+    var brechaTxt = c.casa === 'oficial' ? 'referencia' : ('+' + num(brecha, 1) + '%');
+    var gapW = c.casa === 'oficial' ? (100 * g) : (Math.min(100, Math.max(4, brecha * 1.1)) * g);
+    var gapNote = c.casa === 'oficial' ? 'base de la brecha' : 'brecha vs oficial';
+
+    html += '<div class="obol-card" style="background:#fff;border:1px solid #e6ebf4;border-top:4px solid ' + c.accent + ';border-radius:18px;padding:20px 22px 18px;box-shadow:0 14px 34px -24px rgba(15,20,45,.5);">'
+      + '<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;">'
+      + '<div style="display:flex;flex-direction:column;">'
+      + '<span style="font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:19px;color:#16213e;">' + c.label + '</span>'
+      + '<span style="font-weight:700;font-size:12px;color:#8892a6;">' + c.sub + '</span>'
+      + '</div>'
+      + '<span style="font-weight:800;font-size:11px;letter-spacing:.04em;color:' + c.accent + ';background:' + c.tint + ';padding:5px 10px;border-radius:999px;white-space:nowrap;">' + brechaTxt + '</span>'
+      + '</div>'
+      + '<div style="display:flex;align-items:baseline;gap:7px;">'
+      + '<span style="font-family:\'Fredoka\',sans-serif;font-weight:500;font-size:20px;color:#9aa4b8;">$</span>'
+      + '<span style="font-family:\'Fredoka\',sans-serif;font-weight:700;font-size:38px;line-height:1;color:#16213e;letter-spacing:-.02em;">' + num(big, 2) + '</span>'
+      + '</div>'
+      + '<div style="margin-top:14px;height:6px;border-radius:999px;background:#eef1f7;overflow:hidden;">'
+      + '<div style="height:100%;border-radius:999px;width:' + gapW + '%;background:' + c.accent + ';transition:width .9s cubic-bezier(.22,.61,.36,1);"></div>'
+      + '</div>'
+      + '<div style="display:flex;justify-content:space-between;margin-top:9px;font-weight:700;font-size:12px;color:#8892a6;">'
+      + '<span>' + otherLabel + ' $' + num(other, 2) + '</span><span>' + gapNote + '</span>'
+      + '</div></div>';
   });
-  svg += '</svg>';
-  $("spark").innerHTML = svg;
+
+  $('cotizCards').innerHTML = html;
+  $('cotizCards').style.display = 'grid';
 }
 
-/* ================= PLAZO FIJO ================= */
-function cargarPlazoFijo(){
-  var caja = $("plazo-fijo");
-  return traer(API_DATOS+"/finanzas/tasas/plazoFijo").then(function(tasas){
-    if(!ipc.length) throw new Error("falta IPC");
-    var mejor = tasas.filter(function(t){return t.tnaClientes;})
-                     .sort(function(a,b){return b.tnaClientes-a.tnaClientes;})[0];
-    if(!mejor) throw new Error("sin tasas");
+function buildBars(){
+  var serie = state.infl || [];
+  var slice = serie.slice(Math.max(0, serie.length - 12));
+  var max = slice.reduce(function(m, d){ return Math.max(m, d.valor); }, 1);
+  var container = $('chartBars');
+  container.innerHTML = '';
+  barEls = [];
 
-    // La TNA viene como fracción (0,31) o como porcentaje (31), según la fuente.
-    var tna = mejor.tnaClientes <= 3 ? mejor.tnaClientes*100 : mejor.tnaClientes;
-    var tem = tna/12;
-    var ultInfl = ipc[ipc.length-1];
-    var gana = tem > ultInfl.valor;
+  slice.forEach(function(d, i){
+    var col = document.createElement('div');
+    col.style.cssText = 'flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:9px;height:100%;position:relative;';
 
-    caja.innerHTML = '<div class="veredicto '+(gana?"gana":"pierde")+'">'
-      + '<p class="titular">'+(gana
-          ? "Por ahora le gana, por poco."
-          : "Hoy pierde contra la inflación.")+'</p>'
-      + '<p>La mejor tasa del mercado es <b>'+numero.format(tna)+'% anual</b> ('+numero.format(tem)+'% por mes, en '+escapeHtml(mejor.entidad||"un banco")+'), '
-      + 'contra una inflación de <b>'+numero.format(ultInfl.valor)+'%</b> en '+etiquetaMes(ultInfl.fecha)+'. '
-      + (gana
-          ? 'La diferencia a favor es de '+numero.format(tem-ultInfl.valor)+' puntos por mes — un margen finito, no una ganancia grande.'
-          : 'Dejar la plata ahí un mes te haría perder alrededor de '+numero.format(ultInfl.valor-tem)+'% de poder de compra.')
-      + '</p></div>';
-  }).catch(function(e){
-    console.error(e);
-    caja.innerHTML = '<p class="cargando">La comparación de tasas no está disponible en este momento.</p>';
+    var tip = document.createElement('span');
+    tip.textContent = num(d.valor, 1) + '%';
+    tip.style.cssText = 'position:absolute;bottom:0;font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:13px;color:#fff;background:#16213e;padding:4px 9px;border-radius:8px;white-space:nowrap;opacity:0;transform:translateY(6px);transition:opacity .18s ease,transform .22s cubic-bezier(.22,.61,.36,1);pointer-events:none;';
+
+    var fill = document.createElement('div');
+    fill.style.cssText = 'width:100%;max-width:40px;height:0px;border-radius:9px 9px 4px 4px;background:#a8c6fb;box-shadow:0 0 0 rgba(0,0,0,0);transform:scale(1,1);transform-origin:bottom center;transition:height .55s cubic-bezier(.22,.61,.36,1),transform .22s cubic-bezier(.22,.61,.36,1),background .2s ease,box-shadow .22s ease;';
+
+    var lbl = document.createElement('span');
+    lbl.textContent = MES[parseInt(String(d.fecha).split('-')[1], 10) - 1];
+    lbl.style.cssText = 'font-weight:700;font-size:11px;color:#8892a6;transition:color .18s ease;';
+
+    var realH = Math.max(6, Math.round((d.valor / max) * 168));
+    col.appendChild(tip); col.appendChild(fill); col.appendChild(lbl);
+
+    col.addEventListener('mouseenter', function(){
+      tip.style.bottom = (realH + 36) + 'px';
+      tip.style.opacity = '1'; tip.style.transform = 'translateY(0)';
+      fill.style.transform = 'scale(1.22,1.1)';
+      fill.style.boxShadow = '0 18px 30px -12px rgba(47,95,208,.7)';
+      fill.style.background = '#2f5fd0';
+      lbl.style.color = '#2f5fd0';
+    });
+    col.addEventListener('mouseleave', function(){
+      tip.style.opacity = '0'; tip.style.transform = 'translateY(6px)';
+      fill.style.transform = 'scale(1,1)';
+      fill.style.boxShadow = '0 0 0 rgba(0,0,0,0)';
+      fill.style.background = '#a8c6fb';
+      lbl.style.color = '#8892a6';
+    });
+
+    container.appendChild(col);
+    barEls.push({ fill: fill, realH: realH });
   });
+
+  $('chartHint').textContent = 'pasá el mouse por cada mes';
 }
 
-/* ================= CALCULADORA ================= */
-function armarSelectorMeses(){
-  var sel = $("mes");
-  sel.innerHTML = "";
-  // de la más reciente hacia atrás, sin incluir el último mes (no tendría sentido)
-  for(var i=ipc.length-2;i>=0;i--){
-    var o = document.createElement("option");
-    o.value = i;
-    o.textContent = etiquetaMes(ipc[i].fecha);
+function buildChipsAndSelect(){
+  var serie = state.infl || [];
+  var last = serie.length - 1;
+
+  var sel = $('monthSelect');
+  sel.innerHTML = '';
+  for (var i = last - 1; i >= 0; i--) {
+    var o = document.createElement('option');
+    o.value = String(i);
+    o.textContent = monthLabel(serie[i].fecha);
     sel.appendChild(o);
   }
-  // por defecto, 5 años atrás si existe
-  var porDefecto = Math.max(0, ipc.length-1-60);
-  sel.value = String(porDefecto);
+  sel.value = String(state.monthIdx);
+  sel.onchange = function(){ state.monthIdx = parseInt(sel.value, 10); renderCalc(); };
+
+  var chipVals = [50000, 100000, 500000, 1000000];
+  var chipLabel = function(v){ return v >= 1000000 ? '$1M' : ('$' + (v / 1000) + 'k'); };
+  var chipsBox = $('amountChips');
+  chipsBox.innerHTML = '';
+  chipVals.forEach(function(v){
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'obol-chip'; b.textContent = chipLabel(v);
+    b.style.cssText = 'cursor:pointer;font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:13px;padding:7px 15px;border-radius:999px;border:1.5px solid #e2e8f2;background:#fff;color:#5d6880;';
+    b.addEventListener('click', function(){ state.amount = v; $('amountInput').value = v.toLocaleString('es-AR'); renderCalc(); });
+    chipsBox.appendChild(b);
+  });
+
+  var jumpDefs = [{ y:1, l:'1 año' }, { y:3, l:'3 años' }, { y:5, l:'5 años' }, { y:10, l:'10 años' }];
+  var jumpsBox = $('jumpChips');
+  jumpsBox.innerHTML = '';
+  jumpDefs.forEach(function(j){
+    var target = last - j.y * 12;
+    if (target < 0) return;
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'obol-chip'; b.textContent = j.l;
+    b.style.cssText = 'cursor:pointer;font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:13px;padding:7px 15px;border-radius:999px;border:1.5px solid #e2e8f2;background:#fff;color:#5d6880;';
+    b.addEventListener('click', function(t){ return function(){ state.monthIdx = t; sel.value = String(t); renderCalc(); }; }(target));
+    jumpsBox.appendChild(b);
+  });
+
+  $('amountInput').value = state.amount.toLocaleString('es-AR');
+  $('amountInput').addEventListener('input', function(e){
+    var v = parseInt(String(e.target.value).replace(/\D/g, ''), 10);
+    state.amount = isNaN(v) ? 0 : Math.min(v, 999999999);
+    e.target.value = state.amount ? state.amount.toLocaleString('es-AR') : '';
+    renderCalc();
+  });
 }
 
-function leerMonto(){
-  var v = $("monto").value.replace(/[^\d]/g,"");
-  return v ? parseInt(v,10) : 0;
+function renderStats(){
+  var serie = state.infl || [];
+  var last = serie.length - 1;
+  var lastRow = last >= 0 ? serie[last] : null;
+  var year = lastRow ? String(lastRow.fecha).slice(0, 4) : '';
+  var acum = 1;
+  serie.filter(function(d){ return String(d.fecha).slice(0, 4) === year; }).forEach(function(d){ acum *= 1 + d.valor / 100; });
+  var anualRow = (state.anual && state.anual.length) ? state.anual[state.anual.length - 1] : null;
+
+  $('statMensualVal').textContent = lastRow ? num(lastRow.valor, 1) : '—';
+  $('statMensualLabel').textContent = lastRow ? monthLabel(lastRow.fecha) : '—';
+  $('statInteranualVal').textContent = anualRow ? num(anualRow.valor, 1) : '—';
+  $('statAcumuladaVal').textContent = num((acum - 1) * 100, 1);
+  $('statAcumuladaLabel').textContent = 'Acumulada ' + year;
 }
 
-function calcular(){
-  if(!ipc.length) return;
-  var monto = leerMonto();
-  var desde = parseInt($("mes").value,10);
-  if(isNaN(desde) || !monto){
-    $("grande").textContent = "—";
-    $("explica").textContent = "Poné un monto para ver el cálculo.";
-    return;
-  }
+function renderPlazoFijo(){
+  var serie = state.infl || [];
+  var last = serie.length - 1;
+  var lastRow = last >= 0 ? serie[last] : null;
+  var inflMesV = lastRow ? lastRow.valor : 0;
+  var g = state.grow;
 
-  // Inflación acumulada desde el mes elegido (inclusive) hasta el último publicado
+  var pfTna = 0, pfEntidad = '—';
+  (state.pf || []).forEach(function(p){
+    var t = p.tnaClientes;
+    if (typeof t !== 'number') return;
+    if (t > 3) t = t / 100;
+    if (t > pfTna) { pfTna = t; pfEntidad = cap(p.entidad || ''); }
+  });
+  var pfMensual = pfTna * 100 / 12;
+  var wins = pfMensual >= inflMesV;
+  var scale = Math.max(pfMensual, inflMesV, 0.1);
+
+  var badge = $('verdictBadge');
+  badge.textContent = wins ? 'Le gana a la inflación' : 'Pierde contra la inflación';
+  badge.style.color = wins ? '#5ec4a0' : '#ff9a7f';
+  badge.style.background = wins ? 'rgba(94,196,160,.12)' : 'rgba(224,103,74,.14)';
+  badge.style.border = '1px solid ' + (wins ? 'rgba(94,196,160,.35)' : 'rgba(255,154,127,.35)');
+
+  $('pfEntidadLabel').textContent = 'Plazo fijo · ' + pfEntidad;
+  $('pfMensualVal').textContent = num(pfMensual, 2) + '% mensual';
+  $('inflMesLabel2').textContent = 'Inflación · ' + (lastRow ? monthLabel(lastRow.fecha) : '—');
+  $('inflMesVal2').textContent = num(inflMesV, 1) + '% mensual';
+
+  $('pfBarFill').style.width = ((pfMensual / scale) * 100 * g) + '%';
+  $('inflBarFill').style.width = ((inflMesV / scale) * 100 * g) + '%';
+}
+
+function renderCalc(){
+  var serie = state.infl || [];
+  var last = serie.length - 1;
+  var g = state.grow;
+  var idx = state.monthIdx === null ? 0 : state.monthIdx;
+
   var factor = 1;
-  for(var i=desde;i<ipc.length;i++){ factor *= (1 + ipc[i].valor/100); }
+  for (var i = idx + 1; i <= last; i++) factor *= 1 + serie[i].valor / 100;
+  var need = state.amount * factor;
+  var keep = Math.max(0, Math.min(100, 100 / factor));
+  var monthTxt = (idx <= last && serie[idx]) ? monthLabel(serie[idx].fecha) : '';
+  var nowTxt = (last >= 0) ? monthLabel(serie[last].fecha) : 'hoy';
 
-  var equivalente = monto*factor;        // lo que necesitás hoy para comprar lo mismo
-  var poderHoy = monto/factor;           // lo que compran hoy esos pesos de entonces
-  var comido = (1 - 1/factor)*100;
-
-  var mesTxt = etiquetaMes(ipc[desde].fecha);
-  var hastaTxt = etiquetaMes(ipc[ipc.length-1].fecha);
-
-  $("grande").textContent = pesos.format(equivalente);
-  $("explica").innerHTML =
-      "Eso es lo que necesitás <b>hoy</b> para comprar lo mismo que comprabas con "
-    + pesos.format(monto) + " en " + mesTxt + ".<br>"
-    + "Mirado al revés: si esa plata quedó quieta, hoy compra lo que compraban "
-    + "<b>" + pesos.format(poderHoy) + "</b>. La inflación se llevó el <b>"
-    + numero.format(comido) + "%</b> de su poder de compra "
-    + "(acumulado de " + mesTxt + " a " + hastaTxt + ": " + numero.format((factor-1)*100) + "%).";
-
-  var queda = Math.max(0.4, 100/factor);
-  $("queda").style.width = queda.toFixed(2)+"%";
-  $("leyenda-queda").textContent = "Queda " + numero.format(100/factor) + "% del poder de compra";
-  $("leyenda-come").textContent = "Se comió " + numero.format(comido) + "%";
+  $('calcResult').textContent = num(need, 0);
+  $('calcNote').textContent = serie.length
+    ? ('Lo que comprabas con $' + num(state.amount, 0) + ' en ' + monthTxt + ' cuesta eso hoy. Es la misma plata, medida contra los precios de ' + nowTxt + '.')
+    : 'Elegí un monto y un mes para ver el cálculo.';
+  $('calcKeepFill').style.width = (keep * g) + '%';
+  $('calcLostFill').style.width = ((100 - keep) * g) + '%';
+  $('calcKeepTxt').textContent = num(keep, 1);
+  $('calcLostTxt').textContent = num(100 - keep, 1);
 }
 
-$("monto").addEventListener("input", function(){
-  var v = leerMonto();
-  this.value = v ? v.toLocaleString("es-AR") : "";
-  calcular();
-});
-$("mes").addEventListener("change", calcular);
-
-/* ================= WAITLIST ================= */
-$("anotar").addEventListener("click", function(){
-  var btn = this, aviso = $("aviso");
-  var email = $("mail").value.trim().toLowerCase();
-  aviso.hidden = false; aviso.className = "aviso";
-
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){
-    aviso.className = "aviso mal";
-    aviso.textContent = "Ese mail no parece válido. Revisalo y probá de nuevo.";
-    return;
-  }
-  btn.disabled = true; btn.textContent = "Anotándote…";
-  var datos = {email:email, origen:"dolar-hoy", pagina:location.pathname,
-               referrer:document.referrer||"directo", fecha:new Date().toISOString()};
-
-  var listo = function(){
-    $("mail").hidden = true; btn.hidden = true;
-    aviso.textContent = "Listo, quedaste anotado. Te escribimos cuando abra la beta.";
-  };
-
-  if(!WEBHOOK){ console.warn("[Obol] Falta configurar WEBHOOK:", datos); listo(); return; }
-
-  fetch(WEBHOOK,{method:"POST",headers:{"Content-Type":"text/plain;charset=UTF-8"},body:JSON.stringify(datos)})
-    .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.text(); })
-    .then(listo)
-    .catch(function(e){
-      console.error(e);
-      btn.disabled=false; btn.textContent="Avisame cuando salga";
-      aviso.className="aviso mal";
-      aviso.textContent="No pudimos guardarte ahora. Probá de nuevo en un minuto.";
-    });
-});
-
-/* ================= ARRANQUE ================= */
-function cargarTodo(){
-  cargarDolares();
-  cargarInflacion().then(cargarPlazoFijo);
+function growIn(){
+  buildCards();
+  barEls.forEach(function(b){ b.fill.style.height = b.realH + 'px'; });
+  renderPlazoFijo();
+  renderCalc();
 }
-$("recargar").addEventListener("click", cargarTodo);
-cargarTodo();
 
-// Refresca las cotizaciones al volver a la pestaña, si pasaron más de 5 minutos
-var ultimaCarga = Date.now();
-document.addEventListener("visibilitychange", function(){
-  if(!document.hidden && Date.now()-ultimaCarga > 300000){
-    ultimaCarga = Date.now();
-    cargarDolares();
-  }
-});
+$('btnVenta').addEventListener('click', function(){ setMode('venta'); });
+$('btnCompra').addEventListener('click', function(){ setMode('compra'); });
+$('btnRefresh').addEventListener('click', load);
+setMode('venta');
+load();
 })();
 </script>
 </body>
