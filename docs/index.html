@@ -544,6 +544,7 @@
             <h3 id="pb-rail-title" style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:23px;color:#fff;line-height:1.2;">Cinco preguntas</h3>
             <p id="pb-rail-text" style="margin:0;font-weight:600;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.62);">Una de cada área temática. Sin registro y sin descargar nada.</p>
             <span id="pb-rail-stat" style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:12.5px;color:rgba(255,255,255,.42);letter-spacing:.02em;">804 preguntas en la app</span>
+          <div id="pb-auth"></div>
           </div>
           <div class="obol-demo-art" style="position:relative;display:flex;justify-content:center;">
             <div style="position:absolute;bottom:6px;width:130px;height:22px;border-radius:999px;background:rgba(0,0,0,.35);filter:blur(13px);"></div>
@@ -557,9 +558,17 @@
     </div>
   </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function () {
   "use strict";
+
+  var SUPABASE_URL = "https://fhdkferjbwecrkolluab.supabase.co";
+  var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZoZGtmZXJqYndlY3Jrb2xsdWFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3ODk3NDAsImV4cCI6MjEwMTM2NTc0MH0.Np2o-MMBmeDe75cJiq5-MFxmRMRX9HYaVKcCN1C-P_Y";
+  var sb = (window.supabase && window.supabase.createClient)
+    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    : null;
+  var pbSession = null;
 
   var QUESTIONS = [
     { area: 'Economía', color: '#7fa8f5',
@@ -642,15 +651,95 @@
     if (i === QUESTIONS[pb.qi].correct) pb.score++;
     pb.picked = i;
     pbRenderBody();
+    pbSaveProgress();
   }
   function pbNext() {
     if (pb.qi + 1 >= QUESTIONS.length) { pb.done = true; }
     else { pb.qi++; pb.picked = null; }
     pbRenderBody();
+    pbSaveProgress();
   }
   function pbRestart() {
     pb.qi = 0; pb.picked = null; pb.score = 0; pb.done = false;
     pbRenderBody();
+    pbSaveProgress();
+  }
+
+  // ---------- Guardar progreso (opcional, requiere sesión de Supabase) ----------
+
+  function pbRenderAuth() {
+    var el = $('pb-auth');
+    if (!el || !sb) return;
+    if (pbSession) {
+      el.innerHTML = '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px;">'
+        + '<span style="font-family:\'Nunito\',sans-serif;font-weight:700;font-size:12px;color:#6ddbaa;">✓ Progreso guardado</span>'
+        + '<button type="button" id="pb-auth-logout" style="border:none;background:none;cursor:pointer;font-family:\'Nunito\',sans-serif;font-weight:700;font-size:12px;color:rgba(255,255,255,.5);text-decoration:underline;padding:0;">Cerrar sesión</button>'
+        + '</div>';
+      var out = $('pb-auth-logout');
+      if (out) out.addEventListener('click', function () { sb.auth.signOut(); });
+    } else {
+      el.innerHTML = '<div style="display:flex;flex-direction:column;gap:6px;margin-top:4px;">'
+        + '<div style="display:flex;gap:6px;">'
+        + '<input id="pb-auth-email" type="email" placeholder="tu@mail.com" style="flex:1;min-width:0;font:inherit;font-weight:600;font-size:12.5px;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 12px;outline:none;">'
+        + '<button type="button" id="pb-auth-btn" style="flex:none;border:none;cursor:pointer;font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:12px;color:#16213e;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:8px 14px;border-radius:999px;white-space:nowrap;">Guardar progreso</button>'
+        + '</div>'
+        + '<p id="pb-auth-msg" style="margin:0;font-size:11.5px;font-weight:600;color:rgba(255,255,255,.5);min-height:1em;"></p>'
+        + '</div>';
+      var email = $('pb-auth-email'), btn = $('pb-auth-btn'), msg = $('pb-auth-msg');
+      function enviar() {
+        var v = (email.value || '').trim().toLowerCase();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) {
+          msg.style.color = '#ff9a7f';
+          msg.textContent = 'Ese mail no parece válido.';
+          return;
+        }
+        btn.disabled = true; btn.textContent = 'Enviando…';
+        sb.auth.signInWithOtp({ email: v, options: { emailRedirectTo: window.location.href.split('#')[0] } })
+          .then(function (res) {
+            btn.disabled = false; btn.textContent = 'Guardar progreso';
+            if (res.error) { msg.style.color = '#ff9a7f'; msg.textContent = 'No se pudo enviar. Probá de nuevo.'; return; }
+            msg.style.color = '#6ddbaa';
+            msg.textContent = 'Listo, revisá tu mail y tocá el link.';
+          });
+      }
+      if (btn) btn.addEventListener('click', enviar);
+      if (email) email.addEventListener('keydown', function (e) { if (e.key === 'Enter') enviar(); });
+    }
+  }
+
+  function pbLoadProgress() {
+    if (!sb || !pbSession) return;
+    sb.from('quiz_progress').select('estado').eq('user_id', pbSession.user.id).maybeSingle()
+      .then(function (res) {
+        var estado = res.data && res.data.estado;
+        if (estado && typeof estado.qi === 'number') {
+          pb.qi = estado.qi; pb.picked = estado.picked; pb.score = estado.score; pb.done = !!estado.done;
+          pbRenderBody();
+        }
+      });
+  }
+
+  function pbSaveProgress() {
+    if (!sb || !pbSession) return;
+    sb.from('quiz_progress').upsert({
+      user_id: pbSession.user.id,
+      estado: { qi: pb.qi, picked: pb.picked, score: pb.score, done: pb.done },
+      updated_at: new Date().toISOString()
+    }, { onConflict: 'user_id' }).then(function () {});
+  }
+
+  function pbInitAuth() {
+    if (!sb) return;
+    sb.auth.getSession().then(function (res) {
+      pbSession = res.data.session;
+      pbRenderAuth();
+      if (pbSession) pbLoadProgress();
+    });
+    sb.auth.onAuthStateChange(function (event, session) {
+      pbSession = session;
+      pbRenderAuth();
+      if (event === 'SIGNED_IN') pbLoadProgress();
+    });
   }
 
   function pbAsk(text) {
@@ -830,6 +919,8 @@
   $('pb-tab-chat').addEventListener('click', function () { pbSetMode('chat'); });
 
   pbSetMode('quiz');
+  pbRenderAuth();
+  pbInitAuth();
 })();
 </script>
   <!-- CTA -->
