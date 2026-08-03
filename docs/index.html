@@ -711,6 +711,7 @@
     if (!sb || !pbSession) return;
     sb.from('quiz_progress').select('estado').eq('user_id', pbSession.user.id).maybeSingle()
       .then(function (res) {
+        if (res.error) { console.error('[Obol] pbLoadProgress:', res.error); return; }
         var estado = res.data && res.data.estado;
         if (estado && typeof estado.qi === 'number') {
           pb.qi = estado.qi; pb.picked = estado.picked; pb.score = estado.score; pb.done = !!estado.done;
@@ -725,7 +726,9 @@
       user_id: pbSession.user.id,
       estado: { qi: pb.qi, picked: pb.picked, score: pb.score, done: pb.done },
       updated_at: new Date().toISOString()
-    }, { onConflict: 'user_id' }).then(function () {});
+    }, { onConflict: 'user_id' }).then(function (res) {
+      if (res.error) console.error('[Obol] pbSaveProgress:', res.error);
+    });
   }
 
   function pbInitAuth() {
