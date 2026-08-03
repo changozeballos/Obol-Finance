@@ -65,6 +65,11 @@
   }
   @media (max-width: 640px) {
     .nav-text-link { display: none !important; }
+    .obol-wl-section { padding: 32px 20px 0 !important; }
+    .obol-wl-card { padding: 28px 24px !important; }
+    .obol-wl-form { min-width: 0 !important; width: 100%; }
+    .obol-wl-row { flex-direction: column; }
+    .obol-wl-row input, .obol-wl-row button { width: 100%; }
   }
 
   /* ---------- Pill nav (efecto tipo React Bits PillNav, sin dependencias) ---------- */
@@ -105,7 +110,7 @@
       <a href="./dolar.html" class="pill nav-text-link is-active"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Dólar hoy</span><span class="pill-label-hover" aria-hidden="true">Dólar hoy</span></span></a>
       <a href="./blog/index.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Blog</span><span class="pill-label-hover" aria-hidden="true">Blog</span></span></a>
     </nav>
-    <a href="mailto:obol.finance2026@gmail.com?subject=Avisenme%20cuando%20Obol%20est%C3%A9%20disponible" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#0d1730;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:9px 20px;border-radius:999px;">Enterate cuando salga</a>
+    <a href="#anotarse" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#0d1730;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:9px 20px;border-radius:999px;">Enterate cuando salga</a>
   </div>
 </div>
 
@@ -307,15 +312,76 @@
   </div>
 </div>
 
-<div style="max-width:1180px;margin:0 auto;padding:56px 40px 0;">
-  <div class="obol-reveal" style="background:linear-gradient(120deg,#ffe08a,#ffb24a);border-radius:24px;padding:38px 40px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;">
+<div class="obol-wl-section" style="max-width:1180px;margin:0 auto;padding:56px 40px 0;">
+  <div id="anotarse" class="obol-reveal obol-wl-card" style="background:linear-gradient(120deg,#ffe08a,#ffb24a);border-radius:24px;padding:38px 40px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;">
     <div style="max-width:620px;">
       <h2 style="margin:0 0 8px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:28px;color:#0d1730;letter-spacing:-.01em;">Esto es una de las 17 secciones de Obol</h2>
       <p style="margin:0;font-weight:700;font-size:15px;line-height:1.6;color:rgba(13,23,48,.72);">La app enseña todo esto desde cero: inflación, ahorro, deuda, inversión e historia financiera. Con lecciones cortas, rachas y 804 preguntas.</p>
     </div>
-    <a href="mailto:obol.finance2026@gmail.com?subject=Avisenme%20cuando%20Obol%20est%C3%A9%20disponible" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#fff;background:#0d1730;padding:15px 30px;border-radius:999px;white-space:nowrap;">Avisame cuando salga</a>
+    <div class="obol-wl-form" style="display:flex;flex-direction:column;gap:8px;flex:none;min-width:300px;">
+      <div class="obol-wl-row" style="display:flex;gap:8px;flex-wrap:wrap;">
+        <input id="wl-email" type="email" placeholder="tu@mail.com" aria-label="Tu correo" autocomplete="email" style="flex:1;min-width:180px;font:inherit;font-weight:600;font-size:14px;color:#0d1730;background:rgba(255,255,255,.55);border:1.5px solid rgba(13,23,48,.25);border-radius:999px;padding:13px 18px;outline:none;">
+        <input id="wl-trampa" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
+        <button id="wl-submit" type="button" class="obol-btn" style="border:none;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#fff;background:#0d1730;padding:13px 26px;border-radius:999px;white-space:nowrap;">Avisame cuando salga</button>
+      </div>
+      <p id="wl-msg" style="margin:0;font-size:13px;font-weight:700;color:rgba(13,23,48,.7);min-height:1em;"></p>
+    </div>
   </div>
 </div>
+
+<script>
+(function () {
+  "use strict";
+  var WEBHOOK = ""; // pegar acá la URL de producción del webhook de lista de espera (obol-waitlist-n8n.json)
+  var email = document.getElementById('wl-email');
+  var trampa = document.getElementById('wl-trampa');
+  var btn = document.getElementById('wl-submit');
+  var msg = document.getElementById('wl-msg');
+  if (!email || !btn || !msg) return;
+
+  function valido(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+
+  function enviar() {
+    var v = email.value.trim().toLowerCase();
+    if (!valido(v)) {
+      msg.style.color = '#b4503c';
+      msg.textContent = 'Ese mail no parece válido. Revisalo y probá de nuevo.';
+      return;
+    }
+    if (trampa && trampa.value !== '') return; // bot
+    btn.disabled = true; btn.textContent = 'Anotándote…';
+    msg.style.color = 'rgba(13,23,48,.7)';
+    msg.textContent = '';
+    var datos = { email: v, origen: 'cta-dolar', pagina: location.pathname, referrer: document.referrer || 'directo', fecha: new Date().toISOString() };
+
+    function listo() {
+      email.style.display = 'none';
+      btn.style.display = 'none';
+      msg.style.color = '#1e7a54';
+      msg.textContent = 'Listo, quedaste anotado. Te escribimos cuando abra la beta.';
+    }
+
+    if (!WEBHOOK) {
+      console.warn('[Obol] Falta configurar WEBHOOK. Se enviaría:', datos);
+      listo();
+      return;
+    }
+
+    fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(datos) })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(listo)
+      .catch(function (e) {
+        console.error(e);
+        btn.disabled = false; btn.textContent = 'Avisame cuando salga';
+        msg.style.color = '#b4503c';
+        msg.textContent = 'No pudimos guardarte ahora. Probá de nuevo en un minuto.';
+      });
+  }
+
+  btn.addEventListener('click', enviar);
+  email.addEventListener('keydown', function (e) { if (e.key === 'Enter') enviar(); });
+})();
+</script>
 
 <div style="max-width:1180px;margin:0 auto;padding:26px 40px 0;">
   <p style="margin:0;font-weight:700;font-size:13px;line-height:1.7;color:#8892a6;">Fuentes: cotizaciones de DolarAPI · inflación y tasas de ArgentinaDatos, con datos del INDEC y el BCRA. Los valores son de referencia y pueden diferir de los de tu banco o casa de cambio. Contenido educativo: no es asesoramiento financiero ni una recomendación de inversión.</p>

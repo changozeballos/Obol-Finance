@@ -2,7 +2,7 @@
 
 ## 1. Lista de espera (`obol-waitlist-n8n.json`)
 
-Recibe los envíos del formulario de trivia en `docs/index.html` (sección `#obol-quiz`), valida el mail, guarda el lead en Google Sheets y manda un mail de bienvenida.
+Recibe los envíos de los formularios "Enterate cuando salga" / "Avisame cuando salga" (sección `#anotarse` en `docs/index.html` y `docs/dolar.html`), valida el mail, guarda el lead en Google Sheets y manda un mail de bienvenida.
 
 ### Pasos para activarlo
 
