@@ -164,27 +164,24 @@
   .cursor-grid__canvas { display: block; width: 100%; height: 100%; }
   .obol-hero-grid a, .obol-hero-grid button, .obol-hero-grid .obol-mark { pointer-events: auto; }
 
-  /* ---------- Tilt card holografico (adaptado de ProfileCard, React Bits) ---------- */
+  /* ---------- Tilt card metalico (adaptado de ProfileCard, React Bits) ---------- */
   #chanchoTilt {
     --pointer-x: 50%; --pointer-y: 50%; --pointer-from-center: 0; --pointer-from-top: 0.5; --pointer-from-left: 0.5;
-    --card-opacity: 0; --rotate-x: 0deg; --rotate-y: 0deg; --background-x: 50%; --background-y: 50%;
-    --behind-glow-color: rgba(255,178,74,.55); --behind-glow-size: 60%;
-    --inner-gradient: linear-gradient(145deg,#2a3a6688 0%,#ffb24a33 100%);
-    --sunpillar-1: hsl(2,100%,73%); --sunpillar-2: hsl(53,100%,69%); --sunpillar-3: hsl(93,100%,69%);
-    --sunpillar-4: hsl(176,100%,76%); --sunpillar-5: hsl(228,100%,74%); --sunpillar-6: hsl(283,100%,73%);
+    --card-opacity: 0; --rotate-x: 0deg; --rotate-y: 0deg;
+    --behind-glow-color: rgba(255,255,255,.35); --behind-glow-size: 60%;
+    --inner-gradient: linear-gradient(145deg,#3a4155 0%,#171c2b 100%);
     perspective: 500px; transform: translate3d(0,0,.1px); position: relative; touch-action: none;
     width: 148px; height: 148px; pointer-events: auto;
   }
   #chanchoTilt .pc-behind {
-    position: absolute; inset: -26px; z-index: 0; pointer-events: none; border-radius: 999px;
+    position: absolute; inset: -22px; z-index: 0; pointer-events: none; border-radius: 999px;
     background: radial-gradient(circle at var(--pointer-x) var(--pointer-y), var(--behind-glow-color) 0%, transparent var(--behind-glow-size));
-    filter: blur(22px) saturate(1.1); opacity: calc(.85 * var(--card-opacity)); transition: opacity .2s ease;
+    filter: blur(20px); opacity: calc(.7 * var(--card-opacity)); transition: opacity .2s ease;
   }
   #chanchoTilt:hover, #chanchoTilt.active { --card-opacity: 1; }
   #chanchoTilt .pc-card-shell { position: relative; z-index: 1; width: 100%; height: 100%; }
   #chanchoTilt .pc-card {
     width: 148px; height: 148px; display: grid; border-radius: 22px; position: relative;
-    background-blend-mode: color-dodge, normal, normal, normal;
     box-shadow: rgba(0,0,0,.5) calc((var(--pointer-from-left) * 8px) - 2px) calc((var(--pointer-from-top) * 14px) - 4px) 18px -6px;
     transition: transform 1s ease; transform: translateZ(0) rotateX(0deg) rotateY(0deg);
     background: rgba(0,0,0,.9); backface-visibility: hidden; overflow: hidden;
@@ -193,43 +190,12 @@
   #chanchoTilt .pc-card-shell.entering .pc-card { transition: transform 180ms ease-out; }
   #chanchoTilt .pc-card * { display: grid; grid-area: 1/-1; border-radius: 22px; pointer-events: none; }
   #chanchoTilt .pc-inside { inset: 0; position: absolute; background-image: var(--inner-gradient); background-color: rgba(0,0,0,.9); }
-  #chanchoTilt .pc-shine, #chanchoTilt .pc-shine::after {
-    --space: 5%; --angle: -45deg; transform: translate3d(0,0,1px); overflow: hidden; z-index: 3;
-    background: transparent; background-size: cover; background-position: center;
-    background-image:
-      repeating-linear-gradient(0deg, var(--sunpillar-1) calc(var(--space) * 1), var(--sunpillar-2) calc(var(--space) * 2), var(--sunpillar-3) calc(var(--space) * 3), var(--sunpillar-4) calc(var(--space) * 4), var(--sunpillar-5) calc(var(--space) * 5), var(--sunpillar-6) calc(var(--space) * 6), var(--sunpillar-1) calc(var(--space) * 7)),
-      repeating-linear-gradient(var(--angle), #0e152e 0%, hsl(180,10%,60%) 3.8%, hsl(180,29%,66%) 4.5%, hsl(180,10%,60%) 5.2%, #0e152e 10%, #0e152e 12%),
-      radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y), hsla(0,0%,0%,.1) 12%, hsla(0,0%,0%,.15) 20%, hsla(0,0%,0%,.25) 120%);
-    background-position: 0 var(--background-y), var(--background-x) var(--background-y), center;
-    background-blend-mode: color, hard-light;
-    background-size: 500% 500%, 300% 300%, 200% 200%;
-    background-repeat: repeat;
-  }
-  #chanchoTilt .pc-shine { filter: brightness(.7) contrast(1.3) saturate(.4) opacity(.55); mix-blend-mode: color-dodge; animation: chanchoHolo 18s linear infinite; }
-  #chanchoTilt .pc-shine::before, #chanchoTilt .pc-shine::after { content: ''; background-position: center; background-size: cover; grid-area: 1/1; opacity: 0; transition: opacity .8s ease; }
-  #chanchoTilt .pc-card:hover .pc-shine, #chanchoTilt .pc-card.active .pc-shine { filter: brightness(.9) contrast(1.5) saturate(.6); animation-play-state: paused; }
-  #chanchoTilt .pc-card:hover .pc-shine::before, #chanchoTilt .pc-card.active .pc-shine::before,
-  #chanchoTilt .pc-card:hover .pc-shine::after, #chanchoTilt .pc-card.active .pc-shine::after { opacity: 1; }
-  #chanchoTilt .pc-shine::before {
-    background-image:
-      linear-gradient(45deg, var(--sunpillar-4), var(--sunpillar-5), var(--sunpillar-6), var(--sunpillar-1), var(--sunpillar-2), var(--sunpillar-3)),
-      radial-gradient(circle at var(--pointer-x) var(--pointer-y), hsl(0,0%,70%) 0%, hsla(0,0%,30%,.2) 90%);
-    background-size: 250% 250%, 100% 100%;
-    background-position: var(--pointer-x) var(--pointer-y), center;
-    background-blend-mode: color-dodge;
-    filter: brightness(calc(2 - var(--pointer-from-center))) contrast(calc(var(--pointer-from-center) + 2)) saturate(calc(.5 + var(--pointer-from-center)));
-    mix-blend-mode: luminosity;
-  }
-  #chanchoTilt .pc-shine::after {
-    background-position: 0 var(--background-y), calc(var(--background-x) * .4) calc(var(--background-y) * .5), center;
-    background-size: 200% 300%, 700% 700%, 100% 100%;
-    mix-blend-mode: difference; filter: brightness(.8) contrast(1.5);
-  }
   #chanchoTilt .pc-glare {
-    transform: translate3d(0,0,1.1px); overflow: hidden;
-    background-image: radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y), hsl(248,25%,80%) 12%, hsla(207,40%,30%,.8) 90%);
-    mix-blend-mode: overlay; filter: brightness(.8) contrast(1.2); z-index: 4;
+    transform: translate3d(0,0,1.1px); overflow: hidden; opacity: 0;
+    background-image: radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y), rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 55%);
+    mix-blend-mode: overlay; z-index: 4; transition: opacity .3s ease;
   }
+  #chanchoTilt .pc-card:hover .pc-glare, #chanchoTilt .pc-card.active .pc-glare { opacity: 1; }
   #chanchoTilt .pc-avatar-content { mix-blend-mode: luminosity; overflow: visible; transform: translateZ(2); backface-visibility: hidden; }
   #chanchoTilt .avatar {
     width: 108%; position: absolute; left: 50%; bottom: -1px; object-fit: cover;
@@ -237,12 +203,8 @@
     transform: translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 6px)) translateZ(0) scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * .02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * .01));
     backface-visibility: hidden; will-change: transform; transition: transform 120ms ease-out;
   }
-  @keyframes chanchoHolo {
-    0% { background-position: 0 var(--background-y), 0 0, center; }
-    100% { background-position: 0 var(--background-y), 90% 90%, center; }
-  }
   @media (prefers-reduced-motion: reduce) {
-    #chanchoTilt .pc-card, #chanchoTilt .avatar, #chanchoTilt .pc-behind { transition: none !important; animation: none !important; }
+    #chanchoTilt .pc-card, #chanchoTilt .avatar, #chanchoTilt .pc-behind, #chanchoTilt .pc-glare { transition: none !important; animation: none !important; }
   }
 </style>
 </head>
@@ -634,7 +596,6 @@
               <div class="pc-card-shell">
                 <section class="pc-card">
                   <div class="pc-inside">
-                    <div class="pc-shine"></div>
                     <div class="pc-glare"></div>
                     <div class="pc-avatar-content">
                       <img class="avatar" src="./assets/icon.png" alt="El Chancho de Obol">
