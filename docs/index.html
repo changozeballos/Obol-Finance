@@ -697,7 +697,7 @@
         sb.auth.signInWithOtp({ email: v, options: { emailRedirectTo: window.location.href.split('#')[0] } })
           .then(function (res) {
             btn.disabled = false; btn.textContent = 'Guardar progreso';
-            if (res.error) { msg.style.color = '#ff9a7f'; msg.textContent = 'No se pudo enviar. Probá de nuevo.'; return; }
+            if (res.error) { console.error('[Obol] signInWithOtp:', res.error); msg.style.color = '#ff9a7f'; msg.textContent = 'Error: ' + res.error.message; return; }
             msg.style.color = '#6ddbaa';
             msg.textContent = 'Listo, revisá tu mail y tocá el link.';
           });
