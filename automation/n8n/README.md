@@ -20,6 +20,11 @@ Recibe los envíos de los formularios "Enterate cuando salga" / "Avisame cuando 
 
 Sin el paso 7 los formularios quedan en "modo demo": funcionan en la página pero no mandan nada a n8n (solo lo loguean en la consola del navegador).
 
+### Notas
+
+- El nodo "Valida y segmenta" hace de portero: filtra por origen (lista `ORIGENES` dentro del código — hoy solo acepta `https://changozeballos.github.io`, ajustar si cambia el dominio), descarta dominios de mail descartables comunes, y frena todo alta después de `TOPE_DIARIO` (arranca en 500 por día) usando un contador persistente vía `$getWorkflowStaticData`. Igual que en el chat, el filtro de origen no es seguridad real (se falsifica fácil) pero corta ruido barato.
+- El límite diario es compartido entre `docs/index.html` y `docs/dolar.html`, ya que ambos apuntan al mismo webhook.
+
 ---
 
 ## 2. Newsletter semanal (`obol-newsletter-n8n.json`)
