@@ -324,45 +324,57 @@
       <h2 style="margin:0 0 8px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:28px;color:#0d1730;letter-spacing:-.01em;">Esto es una de las 17 secciones de Obol</h2>
       <p style="margin:0;font-weight:700;font-size:15px;line-height:1.6;color:rgba(13,23,48,.72);">La app enseña todo esto desde cero: inflación, ahorro, deuda, inversión e historia financiera. Con lecciones cortas, rachas y 804 preguntas.</p>
     </div>
-    <div class="obol-wl-form" style="display:flex;flex-direction:column;gap:8px;flex:none;min-width:300px;">
-      <div class="obol-wl-row" style="display:flex;gap:8px;flex-wrap:wrap;">
-        <input id="wl-email" type="email" placeholder="tu@mail.com" aria-label="Tu correo" autocomplete="email" style="flex:1;min-width:180px;font:inherit;font-weight:600;font-size:14px;color:#0d1730;background:rgba(255,255,255,.55);border:1.5px solid rgba(13,23,48,.25);border-radius:999px;padding:13px 18px;outline:none;">
-        <input id="wl-trampa" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
-        <button id="wl-submit" type="button" class="obol-btn" style="border:none;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:600;font-size:16px;color:#fff;background:#0d1730;padding:13px 26px;border-radius:999px;white-space:nowrap;">Avisame cuando salga</button>
-      </div>
+    <div class="obol-wl-form" style="display:flex;flex-direction:column;gap:10px;flex:1;min-width:280px;max-width:420px;">
+      <div id="curvedWl" style="width:100%;"></div>
+      <input id="wl-trampa" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
       <p id="wl-msg" style="margin:0;font-size:13px;font-weight:700;color:rgba(13,23,48,.7);min-height:1em;"></p>
     </div>
   </div>
 </div>
 
+<script src="./assets/curved-input.js"></script>
 <script>
 (function () {
   "use strict";
   var WEBHOOK = ""; // pegar acá la URL de producción del webhook de lista de espera (obol-waitlist-n8n.json)
-  var email = document.getElementById('wl-email');
+  var host = document.getElementById('curvedWl');
   var trampa = document.getElementById('wl-trampa');
-  var btn = document.getElementById('wl-submit');
   var msg = document.getElementById('wl-msg');
-  if (!email || !btn || !msg) return;
+  if (!host || !msg || !window.ObolCurvedInput) return;
 
   function valido(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
 
+  var ci = window.ObolCurvedInput(host, {
+    placeholder: 'tu@mail.com',
+    buttonText: 'Avisame',
+    bg: '#fffaf0',
+    text: '#0d1730',
+    placeholderColor: 'rgba(13,23,48,.45)',
+    border: 'rgba(13,23,48,.25)',
+    accentFrom: '#16213e',
+    accentTo: '#0d1730',
+    accentText: '#ffffff',
+    height: 54,
+    bend: 15,
+    fontSize: 14.5,
+    onSubmit: enviar
+  });
+
   function enviar() {
-    var v = email.value.trim().toLowerCase();
+    var v = ci.getValue().trim().toLowerCase();
     if (!valido(v)) {
       msg.style.color = '#b4503c';
       msg.textContent = 'Ese mail no parece válido. Revisalo y probá de nuevo.';
       return;
     }
     if (trampa && trampa.value !== '') return; // bot
-    btn.disabled = true; btn.textContent = 'Anotándote…';
+    ci.setBusy(true, 'Anotándote…');
     msg.style.color = 'rgba(13,23,48,.7)';
     msg.textContent = '';
     var datos = { email: v, origen: 'cta-dolar', pagina: location.pathname, referrer: document.referrer || 'directo', fecha: new Date().toISOString() };
 
     function listo() {
-      email.style.display = 'none';
-      btn.style.display = 'none';
+      ci.hide();
       msg.style.color = '#1e7a54';
       msg.textContent = 'Listo, quedaste anotado. Te escribimos cuando abra la beta.';
     }
@@ -378,14 +390,11 @@
       .then(listo)
       .catch(function (e) {
         console.error(e);
-        btn.disabled = false; btn.textContent = 'Avisame cuando salga';
+        ci.setBusy(false, 'Avisame');
         msg.style.color = '#b4503c';
         msg.textContent = 'No pudimos guardarte ahora. Probá de nuevo en un minuto.';
       });
   }
-
-  btn.addEventListener('click', enviar);
-  email.addEventListener('keydown', function (e) { if (e.key === 'Enter') enviar(); });
 })();
 </script>
 
