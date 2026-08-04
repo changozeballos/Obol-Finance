@@ -63,8 +63,14 @@
   @media (max-width: 680px) {
     .obol-calc-grid { grid-template-columns: 1fr !important; }
   }
+  .nav-cta-short { display: none; }
+  @media (max-width: 480px) {
+    .nav-cta-full { display: none; }
+    .nav-cta-short { display: inline; }
+  }
   @media (max-width: 640px) {
     .nav-text-link { display: none !important; }
+    .obol-faq-grid { grid-template-columns: 1fr !important; }
     .obol-wl-section { padding: 32px 20px 0 !important; }
     .obol-wl-card { padding: 28px 24px !important; }
     .obol-wl-form { min-width: 0 !important; width: 100%; }
@@ -110,7 +116,7 @@
       <a href="./dolar.html" class="pill nav-text-link is-active"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Dólar hoy</span><span class="pill-label-hover" aria-hidden="true">Dólar hoy</span></span></a>
       <a href="./blog/index.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Blog</span><span class="pill-label-hover" aria-hidden="true">Blog</span></span></a>
     </nav>
-    <a href="#anotarse" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#0d1730;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:9px 20px;border-radius:999px;">Enterate cuando salga</a>
+    <a href="#anotarse" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#0d1730;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:9px 20px;border-radius:999px;"><span class="nav-cta-full">Enterate cuando salga</span><span class="nav-cta-short">Enterate</span></a>
   </div>
 </div>
 
@@ -201,7 +207,7 @@
       <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:17px;color:#16213e;">Inflación mensual, últimos 12 meses</span>
       <span id="chartHint" style="font-weight:700;font-size:12px;color:#8892a6;">cargando serie del INDEC…</span>
     </div>
-    <div id="chartBars" style="display:flex;align-items:flex-end;gap:8px;height:210px;"></div>
+    <div id="chartBars" style="display:flex;align-items:flex-end;gap:8px;height:210px;overflow:hidden;"></div>
   </div>
 </div>
 
@@ -284,7 +290,7 @@
 
 <div style="max-width:1180px;margin:0 auto;padding:56px 40px 0;">
   <h2 class="obol-reveal" style="margin:0 0 20px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:30px;color:#16213e;letter-spacing:-.01em;">Cómo leer estos números</h2>
-  <div class="obol-reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;">
+  <div class="obol-reveal obol-faq-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;">
     <details style="background:#fff;border:1px solid #e6ebf4;border-radius:18px;padding:20px 24px;">
       <summary style="display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:17px;color:#16213e;">Qué es el dólar blue<span class="obol-chev" style="font-size:22px;color:#4a7ce0;line-height:1;">+</span></summary>
       <p style="margin:12px 0 0;font-weight:600;font-size:14px;line-height:1.65;color:#5d6880;">Es el dólar que se compra fuera del circuito bancario. No es una cotización oficial: es el precio al que efectivamente se consiguen billetes cuando el acceso al mercado formal está restringido. Su brecha contra el oficial funciona como termómetro de las expectativas.</p>

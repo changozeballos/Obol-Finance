@@ -52,6 +52,16 @@
   @media (max-width: 700px) {
     .nav-text-link { display: none !important; }
     .hero-mascot, .featured-mascot { display: none; }
+    .obol-minmax-grid { grid-template-columns: 1fr !important; }
+    .featured-card-text { max-width: 100% !important; padding: 28px 24px !important; }
+    .featured-card-title { font-size: 22px !important; }
+    .blog-hero-inner { padding: 36px 24px !important; }
+    .blog-hero-title { font-size: 30px !important; }
+  }
+  .nav-cta-short { display: none; }
+  @media (max-width: 480px) {
+    .nav-cta-full { display: none; }
+    .nav-cta-short { display: inline; }
   }
 
   /* ---------- Pill nav (efecto tipo React Bits PillNav, sin dependencias) ---------- */
@@ -95,7 +105,7 @@
         <a href="../dolar.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Dólar hoy</span><span class="pill-label-hover" aria-hidden="true">Dólar hoy</span></span></a>
         <a href="./index.html" class="pill nav-text-link is-active"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Blog</span><span class="pill-label-hover" aria-hidden="true">Blog</span></span></a>
       </nav>
-      <a href="../index.html#anotarse" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#0d1730;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:9px 20px;border-radius:999px;">Enterate cuando salga</a>
+      <a href="../index.html#anotarse" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#0d1730;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:9px 20px;border-radius:999px;"><span class="nav-cta-full">Enterate cuando salga</span><span class="nav-cta-short">Enterate</span></a>
     </div>
   </div>
 
@@ -105,11 +115,11 @@
       <div class="obol-card" style="position:relative;border-radius:32px;overflow:hidden;min-height:380px;background:#16213e;box-shadow:0 30px 60px -20px rgba(10,15,30,.5);">
         <div style="position:absolute;inset:0;background-image:url('./assets/bg_blog_hero.jpg');background-size:cover;background-position:center 40%;opacity:.8;"></div>
         <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(16,25,50,.94) 0%,rgba(16,25,50,.86) 46%,rgba(16,25,50,.55) 68%,rgba(16,25,50,.2) 100%);"></div>
-        <div style="position:relative;padding:56px 60px;max-width:600px;display:flex;flex-direction:column;gap:20px;">
+        <div class="blog-hero-inner" style="position:relative;padding:56px 60px;max-width:600px;display:flex;flex-direction:column;gap:20px;">
           <span style="display:inline-flex;align-items:center;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);padding:7px 16px;border-radius:999px;text-transform:uppercase;">Blog de finanzas y economía</span>
-          <h1 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:48px;line-height:1.06;color:#fff;letter-spacing:-.01em;">Entender la plata, un artículo a la vez.</h1>
+          <h1 class="blog-hero-title" style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:48px;line-height:1.06;color:#fff;letter-spacing:-.01em;">Entender la plata, un artículo a la vez.</h1>
           <p style="margin:0;font-weight:600;font-size:17px;line-height:1.55;color:rgba(255,255,255,.82);max-width:480px;">Notas cortas y sin tecnicismos sobre inflación, ahorro, inversión e historia financiera — escritas por los mismos personajes que te acompañan adentro de Obol.</p>
-          <div style="display:flex;gap:14px;margin-top:8px;">
+          <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;">
             <a href="../index.html" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:15px;color:#16213e;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:14px 26px;border-radius:999px;">Conocé la app</a>
             <a href="#notas" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:15px;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);padding:14px 26px;border-radius:999px;">Ver las notas</a>
           </div>
@@ -129,9 +139,9 @@
         <div class="obol-card" style="position:relative;border-radius:28px;overflow:hidden;min-height:280px;background:#0f2837;box-shadow:0 24px 48px -18px rgba(15,40,55,.5);display:flex;">
           <div style="position:absolute;inset:0;background-image:url('./assets/bg_inflation_hero.jpg');background-size:cover;background-position:center 42%;"></div>
           <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(15,40,55,.92) 0%,rgba(15,40,55,.72) 42%,rgba(15,40,55,.2) 66%,rgba(15,40,55,0) 100%);"></div>
-          <div style="position:relative;padding:44px 48px;max-width:58%;display:flex;flex-direction:column;justify-content:center;gap:14px;">
+          <div class="featured-card-text" style="position:relative;padding:44px 48px;max-width:58%;display:flex;flex-direction:column;justify-content:center;gap:14px;">
             <span style="display:inline-flex;align-self:flex-start;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.12em;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.26);padding:6px 14px;border-radius:999px;text-transform:uppercase;">Economía</span>
-            <h3 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:28px;line-height:1.15;color:#fff;">Por qué Argentina tiene tanta inflación, explicado sin tecnicismos</h3>
+            <h3 class="featured-card-title" style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:28px;line-height:1.15;color:#fff;">Por qué Argentina tiene tanta inflación, explicado sin tecnicismos</h3>
             <p style="margin:0;font-weight:600;font-size:15px;line-height:1.5;color:rgba(255,255,255,.82);max-width:420px;">No es "culpa del dólar" ni "culpa de los empresarios" únicamente — es un mecanismo bastante más simple (y más terco) de lo que parece.</p>
             <span style="font-weight:700;font-size:13px;color:rgba(255,255,255,.7);margin-top:4px;">Por el Analista de Datos · 7 min de lectura</span>
           </div>
@@ -147,7 +157,7 @@
       <h2 style="margin:0 0 6px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:28px;color:#16213e;">Elegí un tema</h2>
       <p style="margin:0 0 34px;font-weight:600;font-size:15px;color:#6b738a;">Todas las notas, escritas por los personajes de la app.</p>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;">
+      <div class="obol-minmax-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;">
 
         <a href="./articulos/de-monedas-a-bitcoin.html" style="display:block;position:relative;">
           <div class="obol-card" style="position:relative;border-radius:24px;overflow:hidden;height:250px;background:#3a2417;box-shadow:0 18px 36px -16px rgba(58,36,23,.5);">
@@ -287,7 +297,7 @@
         </div>
 
         <!-- Resto -->
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;">
+        <div class="obol-minmax-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;">
 
           <div class="obol-card" onclick="openBook('babilonia')" style="cursor:pointer;display:flex;gap:18px;padding:18px;border-radius:20px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);">
             <div style="position:relative;flex:0 0 auto;width:92px;height:138px;border-radius:5px 9px 9px 5px;background:linear-gradient(140deg,#2f4a3c,#182c22);box-shadow:0 14px 22px -10px rgba(0,0,0,.6);overflow:hidden;display:flex;align-items:flex-end;padding:12px 10px 12px 16px;">
@@ -421,7 +431,7 @@
         </div>
 
         <!-- Ayuda + temas -->
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.1);">
+        <div class="obol-minmax-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.1);">
           <div style="display:flex;flex-direction:column;gap:12px;">
             <span style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:15px;color:#fff;">En qué te ayuda</span>
             <div id="bmAreas" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
@@ -461,7 +471,7 @@
       <img src="./assets/icon.png" alt="Obol" style="width:26px;height:26px;border-radius:7px;">
       <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:rgba(255,255,255,.7);">Obol Blog</span>
     </div>
-    <div style="display:flex;gap:26px;">
+    <div style="display:flex;gap:20px;flex-wrap:wrap;">
       <a href="../index.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Inicio</a>
       <a href="../aprende.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Qué enseña la app</a>
       <a href="./index.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Blog</a>

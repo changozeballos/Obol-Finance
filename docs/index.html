@@ -112,8 +112,17 @@
   @media (max-width: 640px) {
     .nav-text-link { display: none !important; }
   }
+  .nav-cta-short { display: none; }
+  @media (max-width: 480px) {
+    .nav-cta-full { display: none; }
+    .nav-cta-short { display: inline; }
+    .pb-tabs { width: 100%; }
+    .pb-tabs button { flex: 1; padding: 10px 6px !important; font-size: 12.5px !important; }
+    .obol-minmax-grid { grid-template-columns: 1fr !important; }
+  }
   @media (max-width: 760px) {
     .obol-hero-grid { grid-template-columns: minmax(0,1fr) !important; }
+    .obol-hero-mark-col { min-height: 0 !important; padding: 8px 0 28px !important; }
   }
   @media (max-width: 640px) {
     .obol-wl-section { padding: 0 20px 60px !important; }
@@ -264,7 +273,7 @@
         <a href="./dolar.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Dólar hoy</span><span class="pill-label-hover" aria-hidden="true">Dólar hoy</span></span></a>
         <a href="./blog/index.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Blog</span><span class="pill-label-hover" aria-hidden="true">Blog</span></span></a>
       </nav>
-      <a href="#anotarse" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#0d1730;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:9px 20px;border-radius:999px;">Enterate cuando salga</a>
+      <a href="#anotarse" class="obol-btn" style="display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#0d1730;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:9px 20px;border-radius:999px;"><span class="nav-cta-full">Enterate cuando salga</span><span class="nav-cta-short">Enterate</span></a>
     </div>
   </div>
 
@@ -281,7 +290,7 @@
         <span class="obol-rise" style="display:inline-flex;align-items:center;width:fit-content;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:7px 16px;border-radius:999px;text-transform:uppercase;animation-delay:.05s;">Educación financiera gamificada</span>
 
         <h1 class="obol-rise" style="margin:0;line-height:1;animation-delay:.14s;">
-          <img src="./assets/home/obol_wordmark_main.png" alt="Obol Finance" style="display:block;width:clamp(340px,42vw,560px);height:auto;">
+          <img src="./assets/home/obol_wordmark_main.png" alt="Obol Finance" style="display:block;width:clamp(220px,66vw,560px);max-width:100%;height:auto;">
         </h1>
 
         <p class="obol-rise" style="margin:0;max-width:480px;font-weight:600;font-size:18px;line-height:1.6;color:rgba(255,255,255,.8);animation-delay:.24s;">Aprendé finanzas y economía como en un juego: lecciones cortas, rachas diarias y preguntas para practicar — hecho para Argentina.</p>
@@ -307,10 +316,10 @@
         </div>
       </div>
 
-      <div style="position:relative;display:flex;align-items:center;justify-content:center;min-height:520px;">
+      <div class="obol-hero-mark-col" style="position:relative;display:flex;align-items:center;justify-content:center;min-height:520px;">
         <div style="position:absolute;width:440px;height:440px;border-radius:999px;background:radial-gradient(circle,rgba(74,124,224,.4),transparent 66%);filter:blur(6px);animation:obolGlowPulse 4.5s ease-in-out infinite;"></div>
         <div id="obolMark" class="obol-mark" style="position:relative;transform-style:preserve-3d;">
-          <img src="./assets/home/obol_mark3.png" alt="Logo de Obol" style="display:block;width:clamp(260px,34vw,420px);height:auto;filter:drop-shadow(0 22px 34px rgba(4,8,22,.6));">
+          <img src="./assets/home/obol_mark3.png" alt="Logo de Obol" style="display:block;width:clamp(200px,46vw,420px);max-width:100%;height:auto;filter:drop-shadow(0 22px 34px rgba(4,8,22,.6));">
         </div>
       </div>
 
@@ -521,7 +530,7 @@
       <h2 class="obol-reveal" style="margin:0 0 12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:32px;color:#16213e;">Cuatro áreas, un mismo hilo: entender la plata.</h2>
       <p class="obol-reveal" style="margin:0 0 40px;font-weight:600;font-size:16px;color:#6b738a;max-width:620px;">Cada personaje te acompaña en un tema — sin tecnicismos, con ejemplos de todos los días.</p>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;">
+      <div class="obol-minmax-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;">
         <div class="obol-card obol-reveal" style="background:#fff;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 14px 34px -20px rgba(20,30,60,.35);border:1px solid #e6ebf4;">
           <div style="position:relative;height:220px;display:flex;align-items:flex-end;justify-content:center;background:#fff;">
             <div style="position:absolute;bottom:20px;width:130px;height:20px;border-radius:999px;background:rgba(20,30,60,.12);filter:blur(9px);"></div>
@@ -612,7 +621,7 @@
           <h2 style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:32px;color:#16213e;">No hace falta esperar a que salga.</h2>
           <p style="margin:0;font-weight:600;font-size:16px;color:#6b738a;line-height:1.55;">Dos maneras de ver cómo es Obol por dentro: contestá cinco preguntas reales o preguntale directo al Chancho.</p>
         </div>
-        <div style="display:flex;gap:4px;padding:4px;background:#eef1f7;border-radius:999px;flex:none;">
+        <div class="pb-tabs" style="display:flex;gap:4px;padding:4px;background:#eef1f7;border-radius:999px;flex:none;max-width:100%;">
           <button type="button" id="pb-tab-quiz" style="border:none;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;padding:11px 22px;border-radius:999px;transition:background .2s ease,color .2s ease;">5 preguntas</button>
           <button type="button" id="pb-tab-chat" style="border:none;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;padding:11px 22px;border-radius:999px;transition:background .2s ease,color .2s ease;">Chat con el Chancho</button>
         </div>
@@ -1208,7 +1217,7 @@
       <img src="./assets/icon.png" alt="Obol" style="width:26px;height:26px;border-radius:7px;">
       <span style="font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:rgba(255,255,255,.7);">Obol Finance</span>
     </div>
-    <div style="display:flex;gap:26px;">
+    <div style="display:flex;gap:20px;flex-wrap:wrap;">
       <a href="./index.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Inicio</a>
       <a href="./aprende.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Qué enseña la app</a>
       <a href="./blog/index.html" style="color:rgba(255,255,255,.6);font-weight:700;font-size:13px;">Blog</a>
