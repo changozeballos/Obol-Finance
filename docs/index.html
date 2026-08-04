@@ -164,14 +164,20 @@
   .cursor-grid__canvas { display: block; width: 100%; height: 100%; }
   .obol-hero-grid a, .obol-hero-grid button, .obol-hero-grid .obol-mark { pointer-events: auto; }
 
-  /* ---------- Tilt card metalico (adaptado de ProfileCard, React Bits) ---------- */
+  /* ---------- Tilt card + borde con brillo (adaptado de ProfileCard y BorderGlow, React Bits) ---------- */
   #chanchoTilt {
     --pointer-x: 50%; --pointer-y: 50%; --pointer-from-center: 0; --pointer-from-top: 0.5; --pointer-from-left: 0.5;
     --card-opacity: 0; --rotate-x: 0deg; --rotate-y: 0deg;
     --behind-glow-color: rgba(255,255,255,.35); --behind-glow-size: 60%;
     --inner-gradient: linear-gradient(145deg,#3a4155 0%,#171c2b 100%);
+    --edge-proximity: 0; --cursor-angle: 45deg; --edge-sensitivity: 30; --color-sensitivity: 50;
+    --glow-padding: 14px; --cone-spread: 25;
+    --glow-color: hsl(32deg 100% 65% / 100%); --glow-color-60: hsl(32deg 100% 65% / 60%);
+    --glow-color-50: hsl(32deg 100% 65% / 50%); --glow-color-40: hsl(32deg 100% 65% / 40%);
+    --glow-color-30: hsl(32deg 100% 65% / 30%); --glow-color-20: hsl(32deg 100% 65% / 20%);
+    --glow-color-10: hsl(32deg 100% 65% / 10%);
     perspective: 500px; transform: translate3d(0,0,.1px); position: relative; touch-action: none;
-    width: 148px; height: 148px; pointer-events: auto;
+    width: 148px; height: 148px; pointer-events: auto; border-radius: 22px;
   }
   #chanchoTilt .pc-behind {
     position: absolute; inset: -22px; z-index: 0; pointer-events: none; border-radius: 999px;
@@ -179,16 +185,50 @@
     filter: blur(20px); opacity: calc(.7 * var(--card-opacity)); transition: opacity .2s ease;
   }
   #chanchoTilt:hover, #chanchoTilt.active { --card-opacity: 1; }
-  #chanchoTilt .pc-card-shell { position: relative; z-index: 1; width: 100%; height: 100%; }
+  #chanchoTilt::before {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: 0; pointer-events: none;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(#0b0f1a 0 100%) padding-box,
+      radial-gradient(at 80% 55%, #ffb24a 0px, transparent 50%) border-box,
+      radial-gradient(at 69% 34%, #ffe08a 0px, transparent 50%) border-box,
+      radial-gradient(at 8% 6%, #7d8aa0 0px, transparent 50%) border-box,
+      radial-gradient(at 41% 38%, #ffb24a 0px, transparent 50%) border-box,
+      radial-gradient(at 86% 85%, #ffe08a 0px, transparent 50%) border-box,
+      radial-gradient(at 82% 18%, #7d8aa0 0px, transparent 50%) border-box,
+      radial-gradient(at 51% 4%, #ffe08a 0px, transparent 50%) border-box,
+      linear-gradient(#ffb24a 0 100%) border-box;
+    opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+    mask-image: conic-gradient(from var(--cursor-angle) at center, black calc(var(--cone-spread) * 1%), transparent calc((var(--cone-spread) + 15) * 1%), transparent calc((100 - var(--cone-spread) - 15) * 1%), black calc((100 - var(--cone-spread)) * 1%));
+    transition: opacity .25s ease-out;
+  }
+  #chanchoTilt:not(:hover)::before { opacity: 0 !important; transition: opacity .75s ease-in-out; }
+  #chanchoTilt .edge-light {
+    position: absolute; inset: calc(var(--glow-padding) * -1); border-radius: inherit; pointer-events: none; z-index: 2;
+    mask-image: conic-gradient(from var(--cursor-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%);
+    opacity: calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)));
+    mix-blend-mode: plus-lighter; transition: opacity .25s ease-out;
+  }
+  #chanchoTilt:not(:hover) .edge-light { opacity: 0 !important; transition: opacity .75s ease-in-out; }
+  #chanchoTilt .edge-light::before {
+    content: ''; position: absolute; inset: var(--glow-padding); border-radius: inherit;
+    box-shadow:
+      inset 0 0 0 1px var(--glow-color), inset 0 0 1px 0 var(--glow-color-60), inset 0 0 3px 0 var(--glow-color-50),
+      inset 0 0 6px 0 var(--glow-color-40), inset 0 0 15px 0 var(--glow-color-30), inset 0 0 25px 2px var(--glow-color-20),
+      inset 0 0 50px 2px var(--glow-color-10),
+      0 0 1px 0 var(--glow-color-60), 0 0 3px 0 var(--glow-color-50), 0 0 6px 0 var(--glow-color-40),
+      0 0 15px 0 var(--glow-color-30), 0 0 25px 2px var(--glow-color-20), 0 0 50px 2px var(--glow-color-10);
+  }
+  #chanchoTilt .pc-card-shell { position: absolute; inset: 1px; z-index: 1; }
   #chanchoTilt .pc-card {
-    width: 148px; height: 148px; display: grid; border-radius: 22px; position: relative;
+    width: 100%; height: 100%; display: grid; border-radius: 21px; position: relative;
     box-shadow: rgba(0,0,0,.5) calc((var(--pointer-from-left) * 8px) - 2px) calc((var(--pointer-from-top) * 14px) - 4px) 18px -6px;
     transition: transform 1s ease; transform: translateZ(0) rotateX(0deg) rotateY(0deg);
     background: rgba(0,0,0,.9); backface-visibility: hidden; overflow: hidden;
   }
   #chanchoTilt .pc-card:hover, #chanchoTilt .pc-card.active { transition: none; transform: translateZ(0) rotateX(var(--rotate-y)) rotateY(var(--rotate-x)); }
   #chanchoTilt .pc-card-shell.entering .pc-card { transition: transform 180ms ease-out; }
-  #chanchoTilt .pc-card * { display: grid; grid-area: 1/-1; border-radius: 22px; pointer-events: none; }
+  #chanchoTilt .pc-card * { display: grid; grid-area: 1/-1; border-radius: 21px; pointer-events: none; }
   #chanchoTilt .pc-inside { inset: 0; position: absolute; background-image: var(--inner-gradient); background-color: rgba(0,0,0,.9); }
   #chanchoTilt .pc-glare {
     transform: translate3d(0,0,1.1px); overflow: hidden; opacity: 0;
@@ -196,7 +236,7 @@
     mix-blend-mode: overlay; z-index: 4; transition: opacity .3s ease;
   }
   #chanchoTilt .pc-card:hover .pc-glare, #chanchoTilt .pc-card.active .pc-glare { opacity: 1; }
-  #chanchoTilt .pc-avatar-content { mix-blend-mode: luminosity; overflow: visible; transform: translateZ(2); backface-visibility: hidden; }
+  #chanchoTilt .pc-avatar-content { overflow: visible; transform: translateZ(2); backface-visibility: hidden; }
   #chanchoTilt .avatar {
     width: 108%; position: absolute; left: 50%; bottom: -1px; object-fit: cover;
     transform-origin: 50% 100%;
@@ -204,7 +244,7 @@
     backface-visibility: hidden; will-change: transform; transition: transform 120ms ease-out;
   }
   @media (prefers-reduced-motion: reduce) {
-    #chanchoTilt .pc-card, #chanchoTilt .avatar, #chanchoTilt .pc-behind, #chanchoTilt .pc-glare { transition: none !important; animation: none !important; }
+    #chanchoTilt .pc-card, #chanchoTilt .avatar, #chanchoTilt .pc-behind, #chanchoTilt .pc-glare, #chanchoTilt::before, #chanchoTilt .edge-light { transition: none !important; animation: none !important; }
   }
 </style>
 </head>
@@ -593,6 +633,7 @@
             <div style="position:absolute;bottom:6px;width:130px;height:22px;border-radius:999px;background:rgba(0,0,0,.35);filter:blur(13px);"></div>
             <div id="chanchoTilt">
               <div class="pc-behind"></div>
+              <span class="edge-light"></span>
               <div class="pc-card-shell">
                 <section class="pc-card">
                   <div class="pc-inside">
@@ -1006,6 +1047,17 @@
     var percentX = clamp((100 / width) * x);
     var percentY = clamp((100 / height) * y);
     var centerX = percentX - 50, centerY = percentY - 50;
+
+    var cx = width / 2, cy = height / 2, dx = x - cx, dy = y - cy;
+    var kx = dx !== 0 ? cx / Math.abs(dx) : Infinity;
+    var ky = dy !== 0 ? cy / Math.abs(dy) : Infinity;
+    var edgeProximity = clamp(1 / Math.min(kx, ky), 0, 1);
+    var cursorAngle = 0;
+    if (dx !== 0 || dy !== 0) {
+      cursorAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+      if (cursorAngle < 0) cursorAngle += 360;
+    }
+
     var props = {
       '--pointer-x': percentX + '%',
       '--pointer-y': percentY + '%',
@@ -1015,7 +1067,9 @@
       '--pointer-from-top': percentY / 100,
       '--pointer-from-left': percentX / 100,
       '--rotate-x': round(-(centerX / 5)) + 'deg',
-      '--rotate-y': round(centerY / 4) + 'deg'
+      '--rotate-y': round(centerY / 4) + 'deg',
+      '--edge-proximity': round(edgeProximity * 100),
+      '--cursor-angle': round(cursorAngle) + 'deg'
     };
     for (var k in props) wrap.style.setProperty(k, props[k]);
   }
