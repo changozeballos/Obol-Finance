@@ -675,6 +675,8 @@
     : null;
   var pbSession = null;
 
+  var ENDPOINT = ""; // pegar acá la URL de producción del webhook del chat (obol-chat-n8n.json)
+
   var QUESTIONS = [
     { area: 'Economía', color: '#7fa8f5',
       q: 'Los precios subieron 5% este mes y tu sueldo 3%. ¿Qué pasó con tu poder de compra?',
@@ -850,25 +852,55 @@
     });
   }
 
-  function pbAsk(text) {
-    var t = (text || '').trim();
-    if (!t || pb.typing) return;
+  function pbAskDemo(t) {
     var norm = t.toLowerCase();
     var hit = null;
     for (var i = 0; i < CHAT_QA.length && !hit; i++) {
       var c = CHAT_QA[i];
       for (var j = 0; j < c.keys.length; j++) { if (norm.indexOf(c.keys[j]) !== -1) { hit = c; break; } }
     }
-    var answer = hit ? hit.a : 'Buena pregunta. Esa la tengo en la app, que cubre 17 secciones — por acá todavía manejo un puñado de temas. Probá con alguna de las sugeridas.';
+    return hit ? hit.a : 'Buena pregunta. Esa la tengo en la app, que cubre 17 secciones — por acá todavía manejo un puñado de temas. Probá con alguna de las sugeridas.';
+  }
+
+  function pbAsk(text) {
+    var t = (text || '').trim();
+    if (!t || pb.typing) return;
+
+    var historial = pb.messages.slice(-6).map(function (m) {
+      return { role: m.who === 'pig' ? 'assistant' : 'user', content: m.text };
+    });
+
     pb.messages.push({ who: 'me', text: t });
     pb.draft = '';
     pb.typing = true;
     pbRenderBody();
-    pbTimers.push(setTimeout(function () {
-      pb.messages.push({ who: 'pig', text: answer });
+
+    function contestar(respuesta) {
+      pb.messages.push({ who: 'pig', text: respuesta });
       pb.typing = false;
       pbRenderBody();
-    }, 780));
+    }
+
+    if (!ENDPOINT) {
+      console.warn('[Obol] Falta configurar ENDPOINT del chat. Respondiendo en modo demo.');
+      pbTimers.push(setTimeout(function () { contestar(pbAskDemo(t)); }, 780));
+      return;
+    }
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+      body: JSON.stringify({ pregunta: t, historial: historial, pagina: location.pathname })
+    })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok || !res.j || !res.j.respuesta) throw new Error(res.j && res.j.motivo || 'sin_respuesta');
+        contestar(res.j.respuesta);
+      })
+      .catch(function (e) {
+        console.error(e);
+        contestar('Se me trabó la conexión. Probá de nuevo en un rato.');
+      });
   }
 
   function pbRenderBody() {
