@@ -11,18 +11,20 @@ Recibe los envíos de los formularios "Enterate cuando salga" / "Avisame cuando 
 2. **Importar**: en n8n, `Import from File` → `obol-waitlist-n8n.json`.
 3. **Google Sheets**: abrir el nodo "Guarda en la planilla", conectar tu credencial de Google y reemplazar `PEGAR_ID_DEL_GOOGLE_SHEET` por el ID real de la planilla (está en la URL, entre `/d/` y `/edit`).
 4. **Gmail**: abrir el nodo "Manda la bienvenida" y conectar tu credencial de Gmail.
-5. **Activar** el workflow (toggle arriba a la derecha).
-6. **Copiar la URL de producción** del nodo "Recibe el formulario" (pestaña "Production URL", no la de test).
-7. Pegar esa URL en `docs/index.html` y `docs/dolar.html`, dentro de cada `<script>`, en la línea:
+5. **Turnstile**: abrir el nodo "Verifica Turnstile" y reemplazar `PEGAR_TURNSTILE_SECRET_KEY` por la Secret Key de tu widget de [Cloudflare Turnstile](https://dash.cloudflare.com) (la Site Key, que es pública, ya está pegada en `docs/index.html` y `docs/dolar.html`).
+6. **Activar** el workflow (toggle arriba a la derecha).
+7. **Copiar la URL de producción** del nodo "Recibe el formulario" (pestaña "Production URL", no la de test).
+8. Pegar esa URL en `docs/index.html` y `docs/dolar.html`, dentro de cada `<script>`, en la línea:
    ```js
    var WEBHOOK = ""; // pegar acá la URL de producción
    ```
 
-Sin el paso 7 los formularios quedan en "modo demo": funcionan en la página pero no mandan nada a n8n (solo lo loguean en la consola del navegador).
+Sin el paso 8 los formularios quedan en "modo demo": funcionan en la página pero no mandan nada a n8n (solo lo loguean en la consola del navegador).
 
 ### Notas
 
-- El nodo "Valida y segmenta" hace de portero: filtra por origen (lista `ORIGENES` dentro del código — hoy solo acepta `https://changozeballos.github.io`, ajustar si cambia el dominio), descarta dominios de mail descartables comunes, y frena todo alta después de `TOPE_DIARIO` (arranca en 500 por día) usando un contador persistente vía `$getWorkflowStaticData`. Igual que en el chat, el filtro de origen no es seguridad real (se falsifica fácil) pero corta ruido barato.
+- El nodo "Verifica Turnstile" confirma contra Cloudflare que quien mandó el formulario es humano (widget invisible, sin checkbox). Si no viene un token válido, "Valida y segmenta" rechaza con `motivo: 'bot'` — a propósito no sigue de largo si Cloudflare no contesta, para que esto sea una barrera real y no una sugerencia.
+- El nodo "Valida y segmenta" hace también de portero: filtra por origen (lista `ORIGENES` dentro del código — hoy solo acepta `https://changozeballos.github.io`, ajustar si cambia el dominio), descarta dominios de mail descartables comunes, y frena todo alta después de `TOPE_DIARIO` (arranca en 500 por día) usando un contador persistente vía `$getWorkflowStaticData`. Igual que en el chat, el filtro de origen no es seguridad real (se falsifica fácil) pero corta ruido barato — la barrera real contra bots ahora es Turnstile.
 - El límite diario es compartido entre `docs/index.html` y `docs/dolar.html`, ya que ambos apuntan al mismo webhook.
 
 ---
