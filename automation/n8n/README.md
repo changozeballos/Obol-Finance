@@ -80,3 +80,18 @@ Antes de tocar un token, valida: origen del pedido (filtra ruido, no es segurida
 - El system prompt tiene tres reglas no negociables: nunca recomienda comprar/vender nada, dice explícitamente que no tiene datos del día (y manda a `dolar.html` si le preguntan una cotización), e ignora instrucciones que vengan metidas en el mensaje del usuario.
 - Cada pregunta se clasifica por área (economía, finanzas, mitos, historia, fuera de tema) automáticamente — con eso podés armar una tabla dinámica y ver qué le interesa a la audiencia y qué no cubre la app todavía.
 - El widget responde primero y registra en la planilla después (la respuesta no espera a que termine de guardarse la fila), así que el Chancho contesta rápido aunque Sheets tarde.
+
+---
+
+## 4. Avisos de error (`obol-alertas-error-n8n.json`)
+
+Manda un mail cuando un nodo de cualquiera de los otros 3 workflows tira un error real (credencial vencida, un cambio inesperado en una API, etc.). No avisa por los fallos que el código ya maneja solo (API externa caída con `continueRegularOutput`, mail inválido, tope diario alcanzado) — esos son comportamiento esperado, no roturas.
+
+### Pasos para activarlo
+
+1. **Importar**: `Import from File` → `obol-alertas-error-n8n.json`.
+2. Abrir el nodo "Manda el aviso", conectar tu credencial de Gmail (la misma de siempre sirve) y reemplazar `PEGAR_TU_MAIL_ACA` por el mail donde querés recibir los avisos.
+3. **Activar** este workflow.
+4. Ir a cada uno de los otros 3 workflows (lista de espera, newsletter, chat) → menú `⋯` → **Settings** → **Error Workflow** → elegir "Obol · Avisos de error".
+
+Sin el paso 4, este workflow queda activo pero no lo va a llamar nadie — el link se hace desde cada workflow individual, no al revés.
