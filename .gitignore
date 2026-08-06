@@ -1,79 +1,17 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
-node_modules/
-
-# Expo
-.expo/
-dist/
-web-build/
-expo-env.d.ts
-
-# Native
-.kotlin/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-
-# Metro
-.metro-health-check*
-
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
-
-# macOS
-.DS_Store
-*.pem
-
-# local env files — NEVER commit real credentials
+# Local env files — NEVER commit real credentials
 .env
 .env.local
 .env*.local
 
-# typescript
-*.tsbuildinfo
+# dependencies / build artifacts (por si queda algo del desarrollo de la app)
+node_modules/
+.expo/
+.netlify/
+dist/
+web-build/
 
-# generated native folders
-/ios
-/android
+# macOS
+.DS_Store
 
-# Local Netlify folder
-.netlify
-
-# Large binaries and executables
-*.exe
-*.pdf
-
-# One-off generation and fix scripts (kept locally, not in repo)
-add_q_*.js
-fix_*.js
-generate_*.js
-insert_*.js
-reinsert_*.js
-all_sections_*.js
-qbank_*.js
-
-# Prototype and design files
-extracted_*
-design_prototype.html
-mockup_obol.html
-obol_prototype.html
-obol_prototype.html.bak
-obol_standalone.html
-node-calibrator.html
-plan_contenido.html
-plan_contenido.html.bak
-
-# Temporary/handover files
-handover_claude.md
-lesson_data_raw.json
-
-# EAS / store credentials (never commit)
-google-service-account.json
-*.mobileprovision
-GoogleService-Info.plist
+# editor
+*.orig.*
