@@ -10,7 +10,7 @@ resetee en cada visita.
    correr `quiz_progress.sql` (una sola vez).
 2. **Configurar el redirect del magic link**: `Authentication → URL Configuration`
    → agregar en `Redirect URLs` la URL real del sitio, por ejemplo
-   `https://changozeballos.github.io/Obol-Finance/*` (con el `*` al final, para
+   `https://obolfinance.github.io/*` (con el `*` al final, para
    que también matchee `index.html` con o sin `#anotarse`/`#probalo`).
 3. **Listo** — `docs/index.html` ya tiene la URL del proyecto y la `anon key`
    cargadas (son públicas, no hace falta ocultarlas: el acceso real lo controla

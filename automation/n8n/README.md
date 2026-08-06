@@ -24,7 +24,7 @@ Sin el paso 8 los formularios quedan en "modo demo": funcionan en la página per
 ### Notas
 
 - El nodo "Verifica Turnstile" confirma contra Cloudflare que quien mandó el formulario es humano (widget invisible, sin checkbox). Si no viene un token válido, "Valida y segmenta" rechaza con `motivo: 'bot'` — a propósito no sigue de largo si Cloudflare no contesta, para que esto sea una barrera real y no una sugerencia.
-- El nodo "Valida y segmenta" hace también de portero: filtra por origen (lista `ORIGENES` dentro del código — hoy solo acepta `https://changozeballos.github.io`, ajustar si cambia el dominio), descarta dominios de mail descartables comunes, y frena todo alta después de `TOPE_DIARIO` (arranca en 500 por día) usando un contador persistente vía `$getWorkflowStaticData`. Igual que en el chat, el filtro de origen no es seguridad real (se falsifica fácil) pero corta ruido barato — la barrera real contra bots ahora es Turnstile.
+- El nodo "Valida y segmenta" hace también de portero: filtra por origen (lista `ORIGENES` dentro del código — hoy solo acepta `https://obolfinance.github.io`, ajustar si cambia el dominio), descarta dominios de mail descartables comunes, y frena todo alta después de `TOPE_DIARIO` (arranca en 500 por día) usando un contador persistente vía `$getWorkflowStaticData`. Igual que en el chat, el filtro de origen no es seguridad real (se falsifica fácil) pero corta ruido barato — la barrera real contra bots ahora es Turnstile.
 - El límite diario es compartido entre `docs/index.html` y `docs/dolar.html`, ya que ambos apuntan al mismo webhook.
 
 ---

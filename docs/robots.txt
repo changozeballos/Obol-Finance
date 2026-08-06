@@ -5,4 +5,4 @@ Allow: /
 Disallow: /privacy.html
 Disallow: /terms.html
 
-Sitemap: https://changozeballos.github.io/Obol-Finance/sitemap.xml
+Sitemap: https://obolfinance.github.io/sitemap.xml

@@ -17,7 +17,7 @@ Todo el paquete (meta tags, Open Graph, Twitter Card, JSON-LD, sitemap, feed y r
 
 ## Lo que queda manual (no lo puedo hacer yo)
 
-1. **Cargar el sitemap en Google Search Console**: verificar la propiedad `changozeballos.github.io/Obol-Finance` y pegar `https://changozeballos.github.io/Obol-Finance/sitemap.xml` en la sección Sitemaps.
-2. **El `robots.txt` no lo va a leer ningún crawler donde está.** Los rastreadores solo lo buscan en la raíz del dominio (`changozeballos.github.io/robots.txt`), y el sitio vive en `/Obol-Finance/`. Dos salidas: poner una copia en el repo `changozeballos.github.io` (el de usuario), o comprar un dominio propio y apuntarlo con *Settings → Pages → Custom domain*. El sitemap no tiene este problema: se carga directo en Search Console sin depender de la ubicación del archivo.
+1. ~~Cargar el sitemap en Google Search Console~~ — hecho (2026-08-05): propiedad `obolfinance.github.io` verificada por meta tag, sitemap enviado.
+2. ~~El `robots.txt` no lo iba a leer ningún crawler donde estaba~~ — resuelto solo: el sitio se mudó de `changozeballos.github.io/Obol-Finance/` a `obolfinance.github.io/` (repo transferido a una organización y renombrado al patrón especial `<nombre>.github.io`), así que ahora el sitio vive en la raíz del dominio y `robots.txt` está exactamente donde los crawlers lo buscan.
 3. **Probar los previews reales**: Facebook/WhatsApp con `developers.facebook.com/tools/debug` (con "Scrape Again" para forzar el refresco de caché), Twitter/X con `cards-dev.twitter.com/validator`, y `validator.schema.org` para el JSON-LD.
 4. **Revisar las descripciones de las notas contra el texto real**: se escribieron a partir del resumen del índice del blog, no de una lectura completa de cada artículo.
