@@ -677,8 +677,6 @@
     : null;
   var pbSession = null;
 
-  var ENDPOINT = "https://obolfinance.app.n8n.cloud/webhook/obol-chat";
-
   var QUESTIONS = [
     { area: 'Economía', color: '#7fa8f5',
       q: 'Los precios subieron 5% este mes y tu sueldo 3%. ¿Qué pasó con tu poder de compra?',
@@ -708,22 +706,38 @@
   ];
 
   var CHAT_QA = [
-    { chip: '¿Por qué sube el dólar?', keys: ['dolar', 'dólar', 'blue', 'divisa'],
+    { chip: '¿Por qué sube el dólar?',
       a: 'Cuando hay más pesos dando vueltas que ganas de tenerlos, la gente se pasa al dólar y su precio sube. Sumale las expectativas: si creés que mañana va a estar más caro, comprás hoy — y eso mismo lo empuja.' },
-    { chip: '¿Qué es el interés compuesto?', keys: ['compuesto', 'interes', 'interés'],
+    { chip: '¿Qué es el interés compuesto?',
       a: 'Es interés sobre interés. Ponés $100.000 al 5% mensual: el primer mes ganás $5.000, el segundo el 5% se calcula sobre $105.000. A 12 meses son $79.500 en vez de $60.000.' },
-    { chip: '¿Conviene el plazo fijo?', keys: ['plazo', 'fijo'],
+    { chip: '¿Conviene el plazo fijo?',
       a: 'Depende de una sola cuenta: tasa contra inflación. Si la tasa mensual le gana a la inflación del mes, ganás poder de compra. Si no, estás perdiendo más despacio.' },
-    { chip: '¿Qué es un CEDEAR?', keys: ['cedear', 'accion', 'acción', 'exterior'],
+    { chip: '¿Qué es un CEDEAR?',
       a: 'Un certificado que cotiza en pesos acá y representa una acción del exterior. Comprás Apple sin sacar la plata del país y, de paso, seguís al dólar CCL.' },
-    { chip: '', keys: ['inflacion', 'inflación', 'precios', 'ipc'],
-      a: 'Inflación es la suba general y sostenida de los precios. No es que una cosa esté cara: es que tu plata vale menos todos los meses.' }
+    { chip: '¿Qué es la inflación?',
+      a: 'Es la suba general y sostenida de los precios. No es que una cosa esté cara: es que tu plata vale menos todos los meses.' },
+    { chip: '¿Qué es la brecha cambiaria?',
+      a: 'Es la diferencia entre el dólar oficial y los demás (blue, MEP, CCL). Si el oficial vale $1000 y el blue $1500, la brecha es 50%. Cuanto más grande, más señal de que el oficial está "pisado" artificialmente.' },
+    { chip: '¿Conviene ahorrar en dólares?',
+      a: 'Como reserva de valor a largo plazo funciona bien, porque el peso históricamente se devalúa más rápido de lo que compensan las tasas en pesos. Pero un dólar guardado no rinde nada — para plata que vas a usar pronto, un instrumento en pesos que le gane a la inflación conviene más.' },
+    { chip: '¿Qué es el riesgo país?',
+      a: 'Es cuánto más caro le sale a Argentina pedir plata prestada comparado con Estados Unidos. Si está en 1500 puntos, pagaríamos 15% más de interés que EEUU. Sube cuando los inversores desconfían de que el país pueda pagar sus deudas.' },
+    { chip: '¿Cómo armo un presupuesto?',
+      a: 'Anotá todo lo que entra y todo lo que sale un mes entero, sin juzgarte. Después separá en necesidades, gustos y ahorro — una regla simple es 50/30/20. Lo importante no es la planilla perfecta, es saber a dónde va la plata antes de que se termine.' },
+    { chip: '¿Qué es un fondo de emergencia?',
+      a: 'Es plata guardada aparte para imprevistos (te quedás sin laburo, se rompe algo caro), no para gastos normales. La idea es que cubra entre 3 y 6 meses de gastos básicos, en un instrumento del que puedas sacarla rápido sin perder valor.' },
+    { chip: '¿Qué es un bono?',
+      a: 'Es un préstamo que le hacés a alguien (un gobierno o una empresa): ponés la plata hoy y te devuelven capital más interés en fechas fijas. El riesgo depende de quién lo emite — uno de un país complicado paga más interés porque es más riesgoso.' },
+    { chip: '¿Conviene invertir en cripto?',
+      a: 'Depende de cuánta volatilidad aguantes: pueden subir o bajar 20% en un día. Como parte chica de una cartera diversificada, para quien entiende el riesgo, puede tener sentido. Como todos los ahorros, no — ahí el riesgo de perder plata real es alto.' },
+    { chip: '¿Cuándo conviene la tarjeta de crédito?',
+      a: 'Conviene cuando pagás el resumen completo todos los meses — ahí es solo comodidad y a veces beneficios. El problema es financiar el saldo: los intereses de tarjeta están entre los más altos del mercado, mucho más de lo que te puede hacer ganar un plazo fijo.' }
   ];
 
   var pb = {
     mode: 'quiz', qi: 0, picked: null, score: 0, done: false,
-    draft: '', typing: false,
-    messages: [{ who: 'pig', text: 'Hola, soy el Chancho. Preguntame lo que quieras sobre plata — te lo explico en criollo, sin tecnicismos.' }]
+    typing: false,
+    messages: [{ who: 'pig', text: 'Hola, soy el Chancho. Elegí una de las preguntas de abajo y te la respondo al toque.' }]
   };
   var pbTimers = [];
   var $ = function (id) { return document.getElementById(id); };
@@ -854,55 +868,24 @@
     });
   }
 
-  function pbAskDemo(t) {
-    var norm = t.toLowerCase();
-    var hit = null;
-    for (var i = 0; i < CHAT_QA.length && !hit; i++) {
-      var c = CHAT_QA[i];
-      for (var j = 0; j < c.keys.length; j++) { if (norm.indexOf(c.keys[j]) !== -1) { hit = c; break; } }
-    }
-    return hit ? hit.a : 'Buena pregunta. Esa la tengo en la app, que cubre 17 secciones — por acá todavía manejo un puñado de temas. Probá con alguna de las sugeridas.';
-  }
+  // El chat responde solo con preguntas predeterminadas (CHAT_QA), sin
+  // llamar a ninguna IA — así no se gastan tokens cada vez que alguien
+  // lo usa. Si en algún momento se quiere volver a respuestas libres,
+  // hay que reconstruir el llamado a ENDPOINT que estaba acá antes.
+  function pbAskFixed(i) {
+    if (pb.typing) return;
+    var c = CHAT_QA[i];
+    if (!c) return;
 
-  function pbAsk(text) {
-    var t = (text || '').trim();
-    if (!t || pb.typing) return;
-
-    var historial = pb.messages.slice(-6).map(function (m) {
-      return { role: m.who === 'pig' ? 'assistant' : 'user', content: m.text };
-    });
-
-    pb.messages.push({ who: 'me', text: t });
-    pb.draft = '';
+    pb.messages.push({ who: 'me', text: c.chip });
     pb.typing = true;
     pbRenderBody();
 
-    function contestar(respuesta) {
-      pb.messages.push({ who: 'pig', text: respuesta });
+    pbTimers.push(setTimeout(function () {
+      pb.messages.push({ who: 'pig', text: c.a });
       pb.typing = false;
       pbRenderBody();
-    }
-
-    if (!ENDPOINT) {
-      console.warn('[Obol] Falta configurar ENDPOINT del chat. Respondiendo en modo demo.');
-      pbTimers.push(setTimeout(function () { contestar(pbAskDemo(t)); }, 780));
-      return;
-    }
-
-    fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-      body: JSON.stringify({ pregunta: t, historial: historial, pagina: location.pathname })
-    })
-      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
-      .then(function (res) {
-        if (!res.ok || !res.j || !res.j.respuesta) throw new Error(res.j && res.j.motivo || 'sin_respuesta');
-        contestar(res.j.respuesta);
-      })
-      .catch(function (e) {
-        console.error(e);
-        contestar('Se me trabó la conexión. Probá de nuevo en un rato.');
-      });
+    }, 550));
   }
 
   function pbRenderBody() {
@@ -1019,16 +1002,15 @@
         + '</div></div>'
       : '';
 
-    var chipsHtml = CHAT_QA.filter(function (c) { return c.chip; }).map(function (c, i) {
+    var chipsHtml = CHAT_QA.map(function (c, i) {
       return '<button type="button" data-chip="' + i + '" class="pb-chip" style="cursor:pointer;font-family:\'Nunito\',sans-serif;font-weight:700;font-size:13px;color:rgba(255,255,255,.8);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:9px 15px;border-radius:999px;transition:background .18s ease,color .18s ease;">' + pbEsc(c.chip) + '</button>';
     }).join('');
 
     return '<div style="display:flex;flex-direction:column;height:100%;gap:14px;">'
       + '<div id="pb-thread" style="flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding-right:6px;">' + msgsHtml + typingHtml + '</div>'
+      + '<div style="display:flex;flex-direction:column;gap:8px;">'
+      + '<span style="font-weight:700;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.4);">Elegí una pregunta</span>'
       + '<div style="display:flex;gap:8px;flex-wrap:wrap;">' + chipsHtml + '</div>'
-      + '<div style="display:flex;gap:10px;align-items:center;padding:6px 6px 6px 18px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);">'
-      + '<input type="text" id="pb-draft" placeholder="Escribí tu pregunta…" value="' + pbEsc(pb.draft) + '" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font-family:\'Nunito\',sans-serif;font-weight:600;font-size:14.5px;color:#fff;padding:8px 0;">'
-      + '<button type="button" id="pb-send" class="obol-btn" style="flex:none;border:none;cursor:pointer;font-family:\'Fredoka\',sans-serif;font-weight:600;font-size:14px;color:#16213e;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:11px 22px;border-radius:999px;">Preguntar</button>'
       + '</div>'
       + '<span style="font-weight:600;font-size:12px;color:rgba(255,255,255,.38);line-height:1.5;">Contenido educativo, no asesoramiento financiero.</span>'
       + '</div>';
@@ -1039,20 +1021,9 @@
     var thread = $('pb-thread');
     if (thread) thread.scrollTop = thread.scrollHeight;
 
-    var draft = $('pb-draft');
-    var send = $('pb-send');
-    if (draft) {
-      draft.focus();
-      draft.addEventListener('input', function (e) { pb.draft = e.target.value; });
-      draft.addEventListener('keydown', function (e) { if (e.key === 'Enter') pbAsk(draft.value); });
-    }
-    if (send) send.addEventListener('click', function () { pbAsk(draft ? draft.value : pb.draft); });
-
     Array.prototype.forEach.call(body.querySelectorAll('.pb-chip'), function (b) {
       b.addEventListener('click', function () {
-        var i = parseInt(b.getAttribute('data-chip'), 10);
-        var chips = CHAT_QA.filter(function (c) { return c.chip; });
-        pbAsk(chips[i].chip);
+        pbAskFixed(parseInt(b.getAttribute('data-chip'), 10));
       });
     });
   }
