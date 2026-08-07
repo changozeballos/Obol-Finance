@@ -97,3 +97,34 @@ Manda un mail cuando un nodo de cualquiera de los otros 3 workflows tira un erro
 4. Ir a cada uno de los otros 3 workflows (lista de espera, newsletter, chat) → menú `⋯` → **Settings** → **Error Workflow** → elegir "Obol · Avisos de error".
 
 Sin el paso 4, este workflow queda activo pero no lo va a llamar nadie — el link se hace desde cada workflow individual, no al revés.
+
+---
+
+## 5. Reseñas de libros (`obol-resenas-n8n.json`)
+
+Recibe las reseñas que la gente deja en el modal de cada libro, en "La biblioteca de Obol" (`docs/blog/index.html`). **No publica nada solo**: cada reseña queda en una planilla como pendiente, para que la revises antes de copiarla a mano al array `reviews` del libro correspondiente en el código.
+
+### Por qué no se publican solas
+
+Publicar automáticamente lo que cualquiera escribe en un formulario público es una puerta abierta a insultos, spam y contenido falso. El flujo acá es: alguien manda una reseña → queda en la planilla con `publicada: NO` → la leés, y si te parece genuina y de buena fe, la agregás vos mismo al `reviews: []` del libro en `docs/blog/index.html` y hacés `git push`.
+
+### Pasos para activarlo
+
+1. **Google Sheet**: crear una planilla nueva con la hoja "Reseñas pendientes" y estas columnas en la primera fila:
+   `fecha · libro · nombre · estrellas · texto · pagina · publicada`
+2. **Importar**: en n8n, `Import from File` → `obol-resenas-n8n.json`.
+3. **Google Sheets**: abrir el nodo "Guarda en la planilla", conectar tu credencial de Google y reemplazar `PEGAR_ID_DEL_GOOGLE_SHEET` por el ID real de la planilla.
+4. **Turnstile**: abrir el nodo "Verifica Turnstile" y reemplazar `PEGAR_TURNSTILE_SECRET_KEY` por la misma Secret Key que ya usás en el workflow de lista de espera (es la misma cuenta de Cloudflare).
+5. **Activar** el workflow.
+6. **Copiar la URL de producción** del nodo "Recibe la reseña" y pegarla en `docs/blog/index.html`, en la línea:
+   ```js
+   var RESENAS_ENDPOINT = ""; // pegar acá la URL de producción del webhook de reseñas
+   ```
+
+Sin el paso 6 el formulario queda en "modo demo": funciona en la página pero no manda nada a n8n (solo lo loguea en la consola del navegador).
+
+### Notas
+
+- El campo `libro` solo acepta los 7 IDs de libros que ya existen en el código (`padre`, `babilonia`, `pensar`, `lynch`, `triunfo`, `freak`, `vendes`) — si agregás un libro nuevo, sumá su ID a la lista `LIBROS_VALIDOS` dentro del nodo "Valida la reseña".
+- El tope diario arranca en 50 reseñas — de sobra para el volumen esperado, ajustable en `TOPE_DIARIO` si hace falta.
+- No se pide mail, solo un nombre a elección de quien escribe — mucho menos dato personal que en la lista de espera.
