@@ -165,7 +165,12 @@
     <div class="obol-sk" style="height:168px;"></div>
   </div>
 
-  <div id="cotizError" style="display:none;background:#fff;border:1px solid #f0d6d0;border-radius:18px;padding:26px;text-align:center;font-weight:700;color:#b4503c;">No pudimos traer las cotizaciones ahora mismo. Probá de nuevo en unos segundos.</div>
+  <div id="cotizError" style="display:none;background:#fff;border:1px solid #f0d6d0;border-radius:18px;padding:26px;text-align:center;font-weight:700;color:#b4503c;">
+    No pudimos traer las cotizaciones ahora mismo. Probá de nuevo en unos segundos.
+    <div style="margin-top:14px;">
+      <button type="button" id="btnRetryError" style="cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:#fff;background:#b4503c;border:none;padding:10px 20px;border-radius:999px;">Reintentar</button>
+    </div>
+  </div>
 
   <div id="cotizCards" style="display:none;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;"></div>
 </div>
@@ -493,12 +498,23 @@ function load(){
   $('verdictBadge').style.border = '1px solid rgba(255,255,255,.16)';
 
   var get = function(u){ return fetch(u).then(function(r){ if (!r.ok) throw new Error(u); return r.json(); }); };
+  // Las APIs son gratuitas y a veces fallan un instante solo (rate limit, hipo de red).
+  // Reintenta antes de rendirse en vez de mostrar error a la primera.
+  var getWithRetry = function(u, intentos, esperaMs){
+    intentos = intentos === undefined ? 3 : intentos;
+    esperaMs = esperaMs === undefined ? 1200 : esperaMs;
+    return get(u).catch(function(err){
+      if (intentos <= 1) throw err;
+      return new Promise(function(resolve){ setTimeout(resolve, esperaMs); })
+        .then(function(){ return getWithRetry(u, intentos - 1, esperaMs + 800); });
+    });
+  };
 
   Promise.all([
-    get('https://dolarapi.com/v1/dolares'),
-    get('https://api.argentinadatos.com/v1/finanzas/indices/inflacion'),
-    get('https://api.argentinadatos.com/v1/finanzas/indices/inflacionInteranual').catch(function(){ return null; }),
-    get('https://api.argentinadatos.com/v1/finanzas/tasas/plazoFijo').catch(function(){ return null; })
+    getWithRetry('https://dolarapi.com/v1/dolares'),
+    getWithRetry('https://api.argentinadatos.com/v1/finanzas/indices/inflacion'),
+    getWithRetry('https://api.argentinadatos.com/v1/finanzas/indices/inflacionInteranual').catch(function(){ return null; }),
+    getWithRetry('https://api.argentinadatos.com/v1/finanzas/tasas/plazoFijo').catch(function(){ return null; })
   ]).then(function(res){
     var rates = res[0], infl = res[1], anual = res[2], pf = res[3];
     var serie = (infl || []).filter(function(d){ return d && d.fecha && typeof d.valor === 'number'; });
@@ -765,6 +781,7 @@ function growIn(){
 $('btnVenta').addEventListener('click', function(){ setMode('venta'); });
 $('btnCompra').addEventListener('click', function(){ setMode('compra'); });
 $('btnRefresh').addEventListener('click', load);
+$('btnRetryError').addEventListener('click', load);
 setMode('venta');
 load();
 })();
