@@ -128,3 +128,29 @@ Sin el paso 6 el formulario queda en "modo demo": funciona en la página pero no
 - El campo `libro` solo acepta los 7 IDs de libros que ya existen en el código (`padre`, `babilonia`, `pensar`, `lynch`, `triunfo`, `freak`, `vendes`) — si agregás un libro nuevo, sumá su ID a la lista `LIBROS_VALIDOS` dentro del nodo "Valida la reseña".
 - El tope diario arranca en 50 reseñas — de sobra para el volumen esperado, ajustable en `TOPE_DIARIO` si hace falta.
 - No se pide mail, solo un nombre a elección de quien escribe — mucho menos dato personal que en la lista de espera.
+
+---
+
+## 6. Recomendar un libro (`obol-recomendaciones-n8n.json`)
+
+Reemplaza el viejo botón `mailto:` de "¿Tenés uno para sumar?" (que no hacía nada si el visitante no tenía un cliente de mail configurado en el navegador). Mismo patrón que las reseñas: **no se agrega nada solo** a la biblioteca, todo queda en una planilla para revisar a mano.
+
+### Pasos para activarlo
+
+1. **Google Sheet**: crear una planilla nueva con la hoja "Libros recomendados" y estas columnas en la primera fila:
+   `fecha · titulo · autor · comentario · pagina · agregado`
+2. **Importar**: en n8n, `Import from File` → `obol-recomendaciones-n8n.json`.
+3. **Google Sheets**: abrir el nodo "Guarda en la planilla", conectar tu credencial de Google y reemplazar `PEGAR_ID_DEL_GOOGLE_SHEET` por el ID real de esta planilla.
+4. **Turnstile**: abrir el nodo "Verifica Turnstile" y pegar la misma Secret Key que ya usás en los otros workflows.
+5. **Activar** el workflow.
+6. **Copiar la URL de producción** del nodo "Recibe la recomendación" y pegarla en `docs/blog/index.html`, en la línea:
+   ```js
+   var RECOMENDACIONES_ENDPOINT = ""; // pegar acá la URL de producción del webhook de recomendaciones
+   ```
+
+Sin el paso 6 el formulario queda en "modo demo" (funciona en la página pero solo loguea en consola).
+
+### Notas
+
+- Solo el título es obligatorio; autor y comentario son opcionales.
+- El tope diario arranca en 30 — este formulario se usa mucho menos que el de reseñas.

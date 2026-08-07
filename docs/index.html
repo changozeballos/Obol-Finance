@@ -808,7 +808,7 @@
             btn.disabled = false; btn.textContent = 'Guardar progreso';
             if (res.error) { console.error('[Obol] signInWithOtp:', res.error); msg.style.color = '#ff9a7f'; msg.textContent = 'No se pudo enviar. Probá de nuevo en un rato.'; return; }
             msg.style.color = '#6ddbaa';
-            msg.textContent = 'Listo, revisá tu mail y tocá el link.';
+            msg.textContent = 'Listo, revisá tu mail (y la carpeta de spam) y tocá el link.';
           });
       }
       if (btn) btn.addEventListener('click', enviar);

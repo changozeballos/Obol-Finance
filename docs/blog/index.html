@@ -380,10 +380,16 @@
             </div>
           </div>
 
-          <div style="display:flex;flex-direction:column;justify-content:center;gap:10px;padding:22px;border-radius:20px;background:rgba(255,178,74,.09);border:1px dashed rgba(255,207,138,.4);">
+          <div style="display:flex;flex-direction:column;gap:8px;padding:22px;border-radius:20px;background:rgba(255,178,74,.09);border:1px dashed rgba(255,207,138,.4);">
             <span style="font-family:'Fredoka',sans-serif;font-weight:700;font-size:16px;color:#fff;">¿Tenés uno para sumar?</span>
-            <p style="margin:0;font-weight:600;font-size:13px;line-height:1.5;color:rgba(255,255,255,.66);">Mandanos el libro que te hizo entender la plata y lo agregamos a la biblioteca.</p>
-            <a href="mailto:obol.finance2026@gmail.com?subject=Recomiendo%20un%20libro%20para%20la%20biblioteca%20de%20Obol" style="align-self:flex-start;display:inline-flex;align-items:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13px;color:#16213e;background:linear-gradient(90deg,#ffe08a,#ffb24a);padding:10px 18px;border-radius:999px;">Recomendar un libro</a>
+            <p style="margin:0 0 4px;font-weight:600;font-size:13px;line-height:1.5;color:rgba(255,255,255,.66);">Mandanos el libro que te hizo entender la plata y lo agregamos a la biblioteca.</p>
+            <input id="brTitulo" type="text" maxlength="120" placeholder="Título del libro" style="font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 13px;">
+            <input id="brAutor" type="text" maxlength="80" placeholder="Autor (si lo sabés)" style="font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 13px;">
+            <textarea id="brComentario" maxlength="300" rows="2" placeholder="Por qué lo recomendás (opcional)" style="font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 13px;resize:vertical;"></textarea>
+            <div style="display:flex;align-items:center;gap:12px;margin-top:2px;">
+              <button type="button" id="brSubmit" style="cursor:pointer;align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13px;color:#16213e;background:linear-gradient(90deg,#ffe08a,#ffb24a);border:none;padding:10px 18px;border-radius:999px;">Recomendar</button>
+              <span id="brMsg" style="font-weight:700;font-size:11px;color:rgba(255,255,255,.55);"></span>
+            </div>
           </div>
 
         </div>
@@ -497,8 +503,10 @@
 <script src="../assets/turnstile-helper.js"></script>
 <script>
 var RESENAS_ENDPOINT = "https://obolfinance.app.n8n.cloud/webhook/obol-resenas";
+var RECOMENDACIONES_ENDPOINT = ""; // pegar acá la URL de producción del webhook de recomendaciones
 var TURNSTILE_SITE_KEY = "0x4AAAAAAEHbemQBbrf5Cw39";
 var tsResenas = window.ObolTurnstile(TURNSTILE_SITE_KEY);
+var tsRecomendar = window.ObolTurnstile(TURNSTILE_SITE_KEY);
 var currentBookId = null;
 
 var BOOKS = {
@@ -752,6 +760,71 @@ function enviarResena() {
 }
 
 document.getElementById('bmRSubmit').addEventListener('click', enviarResena);
+
+// --- Formulario de recomendar un libro ---
+function enviarRecomendacion() {
+  var titulo = document.getElementById('brTitulo').value.trim();
+  var autor = document.getElementById('brAutor').value.trim();
+  var comentario = document.getElementById('brComentario').value.trim();
+  var msg = document.getElementById('brMsg');
+  var btn = document.getElementById('brSubmit');
+
+  if (!titulo) {
+    msg.style.color = '#ff9a7f';
+    msg.textContent = 'Escribí al menos el título.';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Enviando…';
+  msg.style.color = 'rgba(255,255,255,.55)';
+  msg.textContent = '';
+
+  function mandar(turnstileToken) {
+    var datos = {
+      titulo: titulo,
+      autor: autor,
+      comentario: comentario,
+      pagina: location.pathname,
+      turnstileToken: turnstileToken
+    };
+
+    if (!RECOMENDACIONES_ENDPOINT) {
+      console.warn('[Obol] Falta configurar RECOMENDACIONES_ENDPOINT. Recomendación no enviada (modo demo):', datos);
+      setTimeout(listo, 500);
+      return;
+    }
+
+    fetch(RECOMENDACIONES_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(datos) })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(listo)
+      .catch(function (e) { console.error(e); fallar(); });
+  }
+
+  function listo() {
+    btn.disabled = false;
+    btn.textContent = 'Recomendar';
+    msg.style.color = '#6ddbaa';
+    msg.textContent = '¡Gracias! Lo vamos a revisar.';
+    document.getElementById('brTitulo').value = '';
+    document.getElementById('brAutor').value = '';
+    document.getElementById('brComentario').value = '';
+  }
+
+  function fallar() {
+    btn.disabled = false;
+    btn.textContent = 'Recomendar';
+    msg.style.color = '#ff9a7f';
+    msg.textContent = 'No pudimos enviarlo ahora. Probá de nuevo en un rato.';
+  }
+
+  tsRecomendar.getToken(function (token) {
+    if (!token) { fallar(); return; }
+    mandar(token);
+  });
+}
+
+document.getElementById('brSubmit').addEventListener('click', enviarRecomendacion);
 </script>
 
 </body>
