@@ -51,13 +51,14 @@
   .obol-card { transition: transform .18s ease, box-shadow .18s ease; }
   .obol-card:hover { transform: translateY(-4px); }
   @media (max-width: 700px) {
-    .nav-text-link { display: none !important; }
     .hero-mascot, .featured-mascot { display: none; }
     .obol-minmax-grid { grid-template-columns: 1fr !important; }
     .featured-card-text { max-width: 100% !important; padding: 28px 24px !important; }
     .featured-card-title { font-size: 22px !important; }
     .blog-hero-inner { padding: 36px 24px !important; }
     .blog-hero-title { font-size: 30px !important; }
+    .site-header { padding-left: 20px !important; padding-right: 20px !important; }
+    .site-header-actions { gap: 10px !important; }
   }
   .nav-cta-short { display: none; }
   @media (max-width: 480px) {
@@ -71,6 +72,23 @@
     position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center;
     height: 38px; padding: 0 20px; border-radius: 999px; color: rgba(255,255,255,.85);
     font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 14px; text-decoration: none;
+  }
+  @media (max-width: 700px) {
+    /* En vez de esconder las pestañas, dejamos la nav con scroll horizontal
+       para que las cuatro sigan alcanzables sin bajar hasta el footer. */
+    .pill-nav {
+      display: flex !important;
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      mask-image: linear-gradient(to right, transparent, black 14px, black calc(100% - 14px), transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 14px, black calc(100% - 14px), transparent);
+    }
+    .pill-nav::-webkit-scrollbar { display: none; }
+    .pill-nav .pill { flex: none; padding: 0 14px; font-size: 13px; white-space: nowrap; }
   }
   .pill-nav .pill-circle {
     position: absolute; left: 50%; bottom: 0; width: 100%; aspect-ratio: 1; border-radius: 50%;
@@ -95,11 +113,11 @@
 <div style="font-family:'Nunito',system-ui,sans-serif;color:#1b2436;">
 
   <!-- Nav -->
-  <div style="position:sticky;top:0;z-index:20;background:#0f1730;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(6,10,26,.35);">
-    <a href="../index.html" style="display:flex;align-items:center;color:#fff;">
+  <div class="site-header" style="position:sticky;top:0;z-index:20;background:#0f1730;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(6,10,26,.35);">
+    <a href="../index.html" style="display:flex;align-items:center;color:#fff;flex:none;">
       <img src="../assets/home/obol_wordmark_blog_small.png" alt="Obol Blog" style="height:27px;width:auto;">
     </a>
-    <div style="display:flex;align-items:center;gap:14px;">
+    <div class="site-header-actions" style="display:flex;align-items:center;gap:14px;min-width:0;">
       <nav class="pill-nav" aria-label="Principal">
         <a href="../index.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Inicio</span><span class="pill-label-hover" aria-hidden="true">Inicio</span></span></a>
         <a href="../aprende.html" class="pill nav-text-link"><span class="pill-circle" aria-hidden="true"></span><span class="pill-stack"><span class="pill-label">Qué enseña la app</span><span class="pill-label-hover" aria-hidden="true">Qué enseña la app</span></span></a>
