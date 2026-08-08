@@ -144,6 +144,11 @@
     .obol-demo-body { max-height: 72vh !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch; padding: 24px 22px !important; }
     .obol-demo-rail { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.09) !important; padding-bottom: 24px !important; }
     .obol-demo-art { width: 176px !important; }
+    /* En mobile el scroll lo maneja .obol-demo-body entero: el hilo del
+       chat no debe tener su propio scroll interno, o los mensajes nuevos
+       quedan fuera de la vista cuando el usuario ya scrolleó hacia abajo
+       para tocar una pregunta. */
+    #pb-thread { flex: none !important; overflow-y: visible !important; }
   }
 
   /* ---------- Pill nav (efecto tipo React Bits PillNav, sin dependencias) ---------- */
@@ -742,6 +747,17 @@
   var pbTimers = [];
   var $ = function (id) { return document.getElementById(id); };
 
+  // Baja #pb-body lo justo y necesario para que "el" quede visible dentro
+  // del panel, sin pasarse de largo ni afectar el scroll de la página.
+  function pbRevealInBody(el) {
+    var body = $('pb-body');
+    if (!body || !el) return;
+    var bodyRect = body.getBoundingClientRect();
+    var elRect = el.getBoundingClientRect();
+    var delta = elRect.bottom - bodyRect.bottom + 20;
+    if (delta > 0) body.scrollTop += delta;
+  }
+
   function pbEsc(s) {
     return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; });
   }
@@ -956,6 +972,9 @@
     });
     var next = $('pb-next');
     if (next) next.addEventListener('click', pbNext);
+    // En pantallas chicas el panel scrollea entero: al revelar la
+    // respuesta, bajamos lo justo para que el botón quede a la vista.
+    if (next) pbRevealInBody(next);
   }
 
   function pbQuizDoneHtml() {
@@ -1020,6 +1039,10 @@
     var body = $('pb-body');
     var thread = $('pb-thread');
     if (thread) thread.scrollTop = thread.scrollHeight;
+    // En mobile el que scrollea es el panel entero (ver #pb-thread en el
+    // media query), así que también hay que bajar el panel lo justo para
+    // que la respuesta nueva no quede arriba, fuera de la vista.
+    if (thread) pbRevealInBody(thread);
 
     Array.prototype.forEach.call(body.querySelectorAll('.pb-chip'), function (b) {
       b.addEventListener('click', function () {
