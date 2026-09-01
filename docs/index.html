@@ -285,6 +285,30 @@
 </head>
 <body>
 
+<style>
+  .obol-wl-modal { transition: opacity .25s ease; }
+  .obol-wl-modal-card { transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+  @media (prefers-reduced-motion: reduce) {
+    .obol-wl-modal, .obol-wl-modal-card { transition: none; }
+  }
+</style>
+<div id="obolWlModal" class="obol-wl-modal" style="display:none;opacity:0;position:fixed;inset:0;z-index:100;align-items:center;justify-content:center;padding:20px;" role="dialog" aria-modal="true" aria-labelledby="wlModalTitle">
+  <div class="obol-wl-modal-scrim" style="position:absolute;inset:0;background:rgba(10,14,32,.72);backdrop-filter:blur(3px);"></div>
+  <div class="obol-wl-modal-card" style="transform:translateY(14px) scale(.97);position:relative;max-width:440px;width:100%;border-radius:28px;background:linear-gradient(120deg,#16213e,#1c2c52);padding:36px 32px 28px;box-shadow:0 32px 64px -20px rgba(15,20,45,.6);display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;">
+    <img src="./assets/icon.png" alt="" style="width:56px;height:56px;border-radius:16px;" loading="lazy">
+    <div style="display:flex;flex-direction:column;gap:6px;">
+      <h3 id="wlModalTitle" style="margin:0;font-family:'Fredoka',sans-serif;font-weight:700;font-size:22px;color:#fff;">Obol todavía no está disponible.</h3>
+      <p style="margin:0;font-weight:600;font-size:14.5px;color:rgba(255,255,255,.78);">Dejanos tu mail y te avisamos apenas podés empezar a jugar.</p>
+    </div>
+    <div style="width:100%;display:flex;flex-direction:column;gap:10px;">
+      <div id="curvedWlModal" style="width:100%;"></div>
+      <input id="wlModal-trampa" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
+      <p id="wlModal-msg" style="margin:0;font-size:13px;font-weight:600;color:rgba(255,255,255,.7);min-height:1em;"></p>
+    </div>
+    <button type="button" id="wlModalDismiss" style="margin-top:2px;background:none;border:none;font-family:'Nunito',system-ui,sans-serif;font-weight:700;font-size:13px;color:rgba(255,255,255,.55);cursor:pointer;padding:6px 10px;text-decoration:underline;text-underline-offset:2px;">Por ahora no</button>
+  </div>
+</div>
+
 <div style="font-family:'Nunito',system-ui,sans-serif;color:#1b2436;">
 
   <!-- Nav -->
@@ -1260,6 +1284,109 @@
 
     function mandar(turnstileToken) {
       var datos = { email: v, origen: 'cta-home', pagina: location.pathname, referrer: document.referrer || 'directo', fecha: new Date().toISOString(), turnstileToken: turnstileToken };
+
+      if (!WEBHOOK) {
+        console.warn('[Obol] Falta configurar WEBHOOK. Se enviaría:', datos);
+        listo();
+        return;
+      }
+
+      fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(datos) })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+        .then(listo)
+        .catch(function (e) { console.error(e); fallar(); });
+    }
+
+    function conToken(token) {
+      if (!token) { fallar(); return; }
+      mandar(token);
+    }
+    if (ts) { ts.getToken(conToken); } else { conToken(null); }
+  }
+})();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  var SHOWN_KEY = 'obolWlModalSeen';
+  if (sessionStorage.getItem(SHOWN_KEY)) return;
+
+  var WEBHOOK = "https://obolfinance.app.n8n.cloud/webhook/obol-waitlist";
+  var TURNSTILE_SITE_KEY = "0x4AAAAAAEHbemQBbrf5Cw39";
+  var modal = document.getElementById('obolWlModal');
+  var card = modal ? modal.querySelector('.obol-wl-modal-card') : null;
+  var host = document.getElementById('curvedWlModal');
+  var trampa = document.getElementById('wlModal-trampa');
+  var msg = document.getElementById('wlModal-msg');
+  var dismissBtn = document.getElementById('wlModalDismiss');
+  if (!modal || !card || !host || !msg || !window.ObolCurvedInput) return;
+
+  function close() {
+    sessionStorage.setItem(SHOWN_KEY, '1');
+    modal.style.opacity = '0';
+    card.style.transform = 'translateY(14px) scale(.97)';
+    document.body.style.overflow = '';
+    setTimeout(function () { modal.style.display = 'none'; }, 260);
+  }
+
+  dismissBtn.addEventListener('click', close);
+
+  var ts = window.ObolTurnstile ? window.ObolTurnstile(TURNSTILE_SITE_KEY) : null;
+
+  function valido(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(function () {
+    modal.style.opacity = '1';
+    card.style.transform = 'translateY(0) scale(1)';
+  });
+
+  var ci = window.ObolCurvedInput(host, {
+    placeholder: 'tu@mail.com',
+    buttonText: 'Anotarme',
+    bg: '#101a34',
+    text: '#ffffff',
+    placeholderColor: 'rgba(255,255,255,.45)',
+    border: 'rgba(255,255,255,.22)',
+    accentFrom: '#ffe08a',
+    accentTo: '#ffb24a',
+    accentText: '#16213e',
+    height: 54,
+    bend: 15,
+    fontSize: 14.5,
+    onSubmit: enviar
+  });
+
+  function enviar() {
+    var v = ci.getValue().trim().toLowerCase();
+    if (!valido(v)) {
+      msg.style.color = '#ff9a7f';
+      msg.textContent = 'Ese mail no parece válido. Revisalo y probá de nuevo.';
+      return;
+    }
+    if (trampa && trampa.value !== '') return; // bot
+    ci.setBusy(true, 'Anotándote…');
+    msg.style.color = 'rgba(255,255,255,.7)';
+    msg.textContent = '';
+
+    function listo() {
+      ci.hide();
+      msg.style.color = '#6ddbaa';
+      msg.textContent = 'Listo, quedaste anotado. Te escribimos cuando abra la beta.';
+      sessionStorage.setItem(SHOWN_KEY, '1');
+      setTimeout(close, 1800);
+    }
+
+    function fallar() {
+      ci.setBusy(false, 'Anotarme');
+      msg.style.color = '#ff9a7f';
+      msg.textContent = 'No pudimos guardarte ahora. Probá de nuevo en un minuto.';
+    }
+
+    function mandar(turnstileToken) {
+      var datos = { email: v, origen: 'modal-entrada', pagina: location.pathname, referrer: document.referrer || 'directo', fecha: new Date().toISOString(), turnstileToken: turnstileToken };
 
       if (!WEBHOOK) {
         console.warn('[Obol] Falta configurar WEBHOOK. Se enviaría:', datos);
