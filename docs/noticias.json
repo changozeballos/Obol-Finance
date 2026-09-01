@@ -1,4 +1,128 @@
 {
-  "generated_at": null,
-  "items": []
+  "generated_at": "2026-09-01T23:15:58.297820+00:00",
+  "items": [
+    {
+      "id": "semiconductores-caida-iran",
+      "type": "mercado",
+      "title": "Acciones de semiconductores caen por tensión entre EE.UU. e Irán",
+      "summary": "Varias acciones del sector de chips como Applied Materials, Teradyne y KLA Corporation bajaron después de que un ataque militar de EE.UU. a objetivos iraníes disparó el precio del petróleo y subió los rendimientos de los bonos del Tesoro a 10 años. La suba en las tasas de interés encarece el financiamiento de las empresas y presiona los márgenes de ganancia en toda la cadena de suministro de semiconductores.",
+      "source_name": "Yahoo Finance Canada",
+      "source_url": "https://ca.finance.yahoo.com/news/entegris-penguin-solutions-teradyne-applied-215420890.html",
+      "published_at": "2026-09-01T21:55:18Z",
+      "tickers": [
+        "AMAT",
+        "TER",
+        "KLAC"
+      ]
+    },
+    {
+      "id": "dow-inc-conflicto-iran",
+      "type": "mercado",
+      "title": "Dow Inc. cae por tercer día seguido por el conflicto EE.UU.-Irán",
+      "summary": "Las acciones de Dow Inc. cayeron $4,19 y acumularon tres jornadas consecutivas en rojo, en medio de la preocupación por la escalada del conflicto entre Estados Unidos e Irán. La tensión geopolítica afectó la confianza de los inversores en los mercados globales.",
+      "source_name": "Moomoo",
+      "source_url": "https://www.moomoo.com/news/post/75657978/us-stocks-dow-inc-falls-for-third-straight-day-down",
+      "published_at": "2026-09-01T21:13:37Z",
+      "tickers": [
+        "DOW"
+      ]
+    },
+    {
+      "id": "palo-alto-ganancias-q4",
+      "type": "empresa",
+      "title": "Palo Alto Networks superó las estimaciones de ganancias del Q4",
+      "summary": "Palo Alto Networks reportó ganancias de $1,02 por acción, superando la estimativa de consenso de $0,98, con ingresos de $3,41 mil millones en el cuarto trimestre. Fue el cuarto trimestre consecutivo en el que la empresa superó las expectativas, y sus acciones acumulan un alza de aproximadamente 107,5% en el año.",
+      "source_name": "Yahoo Finance",
+      "source_url": "https://finance.yahoo.com/markets/stocks/articles/palo-alto-networks-panw-tops-211504646.html",
+      "published_at": "2026-09-01T21:15:00Z",
+      "tickers": [
+        "PANW"
+      ]
+    },
+    {
+      "id": "moderna-bonos-convertibles",
+      "type": "empresa",
+      "title": "Moderna recaudó $3.000 millones con bonos convertibles",
+      "summary": "Moderna levantó $3.000 millones a través de una emisión privada de bonos convertibles al 0% con vencimiento en 2032, con un precio de conversión inicial de aproximadamente $210,58 por acción. La empresa usará parte de los fondos para reducir el impacto dilutivo sobre los accionistas y el resto para fines corporativos generales, incluyendo inversiones en oncología y repago de deuda.",
+      "source_name": "TipRanks",
+      "source_url": "https://www.tipranks.com/news/company-announcements/moderna-raises-3-billion-via-convertible-notes-offering",
+      "published_at": "2026-09-01T21:27:27Z",
+      "tickers": [
+        "MRNA"
+      ]
+    },
+    {
+      "id": "ares-fondo-japon",
+      "type": "empresa",
+      "title": "Ares recaudó $3.800 millones para un fondo logístico en Japón",
+      "summary": "Ares Management Corporation cerró su fondo Japan Logistics Development Partners V con ¥612 mil millones (unos $3.800 millones), convirtiéndolo en el mayor fondo institucional de capital cerrado en la historia de su plataforma inmobiliaria. El fondo superó en casi un 50% a su predecesor de 2021 y se enfocará en construir instalaciones logísticas modernas en las principales ciudades japonesas.",
+      "source_name": "Briefs Finance",
+      "source_url": "https://www.briefs.co/news/ares-secures-612-billion-for-new-japan-logistics-development/",
+      "published_at": "2026-09-01T21:41:54Z",
+      "tickers": [
+        "ARES-P-B"
+      ]
+    },
+    {
+      "id": "novartis-bms-car-t-pausa",
+      "type": "empresa",
+      "title": "Novartis y Bristol Myers Squibb pausan ensayos de terapia CAR-T por razones de seguridad",
+      "summary": "Novartis y Bristol Myers Squibb suspendieron temporalmente sus ensayos clínicos de terapias CAR-T para lupus y otras enfermedades autoinmunes para realizar revisiones de seguridad. Novartis pausó los estudios luego de que tres participantes murieran por complicaciones de una rara reacción inflamatoria, mientras que BMS actuó de forma preventiva al observar eventos inflamatorios transitorios.",
+      "source_name": "Lupus Foundation of America",
+      "source_url": "https://www.lupus.org/news/novartis-bristol-myers-squibb-pause-cart-trials-for-lupus-and-other-autoimmune-diseases",
+      "published_at": "2026-09-01T21:20:39Z",
+      "tickers": [
+        "BMY"
+      ]
+    },
+    {
+      "id": "bmw-broadcom-patentes",
+      "type": "empresa",
+      "title": "BMW demanda a Broadcom por una disputa de patentes",
+      "summary": "BMW presentó una demanda en un tribunal de EE.UU. contra Broadcom, solicitando que se declare que sus vehículos no infringen las patentes de Ethernet automotriz y Wi-Fi de la empresa. El conflicto surge porque Broadcom estaría exigiendo tarifas de royalties significativamente más altas tras el vencimiento de un acuerdo anterior.",
+      "source_name": "Forbes",
+      "source_url": "https://www.forbes.com/sites/fionariley/2026/09/01/bmw-takes-broadcom-patent-fight-to-us-court/",
+      "published_at": "2026-09-01T21:12:46Z",
+      "tickers": [
+        "AVGO"
+      ]
+    },
+    {
+      "id": "deere-asistente-ia",
+      "type": "empresa",
+      "title": "Deere lanzó un asistente de inteligencia artificial para agricultores",
+      "summary": "John Deere lanzó un asistente de IA llamado JD dentro de su aplicación Operations Center para ayudar a los agricultores a analizar los datos que recopilan sus tractores de alta tecnología y tomar mejores decisiones durante la temporada de cultivo. La herramienta será gratuita y la empresa garantizó que los datos de los productores son controlados por ellos y nunca se venden.",
+      "source_name": "Equipment Finance News",
+      "source_url": "https://equipmentfinancenews.com/news/agriculture/deere-launches-ai-assistant-named-jd-to-guide-farmers-choices/",
+      "published_at": "2026-09-01T21:28:52Z",
+      "tickers": [
+        "DE"
+      ]
+    },
+    {
+      "id": "ciberataques-salud-boston-mckesson",
+      "type": "empresa",
+      "title": "Ciberataques afectaron a Boston Scientific y McKesson",
+      "summary": "Boston Scientific y McKesson revelaron detalles de ataques informáticos por separado: el de Boston Scientific afectó el monitoreo remoto de marcapasos, mientras que en el caso de McKesson el grupo ShinyHunters afirma haber robado millones de registros de pacientes y exige un rescate de $55,2 millones. Ambas compañías trabajan en la restauración de sus sistemas.",
+      "source_name": "The Register",
+      "source_url": "https://www.theregister.com/cyber-crime/2026/08/31/healthcare-cyberattacks-hit-pacemakers-and-millions-of-patient-records/5293537",
+      "published_at": "2026-09-01T22:40:30Z",
+      "tickers": [
+        "BSX",
+        "MCK"
+      ]
+    },
+    {
+      "id": "cadence-caida-mercado",
+      "type": "mercado",
+      "title": "Cadence Design Systems cayó 7,6% mientras el S&P 500 perdió 0,71%",
+      "summary": "Las acciones de Cadence Design Systems bajaron un 7,6% en una jornada en la que el índice S&P 500 perdió solo un 0,71%, mostrando una caída muy superior a la del mercado general. Los inversores esperan el próximo reporte de ganancias de la empresa, con expectativas de mejoras tanto en el beneficio por acción como en los ingresos respecto al año anterior.",
+      "source_name": "Yahoo Finance UK",
+      "source_url": "https://uk.finance.yahoo.com/news/cadence-design-systems-cdns-falls-215002693.html",
+      "published_at": "2026-09-01T21:50:30Z",
+      "tickers": [
+        "CDNS"
+      ]
+    }
+  ]
 }
