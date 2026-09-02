@@ -2,6 +2,7 @@
 .env
 .env.local
 .env*.local
+.n8n-api-key.txt
 
 # dependencies / build artifacts (por si queda algo del desarrollo de la app)
 node_modules/
