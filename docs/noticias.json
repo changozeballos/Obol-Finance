@@ -1,174 +1,178 @@
 {
-  "generated_at": "2026-09-02T00:20:27.141277+00:00",
+  "generated_at": "2026-09-02T12:01:44.967050+00:00",
   "items": [
     {
-      "id": "semiconductores-revenue-2026",
-      "type": "economia",
-      "title": "Los semiconductores van a facturar USD 1,6 billones en 2026",
-      "summary": "Se proyecta que los ingresos globales de semiconductores alcancen USD 1,6 billones en 2026, un 92% más que en 2025, impulsados principalmente por la inversión en infraestructura de inteligencia artificial y un ciclo alcista en los precios de memoria. Para 2030, se espera que el ecosistema de data centers de IA represente más del 53% de esos ingresos.",
-      "detail": "El sector de semiconductores es la columna vertebral de toda la economía tecnológica: sin chips, no hay celulares, autos, ni servidores de IA. Cuando la demanda de chips sube así de fuerte, las empresas del sector suelen ver crecer sus ganancias y sus acciones. Entender este ciclo ayuda a interpretar por qué acciones como NVIDIA o TSMC tienen tanto peso en los índices globales. Además, el dato de que los data centers de IA van a concentrar más de la mitad del mercado muestra cómo una tendencia tecnológica puede remodelar industrias enteras.",
+      "id": "broadridge-tokenized-repo-g7",
+      "type": "mercado",
+      "title": "Broadridge amplía su red de repos tokenizados a bonos del G7",
+      "summary": "Broadridge Financial Solutions expandió su plataforma de repos en blockchain para incluir títulos del G7, procesando un promedio de USD 351.000 millones diarios en agosto de 2026. El objetivo es mejorar la eficiencia del mercado de financiamiento a corto plazo mediante liquidación instantánea y mayor variedad de garantías.",
+      "detail": "Un 'repo' es una operación donde alguien vende un activo y se compromete a recomprarlo al día siguiente, usándolo como garantía para obtener liquidez. Al tokenizar estos activos en blockchain, la liquidación puede ser instantánea ('atómica'), reduciendo el riesgo y el capital inmovilizado. Que una plataforma procese USD 351.000 millones diarios muestra que la tecnología blockchain ya opera a escala real en los mercados financieros, no solo como experimento. Esto es relevante porque moderniza una parte clave del sistema financiero global que afecta tasas de corto plazo en todo el mundo.",
       "tags": [
-        "semiconductores",
-        "inteligencia artificial",
-        "tecnología"
+        "blockchain",
+        "mercado de bonos",
+        "liquidez"
       ],
-      "source_name": "EE Times Asia",
-      "source_url": "https://www.eetasia.com/global-semiconductor-revenue-to-reach-1-6t-in-2026/",
-      "published_at": "2026-09-01T23:20:02Z",
+      "source_name": "LeapRate",
+      "source_url": "https://www.leaprate.com/forex/institutional/broadridge-expands-tokenized-repo-network-to-include-g7-securities/",
+      "published_at": "2026-09-02T10:53:25Z",
       "tickers": [
-        "IT"
+        "BR"
       ]
     },
     {
-      "id": "apple-nuevo-ceo-ternus",
+      "id": "meta-settlement-ai-morgan-stanley",
       "type": "empresa",
-      "title": "Apple tiene nuevo CEO y su primera gran prueba es en ocho días",
-      "summary": "John Ternus asumió como CEO de Apple en reemplazo de Tim Cook, y su primer gran desafío es el lanzamiento del iPhone previsto para el 9 de septiembre. Los analistas observan cómo manejará problemas de cadena de suministro e innovación en IA, en un contexto donde el mercado ya tiene altas expectativas descontadas en el precio de la acción.",
-      "detail": "Apple es la empresa más grande del mundo por capitalización de mercado y tiene enorme peso en índices como el S&P 500 y el Nasdaq, por lo que sus movimientos afectan a fondos de inversión de todo el planeta. El cambio de CEO en una compañía así es siempre un evento que el mercado sigue de cerca: los inversores evalúan si el nuevo liderazgo puede mantener el crecimiento. Además, el concepto de que 'el mercado ya descontó la transición' es clave en finanzas: a veces una buena noticia no sube el precio porque ya estaba incorporada.",
+      "title": "El acuerdo de USD 18.000 millones de Meta podría acelerar sus lanzamientos de IA",
+      "summary": "Meta llegó a un acuerdo de USD 18.000 millones en una demanda relacionada con el diseño de sus plataformas para menores, y Morgan Stanley cree que esto puede abrir el camino para que la empresa acelere el lanzamiento de nuevos productos de inteligencia artificial. No se espera que el acuerdo impacte significativamente los ingresos, ya que los adolescentes representan solo el 1% de la facturación de Meta.",
+      "detail": "Cuando una empresa grande resuelve un litigio importante, libera incertidumbre legal que puede frenaba decisiones de inversión o lanzamiento de productos. Morgan Stanley interpreta esto como una señal de que Meta puede ahora enfocarse más agresivamente en IA. Sin embargo, Needham mantiene una postura más cautelosa, argumentando que Meta está dispersando su estrategia en demasiadas iniciativas a la vez. Este tipo de análisis de bancos de inversión mueve el precio de las acciones porque los inversores ajustan sus expectativas futuras.",
       "tags": [
-        "Apple",
-        "CEO",
-        "lanzamiento iPhone"
+        "IA",
+        "tecnología",
+        "litigio"
       ],
-      "source_name": "Yahoo Finance Australia",
-      "source_url": "https://au.finance.yahoo.com/news/john-ternus-takes-over-apple-223105669.html",
-      "published_at": "2026-09-01T22:32:01Z",
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/02/meta-18-billion-settlement-ai-products.html",
+      "published_at": "2026-09-02T09:19:56Z",
+      "tickers": [
+        "META",
+        "MS",
+        "GOOGL"
+      ]
+    },
+    {
+      "id": "jim-cramer-apple-alphabet-deuda",
+      "type": "discurso",
+      "title": "Jim Cramer elogió a Apple, pero los números muestran que tiene el doble de deuda que Alphabet",
+      "summary": "Jim Cramer alabó el balance de Apple como 'impecable' y criticó a las grandes tecnológicas por gastar demasiado en centros de datos de IA, pero los registros financieros revelan que Apple tiene significativamente más deuda que Alphabet. A pesar de eso, el mercado premia a Apple con un ratio precio/ganancia más alto gracias a su gran liquidez.",
+      "detail": "Este artículo es un buen ejemplo de por qué conviene leer los estados financieros en lugar de confiar solo en comentarios mediáticos. Apple tiene más deuda bruta que Alphabet, pero la razón por la que el mercado no la castiga es su enorme generación de caja y liquidez disponible. Además, sus utilidades retenidas son negativas porque devuelve capital a accionistas vía recompras de acciones. El ratio P/E refleja las expectativas de ganancias futuras, y los inversores siguen confiando en el modelo de negocio de Apple. Entender la diferencia entre deuda bruta y posición financiera neta es clave para analizar empresas.",
+      "tags": [
+        "balance",
+        "deuda",
+        "tecnología"
+      ],
+      "source_name": "24/7 Wall St.",
+      "source_url": "https://247wallst.com/investing/2026/09/02/jim-cramer-hyperscalers-wrecked-their-balance-sheets-but-apple-carries-twice-alphabets-debt/",
+      "published_at": "2026-09-02T10:47:51Z",
+      "tickers": [
+        "AAPL",
+        "GOOGL",
+        "MSFT",
+        "AMZN"
+      ]
+    },
+    {
+      "id": "oracle-eu-antitrust-licencias",
+      "type": "empresa",
+      "title": "La Comisión Europea investiga las prácticas de licencias de Oracle en la nube",
+      "summary": "La Comisión Europea abrió una investigación sobre las prácticas de licenciamiento de software en la nube de Oracle, dos meses después de cerrar un acuerdo similar con SAP. La preocupación es que Oracle podría estar atando a sus clientes a su propio ecosistema o encareciendo el cambio a competidores.",
+      "detail": "Las investigaciones antimonopolio de la Unión Europea pueden terminar en multas millonarias o en cambios forzados en el modelo de negocios de una empresa. Cuando la UE actúa contra una tecnológica, impacta sus ingresos futuros en Europa y la percepción global de riesgo regulatorio. El concepto clave aquí es el 'vendor lock-in': cuando los contratos de software hacen muy costoso que un cliente se cambie a otro proveedor, lo que puede considerarse una práctica anticompetitiva. Para un inversor, este tipo de riesgo regulatorio es un factor importante al valuar acciones del sector tecnológico.",
+      "tags": [
+        "regulación",
+        "nube",
+        "antimonopolio"
+      ],
+      "source_name": "The Next Web",
+      "source_url": "https://thenextweb.com/news/oracle-eu-antitrust-cloud-licensing",
+      "published_at": "2026-09-02T09:21:34Z",
+      "tickers": [
+        "ORCL",
+        "GOOGL"
+      ]
+    },
+    {
+      "id": "novartis-bms-car-t-fda",
+      "type": "empresa",
+      "title": "Novartis y BMS pausaron ensayos de terapia CAR-T; otra empresa logró aprobación histórica para cáncer de páncreas",
+      "summary": "Novartis y Bristol Myers Squibb suspendieron varios ensayos clínicos de terapia CAR-T por muertes de pacientes y señales de seguridad, respectivamente. Al mismo tiempo, Revolution Medicines obtuvo una aprobación anticipada de la FDA para Rasonque, un fármaco innovador contra el cáncer de páncreas.",
+      "detail": "Las terapias CAR-T son tratamientos avanzados que modifican las células inmunes del paciente para atacar el cáncer, y su desarrollo implica riesgos clínicos altos. Cuando una empresa pausa ensayos por seguridad, el mercado suele castigar su acción porque pone en duda la viabilidad del producto. En contraste, una aprobación adelantada de la FDA es una señal muy positiva para una empresa pequeña como Revolution Medicines, ya que reduce el tiempo para generar ingresos. Estos eventos muestran cómo las noticias regulatorias y clínicas son el principal motor de valuación en el sector farmacéutico.",
+      "tags": [
+        "farmacéuticas",
+        "FDA",
+        "ensayos clínicos"
+      ],
+      "source_name": "BioSpace",
+      "source_url": "https://www.biospace.com/fda/novartis-and-bms-paused-car-t-trials-revmeds-pancreatic-cancer-approval-more-mfn-deals",
+      "published_at": "2026-09-02T09:56:28Z",
+      "tickers": [
+        "BMY",
+        "MRNA",
+        "LLY",
+        "REGN"
+      ]
+    },
+    {
+      "id": "altria-dividendo-61",
+      "type": "empresa",
+      "title": "Altria aumentó su dividendo por 61.ª vez: cuánto paga una inversión de USD 10.000",
+      "summary": "Altria Group anunció su 61.º aumento de dividendo en 57 años, consolidándose como uno de los pagadores de dividendos más consistentes del mercado americano. Una inversión de USD 10.000 en sus acciones generaría actualmente USD 618 anuales, a pesar de que su negocio de cigarrillos enfrenta volúmenes en declive.",
+      "detail": "Altria es un ejemplo clásico de empresa con 'dividend yield' alto en un sector maduro y en contracción. Sostiene sus pagos no por crecer en ventas, sino por su poder de fijación de precios y la recompra sistemática de acciones, lo que reduce la cantidad de dividendos a distribuir. Para alguien que aprende finanzas, este caso ilustra la diferencia entre invertir por crecimiento y por ingresos, y también los riesgos de concentrarse en empresas con modelos de negocio estructuralmente amenazados. El concepto de 'Dividend King' refiere a empresas que aumentaron su dividendo por al menos 50 años consecutivos.",
+      "tags": [
+        "dividendos",
+        "renta",
+        "acciones"
+      ],
+      "source_name": "The Motley Fool",
+      "source_url": "https://www.fool.com/investing/2026/09/02/altria-group-just-declared-its-61st-dividend-incre/",
+      "published_at": "2026-09-02T09:28:04Z",
+      "tickers": [
+        "MO"
+      ]
+    },
+    {
+      "id": "apple-openai-lawsuit-munster",
+      "type": "empresa",
+      "title": "Un analista cree que Apple tiene ventaja en su demanda contra OpenAI por secretos comerciales",
+      "summary": "Gene Munster, de Deepwater Asset Management, sostuvo que Apple tiene la 'sartén por el mango' en su juicio contra OpenAI, luego de que surgieran nuevas evidencias. Apple acusa a un ex empleado, ahora en OpenAI, de haber descargado esquemas confidenciales; OpenAI rechaza las acusaciones y dice que el problema fue el proceso de desvinculación de Apple.",
+      "detail": "Las disputas legales entre grandes empresas tecnológicas afectan las valuaciones porque pueden implicar compensaciones económicas, restricciones de producto o daño reputacional. Que un analista reconocido como Munster tome posición pública influye en el sentimiento del mercado hacia ambas compañías. Este caso también introduce conceptos relevantes como propiedad intelectual y secretos comerciales, activos clave en el sector tecnológico. Para un inversor, seguir estas disputas ayuda a entender riesgos no financieros que igual afectan el precio de las acciones.",
+      "tags": [
+        "IA",
+        "propiedad intelectual",
+        "tecnología"
+      ],
+      "source_name": "Benzinga",
+      "source_url": "https://www.benzinga.com/markets/tech/26/09/61568045/gene-munster-apple-upper-hand-openai-trade-secrets-fight-new-evidence",
+      "published_at": "2026-09-02T09:40:28Z",
       "tickers": [
         "AAPL"
       ]
     },
     {
-      "id": "aranceles-contabilidad-inconsistencia",
-      "type": "economia",
-      "title": "Los aranceles cambian tan rápido que la contabilidad no puede seguirles el ritmo",
-      "summary": "Seis meses después de que la Corte Suprema de EE.UU. anuló los aranceles IEEPA, las empresas están aplicando modelos contables distintos para registrar los reembolsos porque no hay una guía oficial clara. Esta inconsistencia complica las auditorías y hace difícil comparar los estados financieros entre compañías, especialmente porque al mismo tiempo se están imponiendo nuevos aranceles.",
-      "detail": "Los aranceles son impuestos al comercio internacional y afectan directamente los costos de las empresas que importan o exportan. Cuando las reglas cambian muy seguido, la contabilidad —que necesita criterios uniformes— queda en una zona gris: cada empresa puede registrar lo mismo de manera diferente, lo que distorsiona la imagen real de sus finanzas. Para alguien que aprende finanzas, esto muestra por qué la consistencia contable importa tanto al analizar balances y comparar empresas del mismo sector.",
-      "tags": [
-        "aranceles",
-        "contabilidad",
-        "riesgo"
-      ],
-      "source_name": "Thomson Reuters",
-      "source_url": "https://www.thomsonreuters.com/en/institute/articles/changing-tariffs-accounting",
-      "published_at": "2026-09-01T23:49:28Z",
-      "tickers": [
-        "TRI"
-      ]
-    },
-    {
-      "id": "semiconductores-caida-petroleo-bonos",
+      "id": "jpmorgan-upgrade-martin-marietta",
       "type": "mercado",
-      "title": "Acciones de chips cayeron por el alza del petróleo y los bonos del Tesoro",
-      "summary": "Varias acciones del sector de semiconductores —como Applied Materials, Teradyne y KLA— bajaron después de que un ataque militar de EE.UU. sobre objetivos iraníes disparara el precio del crudo y llevara el rendimiento del bono del Tesoro a 10 años hacia arriba, generando preocupaciones inflacionarias y mayor costo de financiamiento para las empresas.",
-      "detail": "Esta noticia ilustra cómo eventos geopolíticos pueden afectar mercados financieros en cadena: un conflicto eleva el precio del petróleo, eso alimenta la inflación, los bonos suben su rendimiento para compensar, y eso encarece el crédito para las empresas de tecnología que necesitan capital para crecer. Es un ejemplo clásico de correlación entre mercados: petróleo, bonos y acciones tecnológicas moviéndose juntos por una misma causa. Para un inversor argentino, entender estas conexiones ayuda a anticipar cómo las noticias globales impactan en carteras diversificadas.",
+      "title": "JPMorgan mejoró su recomendación sobre Martin Marietta Materials con un precio objetivo de USD 680",
+      "summary": "JPMorgan actualizó su calificación de Martin Marietta Materials de Neutral a Sobreponderar, fijando un precio objetivo de USD 680. La empresa, dedicada a materiales de construcción, también realizó adquisiciones y aumentó su dividendo recientemente.",
+      "detail": "Cuando un banco de inversión tan influyente como JPMorgan sube su recomendación sobre una acción, suele generar un movimiento de precio porque muchos inversores institucionales siguen sus análisis. El término 'Overweight' (Sobreponderar) significa que el analista cree que esa acción va a rendir mejor que el mercado en general. Martin Marietta es un proveedor clave de materiales para infraestructura, por lo que su desempeño está ligado al ciclo de construcción y al gasto público en obras. Seguir los cambios de recomendación de bancos grandes es una práctica habitual en el análisis de mercados.",
       "tags": [
-        "semiconductores",
-        "petróleo",
-        "bonos del Tesoro"
+        "análisis bursátil",
+        "construcción",
+        "recomendaciones"
       ],
-      "source_name": "Yahoo Finance Canada",
-      "source_url": "https://ca.finance.yahoo.com/news/entegris-penguin-solutions-teradyne-applied-215420890.html",
-      "published_at": "2026-09-01T21:55:18Z",
+      "source_name": "marketscreener.com",
+      "source_url": "https://www.marketscreener.com/news/jpmorgan-upgrades-martin-marietta-materials-to-overweight-from-neutral-price-target-is-680-ce7858d2df8ff32d",
+      "published_at": "2026-09-02T09:31:44Z",
       "tickers": [
-        "AMAT",
-        "TER",
-        "KLAC"
+        "MLM",
+        "JPM"
       ]
     },
     {
-      "id": "american-tower-guidance-data-centers",
+      "id": "citigroup-recompra-dividendo",
       "type": "empresa",
-      "title": "American Tower sube sus proyecciones gracias al boom de alquiler de data centers",
-      "summary": "American Tower (AMT) elevó por segunda vez en el año su guía de resultados anuales, impulsada por un nivel récord de alquiler en sus data centers y demanda sostenida en su red global de torres de comunicaciones. La empresa se posiciona favorablemente frente al crecimiento de la IA y la infraestructura digital.",
-      "detail": "Cuando una empresa sube su 'guidance' (proyección de resultados futuros) por segunda vez en el año, es una señal muy positiva para el mercado: significa que el negocio está yendo mejor de lo esperado. American Tower combina dos modelos de negocio —torres de telecomunicaciones y data centers— lo que la hace menos dependiente de un solo sector. Para aprender finanzas, este caso muestra cómo la demanda de IA no solo beneficia a empresas tech sino también a infraestructura física como torres y centros de datos.",
+      "title": "Citigroup autorizó una recompra de acciones por USD 30.000 millones y aumentó su dividendo",
+      "summary": "Citigroup reportó ganancias sólidas que superaron las estimaciones de analistas, incrementó su dividendo trimestral y autorizó un programa de recompra de acciones por USD 30.000 millones. Al mismo tiempo, algunos inversores institucionales redujeron su posición mientras otros grandes fondos la aumentaron, mostrando un sentimiento mixto.",
+      "detail": "Un programa de recompra de acciones de USD 30.000 millones es una señal de que la dirección considera que sus propias acciones están subvaluadas o quiere devolver capital a los accionistas. Al recomprar acciones, el banco reduce la cantidad en circulación, lo que sube el valor de cada acción restante y mejora métricas como el EPS. Combinado con un aumento de dividendo, esto refleja confianza en la solidez financiera del banco. Para quien aprende finanzas, Citigroup es un caso interesante para entender cómo los grandes bancos manejan su capital excedente.",
       "tags": [
-        "data centers",
-        "infraestructura",
-        "guidance"
+        "banca",
+        "recompra de acciones",
+        "dividendos"
       ],
-      "source_name": "Kalkine Media",
-      "source_url": "https://kalkinemedia.com/us/stocks/infrastructure-and-real-estate/american-tower-nyseamt-raises-guidance-as-data-center-leasing-hits-records",
-      "published_at": "2026-09-01T22:09:17Z",
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/filing-northwestern-mutual-wealth-management-co-reduces-stock-position-in-citigroup-inc-c-2026-09-02/",
+      "published_at": "2026-09-02T09:18:28Z",
       "tickers": [
-        "AMT",
-        "EQIX"
-      ]
-    },
-    {
-      "id": "dominion-duke-data-centers-energia",
-      "type": "economia",
-      "title": "El boom de data centers obliga a las eléctricas a expandir su red a gran escala",
-      "summary": "Dominion Energy y Duke Energy están acelerando planes de inversión multimillonarios para ampliar y modernizar sus redes eléctricas ante la demanda récord de energía que generan los data centers de IA. Dominion opera en Virginia, donde se encuentra el mayor clúster de data centers del mundo, mientras que Duke apunta al sureste de EE.UU.",
-      "detail": "El crecimiento de la inteligencia artificial tiene un costo energético enorme: los data centers consumen cantidades masivas de electricidad de forma continua. Esto convierte a las empresas eléctricas en un beneficiario indirecto del boom de IA, algo que no siempre es obvio a primera vista. Para quien aprende finanzas, este caso enseña que los efectos de una tendencia tecnológica se distribuyen por sectores inesperados como utilities, construcción o materiales, lo que abre oportunidades de inversión más allá de las acciones 'tech' tradicionales.",
-      "tags": [
-        "energía eléctrica",
-        "data centers",
-        "inteligencia artificial"
-      ],
-      "source_name": "Kalkine Media",
-      "source_url": "https://kalkinemedia.com/us/stocks/utility/dominion-energy-nysed-in-focus-as-data-centers-drive-record-power-demand",
-      "published_at": "2026-09-01T23:12:08Z",
-      "tickers": [
-        "D",
-        "DUK",
-        "AMZN",
-        "GOOGL"
-      ]
-    },
-    {
-      "id": "healthcare-cyberataques-boston-mckesson",
-      "type": "empresa",
-      "title": "Ciberataques golpean a dos grandes empresas de salud en EE.UU.",
-      "summary": "Boston Scientific y McKesson revelaron haber sufrido ciberataques graves: el de Boston Scientific afectó el monitoreo remoto de marcapasos, mientras que en McKesson el grupo ShinyHunters afirma haber robado millones de registros de pacientes y exige un rescate de USD 55,2 millones. Ambas compañías trabajan para restablecer sus sistemas.",
-      "detail": "Los ciberataques al sector salud son especialmente graves porque involucran datos sensibles y pueden afectar equipos médicos críticos. Desde el punto de vista financiero, estos incidentes generan costos enormes —pagos de rescate, reparación de sistemas, multas regulatorias— y golpean la reputación y el precio de la acción. Para un inversor, entender el riesgo cibernético como un riesgo de negocio real es fundamental hoy en día, y explica por qué las empresas de ciberseguridad tienen cada vez más relevancia en los mercados.",
-      "tags": [
-        "ciberseguridad",
-        "salud",
-        "riesgo empresarial"
-      ],
-      "source_name": "The Register",
-      "source_url": "https://www.theregister.com/cyber-crime/2026/08/31/healthcare-cyberattacks-hit-pacemakers-and-millions-of-patient-records/5293537",
-      "published_at": "2026-09-01T22:40:30Z",
-      "tickers": [
-        "BSX",
-        "MCK",
-        "CRWD"
-      ]
-    },
-    {
-      "id": "revolution-medicines-fda-cancer-pancreas",
-      "type": "empresa",
-      "title": "Una biotech rechazó ser comprada y la FDA le aprobó un fármaco contra el cáncer de páncreas",
-      "summary": "Revolution Medicines decidió mantenerse independiente a pesar del interés de potenciales compradores, y la apuesta le salió bien: la FDA aprobó su pastilla Rasonque (daraxonrasib) para tratar el cáncer de páncreas metastásico, convirtiéndose en su primer medicamento en el mercado.",
-      "detail": "La decisión de una empresa de rechazar una adquisición es un momento clave en finanzas corporativas: implica que la dirección cree que el valor futuro del negocio supera lo que un comprador estaría dispuesto a pagar hoy. En el sector biotech, la aprobación de un nuevo fármaco por la FDA puede transformar radicalmente el valor de una compañía, ya que abre la puerta a ingresos comerciales reales. Este caso ilustra el alto riesgo y la alta recompensa que caracterizan a las inversiones en biotecnología.",
-      "tags": [
-        "biotech",
-        "FDA",
-        "fusiones y adquisiciones"
-      ],
-      "source_name": "WSJ",
-      "source_url": "https://www.wsj.com/health/pharma/why-the-drugmaker-behind-a-pancreatic-cancer-breakthrough-stayed-independent-bc9cf607",
-      "published_at": "2026-09-01T22:25:27Z",
-      "tickers": [
-        "RVMD"
-      ]
-    },
-    {
-      "id": "ford-recall-mustang",
-      "type": "empresa",
-      "title": "Ford llama a revisión a casi 150.000 Mustangs por fallas eléctricas",
-      "summary": "Ford está retirando del mercado 148.663 Mustangs de los modelos 2024-2026 por un defecto en el arnés de cableado del motor que puede causar pérdida de potencia o falla de sistemas eléctricos, violando normas federales de seguridad vial. Los concesionarios reemplazarán las piezas sin costo, y se espera que las notificaciones de reparación se completen en marzo de 2027.",
-      "detail": "Los retiros masivos de vehículos (recalls) son costosos para las automotrices: implican gastos de reparación, posibles litigios y daño a la reputación de la marca. Desde el punto de vista financiero, los inversores los monitorean porque pueden impactar en los márgenes de ganancia y en la percepción del mercado sobre la calidad de la empresa. Para quien aprende finanzas, este tipo de evento muestra cómo los riesgos operativos y de producto se traducen directamente en riesgo financiero.",
-      "tags": [
-        "Ford",
-        "recall",
-        "riesgo operativo"
-      ],
-      "source_name": "Yahoo Autos",
-      "source_url": "https://autos.yahoo.com/safety-and-recalls/articles/ford-recalls-nearly-150-000-230900625.html",
-      "published_at": "2026-09-01T23:09:00Z",
-      "tickers": [
-        "F"
+        "C",
+        "BAC",
+        "JPM"
       ]
     }
   ],
@@ -177,31 +181,31 @@
       "label": "DÓLAR OFICIAL",
       "valor": "$1.535",
       "valor_num": 1535.0,
-      "delta_pct": null
+      "delta_pct": 0.0
     },
     {
       "label": "DÓLAR BLUE",
       "valor": "$1.545",
       "valor_num": 1545.0,
-      "delta_pct": null
+      "delta_pct": 0.0
     },
     {
       "label": "MEP",
       "valor": "$1.534",
       "valor_num": 1533.9,
-      "delta_pct": null
+      "delta_pct": 0.0
     },
     {
       "label": "CCL",
       "valor": "$1.592",
       "valor_num": 1592.1,
-      "delta_pct": null
+      "delta_pct": 0.0
     },
     {
       "label": "BITCOIN",
-      "valor": "US$ 77.401",
-      "valor_num": 77401.0,
-      "delta_pct": -1.76
+      "valor": "US$ 76.748",
+      "valor_num": 76748.0,
+      "delta_pct": -1.66
     },
     {
       "label": "S&P 500",
