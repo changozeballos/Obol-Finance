@@ -1,178 +1,191 @@
 {
-  "generated_at": "2026-09-02T12:01:44.967050+00:00",
+  "generated_at": "2026-09-02T22:01:31.981454+00:00",
   "items": [
     {
-      "id": "broadridge-tokenized-repo-g7",
-      "type": "mercado",
-      "title": "Broadridge amplía su red de repos tokenizados a bonos del G7",
-      "summary": "Broadridge Financial Solutions expandió su plataforma de repos en blockchain para incluir títulos del G7, procesando un promedio de USD 351.000 millones diarios en agosto de 2026. El objetivo es mejorar la eficiencia del mercado de financiamiento a corto plazo mediante liquidación instantánea y mayor variedad de garantías.",
-      "detail": "Un 'repo' es una operación donde alguien vende un activo y se compromete a recomprarlo al día siguiente, usándolo como garantía para obtener liquidez. Al tokenizar estos activos en blockchain, la liquidación puede ser instantánea ('atómica'), reduciendo el riesgo y el capital inmovilizado. Que una plataforma procese USD 351.000 millones diarios muestra que la tecnología blockchain ya opera a escala real en los mercados financieros, no solo como experimento. Esto es relevante porque moderniza una parte clave del sistema financiero global que afecta tasas de corto plazo en todo el mundo.",
-      "tags": [
-        "blockchain",
-        "mercado de bonos",
-        "liquidez"
-      ],
-      "source_name": "LeapRate",
-      "source_url": "https://www.leaprate.com/forex/institutional/broadridge-expands-tokenized-repo-network-to-include-g7-securities/",
-      "published_at": "2026-09-02T10:53:25Z",
-      "tickers": [
-        "BR"
-      ]
-    },
-    {
-      "id": "meta-settlement-ai-morgan-stanley",
+      "id": "broadcom-ai-revenue-q3-2026",
       "type": "empresa",
-      "title": "El acuerdo de USD 18.000 millones de Meta podría acelerar sus lanzamientos de IA",
-      "summary": "Meta llegó a un acuerdo de USD 18.000 millones en una demanda relacionada con el diseño de sus plataformas para menores, y Morgan Stanley cree que esto puede abrir el camino para que la empresa acelere el lanzamiento de nuevos productos de inteligencia artificial. No se espera que el acuerdo impacte significativamente los ingresos, ya que los adolescentes representan solo el 1% de la facturación de Meta.",
-      "detail": "Cuando una empresa grande resuelve un litigio importante, libera incertidumbre legal que puede frenaba decisiones de inversión o lanzamiento de productos. Morgan Stanley interpreta esto como una señal de que Meta puede ahora enfocarse más agresivamente en IA. Sin embargo, Needham mantiene una postura más cautelosa, argumentando que Meta está dispersando su estrategia en demasiadas iniciativas a la vez. Este tipo de análisis de bancos de inversión mueve el precio de las acciones porque los inversores ajustan sus expectativas futuras.",
+      "title": "Broadcom superó expectativas con ingresos de IA que se dispararon 221%",
+      "summary": "Broadcom reportó resultados del tercer trimestre fiscal 2026 mejores a lo esperado, con ingresos de semiconductores de IA creciendo un 221% interanual. Sin embargo, las acciones cayeron en el after-hours por una guía de cuarto trimestre considerada débil por el mercado, a pesar de que la empresa proyecta un crecimiento del 236% en ingresos de IA para ese período.",
+      "detail": "Este caso ilustra un fenómeno clásico en los mercados: 'buy the rumor, sell the news'. Aunque los números fueron sólidos, el mercado ya tenía expectativas muy altas incorporadas en el precio. La guía futura importa tanto o más que los resultados pasados, porque los inversores compran flujos de ganancias futuras, no históricas. Broadcom es además un termómetro clave del sector de IA, ya que fabrica chips personalizados para grandes empresas de tecnología.",
       "tags": [
-        "IA",
-        "tecnología",
-        "litigio"
-      ],
-      "source_name": "CNBC",
-      "source_url": "https://www.cnbc.com/2026/09/02/meta-18-billion-settlement-ai-products.html",
-      "published_at": "2026-09-02T09:19:56Z",
-      "tickers": [
-        "META",
-        "MS",
-        "GOOGL"
-      ]
-    },
-    {
-      "id": "jim-cramer-apple-alphabet-deuda",
-      "type": "discurso",
-      "title": "Jim Cramer elogió a Apple, pero los números muestran que tiene el doble de deuda que Alphabet",
-      "summary": "Jim Cramer alabó el balance de Apple como 'impecable' y criticó a las grandes tecnológicas por gastar demasiado en centros de datos de IA, pero los registros financieros revelan que Apple tiene significativamente más deuda que Alphabet. A pesar de eso, el mercado premia a Apple con un ratio precio/ganancia más alto gracias a su gran liquidez.",
-      "detail": "Este artículo es un buen ejemplo de por qué conviene leer los estados financieros en lugar de confiar solo en comentarios mediáticos. Apple tiene más deuda bruta que Alphabet, pero la razón por la que el mercado no la castiga es su enorme generación de caja y liquidez disponible. Además, sus utilidades retenidas son negativas porque devuelve capital a accionistas vía recompras de acciones. El ratio P/E refleja las expectativas de ganancias futuras, y los inversores siguen confiando en el modelo de negocio de Apple. Entender la diferencia entre deuda bruta y posición financiera neta es clave para analizar empresas.",
-      "tags": [
-        "balance",
-        "deuda",
-        "tecnología"
-      ],
-      "source_name": "24/7 Wall St.",
-      "source_url": "https://247wallst.com/investing/2026/09/02/jim-cramer-hyperscalers-wrecked-their-balance-sheets-but-apple-carries-twice-alphabets-debt/",
-      "published_at": "2026-09-02T10:47:51Z",
-      "tickers": [
-        "AAPL",
-        "GOOGL",
-        "MSFT",
-        "AMZN"
-      ]
-    },
-    {
-      "id": "oracle-eu-antitrust-licencias",
-      "type": "empresa",
-      "title": "La Comisión Europea investiga las prácticas de licencias de Oracle en la nube",
-      "summary": "La Comisión Europea abrió una investigación sobre las prácticas de licenciamiento de software en la nube de Oracle, dos meses después de cerrar un acuerdo similar con SAP. La preocupación es que Oracle podría estar atando a sus clientes a su propio ecosistema o encareciendo el cambio a competidores.",
-      "detail": "Las investigaciones antimonopolio de la Unión Europea pueden terminar en multas millonarias o en cambios forzados en el modelo de negocios de una empresa. Cuando la UE actúa contra una tecnológica, impacta sus ingresos futuros en Europa y la percepción global de riesgo regulatorio. El concepto clave aquí es el 'vendor lock-in': cuando los contratos de software hacen muy costoso que un cliente se cambie a otro proveedor, lo que puede considerarse una práctica anticompetitiva. Para un inversor, este tipo de riesgo regulatorio es un factor importante al valuar acciones del sector tecnológico.",
-      "tags": [
-        "regulación",
-        "nube",
-        "antimonopolio"
-      ],
-      "source_name": "The Next Web",
-      "source_url": "https://thenextweb.com/news/oracle-eu-antitrust-cloud-licensing",
-      "published_at": "2026-09-02T09:21:34Z",
-      "tickers": [
-        "ORCL",
-        "GOOGL"
-      ]
-    },
-    {
-      "id": "novartis-bms-car-t-fda",
-      "type": "empresa",
-      "title": "Novartis y BMS pausaron ensayos de terapia CAR-T; otra empresa logró aprobación histórica para cáncer de páncreas",
-      "summary": "Novartis y Bristol Myers Squibb suspendieron varios ensayos clínicos de terapia CAR-T por muertes de pacientes y señales de seguridad, respectivamente. Al mismo tiempo, Revolution Medicines obtuvo una aprobación anticipada de la FDA para Rasonque, un fármaco innovador contra el cáncer de páncreas.",
-      "detail": "Las terapias CAR-T son tratamientos avanzados que modifican las células inmunes del paciente para atacar el cáncer, y su desarrollo implica riesgos clínicos altos. Cuando una empresa pausa ensayos por seguridad, el mercado suele castigar su acción porque pone en duda la viabilidad del producto. En contraste, una aprobación adelantada de la FDA es una señal muy positiva para una empresa pequeña como Revolution Medicines, ya que reduce el tiempo para generar ingresos. Estos eventos muestran cómo las noticias regulatorias y clínicas son el principal motor de valuación en el sector farmacéutico.",
-      "tags": [
-        "farmacéuticas",
-        "FDA",
-        "ensayos clínicos"
-      ],
-      "source_name": "BioSpace",
-      "source_url": "https://www.biospace.com/fda/novartis-and-bms-paused-car-t-trials-revmeds-pancreatic-cancer-approval-more-mfn-deals",
-      "published_at": "2026-09-02T09:56:28Z",
-      "tickers": [
-        "BMY",
-        "MRNA",
-        "LLY",
-        "REGN"
-      ]
-    },
-    {
-      "id": "altria-dividendo-61",
-      "type": "empresa",
-      "title": "Altria aumentó su dividendo por 61.ª vez: cuánto paga una inversión de USD 10.000",
-      "summary": "Altria Group anunció su 61.º aumento de dividendo en 57 años, consolidándose como uno de los pagadores de dividendos más consistentes del mercado americano. Una inversión de USD 10.000 en sus acciones generaría actualmente USD 618 anuales, a pesar de que su negocio de cigarrillos enfrenta volúmenes en declive.",
-      "detail": "Altria es un ejemplo clásico de empresa con 'dividend yield' alto en un sector maduro y en contracción. Sostiene sus pagos no por crecer en ventas, sino por su poder de fijación de precios y la recompra sistemática de acciones, lo que reduce la cantidad de dividendos a distribuir. Para alguien que aprende finanzas, este caso ilustra la diferencia entre invertir por crecimiento y por ingresos, y también los riesgos de concentrarse en empresas con modelos de negocio estructuralmente amenazados. El concepto de 'Dividend King' refiere a empresas que aumentaron su dividendo por al menos 50 años consecutivos.",
-      "tags": [
-        "dividendos",
-        "renta",
-        "acciones"
-      ],
-      "source_name": "The Motley Fool",
-      "source_url": "https://www.fool.com/investing/2026/09/02/altria-group-just-declared-its-61st-dividend-incre/",
-      "published_at": "2026-09-02T09:28:04Z",
-      "tickers": [
-        "MO"
-      ]
-    },
-    {
-      "id": "apple-openai-lawsuit-munster",
-      "type": "empresa",
-      "title": "Un analista cree que Apple tiene ventaja en su demanda contra OpenAI por secretos comerciales",
-      "summary": "Gene Munster, de Deepwater Asset Management, sostuvo que Apple tiene la 'sartén por el mango' en su juicio contra OpenAI, luego de que surgieran nuevas evidencias. Apple acusa a un ex empleado, ahora en OpenAI, de haber descargado esquemas confidenciales; OpenAI rechaza las acusaciones y dice que el problema fue el proceso de desvinculación de Apple.",
-      "detail": "Las disputas legales entre grandes empresas tecnológicas afectan las valuaciones porque pueden implicar compensaciones económicas, restricciones de producto o daño reputacional. Que un analista reconocido como Munster tome posición pública influye en el sentimiento del mercado hacia ambas compañías. Este caso también introduce conceptos relevantes como propiedad intelectual y secretos comerciales, activos clave en el sector tecnológico. Para un inversor, seguir estas disputas ayuda a entender riesgos no financieros que igual afectan el precio de las acciones.",
-      "tags": [
-        "IA",
-        "propiedad intelectual",
-        "tecnología"
+        "inteligencia artificial",
+        "semiconductores",
+        "resultados"
       ],
       "source_name": "Benzinga",
-      "source_url": "https://www.benzinga.com/markets/tech/26/09/61568045/gene-munster-apple-upper-hand-openai-trade-secrets-fight-new-evidence",
-      "published_at": "2026-09-02T09:40:28Z",
+      "source_url": "https://www.benzinga.com/markets/earnings/26/09/61590745/broadcom-beats-q3-estimates-as-ai-revenue-jumps-221-shares-slide-on-soft-guidance",
+      "published_at": "2026-09-02T20:36:31Z",
       "tickers": [
-        "AAPL"
+        "AVGO"
       ]
     },
     {
-      "id": "jpmorgan-upgrade-martin-marietta",
-      "type": "mercado",
-      "title": "JPMorgan mejoró su recomendación sobre Martin Marietta Materials con un precio objetivo de USD 680",
-      "summary": "JPMorgan actualizó su calificación de Martin Marietta Materials de Neutral a Sobreponderar, fijando un precio objetivo de USD 680. La empresa, dedicada a materiales de construcción, también realizó adquisiciones y aumentó su dividendo recientemente.",
-      "detail": "Cuando un banco de inversión tan influyente como JPMorgan sube su recomendación sobre una acción, suele generar un movimiento de precio porque muchos inversores institucionales siguen sus análisis. El término 'Overweight' (Sobreponderar) significa que el analista cree que esa acción va a rendir mejor que el mercado en general. Martin Marietta es un proveedor clave de materiales para infraestructura, por lo que su desempeño está ligado al ciclo de construcción y al gasto público en obras. Seguir los cambios de recomendación de bancos grandes es una práctica habitual en el análisis de mercados.",
-      "tags": [
-        "análisis bursátil",
-        "construcción",
-        "recomendaciones"
-      ],
-      "source_name": "marketscreener.com",
-      "source_url": "https://www.marketscreener.com/news/jpmorgan-upgrades-martin-marietta-materials-to-overweight-from-neutral-price-target-is-680-ce7858d2df8ff32d",
-      "published_at": "2026-09-02T09:31:44Z",
-      "tickers": [
-        "MLM",
-        "JPM"
-      ]
-    },
-    {
-      "id": "citigroup-recompra-dividendo",
+      "id": "costco-ventas-agosto-2026",
       "type": "empresa",
-      "title": "Citigroup autorizó una recompra de acciones por USD 30.000 millones y aumentó su dividendo",
-      "summary": "Citigroup reportó ganancias sólidas que superaron las estimaciones de analistas, incrementó su dividendo trimestral y autorizó un programa de recompra de acciones por USD 30.000 millones. Al mismo tiempo, algunos inversores institucionales redujeron su posición mientras otros grandes fondos la aumentaron, mostrando un sentimiento mixto.",
-      "detail": "Un programa de recompra de acciones de USD 30.000 millones es una señal de que la dirección considera que sus propias acciones están subvaluadas o quiere devolver capital a los accionistas. Al recomprar acciones, el banco reduce la cantidad en circulación, lo que sube el valor de cada acción restante y mejora métricas como el EPS. Combinado con un aumento de dividendo, esto refleja confianza en la solidez financiera del banco. Para quien aprende finanzas, Citigroup es un caso interesante para entender cómo los grandes bancos manejan su capital excedente.",
+      "title": "Costco reportó ventas de agosto por USD 23.700 millones, un 9,9% más que el año anterior",
+      "summary": "Costco informó ventas netas de agosto por 23.700 millones de dólares, un 9,9% más interanual. En el trimestre completo, las ventas crecieron 11,3% hasta los 93.900 millones, y en el año fiscal completo llegaron a 297.300 millones, un 10,2% más.",
+      "detail": "Las ventas mensuales de Costco son un indicador relevante del consumo en Estados Unidos. Cuando una empresa de retail masivo crece a dos dígitos, sugiere que el consumidor sigue gastando a pesar de la inflación y las tasas altas, lo que es una señal positiva para la economía general. Además, Costco es una empresa de referencia para medir la salud del consumidor estadounidense, algo que impacta en el ánimo global de los mercados.",
       "tags": [
-        "banca",
-        "recompra de acciones",
-        "dividendos"
+        "consumo",
+        "retail",
+        "ventas"
       ],
-      "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/filing-northwestern-mutual-wealth-management-co-reduces-stock-position-in-citigroup-inc-c-2026-09-02/",
-      "published_at": "2026-09-02T09:18:28Z",
+      "source_name": "Investing.com India",
+      "source_url": "https://in.investing.com/news/stock-market-news/costco-reports-august-sales-of-237-billion-up-99-93CH-5580431",
+      "published_at": "2026-09-02T20:27:45Z",
       "tickers": [
-        "C",
-        "BAC",
-        "JPM"
+        "COST"
+      ]
+    },
+    {
+      "id": "netapp-earnings-caida-acciones",
+      "type": "empresa",
+      "title": "NetApp superó estimaciones de ganancias pero igual cayó en bolsa",
+      "summary": "NetApp reportó resultados mejores a lo esperado y elevó su guía para el año fiscal, pero sus acciones bajaron en el mercado after-hours. El artículo señala que problemas relacionados con el flujo de caja e inventarios podrían estar pesando sobre el precio de la acción.",
+      "detail": "Este caso es un buen ejemplo para entender que los mercados no reaccionan solo a si una empresa 'ganó más o menos', sino a si superó las expectativas ya descontadas en el precio y si la calidad de esas ganancias es sólida. Factores como el flujo de caja libre o el nivel de inventarios pueden indicar problemas futuros aunque las ganancias contables sean buenas. Así funciona el análisis fundamental más allá de los titulares.",
+      "tags": [
+        "resultados",
+        "flujo de caja",
+        "tecnología"
+      ],
+      "source_name": "Barron's",
+      "source_url": "https://www.barrons.com/articles/netapp-earnings-stock-price-1c10379c?mod=barronsgooglenews",
+      "published_at": "2026-09-02T20:36:41Z",
+      "tickers": [
+        "NTAP"
+      ]
+    },
+    {
+      "id": "doj-investigacion-carne-amazon-walmart",
+      "type": "economia",
+      "title": "El Departamento de Justicia amplió su investigación antimonopolio sobre precios de la carne a Amazon, Walmart y Costco",
+      "summary": "El Departamento de Justicia de EE.UU. pidió seis años de datos de precios y compras de carne a ocho grandes cadenas de retail, incluyendo Amazon, Walmart y Costco. La investigación apunta a entender si existe manipulación de precios en la industria, en un contexto de precios de carne en máximos históricos que impulsaron la inflación alimentaria.",
+      "detail": "Las investigaciones antimonopolio pueden tener consecuencias directas sobre los precios al consumidor y la estructura de mercados enteros. Para un estudiante de finanzas, este caso muestra cómo el Estado puede intervenir en mercados privados cuando considera que hay prácticas que perjudican a los consumidores. También ilustra la relación entre concentración de mercado, poder de fijación de precios e inflación, un vínculo clave en macroeconomía.",
+      "tags": [
+        "antimonopolio",
+        "inflación",
+        "regulación"
+      ],
+      "source_name": "Transport Topics",
+      "source_url": "https://www.ttnews.com/articles/doj-beef-antitrust-grocers",
+      "published_at": "2026-09-02T19:12:35Z",
+      "tickers": [
+        "WMT",
+        "AMZN",
+        "COST"
+      ]
+    },
+    {
+      "id": "waymo-deuda-pimco-blackstone",
+      "type": "empresa",
+      "title": "Waymo, la unidad de autos autónomos de Google, busca recaudar más de USD 3.000 millones en deuda",
+      "summary": "Waymo está en conversaciones avanzadas para cerrar su primer financiamiento mediante deuda por más de 3.000 millones de dólares, con prestamistas como PIMCO y Blackstone. La empresa necesita fondos para expandir su flota de robotaxis y afrontar los crecientes costos de la inteligencia artificial.",
+      "detail": "Cuando una empresa tecnológica de alto crecimiento recurre a deuda por primera vez, es una señal de que necesita capital pero no quiere diluir a sus accionistas emitiendo nuevas acciones. Esto permite financiar expansión manteniendo el control accionario, aunque implica asumir obligaciones de pago de intereses. Para quienes aprenden finanzas, es un caso práctico de estructura de capital: la elección entre deuda y equity tiene costos y beneficios distintos.",
+      "tags": [
+        "deuda",
+        "inteligencia artificial",
+        "vehículos autónomos"
+      ],
+      "source_name": "Reuters",
+      "source_url": "https://www.reuters.com/legal/transactional/waymo-taps-pimco-blackstone-raise-3-billion-debt-bloomberg-news-reports-2026-09-02/",
+      "published_at": "2026-09-02T19:20:10Z",
+      "tickers": [
+        "BX"
+      ]
+    },
+    {
+      "id": "amd-saudi-arabia-ai-infraestructura",
+      "type": "empresa",
+      "title": "AMD, Cisco y HUMAIN planean desplegar hasta 1 gigawatt de infraestructura de IA en Arabia Saudita para 2030",
+      "summary": "AMD, Cisco y la empresa saudita HUMAIN anunciaron una expansión de su colaboración para construir infraestructura de IA en Arabia Saudita, apuntando a 1 gigawatt de capacidad instalada hacia 2030 usando chips AMD. La iniciativa busca posicionar a AMD como alternativa real a NVIDIA y Broadcom en el mercado de centros de datos con IA.",
+      "detail": "La carrera por la infraestructura de IA es uno de los temas de inversión más importantes de los últimos años. Que países del Medio Oriente inviertan masivamente en soberanía de IA muestra cómo esta tecnología se convirtió en un activo estratégico geopolítico además de comercial. Para un inversor, entender quiénes fabrican los chips y quiénes construyen la infraestructura es clave para identificar dónde fluye el capital en el sector tecnológico global.",
+      "tags": [
+        "inteligencia artificial",
+        "semiconductores",
+        "geopolítica"
+      ],
+      "source_name": "Yahoo Finance Canada",
+      "source_url": "https://ca.finance.yahoo.com/news/amds-saudi-ai-buildout-challenge-184700108.html",
+      "published_at": "2026-09-02T18:47:41Z",
+      "tickers": [
+        "AMD",
+        "NVDA",
+        "AVGO",
+        "CSCO"
+      ]
+    },
+    {
+      "id": "oracle-resultados-fecha-q1-fy2027",
+      "type": "reunion",
+      "title": "Oracle anunció que publicará sus resultados del primer trimestre fiscal 2027 el 10 de septiembre",
+      "summary": "Oracle confirmó que presentará sus resultados financieros del primer trimestre del año fiscal 2027 el jueves 10 de septiembre de 2026, tras el cierre del mercado. La empresa realizará una llamada con inversores y un webcast en vivo para discutir los números.",
+      "detail": "Los anuncios de resultados de empresas tecnológicas grandes como Oracle mueven los mercados, especialmente en el contexto actual donde el crecimiento en servicios de nube e IA es monitoreado de cerca. Saber cuándo se publican estos resultados es útil para anticipar posible volatilidad en el precio de la acción. Oracle es relevante porque compite con Amazon Web Services y Microsoft Azure en el negocio de nube empresarial.",
+      "tags": [
+        "resultados",
+        "tecnología",
+        "nube"
+      ],
+      "source_name": "Oracle Investor Relations",
+      "source_url": "https://investor.oracle.com/investor-news/news-details/2026/Oracle-Sets-the-Date-for-its-First-Quarter-Fiscal-Year-2027-Earnings-Announcement/default.aspx",
+      "published_at": "2026-09-02T20:03:11Z",
+      "tickers": [
+        "ORCL"
+      ]
+    },
+    {
+      "id": "elliott-deutsche-telekom-tmoble-merger",
+      "type": "empresa",
+      "title": "El fondo activista Elliott se opone a una posible fusión entre Deutsche Telekom y T-Mobile",
+      "summary": "El fondo de inversión activista Elliott construyó una participación significativa en Deutsche Telekom y presiona para que la empresa descarte una posible fusión con T-Mobile US, sugiriendo en cambio que realice recompras de acciones para aumentar el valor para los accionistas. Deutsche Telekom controla casi el 54% de T-Mobile.",
+      "detail": "Los fondos activistas compran participaciones en empresas que consideran mal gestionadas o subvaloradas, y luego presionan públicamente para que cambien su estrategia. Es una forma de 'activismo accionario' que puede mover significativamente los precios. Este caso también ilustra cómo las grandes fusiones corporativas no solo dependen de la voluntad de los directorios, sino también de la presión de inversores institucionales con poder real.",
+      "tags": [
+        "activismo",
+        "fusiones",
+        "telecomunicaciones"
+      ],
+      "source_name": "WKZO",
+      "source_url": "https://wkzo.com/2026/09/02/elliott-has-built-stake-in-deutsche-telekom-opposes-t-mobile-merger-bloomberg-news-reports/",
+      "published_at": "2026-09-02T20:29:13Z",
+      "tickers": [
+        "TMUS"
+      ]
+    },
+    {
+      "id": "norwegian-cruise-petroleo-caida",
+      "type": "mercado",
+      "title": "Las acciones de cruceros cayeron 16% en un mes por el alza del precio del petróleo",
+      "summary": "Norwegian Cruise Line perdió un 16% en el último mes, y sus competidores Royal Caribbean y Carnival sufrieron caídas similares, todas asociadas al encarecimiento del crudo que presiona los costos de combustible de las navieras. La demanda de los consumidores por cruceros sigue firme, por lo que una baja en el precio del petróleo podría revertir rápidamente la presión sobre los márgenes.",
+      "detail": "Este caso muestra claramente cómo el precio de las materias primas impacta en sectores aparentemente no relacionados. El petróleo es el principal costo variable de las empresas de cruceros, y como no pueden cubrirse fácilmente contra esas fluctuaciones, sus márgenes son muy sensibles al precio del crudo. Para un inversor, entender estas cadenas de transmisión de precios es fundamental para analizar el riesgo sectorial.",
+      "tags": [
+        "petróleo",
+        "turismo",
+        "márgenes"
+      ],
+      "source_name": "24/7 Wall St.",
+      "source_url": "https://247wallst.com/investing/2026/09/02/norwegian-cruise-line-just-dropped-16-in-a-month-sell-now-or-buy-more/",
+      "published_at": "2026-09-02T19:24:58Z",
+      "tickers": [
+        "NCLH",
+        "RCL",
+        "CCL"
+      ]
+    },
+    {
+      "id": "novartis-bms-car-t-suspension",
+      "type": "empresa",
+      "title": "Novartis y Bristol Myers Squibb suspendieron ensayos de terapia CAR-T por problemas de seguridad",
+      "summary": "Novartis pausó ocho ensayos clínicos de su terapia CAR-T tras registrarse tres muertes vinculadas a una complicación inmunológica severa. Bristol Myers Squibb también detuvo voluntariamente el reclutamiento en sus estudios similares ante eventos inflamatorios. Los analistas señalan que procesos de fabricación acelerados podrían estar detrás del aumento de toxicidades.",
+      "detail": "Las terapias CAR-T son uno de los desarrollos más prometedores en oncología e inmunología, y hay grandes expectativas de mercado sobre su expansión. Cuando surgen problemas de seguridad en ensayos clínicos, no solo afecta a las empresas involucradas sino que puede frenar toda una línea terapéutica. Para quienes aprenden finanzas, esto ilustra el riesgo regulatorio y clínico que pesa sobre las acciones del sector biotecnológico y farmacéutico.",
+      "tags": [
+        "biotecnología",
+        "riesgo clínico",
+        "farmacéuticas"
+      ],
+      "source_name": "Pharmaceutical Executive",
+      "source_url": "https://www.pharmexec.com/view/novartis-bristol-myers-pause-autoimmune-cart-trials-safety-concerns",
+      "published_at": "2026-09-02T19:19:10Z",
+      "tickers": [
+        "BMY"
       ]
     }
   ],
@@ -185,39 +198,39 @@
     },
     {
       "label": "DÓLAR BLUE",
-      "valor": "$1.545",
-      "valor_num": 1545.0,
-      "delta_pct": 0.0
+      "valor": "$1.540",
+      "valor_num": 1540.0,
+      "delta_pct": -0.32
     },
     {
       "label": "MEP",
-      "valor": "$1.534",
-      "valor_num": 1533.9,
-      "delta_pct": 0.0
+      "valor": "$1.535",
+      "valor_num": 1535.2,
+      "delta_pct": 0.08
     },
     {
       "label": "CCL",
-      "valor": "$1.592",
-      "valor_num": 1592.1,
-      "delta_pct": 0.0
+      "valor": "$1.594",
+      "valor_num": 1594.4,
+      "delta_pct": 0.14
     },
     {
       "label": "BITCOIN",
-      "valor": "US$ 76.748",
-      "valor_num": 76748.0,
-      "delta_pct": -1.66
+      "valor": "US$ 77.281",
+      "valor_num": 77281.0,
+      "delta_pct": 0.14
     },
     {
       "label": "S&P 500",
-      "valor": "US$ 762",
-      "valor_num": 761.78,
-      "delta_pct": -0.69
+      "valor": "US$ 765",
+      "valor_num": 765.2,
+      "delta_pct": 0.45
     },
     {
       "label": "ORO",
-      "valor": "US$ 397",
-      "valor_num": 396.75,
-      "delta_pct": -2.86
+      "valor": "US$ 403",
+      "valor_num": 402.79,
+      "delta_pct": 1.52
     }
   ]
 }
