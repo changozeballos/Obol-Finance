@@ -1,191 +1,148 @@
 {
-  "generated_at": "2026-09-02T22:01:31.981454+00:00",
+  "generated_at": "2026-09-03T12:01:12.285119+00:00",
   "items": [
     {
-      "id": "broadcom-ai-revenue-q3-2026",
-      "type": "empresa",
-      "title": "Broadcom superó expectativas con ingresos de IA que se dispararon 221%",
-      "summary": "Broadcom reportó resultados del tercer trimestre fiscal 2026 mejores a lo esperado, con ingresos de semiconductores de IA creciendo un 221% interanual. Sin embargo, las acciones cayeron en el after-hours por una guía de cuarto trimestre considerada débil por el mercado, a pesar de que la empresa proyecta un crecimiento del 236% en ingresos de IA para ese período.",
-      "detail": "Este caso ilustra un fenómeno clásico en los mercados: 'buy the rumor, sell the news'. Aunque los números fueron sólidos, el mercado ya tenía expectativas muy altas incorporadas en el precio. La guía futura importa tanto o más que los resultados pasados, porque los inversores compran flujos de ganancias futuras, no históricas. Broadcom es además un termómetro clave del sector de IA, ya que fabrica chips personalizados para grandes empresas de tecnología.",
-      "tags": [
-        "inteligencia artificial",
-        "semiconductores",
-        "resultados"
-      ],
-      "source_name": "Benzinga",
-      "source_url": "https://www.benzinga.com/markets/earnings/26/09/61590745/broadcom-beats-q3-estimates-as-ai-revenue-jumps-221-shares-slide-on-soft-guidance",
-      "published_at": "2026-09-02T20:36:31Z",
-      "tickers": [
-        "AVGO"
-      ]
-    },
-    {
-      "id": "costco-ventas-agosto-2026",
-      "type": "empresa",
-      "title": "Costco reportó ventas de agosto por USD 23.700 millones, un 9,9% más que el año anterior",
-      "summary": "Costco informó ventas netas de agosto por 23.700 millones de dólares, un 9,9% más interanual. En el trimestre completo, las ventas crecieron 11,3% hasta los 93.900 millones, y en el año fiscal completo llegaron a 297.300 millones, un 10,2% más.",
-      "detail": "Las ventas mensuales de Costco son un indicador relevante del consumo en Estados Unidos. Cuando una empresa de retail masivo crece a dos dígitos, sugiere que el consumidor sigue gastando a pesar de la inflación y las tasas altas, lo que es una señal positiva para la economía general. Además, Costco es una empresa de referencia para medir la salud del consumidor estadounidense, algo que impacta en el ánimo global de los mercados.",
-      "tags": [
-        "consumo",
-        "retail",
-        "ventas"
-      ],
-      "source_name": "Investing.com India",
-      "source_url": "https://in.investing.com/news/stock-market-news/costco-reports-august-sales-of-237-billion-up-99-93CH-5580431",
-      "published_at": "2026-09-02T20:27:45Z",
-      "tickers": [
-        "COST"
-      ]
-    },
-    {
-      "id": "netapp-earnings-caida-acciones",
-      "type": "empresa",
-      "title": "NetApp superó estimaciones de ganancias pero igual cayó en bolsa",
-      "summary": "NetApp reportó resultados mejores a lo esperado y elevó su guía para el año fiscal, pero sus acciones bajaron en el mercado after-hours. El artículo señala que problemas relacionados con el flujo de caja e inventarios podrían estar pesando sobre el precio de la acción.",
-      "detail": "Este caso es un buen ejemplo para entender que los mercados no reaccionan solo a si una empresa 'ganó más o menos', sino a si superó las expectativas ya descontadas en el precio y si la calidad de esas ganancias es sólida. Factores como el flujo de caja libre o el nivel de inventarios pueden indicar problemas futuros aunque las ganancias contables sean buenas. Así funciona el análisis fundamental más allá de los titulares.",
-      "tags": [
-        "resultados",
-        "flujo de caja",
-        "tecnología"
-      ],
-      "source_name": "Barron's",
-      "source_url": "https://www.barrons.com/articles/netapp-earnings-stock-price-1c10379c?mod=barronsgooglenews",
-      "published_at": "2026-09-02T20:36:41Z",
-      "tickers": [
-        "NTAP"
-      ]
-    },
-    {
-      "id": "doj-investigacion-carne-amazon-walmart",
+      "id": "sp-china-credit-ratings",
       "type": "economia",
-      "title": "El Departamento de Justicia amplió su investigación antimonopolio sobre precios de la carne a Amazon, Walmart y Costco",
-      "summary": "El Departamento de Justicia de EE.UU. pidió seis años de datos de precios y compras de carne a ocho grandes cadenas de retail, incluyendo Amazon, Walmart y Costco. La investigación apunta a entender si existe manipulación de precios en la industria, en un contexto de precios de carne en máximos históricos que impulsaron la inflación alimentaria.",
-      "detail": "Las investigaciones antimonopolio pueden tener consecuencias directas sobre los precios al consumidor y la estructura de mercados enteros. Para un estudiante de finanzas, este caso muestra cómo el Estado puede intervenir en mercados privados cuando considera que hay prácticas que perjudican a los consumidores. También ilustra la relación entre concentración de mercado, poder de fijación de precios e inflación, un vínculo clave en macroeconomía.",
+      "title": "S&P alerta sobre riesgos en el mercado de bonos chino",
+      "summary": "S&P Global Ratings advierte que el mercado de bonos de China acumula riesgo porque las calificadoras locales les dan notas demasiado altas a los emisores, lo que puede ocultar la posibilidad de default. Muchas empresas chinas tienen una calificación internacional mucho más baja que la doméstica.",
+      "detail": "Las calificaciones crediticias son como una nota que le ponen a quien pide prestado: cuanto más alta, más confiable parece. Si esas notas están infladas, los inversores asumen más riesgo del que creen. Esto es relevante porque China está tratando de atraer inversores extranjeros a su mercado de bonos, y una mala evaluación del riesgo puede generar crisis cuando los defaults empiecen a aparecer. Para alguien aprendiendo finanzas, este caso muestra por qué la transparencia y la independencia de las calificadoras es fundamental en cualquier mercado.",
       "tags": [
-        "antimonopolio",
-        "inflación",
+        "bonos",
+        "riesgo crediticio",
+        "China"
+      ],
+      "source_name": "WHTC",
+      "source_url": "https://whtc.com/2026/09/03/sp-global-ratings-warns-of-risks-from-chinas-generous-credit-ratings/",
+      "published_at": "2026-09-03T11:12:45Z",
+      "tickers": [
+        "SPGI"
+      ]
+    },
+    {
+      "id": "uk-multa-citigroup-sanciones-rusia",
+      "type": "economia",
+      "title": "Reino Unido multó a Citigroup por violar sanciones contra Rusia",
+      "summary": "Las autoridades británicas multaron a la filial local de Citigroup con más de £4,7 millones por haber procesado 970 pagos por más de £19,7 millones a través de cuentas que debían estar bloqueadas por las sanciones a Rusia. La mayoría de las infracciones ocurrieron después de la invasión rusa a Ucrania en 2022.",
+      "detail": "Las sanciones económicas son una herramienta con la que los países restringen el acceso de otros países o personas al sistema financiero global. Cuando un banco las viola, aunque sea sin intención, enfrenta multas y daño reputacional. Este caso muestra que el cumplimiento regulatorio (compliance) es una parte crítica de la operación bancaria, especialmente en contextos geopolíticos complejos. Para alguien que aprende finanzas, entender que los bancos no operan en un vacío legal es clave.",
+      "tags": [
+        "sanciones",
+        "banca",
         "regulación"
       ],
-      "source_name": "Transport Topics",
-      "source_url": "https://www.ttnews.com/articles/doj-beef-antitrust-grocers",
-      "published_at": "2026-09-02T19:12:35Z",
+      "source_name": "Retail Banker International",
+      "source_url": "https://www.retailbankerinternational.com/news/uk-fines-citigroup-russia-sanctions/",
+      "published_at": "2026-09-03T11:06:04Z",
       "tickers": [
-        "WMT",
-        "AMZN",
-        "COST"
+        "C"
       ]
     },
     {
-      "id": "waymo-deuda-pimco-blackstone",
+      "id": "palo-alto-resultados-ciberseguridad",
       "type": "empresa",
-      "title": "Waymo, la unidad de autos autónomos de Google, busca recaudar más de USD 3.000 millones en deuda",
-      "summary": "Waymo está en conversaciones avanzadas para cerrar su primer financiamiento mediante deuda por más de 3.000 millones de dólares, con prestamistas como PIMCO y Blackstone. La empresa necesita fondos para expandir su flota de robotaxis y afrontar los crecientes costos de la inteligencia artificial.",
-      "detail": "Cuando una empresa tecnológica de alto crecimiento recurre a deuda por primera vez, es una señal de que necesita capital pero no quiere diluir a sus accionistas emitiendo nuevas acciones. Esto permite financiar expansión manteniendo el control accionario, aunque implica asumir obligaciones de pago de intereses. Para quienes aprenden finanzas, es un caso práctico de estructura de capital: la elección entre deuda y equity tiene costos y beneficios distintos.",
+      "title": "Palo Alto Networks creció 34% y anunció su quinta adquisición del año",
+      "summary": "Palo Alto Networks reportó ingresos de 3.410 millones de dólares en el cuarto trimestre de su año fiscal 2026, un 34% más que el año anterior, impulsado por su plataforma de seguridad de redes. Además, anunció la compra de Console, una empresa de seguridad basada en inteligencia artificial.",
+      "detail": "El fuerte crecimiento de Palo Alto muestra cómo la ciberseguridad se volvió una industria en auge a medida que más empresas migran a la nube y enfrentan amenazas potenciadas por la IA. Cuando una empresa crece adquiriendo otras (como hizo cinco veces este año), está apostando a expandir su oferta de productos rápidamente en lugar de desarrollarlos internamente. Para inversores, esto puede ser señal de dinamismo pero también de mayor deuda o dilución accionaria.",
       "tags": [
-        "deuda",
+        "ciberseguridad",
+        "resultados",
+        "inteligencia artificial"
+      ],
+      "source_name": "SDxCentral",
+      "source_url": "https://www.sdxcentral.com/news/palo-alto-networks-earnings-highlight-sase-and-network-security-wins/",
+      "published_at": "2026-09-03T10:53:24Z",
+      "tickers": [
+        "PANW"
+      ]
+    },
+    {
+      "id": "snowflake-precio-objetivo-ia",
+      "type": "mercado",
+      "title": "Analistas subieron fuerte el precio objetivo de Snowflake por el empuje de la IA",
+      "summary": "Raymond James elevó su precio objetivo para Snowflake de 275 a 425 dólares tras resultados trimestrales sólidos, con crecimiento de ingresos acelerado por tres trimestres consecutivos gracias a sus productos de inteligencia artificial. Otros bancos como Citizens y Deutsche Bank también subieron sus metas.",
+      "detail": "Cuando varios analistas de distintas firmas coinciden en subir el precio objetivo de una acción, es una señal de que el mercado está revisando al alza sus expectativas sobre el negocio. En el caso de Snowflake, el motor es la demanda de herramientas de datos potenciadas por IA. Aun así, los propios analistas advierten que la acción puede parecer cara en términos de valuación actual, lo que ilustra la tensión entre crecimiento esperado y precio de entrada.",
+      "tags": [
         "inteligencia artificial",
-        "vehículos autónomos"
+        "valuación",
+        "analistas"
+      ],
+      "source_name": "Investing.com",
+      "source_url": "https://www.investing.com/news/analyst-ratings/raymond-james-raises-snowflake-stock-price-target-on-ai-growth-93CH-4887432",
+      "published_at": "2026-09-03T10:46:11Z",
+      "tickers": [
+        "NVDA"
+      ]
+    },
+    {
+      "id": "tesla-fsd-francia",
+      "type": "empresa",
+      "title": "Francia comenzó las pruebas del sistema de conducción autónoma de Tesla",
+      "summary": "Francia inició las pruebas en ruta del sistema Full Self-Driving (FSD) de Tesla en dos vehículos, lo que podría abrir la puerta a su aprobación en toda Europa. Los resultados se esperan para mediados o fines de septiembre y podrían derivar en una votación a nivel de la Unión Europea.",
+      "detail": "La aprobación regulatoria es uno de los principales obstáculos para que Tesla pueda expandir su tecnología de conducción autónoma fuera de Estados Unidos. Si Europa da luz verde, se abre un mercado enorme y puede tener un impacto directo en las proyecciones de ingresos de la empresa. Este caso ilustra cómo las decisiones gubernamentales pueden mover las perspectivas de una compañía, algo fundamental para entender el riesgo regulatorio en inversiones.",
+      "tags": [
+        "Tesla",
+        "conducción autónoma",
+        "regulación"
       ],
       "source_name": "Reuters",
-      "source_url": "https://www.reuters.com/legal/transactional/waymo-taps-pimco-blackstone-raise-3-billion-debt-bloomberg-news-reports-2026-09-02/",
-      "published_at": "2026-09-02T19:20:10Z",
+      "source_url": "https://www.reuters.com/technology/france-starts-tests-teslas-self-driving-tech-2026-09-03/",
+      "published_at": "2026-09-03T10:07:00Z",
       "tickers": [
-        "BX"
+        "TSLA"
       ]
     },
     {
-      "id": "amd-saudi-arabia-ai-infraestructura",
-      "type": "empresa",
-      "title": "AMD, Cisco y HUMAIN planean desplegar hasta 1 gigawatt de infraestructura de IA en Arabia Saudita para 2030",
-      "summary": "AMD, Cisco y la empresa saudita HUMAIN anunciaron una expansión de su colaboración para construir infraestructura de IA en Arabia Saudita, apuntando a 1 gigawatt de capacidad instalada hacia 2030 usando chips AMD. La iniciativa busca posicionar a AMD como alternativa real a NVIDIA y Broadcom en el mercado de centros de datos con IA.",
-      "detail": "La carrera por la infraestructura de IA es uno de los temas de inversión más importantes de los últimos años. Que países del Medio Oriente inviertan masivamente en soberanía de IA muestra cómo esta tecnología se convirtió en un activo estratégico geopolítico además de comercial. Para un inversor, entender quiénes fabrican los chips y quiénes construyen la infraestructura es clave para identificar dónde fluye el capital en el sector tecnológico global.",
-      "tags": [
-        "inteligencia artificial",
-        "semiconductores",
-        "geopolítica"
-      ],
-      "source_name": "Yahoo Finance Canada",
-      "source_url": "https://ca.finance.yahoo.com/news/amds-saudi-ai-buildout-challenge-184700108.html",
-      "published_at": "2026-09-02T18:47:41Z",
-      "tickers": [
-        "AMD",
-        "NVDA",
-        "AVGO",
-        "CSCO"
-      ]
-    },
-    {
-      "id": "oracle-resultados-fecha-q1-fy2027",
-      "type": "reunion",
-      "title": "Oracle anunció que publicará sus resultados del primer trimestre fiscal 2027 el 10 de septiembre",
-      "summary": "Oracle confirmó que presentará sus resultados financieros del primer trimestre del año fiscal 2027 el jueves 10 de septiembre de 2026, tras el cierre del mercado. La empresa realizará una llamada con inversores y un webcast en vivo para discutir los números.",
-      "detail": "Los anuncios de resultados de empresas tecnológicas grandes como Oracle mueven los mercados, especialmente en el contexto actual donde el crecimiento en servicios de nube e IA es monitoreado de cerca. Saber cuándo se publican estos resultados es útil para anticipar posible volatilidad en el precio de la acción. Oracle es relevante porque compite con Amazon Web Services y Microsoft Azure en el negocio de nube empresarial.",
-      "tags": [
-        "resultados",
-        "tecnología",
-        "nube"
-      ],
-      "source_name": "Oracle Investor Relations",
-      "source_url": "https://investor.oracle.com/investor-news/news-details/2026/Oracle-Sets-the-Date-for-its-First-Quarter-Fiscal-Year-2027-Earnings-Announcement/default.aspx",
-      "published_at": "2026-09-02T20:03:11Z",
-      "tickers": [
-        "ORCL"
-      ]
-    },
-    {
-      "id": "elliott-deutsche-telekom-tmoble-merger",
-      "type": "empresa",
-      "title": "El fondo activista Elliott se opone a una posible fusión entre Deutsche Telekom y T-Mobile",
-      "summary": "El fondo de inversión activista Elliott construyó una participación significativa en Deutsche Telekom y presiona para que la empresa descarte una posible fusión con T-Mobile US, sugiriendo en cambio que realice recompras de acciones para aumentar el valor para los accionistas. Deutsche Telekom controla casi el 54% de T-Mobile.",
-      "detail": "Los fondos activistas compran participaciones en empresas que consideran mal gestionadas o subvaloradas, y luego presionan públicamente para que cambien su estrategia. Es una forma de 'activismo accionario' que puede mover significativamente los precios. Este caso también ilustra cómo las grandes fusiones corporativas no solo dependen de la voluntad de los directorios, sino también de la presión de inversores institucionales con poder real.",
-      "tags": [
-        "activismo",
-        "fusiones",
-        "telecomunicaciones"
-      ],
-      "source_name": "WKZO",
-      "source_url": "https://wkzo.com/2026/09/02/elliott-has-built-stake-in-deutsche-telekom-opposes-t-mobile-merger-bloomberg-news-reports/",
-      "published_at": "2026-09-02T20:29:13Z",
-      "tickers": [
-        "TMUS"
-      ]
-    },
-    {
-      "id": "norwegian-cruise-petroleo-caida",
+      "id": "goldman-sachs-resultados-nykredit",
       "type": "mercado",
-      "title": "Las acciones de cruceros cayeron 16% en un mes por el alza del precio del petróleo",
-      "summary": "Norwegian Cruise Line perdió un 16% en el último mes, y sus competidores Royal Caribbean y Carnival sufrieron caídas similares, todas asociadas al encarecimiento del crudo que presiona los costos de combustible de las navieras. La demanda de los consumidores por cruceros sigue firme, por lo que una baja en el precio del petróleo podría revertir rápidamente la presión sobre los márgenes.",
-      "detail": "Este caso muestra claramente cómo el precio de las materias primas impacta en sectores aparentemente no relacionados. El petróleo es el principal costo variable de las empresas de cruceros, y como no pueden cubrirse fácilmente contra esas fluctuaciones, sus márgenes son muy sensibles al precio del crudo. Para un inversor, entender estas cadenas de transmisión de precios es fundamental para analizar el riesgo sectorial.",
+      "title": "Goldman Sachs reportó un salto de ingresos del 39% interanual",
+      "summary": "Goldman Sachs registró un crecimiento de ingresos del 39,4% respecto al año anterior en su último trimestre, superando las estimaciones de los analistas, y además aumentó su dividendo trimestral. El banco danés Nykredit aprovechó para comprar acciones por unos 169 millones de dólares.",
+      "detail": "Un crecimiento tan marcado en los ingresos de Goldman Sachs suele reflejar mayor actividad en los mercados financieros: más operaciones de trading, fusiones y adquisiciones, y emisión de deuda. Cuando grandes institucionales como Nykredit entran fuerte en una acción, es una señal de confianza en el desempeño futuro del negocio. Para alguien aprendiendo finanzas, seguir los movimientos de grandes inversores institucionales es una forma de entender el sentimiento del mercado.",
       "tags": [
-        "petróleo",
-        "turismo",
-        "márgenes"
+        "banca",
+        "resultados",
+        "inversores institucionales"
       ],
-      "source_name": "24/7 Wall St.",
-      "source_url": "https://247wallst.com/investing/2026/09/02/norwegian-cruise-line-just-dropped-16-in-a-month-sell-now-or-buy-more/",
-      "published_at": "2026-09-02T19:24:58Z",
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/filing-nykredit-a-s-acquires-shares-of-167202-the-goldman-sachs-group-inc-gs-2026-09-03/",
+      "published_at": "2026-09-03T09:56:05Z",
       "tickers": [
-        "NCLH",
-        "RCL",
-        "CCL"
+        "GS"
       ]
     },
     {
-      "id": "novartis-bms-car-t-suspension",
+      "id": "first-solar-demanda-colectiva",
       "type": "empresa",
-      "title": "Novartis y Bristol Myers Squibb suspendieron ensayos de terapia CAR-T por problemas de seguridad",
-      "summary": "Novartis pausó ocho ensayos clínicos de su terapia CAR-T tras registrarse tres muertes vinculadas a una complicación inmunológica severa. Bristol Myers Squibb también detuvo voluntariamente el reclutamiento en sus estudios similares ante eventos inflamatorios. Los analistas señalan que procesos de fabricación acelerados podrían estar detrás del aumento de toxicidades.",
-      "detail": "Las terapias CAR-T son uno de los desarrollos más prometedores en oncología e inmunología, y hay grandes expectativas de mercado sobre su expansión. Cuando surgen problemas de seguridad en ensayos clínicos, no solo afecta a las empresas involucradas sino que puede frenar toda una línea terapéutica. Para quienes aprenden finanzas, esto ilustra el riesgo regulatorio y clínico que pesa sobre las acciones del sector biotecnológico y farmacéutico.",
+      "title": "Accionistas de First Solar impulsan una demanda colectiva por declaraciones engañosas",
+      "summary": "Un estudio jurídico anunció una demanda colectiva contra First Solar y sus directivos, alegando que la empresa hizo declaraciones falsas sobre su capacidad para manejar el impacto de los aranceles estadounidenses y minimizó los efectos negativos en sus proyecciones para 2026.",
+      "detail": "Las demandas colectivas de accionistas (class action) ocurren cuando inversores alegan que una empresa los engañó con información incorrecta, lo que les causó pérdidas. Este tipo de litigio puede generar incertidumbre sobre el valor de la acción y dañar la reputación de la empresa. Para alguien que aprende finanzas, este caso muestra la importancia de la transparencia corporativa y el riesgo legal que enfrentan las empresas que no informan correctamente sobre factores como los aranceles.",
       "tags": [
-        "biotecnología",
-        "riesgo clínico",
-        "farmacéuticas"
+        "energía solar",
+        "demanda legal",
+        "aranceles"
       ],
-      "source_name": "Pharmaceutical Executive",
-      "source_url": "https://www.pharmexec.com/view/novartis-bristol-myers-pause-autoimmune-cart-trials-safety-concerns",
-      "published_at": "2026-09-02T19:19:10Z",
+      "source_name": "The National Law Review",
+      "source_url": "https://natlawreview.com/press-releases/fslr-investor-alert-bronstein-gewirtz-and-grossman-llc-announces-first-10",
+      "published_at": "2026-09-03T10:16:03Z",
       "tickers": [
-        "BMY"
+        "FSLR"
+      ]
+    },
+    {
+      "id": "american-express-arabia-saudita-desinversion",
+      "type": "empresa",
+      "title": "Un banco saudita vendió su participación en American Express Arabia Saudita por 381 millones de dólares",
+      "summary": "El Saudi Investment Bank vendió su participación del 50% en American Express Arabia Saudita a Amex Middle East por 1.400 millones de riyales (unos 381 millones de dólares), generando una ganancia de 792 millones de riyales. Los fondos se usarán para fortalecer la posición financiera del banco.",
+      "detail": "Cuando un banco estatal vende una participación estratégica, generalmente lo hace para mejorar su liquidez o reasignar capital hacia áreas más prioritarias. En este caso, la ganancia considerable sugiere que el negocio de tarjetas de crédito en Arabia Saudita creció mucho de valor. Este tipo de operación también muestra cómo las grandes marcas financieras globales como American Express operan a través de socios locales en distintos países, y cómo esos socios pueden decidir salir cuando el precio es atractivo.",
+      "tags": [
+        "fusiones y adquisiciones",
+        "banca",
+        "Medio Oriente"
+      ],
+      "source_name": "Arabian Gulf Business Insight",
+      "source_url": "https://www.agbi.com/banking-finance/2026/09/state-backed-bank-divests-from-american-express-saudi-arabia/",
+      "published_at": "2026-09-03T09:47:00Z",
+      "tickers": [
+        "AXP"
       ]
     }
   ],
@@ -200,36 +157,36 @@
       "label": "DÓLAR BLUE",
       "valor": "$1.540",
       "valor_num": 1540.0,
-      "delta_pct": -0.32
+      "delta_pct": 0.0
     },
     {
       "label": "MEP",
       "valor": "$1.535",
       "valor_num": 1535.2,
-      "delta_pct": 0.08
+      "delta_pct": 0.0
     },
     {
       "label": "CCL",
       "valor": "$1.594",
       "valor_num": 1594.4,
-      "delta_pct": 0.14
+      "delta_pct": 0.0
     },
     {
       "label": "BITCOIN",
-      "valor": "US$ 77.281",
-      "valor_num": 77281.0,
-      "delta_pct": 0.14
+      "valor": "US$ 77.934",
+      "valor_num": 77934.0,
+      "delta_pct": 1.51
     },
     {
       "label": "S&P 500",
       "valor": "US$ 765",
-      "valor_num": 765.2,
-      "delta_pct": 0.45
+      "valor_num": 765.16,
+      "delta_pct": 0.44
     },
     {
       "label": "ORO",
       "valor": "US$ 403",
-      "valor_num": 402.79,
+      "valor_num": 402.78,
       "delta_pct": 1.52
     }
   ]
