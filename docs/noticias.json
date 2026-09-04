@@ -1,150 +1,191 @@
 {
-  "generated_at": "2026-09-04T12:01:21.614635+00:00",
+  "generated_at": "2026-09-04T22:01:39.479362+00:00",
   "items": [
     {
-      "id": "nvidia-hugging-face-acquisition",
+      "id": "adobe-ceo-change-2026",
       "type": "empresa",
-      "title": "Nvidia compró Hugging Face por u$s 12.900 millones para dominar el ecosistema de IA",
-      "summary": "Nvidia adquirió Hugging Face, la plataforma de modelos de inteligencia artificial más usada por desarrolladores, por u$s 12.900 millones. El movimiento es visto como una jugada defensiva para que ningún rival controle ese espacio clave del ecosistema de IA.",
-      "detail": "Cuando una empresa compra un activo estratégico no solo por su rentabilidad sino para que la competencia no lo tenga, se llama adquisición defensiva. En este caso, Hugging Face es como el 'sistema operativo' de los desarrolladores de IA: quien lo controla tiene acceso privilegiado a información sobre qué modelos están en tendencia y puede influir en toda la industria. Para un inversor, esto muestra cómo Nvidia no solo compite en chips sino que intenta construir un monopolio de infraestructura en torno a la IA, lo que puede justificar valuaciones muy altas.",
+      "title": "Adobe cae 6% tras anunciar nuevo CEO interno",
+      "summary": "Adobe bajó alrededor de un 6% después de confirmar que Anil Chakravarthy, un ejecutivo de larga data en la empresa, tomará el lugar de Shantanu Narayen como CEO. El mercado reaccionó negativamente en un contexto donde Adobe enfrenta presión creciente de competidores enfocados en IA.",
+      "detail": "Cuando una empresa elige a un CEO interno en lugar de buscar alguien externo con experiencia específica en un área de desafío, el mercado puede interpretarlo como una señal de que el cambio no será suficientemente profundo. En este caso, los inversores parecen preocupados por si Adobe tiene la estrategia correcta para competir en un mundo donde la IA está transformando el software creativo. La caída del 6% en una sola jornada muestra cómo las decisiones de liderazgo mueven los precios de las acciones, no solo los números financieros.",
       "tags": [
-        "inteligencia artificial",
-        "fusiones",
-        "tecnología"
-      ],
-      "source_name": "CNBC",
-      "source_url": "https://www.cnbc.com/2026/09/04/nvidia-hugging-face-deal-chips.html",
-      "published_at": "2026-09-04T11:00:37Z",
-      "tickers": [
-        "NVDA",
-        "MSFT",
-        "GOOGL"
-      ]
-    },
-    {
-      "id": "adobe-ceo-succession",
-      "type": "empresa",
-      "title": "Adobe cayó 3,4% tras anunciar un cambio de CEO y la salida de un ejecutivo clave",
-      "summary": "Las acciones de Adobe bajaron 3,4% en la pre-apertura después de que la empresa anunció que Anil Chakravarthy será el nuevo presidente y CEO, reemplazando a Shantanu Narayen. El mercado también reaccionó a la salida de David Wadhwani, quien era considerado un candidato natural para el cargo.",
-      "detail": "Los cambios de liderazgo generan incertidumbre porque los inversores no saben si el nuevo CEO mantendrá la misma estrategia o tomará decisiones distintas. En el caso de Adobe, esto se suma a preocupaciones previas sobre si la inteligencia artificial puede erosionar su modelo de suscripciones. Aprender a leer estos eventos es útil: una caída por cambio de CEO no siempre refleja problemas reales en el negocio, sino el miedo a lo desconocido. El timing también importa: el anuncio ocurre justo antes de que la empresa reporte resultados trimestrales.",
-      "tags": [
-        "acciones",
-        "liderazgo",
-        "tecnología"
+        "tecnología",
+        "IA",
+        "liderazgo"
       ],
       "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/markets/stocks/articles/adobe-shares-fall-ceo-succession-094434793.html",
-      "published_at": "2026-09-04T10:12:21Z",
+      "source_url": "https://ca.finance.yahoo.com/news/adobe-stock-sinks-company-names-192207394.html",
+      "published_at": "2026-09-04T20:22:00Z",
       "tickers": [
         "ADBE"
       ]
     },
     {
-      "id": "royal-caribbean-losing-streak",
-      "type": "mercado",
-      "title": "Royal Caribbean acumula 8 días de baja consecutiva y pierde u$s 7.400 millones de valor",
-      "summary": "Las acciones de Royal Caribbean (RCL) cayeron 9,4% en una racha de 8 días de bajas consecutivas, lo que redujo su capitalización de mercado en u$s 7.400 millones. La caída parece ser específica de la empresa y no refleja un movimiento negativo generalizado del mercado.",
-      "detail": "Una racha de bajas en una sola acción que no se replica en el resto del mercado es una señal para analizar si hay algo puntual en esa empresa o si es solo volatilidad. El artículo señala que los fundamentos de Royal Caribbean, como su margen operativo y su ratio precio/ganancia, siguen siendo favorables comparados con el promedio del S&P 500. Esto ilustra un concepto clave: el precio de una acción puede moverse independientemente de su salud financiera real, y la diversificación ayuda a no quedar demasiado expuesto a este tipo de situaciones.",
+      "id": "oracle-earnings-preview-sept2026",
+      "type": "reunion",
+      "title": "Oracle presenta resultados el 10 de septiembre: el mercado espera un movimiento del 11%",
+      "summary": "Oracle dará a conocer sus resultados del primer trimestre fiscal el 10 de septiembre, y el mercado de opciones anticipa un movimiento del 11,2% en el precio de la acción en cualquier dirección. Los analistas esperan ingresos de 19.130 millones de dólares y ganancias de 1,74 dólares por acción, con foco en el crecimiento de su negocio de nube e IA.",
+      "detail": "El mercado de opciones permite estimar cuánto movimiento espera el mercado para una acción en torno a un evento clave, como la publicación de resultados. Un 11% es un movimiento grande, lo que indica alta incertidumbre: los inversores no tienen claro si Oracle está convirtiendo sus inversiones en IA en crecimiento real. Este tipo de análisis previo a resultados es fundamental para entender cómo la expectativa mueve los precios incluso antes de que se publique un solo número.",
       "tags": [
-        "acciones",
-        "volatilidad",
-        "mercados"
-      ],
-      "source_name": "Trefis",
-      "source_url": "https://www.trefis.com/stock/rcl/articles/614390/royal-caribbean-stock-slides-9-4-over-8-straight-down-days/2026-09-04",
-      "published_at": "2026-09-04T11:02:10Z",
-      "tickers": [
-        "RCL"
-      ]
-    },
-    {
-      "id": "jpmorgan-ai-strategy",
-      "type": "empresa",
-      "title": "JPMorgan tiene 200.000 empleados usando IA y así lo logró sin imponerla",
-      "summary": "JPMorgan adoptó la inteligencia artificial de forma orgánica: no obligó a sus empleados a usarla, sino que dejó que se difundiera de boca en boca. Hoy 200.000 personas utilizan su plataforma interna de IA y hay más de 450 casos de uso en producción.",
-      "detail": "Lo interesante de esta historia no es solo la tecnología sino el modelo de adopción: JPMorgan mide el impacto real de la IA en el negocio usando metodología similar a ensayos clínicos, no solo métricas superficiales como cuántos empleados la usaron. Para alguien que aprende finanzas, esto muestra cómo los grandes bancos están transformando sus operaciones con IA, lo que puede afectar sus costos, su eficiencia y, en última instancia, sus ganancias y el precio de sus acciones.",
-      "tags": [
-        "inteligencia artificial",
-        "banca",
-        "tecnología"
-      ],
-      "source_name": "CIO",
-      "source_url": "https://www.cio.com/article/4208197/what-jpmorgan-does-differently-in-ai-and-how-any-company-can-apply-these-strategies.html",
-      "published_at": "2026-09-04T10:26:48Z",
-      "tickers": [
-        "JPM"
-      ]
-    },
-    {
-      "id": "devon-energy-upgrade",
-      "type": "mercado",
-      "title": "Devon Energy recibió una mejora a 'compra fuerte' tras superar expectativas de ganancias",
-      "summary": "Seaport Research Partners mejoró su calificación de Devon Energy (DVN) a 'strong-buy'. La empresa de energía superó las estimaciones del segundo trimestre con una ganancia de u$s 1,57 por acción versus los u$s 1,40 esperados, y sus ingresos crecieron 73,1% interanual hasta u$s 7.420 millones.",
-      "detail": "Las calificaciones de analistas ('upgrades' y 'downgrades') son señales que el mercado sigue de cerca porque pueden mover el precio de una acción. Un crecimiento de ingresos del 73% interanual es muy significativo e indica que la empresa capturó mucho más valor que el año anterior, posiblemente por precios del petróleo o mayor producción. Para alguien en Argentina, el sector energético global es relevante porque afecta el precio del petróleo, que impacta en la inflación y en los ingresos de países exportadores.",
-      "tags": [
-        "energía",
-        "analistas",
-        "acciones"
-      ],
-      "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/analyst-seaport-research-partners-upgrades-devon-energy-nyse-dvn-to-strong-buy-2026-09-04/",
-      "published_at": "2026-09-04T11:08:13Z",
-      "tickers": [
-        "DVN"
-      ]
-    },
-    {
-      "id": "freeport-mcmoran-insider",
-      "type": "mercado",
-      "title": "Freeport-McMoRan: insiders vendieron u$s 8,4 millones en acciones pese a buenos resultados",
-      "summary": "Freeport-McMoRan, la gran minera de cobre, reportó resultados trimestrales que superaron las estimaciones de analistas, pero al mismo tiempo insiders de la empresa vendieron acciones por un total de u$s 8,4 millones. Los analistas mantienen una calificación de 'compra moderada' con un precio objetivo promedio de u$s 70,27.",
-      "detail": "Freeport-McMoRan es uno de los mayores productores de cobre del mundo, un metal clave para la industria y la transición energética. La venta de acciones por parte de insiders (directivos y ejecutivos) no siempre es una señal negativa, ya que pueden vender por razones personales, pero el mercado la observa de cerca. El cobre es relevante para Argentina porque refleja la salud de la economía global: cuando China y el mundo crecen, el cobre sube, y eso puede afectar también a las materias primas argentinas.",
-      "tags": [
-        "minería",
-        "cobre",
-        "insiders"
-      ],
-      "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/filing-syntax-research-inc-sells-39509-shares-of-freeport-mcmoran-inc-fcx-2026-09-04/",
-      "published_at": "2026-09-04T10:12:32Z",
-      "tickers": [
-        "FCX"
-      ]
-    },
-    {
-      "id": "citigroup-recompra-acciones",
-      "type": "empresa",
-      "title": "Citigroup autorizó un plan de recompra de acciones por u$s 30.000 millones y subió su dividendo",
-      "summary": "Citigroup superó las expectativas de ganancias, autorizó un programa de recompra de acciones por u$s 30.000 millones y aumentó su dividendo trimestral a u$s 0,67 por acción. El banco austriaco Raiffeisen también incrementó su posición en Citi en un 12,9% durante el segundo trimestre.",
-      "detail": "Una recompra de acciones por u$s 30.000 millones es una señal muy fuerte: significa que el banco cree que sus propias acciones están baratas y prefiere invertir en ellas. Además, al reducir la cantidad de acciones en circulación, cada acción restante representa una mayor porción del negocio, lo que suele impulsar el precio. El aumento del dividendo es otro indicador de confianza en la rentabilidad futura. Estos son mecanismos básicos que cualquier inversor debe entender para analizar empresas financieras.",
-      "tags": [
-        "banca",
-        "dividendos",
-        "recompra"
-      ],
-      "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/filing-citigroup-inc-c-shares-bought-by-raiffeisen-bank-international-ag-2026-09-04/",
-      "published_at": "2026-09-04T10:28:19Z",
-      "tickers": [
-        "C"
-      ]
-    },
-    {
-      "id": "netapp-ai-infraestructura",
-      "type": "empresa",
-      "title": "NetApp creció casi 30% en ingresos impulsada por la demanda de infraestructura de IA",
-      "summary": "NetApp reportó resultados del primer trimestre fiscal con ingresos que crecieron casi 30% interanual, y elevó sus proyecciones para todo el año 2027 gracias a la fuerte demanda de infraestructura para inteligencia artificial y servicios de nube híbrida.",
-      "detail": "NetApp es una empresa de almacenamiento de datos que se beneficia directamente del boom de la IA, porque entrenar modelos requiere guardar y procesar enormes cantidades de información. Un crecimiento de ingresos del 30% es extraordinario para una empresa de este tamaño. Sin embargo, el artículo advierte sobre presión en márgenes brutos y caída en el flujo de caja libre, lo que muestra que crecer rápido no siempre significa ganar más dinero neto: un concepto fundamental en análisis financiero.",
-      "tags": [
-        "inteligencia artificial",
         "nube",
+        "IA",
         "resultados"
       ],
-      "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/filing-raiffeisen-bank-international-ag-has-7-13-million-holdings-in-iron-mountain-incorporated-irm-2026-09-04/",
-      "published_at": "2026-09-04T10:28:13Z",
+      "source_name": "Yahoo Finance",
+      "source_url": "https://finance.yahoo.com/markets/stocks/articles/oracles-next-earnings-report-could-183334437.html",
+      "published_at": "2026-09-04T18:11:00Z",
       "tickers": [
-        "NTAP"
+        "ORCL"
+      ]
+    },
+    {
+      "id": "fico-vantagescore-fhfa-2026",
+      "type": "mercado",
+      "title": "FICO y burós de crédito se desploman tras críticas del regulador hipotecario de EE.UU.",
+      "summary": "Las acciones de Fair Isaac (FICO), Equifax y TransUnion cayeron después de que Bill Pulte, director de la Agencia Federal de Financiamiento de Vivienda (FHFA), instruyera a Fannie Mae y Freddie Mac a aprobar el uso de VantageScore, un competidor directo de FICO en el sistema de puntajes crediticios.",
+      "detail": "FICO domina el mercado de puntajes crediticios en EE.UU. desde hace décadas, y gran parte de ese poder viene de que los grandes prestamistas hipotecarios —como Fannie Mae y Freddie Mac— lo usan casi exclusivamente. Si el regulador abre la puerta a un competidor, el modelo de negocios de FICO se debilita estructuralmente. Este caso ilustra cómo las decisiones regulatorias pueden impactar directamente la valuación de empresas enteras, incluso sin cambios en sus resultados financieros inmediatos.",
+      "tags": [
+        "crédito",
+        "regulación",
+        "mercado"
+      ],
+      "source_name": "Barron's",
+      "source_url": "https://www.barrons.com/articles/fico-stock-plunges-fhfa-vantagescore-credit-bureaus-ee4e60af",
+      "published_at": "2026-09-04T18:19:00Z",
+      "tickers": [
+        "FICO",
+        "EFX"
+      ]
+    },
+    {
+      "id": "supermicro-semiconductores-2026",
+      "type": "mercado",
+      "title": "Super Micro sube 7% y los semiconductores lideran la jornada en Wall Street",
+      "summary": "Super Micro Computer (SMCI) trepó un 7% impulsado por una fuerte demanda de servidores para IA y un backlog récord de pedidos. Mientras tanto, Hewlett Packard Enterprise cayó un 3% por problemas de suministro, y Dell subió levemente un 2%.",
+      "detail": "La demanda de infraestructura para inteligencia artificial sigue siendo el motor principal del sector tecnológico en 2026. Super Micro se beneficia directamente porque fabrica los servidores donde corre esa IA. El hecho de que HPE baje a pesar de buenos números —por no poder entregar los pedidos— muestra que en sectores con alta demanda, la capacidad de producción y logística puede ser tan importante como los resultados financieros.",
+      "tags": [
+        "semiconductores",
+        "IA",
+        "tecnología"
+      ],
+      "source_name": "Yahoo Finance",
+      "source_url": "https://finance.yahoo.com/markets/stocks/articles/super-micro-surges-7-semiconductors-180514356.html",
+      "published_at": "2026-09-04T18:15:00Z",
+      "tickers": [
+        "SMCI",
+        "HPE",
+        "DELL"
+      ]
+    },
+    {
+      "id": "arista-networks-q2-2026",
+      "type": "empresa",
+      "title": "Arista Networks bate récords con ingresos de 3.040 millones en el segundo trimestre",
+      "summary": "Arista Networks reportó ingresos récord de 3.040 millones de dólares en el segundo trimestre de 2026, superando las estimaciones de ganancias por acción, impulsada por la fuerte demanda de soluciones de redes para IA. Analistas de UBS subieron sus precios objetivo para la acción.",
+      "detail": "Arista Networks fabrica el equipamiento de redes que conecta los servidores dentro de los grandes centros de datos de IA. A medida que empresas como Microsoft, Amazon y Google expanden su infraestructura de IA, necesitan más equipos de red de alta velocidad, lo que beneficia directamente a Arista. Entender qué empresas están en la cadena de valor de la IA —no solo las más visibles como Nvidia— es clave para analizar el sector tecnológico.",
+      "tags": [
+        "redes",
+        "IA",
+        "resultados"
+      ],
+      "source_name": "AD HOC NEWS",
+      "source_url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/arista-networks-stock-gains-on-insider-sale-and-strong-q2-2026-figures/70056114",
+      "published_at": "2026-09-04T20:18:00Z",
+      "tickers": [
+        "ANET"
+      ]
+    },
+    {
+      "id": "fastenal-agosto-ventas-2026",
+      "type": "economia",
+      "title": "Fastenal registra su mayor crecimiento mensual de ventas en cuatro años",
+      "summary": "Fastenal reportó un aumento del 16,6% en ventas interanuales para agosto de 2026, el mayor crecimiento mensual en más de cuatro años y el decimocuarto mes consecutivo con crecimiento de dos dígitos. La aceleración se observó en todas las geografías y en los principales mercados industriales.",
+      "detail": "Fastenal distribuye materiales industriales y de construcción a fábricas y obras en toda América del Norte, por lo que sus datos de ventas funcionan como un termómetro de la actividad industrial real. Cuando Fastenal crece así de fuerte, suele indicar que las fábricas están produciendo más y que la demanda de insumos industriales es robusta. Para alguien que estudia finanzas, seguir datos de empresas como esta ayuda a anticipar tendencias económicas antes de que aparezcan en los informes oficiales.",
+      "tags": [
+        "industria",
+        "ventas",
+        "economía"
+      ],
+      "source_name": "Modern Distribution Management",
+      "source_url": "https://www.mdm.com/news/top-distributor-sectors/contractor/august-was-fastenals-best-sales-growth-in-4-years/",
+      "published_at": "2026-09-04T18:36:00Z",
+      "tickers": [
+        "FAST"
+      ]
+    },
+    {
+      "id": "morgan-stanley-dividendos-2026",
+      "type": "mercado",
+      "title": "Morgan Stanley identifica acciones con dividendos crecientes para proteger carteras",
+      "summary": "Morgan Stanley destacó que las acciones con dividendos en crecimiento pueden estabilizar las carteras en tiempos de incertidumbre, y mencionó entre sus favoritas a East West Bancorp, Packaging Corporation of America, Devon Energy, Nvidia, Royal Caribbean y Capital One Financial.",
+      "detail": "Los dividendos crecientes son una señal de que una empresa genera flujo de caja consistente y tiene confianza en su futuro. Para inversores que recién aprenden, entender la diferencia entre una acción que solo paga dividendo y una que lo aumenta año a año es fundamental: la segunda suele ser más valiosa porque indica salud financiera sostenida. Que Morgan Stanley arme esta lista en un contexto de incertidumbre refleja una estrategia defensiva clásica: priorizar flujo de caja ante la volatilidad.",
+      "tags": [
+        "dividendos",
+        "inversión",
+        "estrategia"
+      ],
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/04/these-companies-are-growing-their-dividends-morgan-stanley-says.html",
+      "published_at": "2026-09-04T19:12:00Z",
+      "tickers": [
+        "MS",
+        "DVN",
+        "NVDA",
+        "RCL",
+        "COF"
+      ]
+    },
+    {
+      "id": "chargepoint-q2-resultados-2026",
+      "type": "empresa",
+      "title": "ChargePoint sube 7% tras resultados sólidos y margen bruto récord del 38%",
+      "summary": "Las acciones de ChargePoint treparon un 7% después de que su CEO describiera el rally como \"el inicio del momentum\" de la empresa, luego de reportar resultados del segundo trimestre que superaron la guía de ingresos y alcanzaron un margen bruto récord del 38%. Los competidores EVgo y Blink Charging no acompañaron la suba, lo que indica que el mercado valuó positivamente a esta empresa en particular.",
+      "detail": "Un margen bruto récord significa que ChargePoint está reteniendo más dinero por cada dólar que vende, lo cual es una señal de mejora en eficiencia o poder de precios. Que sus competidores no hayan subido al mismo ritmo muestra que el mercado distingue entre empresas del mismo sector según sus propios resultados. Esto es un ejemplo clásico de revaluación específica de empresa, algo importante para entender cómo funciona la selección de acciones.",
+      "tags": [
+        "electromovilidad",
+        "resultados",
+        "margen"
+      ],
+      "source_name": "24/7 Wall St.",
+      "source_url": "https://247wallst.com/investing/2026/09/04/chargepoint-climbs-7-as-ceo-says-rally-is-the-beginning-of-the-momentum-evgo-ticks-up-blink-charging-holds-flat/",
+      "published_at": "2026-09-04T18:21:00Z",
+      "tickers": [
+        "BLNK"
+      ]
+    },
+    {
+      "id": "ballys-cfo-renuncia-2026",
+      "type": "empresa",
+      "title": "Bally's pierde a su CFO en medio de dudas sobre su continuidad como empresa",
+      "summary": "Bally's Corporation anunció la renuncia de su directora financiera Mira Mircheva en un momento de alta incertidumbre: la empresa ya había advertido sobre \"dudas sustanciales\" respecto a su capacidad de continuar operando, y su acción cayó un 50% desde su máximo de 52 semanas. George Papanier asumirá como CFO interino mientras buscan un reemplazo.",
+      "detail": "Cuando una empresa declara 'going concern doubt' (duda sobre continuidad operativa), es una señal de alerta máxima: significa que los auditores o la propia empresa no tienen certeza de poder seguir funcionando. La salida del CFO en ese contexto agrava la incertidumbre, ya que el director financiero es quien gestiona la liquidez y las relaciones con acreedores. Para alguien que aprende finanzas, este caso muestra cómo los eventos de gobierno corporativo y las señales contables se combinan para impactar el precio de una acción.",
+      "tags": [
+        "quiebra",
+        "gobierno corporativo",
+        "riesgo"
+      ],
+      "source_name": "Go Local Prov",
+      "source_url": "https://www.golocalprov.com/business/ballys-cfo-leaves-in-the-midst-of-financial-uncertainty",
+      "published_at": "2026-09-04T20:31:00Z",
+      "tickers": [
+        "BALY"
+      ]
+    },
+    {
+      "id": "boston-scientific-ciberseguridad-2026",
+      "type": "empresa",
+      "title": "Boston Scientific retoma envíos tras un incidente de ciberseguridad que hundió la acción un 51%",
+      "summary": "TD Cowen reiteró su recomendación de compra para Boston Scientific luego de que la empresa anunciara que comenzó a restablecer los envíos de la mayoría de sus productos, afectados por un incidente de ciberseguridad. La acción acumula una caída del 51% en lo que va del año debido a la disrupción, aunque analistas consideran que está subvaluada.",
+      "detail": "Este caso muestra cómo un ataque o falla de ciberseguridad puede tener consecuencias operativas y financieras directas: si una empresa no puede despachar sus productos, sus ingresos se cortan abruptamente. Una caída del 51% en el año refleja cuánto peso le da el mercado a la capacidad operativa de una empresa. A medida que los negocios dependen más de sistemas digitales, el riesgo cibernético se vuelve un factor clave a evaluar al analizar cualquier inversión.",
+      "tags": [
+        "ciberseguridad",
+        "salud",
+        "riesgo"
+      ],
+      "source_name": "Investing.com",
+      "source_url": "https://www.investing.com/news/analyst-ratings/td-cowen-reiterates-boston-scientific-stock-rating-on-shipping-restoration-93CH-4889905",
+      "published_at": "2026-09-04T18:19:00Z",
+      "tickers": [
+        "BSX"
       ]
     }
   ],
@@ -157,39 +198,39 @@
     },
     {
       "label": "DÓLAR BLUE",
-      "valor": "$1.545",
-      "valor_num": 1545.0,
-      "delta_pct": 0.0
+      "valor": "$1.540",
+      "valor_num": 1540.0,
+      "delta_pct": -0.32
     },
     {
       "label": "MEP",
-      "valor": "$1.532",
-      "valor_num": 1531.9,
-      "delta_pct": 0.0
+      "valor": "$1.525",
+      "valor_num": 1525.3,
+      "delta_pct": -0.43
     },
     {
       "label": "CCL",
-      "valor": "$1.590",
-      "valor_num": 1590.3,
-      "delta_pct": 0.0
+      "valor": "$1.583",
+      "valor_num": 1583.2,
+      "delta_pct": -0.45
     },
     {
       "label": "BITCOIN",
-      "valor": "US$ 81.237",
-      "valor_num": 81237.0,
-      "delta_pct": 4.3
+      "valor": "US$ 79.660",
+      "valor_num": 79660.0,
+      "delta_pct": -2.36
     },
     {
       "label": "S&P 500",
-      "valor": "US$ 773",
-      "valor_num": 773.17,
-      "delta_pct": 1.05
+      "valor": "US$ 770",
+      "valor_num": 770.24,
+      "delta_pct": -0.38
     },
     {
       "label": "ORO",
-      "valor": "US$ 410",
-      "valor_num": 410.22,
-      "delta_pct": 1.85
+      "valor": "US$ 407",
+      "valor_num": 406.84,
+      "delta_pct": -0.82
     }
   ]
 }
