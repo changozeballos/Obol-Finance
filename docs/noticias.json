@@ -1,170 +1,150 @@
 {
-  "generated_at": "2026-09-03T22:01:22.989974+00:00",
+  "generated_at": "2026-09-04T12:01:21.614635+00:00",
   "items": [
     {
-      "id": "lululemon-q2-2026",
+      "id": "nvidia-hugging-face-acquisition",
       "type": "empresa",
-      "title": "Lululemon reportó caída en ventas: bajaron 4% en el segundo trimestre",
-      "summary": "Lululemon informó que sus ventas del Q2 fiscal 2026 cayeron un 4% respecto al año anterior, llegando a 2.400 millones de dólares, principalmente por debilidad en América. La empresa también ajustó su proyección anual y espera ingresos de entre 10.350 y 10.500 millones de dólares para todo el año.",
-      "detail": "Cuando una empresa reporta resultados trimestrales, el mercado compara los números con lo que esperaban los analistas y con el año anterior. Una caída del 4% en ventas y del 9% en ventas comparables (mismas tiendas) es una señal de que los consumidores están gastando menos en esa marca. Que la empresa haya reducido su proyección anual también es importante: significa que los propios directivos esperan que las cosas no mejoren rápido. Este tipo de noticias suele presionar el precio de la acción a la baja.",
+      "title": "Nvidia compró Hugging Face por u$s 12.900 millones para dominar el ecosistema de IA",
+      "summary": "Nvidia adquirió Hugging Face, la plataforma de modelos de inteligencia artificial más usada por desarrolladores, por u$s 12.900 millones. El movimiento es visto como una jugada defensiva para que ningún rival controle ese espacio clave del ecosistema de IA.",
+      "detail": "Cuando una empresa compra un activo estratégico no solo por su rentabilidad sino para que la competencia no lo tenga, se llama adquisición defensiva. En este caso, Hugging Face es como el 'sistema operativo' de los desarrolladores de IA: quien lo controla tiene acceso privilegiado a información sobre qué modelos están en tendencia y puede influir en toda la industria. Para un inversor, esto muestra cómo Nvidia no solo compite en chips sino que intenta construir un monopolio de infraestructura en torno a la IA, lo que puede justificar valuaciones muy altas.",
       "tags": [
-        "consumo",
-        "resultados",
-        "retail"
-      ],
-      "source_name": "Lululemon",
-      "source_url": "https://corporate.lululemon.com/newsroom/press-releases/2026/09-03-2026-210528733",
-      "published_at": "2026-09-03T21:00:00Z",
-      "tickers": [
-        "LULU"
-      ]
-    },
-    {
-      "id": "franklin-templeton-aum-agosto-2026",
-      "type": "economia",
-      "title": "Franklin Templeton superó los 1,83 billones de dólares en activos bajo gestión",
-      "summary": "Franklin Templeton reportó activos bajo gestión de 1,83 billones de dólares al 31 de agosto de 2026, subiendo desde 1,79 billones en julio. El crecimiento se explica por el impacto positivo de los mercados y entradas netas de 8.000 millones de dólares en fondos de largo plazo.",
-      "detail": "Los activos bajo gestión (AUM) son el dinero total que una gestora administra para sus clientes. Cuando suben, la empresa gana más comisiones y genera más ingresos. Que hayan entrado 8.000 millones en flujos netos de largo plazo indica que los inversores están confiando su dinero a Franklin Templeton, lo cual es una señal de confianza en los mercados. Este dato sirve para entender cómo fluye el dinero a escala global entre instrumentos de inversión.",
-      "tags": [
-        "fondos",
-        "gestión de activos",
-        "flujos"
-      ],
-      "source_name": "Intellectia AI",
-      "source_url": "https://intellectia.ai/news/stock/franklin-templeton-reports-aum-growth",
-      "published_at": "2026-09-03T20:51:00Z",
-      "tickers": [
-        "BEN"
-      ]
-    },
-    {
-      "id": "cathie-wood-amd-nvidia-2026",
-      "type": "mercado",
-      "title": "Cathie Wood vendió AMD por 72,8 millones y compró Nvidia por 53 millones",
-      "summary": "ARK Invest, el fondo de Cathie Wood, vendió aproximadamente 72,8 millones de dólares en acciones de AMD y compró alrededor de 53 millones en acciones de Nvidia. El movimiento refleja una apuesta más fuerte por Nvidia dentro del sector de chips para inteligencia artificial.",
-      "detail": "Cuando inversores muy seguidos como Cathie Wood cambian posiciones importantes, el mercado presta atención porque puede anticipar tendencias. Este movimiento sugiere que ARK prefiere la ejecución más sólida de Nvidia en el negocio de IA frente a AMD, que tiene potencial pero más riesgos. Es un ejemplo claro de cómo los grandes fondos rebalancean sus carteras según cambian las perspectivas de cada empresa dentro de un mismo sector.",
-      "tags": [
-        "chips",
         "inteligencia artificial",
-        "fondos"
-      ],
-      "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/markets/stocks/articles/cathie-wood-sold-72-8-200905404.html",
-      "published_at": "2026-09-03T20:14:00Z",
-      "tickers": [
-        "AMD",
-        "NVDA"
-      ]
-    },
-    {
-      "id": "servicenow-rally-28-2026",
-      "type": "mercado",
-      "title": "ServiceNow subió 28% en un mes por una mejora general en el sector de software empresarial",
-      "summary": "Las acciones de ServiceNow (NOW) subieron un 28% en el último mes, cotizando a 146 dólares, aunque todavía acumulan una caída del 11% en lo que va del año. La suba se explica por una mejora generalizada en la valoración del sector de software empresarial, no por novedades propias de la compañía.",
-      "detail": "Este caso ilustra algo clave en los mercados: las acciones no solo suben por resultados propios, sino también por el humor general del sector. Cuando los inversores se preocupan menos por el impacto de la IA en los modelos de negocio de software, todo el sector se beneficia. Entender si una suba es por fundamentos reales o por cambio de sentimiento ayuda a decidir si conviene mantener o vender una posición.",
-      "tags": [
-        "software",
-        "valuación",
-        "sentimiento de mercado"
-      ],
-      "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/markets/stocks/articles/servicenow-just-rallied-28-month-193004936.html",
-      "published_at": "2026-09-03T20:30:00Z",
-      "tickers": [
-        "NOW",
-        "CRM",
-        "PLTR"
-      ]
-    },
-    {
-      "id": "dominion-nextera-merger-2026",
-      "type": "empresa",
-      "title": "El 98% de los accionistas de Dominion Energy aprobó la fusión con NextEra",
-      "summary": "Los accionistas de Dominion Energy votaron abrumadoramente a favor de fusionarse con NextEra Energy, con un 98% de votos a favor. Sin embargo, la operación todavía necesita la aprobación de la Comisión Estatal de Corporaciones de Virginia para concretarse.",
-      "detail": "Las fusiones entre grandes empresas energéticas son relevantes porque reconfiguran el mapa del sector y pueden afectar tarifas y competencia. Que los accionistas aprueben con un 98% es una señal muy fuerte de apoyo, pero la aprobación regulatoria es el obstáculo que queda. Este proceso muestra cómo las fusiones no dependen solo de los dueños de las empresas, sino también de los gobiernos y reguladores, que pueden frenarlo si consideran que perjudica a los consumidores.",
-      "tags": [
         "fusiones",
-        "energía",
-        "regulación"
+        "tecnología"
       ],
-      "source_name": "WTVR.com",
-      "source_url": "https://www.wtvr.com/news/local-news/dominion-energy-shareholders-voted-98-in-favor-of-merging-with-nextera",
-      "published_at": "2026-09-03T20:32:00Z",
+      "source_name": "CNBC",
+      "source_url": "https://www.cnbc.com/2026/09/04/nvidia-hugging-face-deal-chips.html",
+      "published_at": "2026-09-04T11:00:37Z",
       "tickers": [
-        "NEE",
-        "D"
+        "NVDA",
+        "MSFT",
+        "GOOGL"
       ]
     },
     {
-      "id": "applied-materials-valuacion-2026",
-      "type": "mercado",
-      "title": "Applied Materials subió casi 180% en un año pese a crecer apenas 7,8% en ingresos",
-      "summary": "Las acciones de Applied Materials (AMAT) se dispararon alrededor de un 180% en el último año, aunque sus ingresos crecieron solo un 7,8%. La suba se explica porque la empresa fue levantando sus proyecciones de negocio repetidamente, impulsada por mayor demanda en semiconductores y memoria DRAM.",
-      "detail": "Este caso es un ejemplo clásico de cómo el mercado no valúa el pasado sino el futuro. Cuando una empresa sube sus proyecciones en forma reiterada, los inversores pagan un precio más alto hoy apostando a ganancias futuras. Valuar una empresa a 11 veces sus ventas es caro, y eso implica que cualquier decepción en los resultados puede generar caídas bruscas, como ya ocurrió cuando la acción cayó un 39% desde su pico. Entender la diferencia entre precio y valor es fundamental para invertir.",
+      "id": "adobe-ceo-succession",
+      "type": "empresa",
+      "title": "Adobe cayó 3,4% tras anunciar un cambio de CEO y la salida de un ejecutivo clave",
+      "summary": "Las acciones de Adobe bajaron 3,4% en la pre-apertura después de que la empresa anunció que Anil Chakravarthy será el nuevo presidente y CEO, reemplazando a Shantanu Narayen. El mercado también reaccionó a la salida de David Wadhwani, quien era considerado un candidato natural para el cargo.",
+      "detail": "Los cambios de liderazgo generan incertidumbre porque los inversores no saben si el nuevo CEO mantendrá la misma estrategia o tomará decisiones distintas. En el caso de Adobe, esto se suma a preocupaciones previas sobre si la inteligencia artificial puede erosionar su modelo de suscripciones. Aprender a leer estos eventos es útil: una caída por cambio de CEO no siempre refleja problemas reales en el negocio, sino el miedo a lo desconocido. El timing también importa: el anuncio ocurre justo antes de que la empresa reporte resultados trimestrales.",
       "tags": [
-        "semiconductores",
-        "valuación",
-        "expectativas"
+        "acciones",
+        "liderazgo",
+        "tecnología"
+      ],
+      "source_name": "Yahoo Finance",
+      "source_url": "https://finance.yahoo.com/markets/stocks/articles/adobe-shares-fall-ceo-succession-094434793.html",
+      "published_at": "2026-09-04T10:12:21Z",
+      "tickers": [
+        "ADBE"
+      ]
+    },
+    {
+      "id": "royal-caribbean-losing-streak",
+      "type": "mercado",
+      "title": "Royal Caribbean acumula 8 días de baja consecutiva y pierde u$s 7.400 millones de valor",
+      "summary": "Las acciones de Royal Caribbean (RCL) cayeron 9,4% en una racha de 8 días de bajas consecutivas, lo que redujo su capitalización de mercado en u$s 7.400 millones. La caída parece ser específica de la empresa y no refleja un movimiento negativo generalizado del mercado.",
+      "detail": "Una racha de bajas en una sola acción que no se replica en el resto del mercado es una señal para analizar si hay algo puntual en esa empresa o si es solo volatilidad. El artículo señala que los fundamentos de Royal Caribbean, como su margen operativo y su ratio precio/ganancia, siguen siendo favorables comparados con el promedio del S&P 500. Esto ilustra un concepto clave: el precio de una acción puede moverse independientemente de su salud financiera real, y la diversificación ayuda a no quedar demasiado expuesto a este tipo de situaciones.",
+      "tags": [
+        "acciones",
+        "volatilidad",
+        "mercados"
       ],
       "source_name": "Trefis",
-      "source_url": "https://www.trefis.com/stock/amat/articles/614235/why-did-applied-materials-stock-nearly-triple-on-single-digit-trailing-revenue-growth/2026-09-03",
-      "published_at": "2026-09-03T20:16:00Z",
+      "source_url": "https://www.trefis.com/stock/rcl/articles/614390/royal-caribbean-stock-slides-9-4-over-8-straight-down-days/2026-09-04",
+      "published_at": "2026-09-04T11:02:10Z",
       "tickers": [
-        "AMAT"
+        "RCL"
       ]
     },
     {
-      "id": "intuit-investor-day-sept-2026",
-      "type": "reunion",
-      "title": "Intuit organiza su Investor Day el 17 de septiembre para presentar su estrategia",
-      "summary": "Intuit celebrará su Investor Day anual el 17 de septiembre de 2026 en su sede de Mountain View. El CEO Sasan Goodarzi y el CFO Sandeep Aujla presentarán la estrategia de la compañía para el año fiscal 2027 en adelante.",
-      "detail": "Los Investor Days son eventos donde la dirección de una empresa le explica a analistas e inversores hacia dónde va el negocio. Son importantes porque suelen mover el precio de la acción: si las proyecciones entusiasman al mercado, la acción sube; si decepcionan, baja. Seguir estos eventos ayuda a entender cómo las empresas comunican su estrategia y cómo el mercado reacciona ante esas expectativas.",
-      "tags": [
-        "estrategia",
-        "tecnología",
-        "inversores"
-      ],
-      "source_name": "Yahoo Finance Singapore",
-      "source_url": "https://sg.finance.yahoo.com/news/intuit-host-annual-investor-day-200000716.html",
-      "published_at": "2026-09-03T20:00:00Z",
-      "tickers": [
-        "INTU"
-      ]
-    },
-    {
-      "id": "ubs-deere-ciclo-agricola-2026",
-      "type": "mercado",
-      "title": "UBS mantiene su recomendación de compra en Deere pese a la baja del sector agrícola",
-      "summary": "El banco UBS mantuvo su calificación de compra para las acciones de Deere (DE) a pesar de la desaceleración cíclica en el mercado de maquinaria agrícola. Los analistas creen que 2026 marcará el piso del ciclo y esperan una recuperación gradual hacia 2028.",
-      "detail": "Los ciclos económicos afectan a sectores enteros: cuando los precios agrícolas bajan o los granjeros tienen menos ingresos, compran menos maquinaria. UBS sostiene que ese ciclo bajista está llegando a su punto más bajo, lo que históricamente suele ser un buen momento para invertir antes de la recuperación. Este tipo de análisis sectorial es clave para entender por qué los analistas pueden recomendar comprar una acción incluso cuando el negocio está complicado en el corto plazo.",
-      "tags": [
-        "ciclo económico",
-        "maquinaria",
-        "análisis sectorial"
-      ],
-      "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/markets/stocks/articles/ubs-remains-bullish-deere-despite-193258984.html",
-      "published_at": "2026-09-03T19:33:00Z",
-      "tickers": [
-        "DE"
-      ]
-    },
-    {
-      "id": "sp-global-dicks-foot-locker-2026",
+      "id": "jpmorgan-ai-strategy",
       "type": "empresa",
-      "title": "S&P Global bajó la perspectiva de Dick's Sporting Goods por problemas con Foot Locker",
-      "summary": "S&P Global revisó a la baja la perspectiva crediticia de Dick's Sporting Goods de positiva a estable, manteniendo su calificación BBB. La agencia citó dificultades para revertir la situación de Foot Locker, que Dick's adquirió recientemente, y un entorno retail muy promocional.",
-      "detail": "Las calificadoras como S&P Global evalúan la solidez financiera de las empresas. Bajar la perspectiva de una compañía (aunque no la calificación en sí) es una señal de alerta: indica que si las cosas no mejoran, podría haber una rebaja real. Esto importa porque afecta el costo al que la empresa puede pedir préstamos. Para un aprendiz de finanzas, este caso muestra cómo una adquisición mal ejecutada puede dañar la salud financiera general de quien compra.",
+      "title": "JPMorgan tiene 200.000 empleados usando IA y así lo logró sin imponerla",
+      "summary": "JPMorgan adoptó la inteligencia artificial de forma orgánica: no obligó a sus empleados a usarla, sino que dejó que se difundiera de boca en boca. Hoy 200.000 personas utilizan su plataforma interna de IA y hay más de 450 casos de uso en producción.",
+      "detail": "Lo interesante de esta historia no es solo la tecnología sino el modelo de adopción: JPMorgan mide el impacto real de la IA en el negocio usando metodología similar a ensayos clínicos, no solo métricas superficiales como cuántos empleados la usaron. Para alguien que aprende finanzas, esto muestra cómo los grandes bancos están transformando sus operaciones con IA, lo que puede afectar sus costos, su eficiencia y, en última instancia, sus ganancias y el precio de sus acciones.",
       "tags": [
-        "crédito",
-        "retail",
-        "adquisiciones"
+        "inteligencia artificial",
+        "banca",
+        "tecnología"
       ],
-      "source_name": "Investing.com",
-      "source_url": "https://www.investing.com/news/stock-market-news/sp-global-cuts-dicks-sporting-goods-outlook-on-foot-locker-woes-93CH-4888460",
-      "published_at": "2026-09-03T19:49:00Z",
+      "source_name": "CIO",
+      "source_url": "https://www.cio.com/article/4208197/what-jpmorgan-does-differently-in-ai-and-how-any-company-can-apply-these-strategies.html",
+      "published_at": "2026-09-04T10:26:48Z",
       "tickers": [
-        "SPGI"
+        "JPM"
+      ]
+    },
+    {
+      "id": "devon-energy-upgrade",
+      "type": "mercado",
+      "title": "Devon Energy recibió una mejora a 'compra fuerte' tras superar expectativas de ganancias",
+      "summary": "Seaport Research Partners mejoró su calificación de Devon Energy (DVN) a 'strong-buy'. La empresa de energía superó las estimaciones del segundo trimestre con una ganancia de u$s 1,57 por acción versus los u$s 1,40 esperados, y sus ingresos crecieron 73,1% interanual hasta u$s 7.420 millones.",
+      "detail": "Las calificaciones de analistas ('upgrades' y 'downgrades') son señales que el mercado sigue de cerca porque pueden mover el precio de una acción. Un crecimiento de ingresos del 73% interanual es muy significativo e indica que la empresa capturó mucho más valor que el año anterior, posiblemente por precios del petróleo o mayor producción. Para alguien en Argentina, el sector energético global es relevante porque afecta el precio del petróleo, que impacta en la inflación y en los ingresos de países exportadores.",
+      "tags": [
+        "energía",
+        "analistas",
+        "acciones"
+      ],
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/analyst-seaport-research-partners-upgrades-devon-energy-nyse-dvn-to-strong-buy-2026-09-04/",
+      "published_at": "2026-09-04T11:08:13Z",
+      "tickers": [
+        "DVN"
+      ]
+    },
+    {
+      "id": "freeport-mcmoran-insider",
+      "type": "mercado",
+      "title": "Freeport-McMoRan: insiders vendieron u$s 8,4 millones en acciones pese a buenos resultados",
+      "summary": "Freeport-McMoRan, la gran minera de cobre, reportó resultados trimestrales que superaron las estimaciones de analistas, pero al mismo tiempo insiders de la empresa vendieron acciones por un total de u$s 8,4 millones. Los analistas mantienen una calificación de 'compra moderada' con un precio objetivo promedio de u$s 70,27.",
+      "detail": "Freeport-McMoRan es uno de los mayores productores de cobre del mundo, un metal clave para la industria y la transición energética. La venta de acciones por parte de insiders (directivos y ejecutivos) no siempre es una señal negativa, ya que pueden vender por razones personales, pero el mercado la observa de cerca. El cobre es relevante para Argentina porque refleja la salud de la economía global: cuando China y el mundo crecen, el cobre sube, y eso puede afectar también a las materias primas argentinas.",
+      "tags": [
+        "minería",
+        "cobre",
+        "insiders"
+      ],
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/filing-syntax-research-inc-sells-39509-shares-of-freeport-mcmoran-inc-fcx-2026-09-04/",
+      "published_at": "2026-09-04T10:12:32Z",
+      "tickers": [
+        "FCX"
+      ]
+    },
+    {
+      "id": "citigroup-recompra-acciones",
+      "type": "empresa",
+      "title": "Citigroup autorizó un plan de recompra de acciones por u$s 30.000 millones y subió su dividendo",
+      "summary": "Citigroup superó las expectativas de ganancias, autorizó un programa de recompra de acciones por u$s 30.000 millones y aumentó su dividendo trimestral a u$s 0,67 por acción. El banco austriaco Raiffeisen también incrementó su posición en Citi en un 12,9% durante el segundo trimestre.",
+      "detail": "Una recompra de acciones por u$s 30.000 millones es una señal muy fuerte: significa que el banco cree que sus propias acciones están baratas y prefiere invertir en ellas. Además, al reducir la cantidad de acciones en circulación, cada acción restante representa una mayor porción del negocio, lo que suele impulsar el precio. El aumento del dividendo es otro indicador de confianza en la rentabilidad futura. Estos son mecanismos básicos que cualquier inversor debe entender para analizar empresas financieras.",
+      "tags": [
+        "banca",
+        "dividendos",
+        "recompra"
+      ],
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/filing-citigroup-inc-c-shares-bought-by-raiffeisen-bank-international-ag-2026-09-04/",
+      "published_at": "2026-09-04T10:28:19Z",
+      "tickers": [
+        "C"
+      ]
+    },
+    {
+      "id": "netapp-ai-infraestructura",
+      "type": "empresa",
+      "title": "NetApp creció casi 30% en ingresos impulsada por la demanda de infraestructura de IA",
+      "summary": "NetApp reportó resultados del primer trimestre fiscal con ingresos que crecieron casi 30% interanual, y elevó sus proyecciones para todo el año 2027 gracias a la fuerte demanda de infraestructura para inteligencia artificial y servicios de nube híbrida.",
+      "detail": "NetApp es una empresa de almacenamiento de datos que se beneficia directamente del boom de la IA, porque entrenar modelos requiere guardar y procesar enormes cantidades de información. Un crecimiento de ingresos del 30% es extraordinario para una empresa de este tamaño. Sin embargo, el artículo advierte sobre presión en márgenes brutos y caída en el flujo de caja libre, lo que muestra que crecer rápido no siempre significa ganar más dinero neto: un concepto fundamental en análisis financiero.",
+      "tags": [
+        "inteligencia artificial",
+        "nube",
+        "resultados"
+      ],
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/filing-raiffeisen-bank-international-ag-has-7-13-million-holdings-in-iron-mountain-incorporated-irm-2026-09-04/",
+      "published_at": "2026-09-04T10:28:13Z",
+      "tickers": [
+        "NTAP"
       ]
     }
   ],
@@ -173,37 +153,37 @@
       "label": "DÓLAR OFICIAL",
       "valor": "$1.530",
       "valor_num": 1530.0,
-      "delta_pct": -0.33
+      "delta_pct": 0.0
     },
     {
       "label": "DÓLAR BLUE",
       "valor": "$1.545",
       "valor_num": 1545.0,
-      "delta_pct": 0.32
+      "delta_pct": 0.0
     },
     {
       "label": "MEP",
       "valor": "$1.532",
       "valor_num": 1531.9,
-      "delta_pct": -0.21
+      "delta_pct": 0.0
     },
     {
       "label": "CCL",
       "valor": "$1.590",
       "valor_num": 1590.3,
-      "delta_pct": -0.26
+      "delta_pct": 0.0
     },
     {
       "label": "BITCOIN",
-      "valor": "US$ 81.621",
-      "valor_num": 81621.0,
-      "delta_pct": 5.65
+      "valor": "US$ 81.237",
+      "valor_num": 81237.0,
+      "delta_pct": 4.3
     },
     {
       "label": "S&P 500",
       "valor": "US$ 773",
-      "valor_num": 773.15,
-      "delta_pct": 1.04
+      "valor_num": 773.17,
+      "delta_pct": 1.05
     },
     {
       "label": "ORO",
