@@ -1,16 +1,34 @@
 {
-  "generated_at": "2026-09-05T19:06:08.553719+00:00",
+  "generated_at": "2026-09-05T22:01:28.809457+00:00",
   "items": [
     {
-      "id": "apple-foldable-iphone-morgan-stanley",
+      "id": "citigroup-subvaluado-record-revenue",
+      "type": "mercado",
+      "title": "Citigroup podría estar 31% subvaluado tras un trimestre récord",
+      "summary": "Las acciones de Citigroup parecen estar significativamente por debajo de su valor real, con un modelo de análisis que sugiere un descuento del 31% respecto a su valor intrínseco, a pesar de haber registrado ingresos récord recientemente.",
+      "detail": "Cuando una acción cotiza por debajo de su valor intrínseco, los inversores hablan de 'subvaluación': básicamente, el mercado la vende más barata de lo que 'debería' valer según sus fundamentos. En el caso de Citigroup, el mercado parece estar descontando riesgos macroeconómicos y costos regulatorios. Entender la diferencia entre el precio de mercado y el valor intrínseco es uno de los conceptos clave del análisis fundamental. Esta tensión entre optimismo por la transformación digital y preocupaciones macro es un ejemplo clásico de por qué el precio de una acción no siempre refleja su valor real.",
+      "tags": [
+        "bancos",
+        "valuación",
+        "mercados"
+      ],
+      "source_name": "Yahoo Finance",
+      "source_url": "https://finance.yahoo.com/markets/stocks/articles/citigroup-c-stock-may-31-181022509.html",
+      "published_at": "2026-09-05T17:45:42Z",
+      "tickers": [
+        "C"
+      ]
+    },
+    {
+      "id": "apple-iphone-plegable-morgan-stanley",
       "type": "empresa",
-      "title": "Morgan Stanley proyecta u$s 14.000 millones en ventas para el iPhone plegable de Apple",
-      "summary": "Morgan Stanley estima que el primer iPhone plegable de Apple podría generar unos u$s 14.000 millones de ingresos en el trimestre de diciembre, con una producción de entre 7 y 8 millones de unidades en la segunda mitad de 2026. También se espera un aumento de precio en los modelos Pro por mayores costos de componentes.",
-      "detail": "Cuando un banco de inversión como Morgan Stanley publica una estimación de ventas para un producto nuevo, eso mueve expectativas del mercado y puede influir en el precio de la acción antes de que el producto se lance. Además, el caso del iPhone plegable ilustra cómo los cambios de diseño (form factor) impactan toda la cadena de valor: fabricantes de componentes, pantallas y proveedores de vidrio también se ven afectados. Para quien aprende finanzas, esto muestra cómo los analistas usan modelos de oferta y demanda para anticipar ingresos futuros.",
+      "title": "Morgan Stanley proyecta u$s 14.000 millones en ingresos para el iPhone plegable de Apple",
+      "summary": "Morgan Stanley estima que el primer iPhone plegable de Apple podría generar alrededor de 14.000 millones de dólares en ingresos solo en el trimestre de diciembre, con una demanda inicial que superaría a la oferta disponible.",
+      "detail": "Cuando un banco de inversión como Morgan Stanley publica proyecciones sobre un producto, suele mover el precio de las acciones de la empresa, ya que los inversores ajustan sus expectativas de ganancias futuras. Este caso ilustra cómo el lanzamiento de un nuevo producto puede ser un 'catalizador' para una acción. También es relevante notar que se anticipan aumentos de precios en los modelos Pro por mayores costos de componentes, lo que afecta directamente los márgenes de ganancia de la compañía.",
       "tags": [
         "tecnología",
-        "análisis bursátil",
-        "Apple"
+        "Apple",
+        "acciones"
       ],
       "source_name": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-estimates-apple-foldable-131000560.html",
@@ -21,29 +39,31 @@
       ]
     },
     {
-      "id": "tesla-cybercab-musk-black",
-      "type": "empresa",
-      "title": "Tesla lanzó el Cybercab con motor sin tierras raras, pero inversores lo critican",
-      "summary": "Elon Musk confirmó que el motor del Tesla Cybercab no usa tierras raras, lo que reduce dependencia de cadenas de suministro complejas. Sin embargo, el inversor Gary Black criticó el lanzamiento por falta de detalles e incertidumbre regulatoria, calificándolo como 'un fracaso en gran medida'.",
-      "detail": "Las tierras raras son minerales críticos para muchos motores eléctricos y su suministro está concentrado principalmente en China, lo que representa un riesgo geopolítico para fabricantes de vehículos eléctricos. Que Tesla logre prescindir de ellas es un avance técnico relevante. Sin embargo, este caso también muestra que un anuncio de producto no siempre genera confianza si los inversores no reciben información concreta sobre plazos, regulaciones y escalabilidad comercial.",
+      "id": "palantir-pwc-alianza-acciones",
+      "type": "mercado",
+      "title": "Palantir subió 7,7% tras ampliar su alianza con PwC en IA empresarial",
+      "summary": "Las acciones de Palantir saltaron 7,7% después de que la compañía anunciara una alianza ampliada con la consultora PwC, enfocada en inteligencia artificial para empresas y fusiones y adquisiciones.",
+      "detail": "Este movimiento muestra cómo un anuncio de alianza estratégica puede impactar directamente el precio de una acción, incluso sin que se divulgue el valor concreto del contrato. En finanzas, esto se llama reacción del mercado a 'noticias blandas': el mercado apuesta por el potencial futuro aunque los números no estén confirmados. También ilustra la competencia entre modelos de negocio en el sector de IA: software productizado versus servicios especializados, un debate relevante para entender cómo se valúan las empresas tecnológicas.",
       "tags": [
-        "vehículos eléctricos",
-        "Tesla",
-        "cadena de suministro"
+        "inteligencia artificial",
+        "acciones",
+        "tecnología"
       ],
       "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/technology/articles/elon-musk-says-tesla-cybercab-133036109.html",
-      "published_at": "2026-09-05T13:11:49Z",
+      "source_url": "https://finance.yahoo.com/technology/ai/articles/palantir-jumped-7-7-expanded-123838463.html",
+      "published_at": "2026-09-05T12:55:09Z",
       "tickers": [
-        "TSLA"
+        "PLTR",
+        "GLOB",
+        "CRM"
       ]
     },
     {
       "id": "adobe-adquiere-rilo-ia",
       "type": "empresa",
       "title": "Adobe compró la startup de IA Rilo para potenciar sus herramientas de marketing",
-      "summary": "Adobe adquirió Rilo, una startup india de automatización de flujos de trabajo con inteligencia artificial, para reforzar sus capacidades de IA agentiva e integrarla en sus productos existentes. La movida busca fortalecer a Adobe frente a gigantes tecnológicos que también invierten fuerte en IA para marketing.",
-      "detail": "Las adquisiciones de startups de IA son una estrategia común entre grandes empresas tecnológicas para no quedarse atrás en una tecnología que avanza rápido. Para los inversores, la clave está en si esta compra se traduce en mayor crecimiento de ingresos o mejores márgenes, algo que todavía no está claro. Este tipo de noticias también refleja la presión competitiva que enfrenta Adobe: si no innova, pierde terreno frente a Google, Amazon y Meta en el segmento de herramientas de marketing digital.",
+      "summary": "Adobe adquirió Rilo, una startup india especializada en automatización de flujos de trabajo con IA, para reforzar sus capacidades de inteligencia artificial en marketing y competir con gigantes tecnológicos que invierten fuerte en el sector.",
+      "detail": "Las adquisiciones de startups de IA son una estrategia común entre las grandes empresas tecnológicas para no quedarse atrás en la carrera por la inteligencia artificial. Para los inversores, lo clave es evaluar si esta compra se va a traducir en mayor crecimiento de ingresos o si solo suma costos. Adobe enfrenta el desafío de que la IA generativa también amenaza su negocio principal de software creativo, por lo que esta jugada apunta a diversificarse. Es un buen ejemplo de cómo las fusiones y adquisiciones pueden ser tanto una oportunidad como un riesgo.",
       "tags": [
         "inteligencia artificial",
         "fusiones",
@@ -57,34 +77,33 @@
       ]
     },
     {
-      "id": "palantir-pwc-alianza-ia",
+      "id": "tesla-cybercab-lanzamiento-criticas",
       "type": "empresa",
-      "title": "Palantir subió 7,7% tras ampliar su alianza con PwC en inteligencia artificial empresarial",
-      "summary": "Las acciones de Palantir treparon 7,7% después de anunciar una expansión de su alianza con PwC, enfocada en IA para empresas y fusiones y adquisiciones. La movida apunta a acelerar transacciones corporativas y reducir costos, aunque no se reveló el valor del contrato.",
-      "detail": "Este caso ilustra cómo las alianzas estratégicas con grandes consultoras pueden impulsar el precio de una acción incluso sin revelar cifras concretas: el mercado reacciona a las expectativas de negocios futuros. Palantir basa su modelo en vender software especializado a través de socios como PwC, lo que le permite escalar sin aumentar tanto su propio equipo de ventas. Para quien aprende finanzas, es un buen ejemplo de cómo los 'anuncios de negocios' mueven cotizaciones aunque no haya ingresos confirmados aún.",
+      "title": "Musk presentó el Cybercab sin tierras raras, pero inversores lo recibieron con escepticismo",
+      "summary": "Elon Musk anunció que el motor del Tesla Cybercab no usa tierras raras, lo que reduce su dependencia de cadenas de suministro riesgosas, pero el inversor Gary Black criticó el lanzamiento por falta de información concreta y dudas regulatorias.",
+      "detail": "Las tierras raras son minerales críticos para fabricar motores eléctricos, y depender de ellas implica riesgo de suministro, especialmente en contextos de tensión geopolítica. Que Tesla logre evitarlas es técnicamente relevante para su cadena de costos a largo plazo. Sin embargo, este caso muestra que en los mercados financieros no basta con un logro técnico: los inversores necesitan datos concretos sobre planes de despliegue, regulación y rentabilidad para confiar en una inversión. La crítica al lanzamiento refleja cómo la transparencia corporativa impacta la confianza del mercado.",
       "tags": [
-        "inteligencia artificial",
-        "alianzas",
-        "mercado bursátil"
+        "Tesla",
+        "autos eléctricos",
+        "inversores"
       ],
       "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/technology/ai/articles/palantir-jumped-7-7-expanded-123838463.html",
-      "published_at": "2026-09-05T12:55:09Z",
+      "source_url": "https://finance.yahoo.com/technology/articles/elon-musk-says-tesla-cybercab-133036109.html",
+      "published_at": "2026-09-05T13:11:49Z",
       "tickers": [
-        "PLTR",
-        "GLOB"
+        "TSLA"
       ]
     },
     {
-      "id": "dollar-general-dollar-tree-comparacion",
-      "type": "empresa",
-      "title": "Dollar General y Dollar Tree reportaron buenos resultados, pero con un asterisco",
-      "summary": "Ambas cadenas de descuento de EE.UU. mostraron resultados trimestrales sólidos, impulsados por la demanda de productos esenciales baratos y reembolsos de aranceles. Sin embargo, analistas advierten que esa mejora de rentabilidad es en parte temporal, ya que los reembolsos arancelarios no se mantendrán.",
-      "detail": "Cuando una empresa se beneficia de factores extraordinarios —como reembolsos impositivos— es importante separar ese efecto del desempeño genuino del negocio. Este caso muestra el concepto de 'calidad de las ganancias': no todas las utilidades valen igual si parte de ellas viene de eventos que no se repetirán. También refleja cómo las políticas comerciales (aranceles) afectan directamente los resultados de empresas minoristas, un vínculo clave entre economía macro y finanzas corporativas.",
+      "id": "dollar-general-dollar-tree-resultados",
+      "type": "mercado",
+      "title": "Dollar General y Dollar Tree reportaron buenos resultados, pero parte del impulso es temporal",
+      "summary": "Ambas cadenas de descuento mostraron resultados trimestrales sólidos, beneficiadas por la demanda de productos básicos baratos y devoluciones de aranceles, aunque los analistas advierten que ese impulso podría no durar.",
+      "detail": "Las tiendas de descuento suelen beneficiarse en contextos de inflación o incertidumbre económica, ya que los consumidores migran hacia opciones más baratas. Sin embargo, cuando parte de las ganancias viene de factores temporales como reembolsos de aranceles, hay que ser cuidadoso: esos ingresos no se van a repetir automáticamente. Esto ilustra el concepto de 'calidad de las ganancias': no todas las utilidades son igualmente sostenibles. Para alguien que está aprendiendo a analizar empresas, es clave distinguir entre ganancias recurrentes y las que tienen una base frágil.",
       "tags": [
         "retail",
-        "aranceles",
-        "ganancias"
+        "ganancias",
+        "consumo"
       ],
       "source_name": "Yahoo Finance UK",
       "source_url": "https://uk.finance.yahoo.com/news/dollar-general-dg-dollar-tree-124227102.html",
@@ -95,93 +114,75 @@
       ]
     },
     {
-      "id": "home-depot-ia-magic-apron-recompra",
+      "id": "hca-healthcare-guia-recortada",
       "type": "empresa",
-      "title": "Home Depot expandió su asistente de IA a más de 2.000 tiendas y completó un programa de recompra de acciones",
-      "summary": "Home Depot desplegó su herramienta de IA 'Magic Apron' en más de 2.000 locales en EE.UU. y cerró un programa significativo de recompra de acciones propias. Además, presentó un registro de acciones que le da flexibilidad financiera para el futuro.",
-      "detail": "Las recompras de acciones (buybacks) son una forma en que las empresas devuelven valor a sus accionistas: al haber menos acciones en circulación, cada una vale proporcionalmente más. Combinadas con inversiones en tecnología como la IA, muestran una estrategia dual: mejorar la experiencia del cliente mientras se cuida el retorno para el inversor. Para quien aprende finanzas, este caso ilustra cómo las decisiones de capital allocation (en qué gastar el dinero) son tan importantes como las ventas mismas.",
+      "title": "HCA Healthcare recortó su guía de ganancias para 2026 y enfrenta presión en sus ingresos",
+      "summary": "HCA Healthcare redujo sus proyecciones de ganancias para todo el año 2026 por un deterioro en la mezcla de pagadores, menos cirugías electivas y costos más altos, lo que llevó a despidos y a vender un hospital.",
+      "detail": "La 'mezcla de pagadores' en el sector salud se refiere a qué proporción de pacientes tienen seguros privados versus cobertura gubernamental (como Medicaid o Medicare), que suelen pagar menos. Cuando esta mezcla empeora, los ingresos de los hospitales caen aunque atiendan la misma cantidad de pacientes. El impacto estimado en ingresos es de 400 millones de dólares por trimestre, lo que es significativo. Este caso muestra cómo los cambios en políticas públicas de salud pueden afectar directamente la rentabilidad de empresas privadas del sector.",
       "tags": [
-        "retail",
-        "recompra de acciones",
-        "inteligencia artificial"
+        "salud",
+        "ganancias",
+        "políticas"
       ],
-      "source_name": "Yahoo! Finance Canada",
-      "source_url": "https://ca.finance.yahoo.com/news/home-depot-ai-magic-apron-110753784.html",
-      "published_at": "2026-09-05T11:18:49Z",
+      "source_name": "Yahoo Finance",
+      "source_url": "https://finance.yahoo.com/healthcare/articles/bull-case-hca-healthcare-hca-190715030.html",
+      "published_at": "2026-09-05T18:50:52Z",
       "tickers": [
-        "HD"
+        "HCA"
       ]
     },
     {
-      "id": "gilead-hiv-resultados-financieros",
-      "type": "empresa",
-      "title": "Gilead Sciences se prepara para cambios en el mercado del VIH con tres nuevas aprobaciones de la FDA",
-      "summary": "Gilead obtuvo tres aprobaciones recientes de la FDA para tratamientos de VIH, incluyendo Bixlenvo, y reportó ingresos de u$s 7.600 millones en el segundo trimestre. La compañía también anunció aumento de dividendos y recompras de acciones, aunque los analistas tienen opiniones mixtas por la presión competitiva.",
-      "detail": "Gilead es un ejemplo clásico de empresa farmacéutica que depende de mantener su cartera de productos vigente frente a la competencia y el vencimiento de patentes. Las aprobaciones regulatorias son eventos clave que pueden cambiar las perspectivas de ingresos futuros. Para quien aprende finanzas, el caso ilustra cómo combinar análisis de resultados trimestrales con factores cualitativos —como el pipeline de productos— es esencial para evaluar empresas del sector salud.",
-      "tags": [
-        "farmacéutica",
-        "resultados",
-        "dividendos"
-      ],
-      "source_name": "Intellectia AI",
-      "source_url": "https://intellectia.ai/news/stock/gilead-sciences-strategically-prepares-for-hiv-market-changes",
-      "published_at": "2026-09-05T15:27:46Z",
-      "tickers": [
-        "GILD"
-      ]
-    },
-    {
-      "id": "citigroup-demanda-pixels-privacidad",
-      "type": "empresa",
-      "title": "Citigroup enfrenta una demanda colectiva por usar píxeles de rastreo sin consentimiento",
-      "summary": "Una demanda colectiva acusa a Citigroup de interceptar ilegalmente datos personales de los visitantes de su sitio web mediante píxeles de rastreo, sin su conocimiento ni consentimiento, violando leyes de California y federales. Casos similares se presentaron contra Hilton, LinkedIn, PNC Bank y Wells Fargo.",
-      "detail": "Los píxeles de rastreo son pequeños fragmentos de código que registran el comportamiento online del usuario y pueden compartir esa información con terceros. Cuando un banco los usa, el riesgo legal y reputacional es mayor por la sensibilidad de los datos financieros. Para quien aprende finanzas, este tipo de litigios importa porque puede derivar en multas significativas y dañar la confianza del consumidor, afectando el valor de la acción a largo plazo.",
-      "tags": [
-        "regulación",
-        "privacidad",
-        "banca"
-      ],
-      "source_name": "Top Class Actions",
-      "source_url": "https://topclassactions.com/lawsuit-settlements/lawsuit-news/class-action-accuses-citigroup-of-using-tracking-pixels-to-intercept-data/",
-      "published_at": "2026-09-05T15:03:50Z",
-      "tickers": [
-        "C"
-      ]
-    },
-    {
-      "id": "jinkosolar-rebaja-fuerte-venta",
+      "id": "cardano-ada-red-actividad",
       "type": "mercado",
-      "title": "Zacks bajó la recomendación de JinkoSolar a 'venta fuerte' tras resultados decepcionantes",
-      "summary": "La firma de análisis Zacks degradó a JinkoSolar a 'Strong Sell' después de que la empresa reportara una pérdida trimestral de u$s 2,53 por acción, muy por encima de la pérdida estimada de u$s 0,75. La acción cotiza cerca de su mínimo de 52 semanas.",
-      "detail": "JinkoSolar es uno de los mayores fabricantes de paneles solares del mundo, y sus resultados reflejan la presión que enfrenta el sector por exceso de oferta global y caída de precios. Para quien aprende finanzas, este caso muestra cómo una rebaja de calificación por parte de una firma de análisis puede amplificar una caída ya existente en el precio de una acción. También ilustra la diferencia entre estimaciones de analistas y resultados reales, un indicador clave del 'earnings surprise'.",
+      "title": "Cardano sube impulsado por un crecimiento del triple en actividad de su red en dos días",
+      "summary": "El precio de Cardano (ADA) creció junto con un fuerte aumento en la actividad de su red y los volúmenes de intercambio descentralizado, y un analista proyecta que podría llegar a 2,90 dólares, aunque desde niveles muy inferiores al actual.",
+      "detail": "En el mundo cripto, el aumento de actividad en la red (medido por transacciones, volumen en exchanges descentralizados o valor bloqueado en DeFi) suele interpretarse como una señal de mayor adopción, lo que puede influir positivamente en el precio. Sin embargo, las proyecciones de precios en criptomonedas son muy especulativas y el artículo también menciona preocupaciones por posibles subas de tasas de interés, que históricamente afectan negativamente a los activos de riesgo como las criptomonedas. Es un ejemplo de cómo factores técnicos y macroeconómicos interactúan en este mercado.",
       "tags": [
-        "energía solar",
-        "calificación bursátil",
-        "pérdidas"
+        "cripto",
+        "DeFi",
+        "blockchain"
       ],
-      "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/analyst-jinkosolar-nyse-jks-downgraded-by-zacks-research-to-strong-sell-2026-09-05/",
-      "published_at": "2026-09-05T12:21:24Z",
+      "source_name": "CoinGape",
+      "source_url": "https://coingape.com/markets/cardano-price-forecast-as-analyst-predicts-ada-could-reach-2-90-amid-3x-network-growth/",
+      "published_at": "2026-09-05T14:27:49Z",
       "tickers": [
-        "JKS"
+        "COIN"
       ]
     },
     {
-      "id": "starbucks-boycott-salarios-sindicato",
-      "type": "economia",
-      "title": "El sindicato de trabajadores de Starbucks mantiene el boicot y reclama u$s 17 por hora",
-      "summary": "Starbucks Workers United continúa su boicot durante el fin de semana del Día del Trabajo, exigiendo un salario mínimo de u$s 17 por hora, mejor dotación de personal y más protecciones laborales. El sindicato enfrenta un contexto difícil con una junta laboral de mayoría republicana que revirtió varias resoluciones favorables a los trabajadores.",
-      "detail": "Las negociaciones salariales en grandes empresas como Starbucks son un termómetro del mercado laboral estadounidense y pueden tener impacto en los costos operativos y los márgenes de la compañía. Para quien aprende finanzas, este caso muestra cómo los conflictos laborales son un riesgo no financiero que los inversores deben considerar: un boicot sostenido puede reducir ventas y presionar a la dirección a ceder, lo que sube costos. También ilustra el rol de los organismos regulatorios laborales en el equilibrio de poder entre empresas y sindicatos.",
+      "id": "starbucks-boicot-salarios",
+      "type": "empresa",
+      "title": "El sindicato de Starbucks mantiene el boicot y exige un mínimo de 17 dólares por hora",
+      "summary": "El sindicato Starbucks Workers United continúa su boicot en el Día del Trabajo, reclamando un salario mínimo de 17 dólares la hora, mejoras en dotación de personal y protecciones laborales, en un contexto donde el organismo regulador laboral tiene mayoría republicana.",
+      "detail": "Los conflictos laborales en grandes empresas pueden afectar la rentabilidad a través de mayores costos salariales y daño reputacional que impacta las ventas. Para los inversores, los movimientos sindicales son un factor de riesgo a monitorear, especialmente en empresas con mucho personal de contacto directo con el cliente. Este caso también ilustra cómo el contexto político (la composición del organismo regulador laboral) puede inclinar la balanza en favor o en contra de los trabajadores, afectando el resultado de estas negociaciones.",
       "tags": [
-        "mercado laboral",
-        "sindicatos",
-        "consumo"
+        "salarios",
+        "consumo",
+        "riesgo laboral"
       ],
       "source_name": "Truthout",
       "source_url": "https://truthout.org/articles/boycott-of-starbucks-is-still-on-as-workers-press-for-17-wage-and-protections/",
       "published_at": "2026-09-05T18:09:14Z",
       "tickers": [
         "SBUX"
+      ]
+    },
+    {
+      "id": "jinkosolar-rebaja-zacks",
+      "type": "mercado",
+      "title": "Zacks rebajó JinkoSolar a 'venta fuerte' tras resultados muy por debajo de lo esperado",
+      "summary": "La firma de análisis Zacks degradó a JinkoSolar a su calificación más baja después de que la empresa reportó una pérdida de 2,53 dólares por acción cuando el mercado esperaba solo 0,75 dólares de pérdida, llevando al papel cerca de sus mínimos anuales.",
+      "detail": "Una rebaja de calificación por parte de una firma de análisis reconocida puede generar ventas masivas de una acción, ya que muchos fondos e inversores institucionales siguen estas recomendaciones automáticamente. En el caso de JinkoSolar, el dato más preocupante es que la pérdida real casi triplicó lo que el mercado anticipaba, lo que sugiere que los analistas no tenían visibilidad clara del negocio. Esto es un ejemplo de 'sorpresa negativa de ganancias', uno de los eventos que más impactan el precio de una acción en el corto plazo.",
+      "tags": [
+        "energía solar",
+        "rebaja",
+        "ganancias"
+      ],
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/analyst-jinkosolar-nyse-jks-downgraded-by-zacks-research-to-strong-sell-2026-09-05/",
+      "published_at": "2026-09-05T12:21:24Z",
+      "tickers": [
+        "JKS"
       ]
     }
   ],
@@ -212,9 +213,9 @@
     },
     {
       "label": "BITCOIN",
-      "valor": "US$ 79.936",
-      "valor_num": 79936.0,
-      "delta_pct": 0.28
+      "valor": "US$ 79.919",
+      "valor_num": 79919.0,
+      "delta_pct": 0.3
     },
     {
       "label": "S&P 500",
