@@ -1,166 +1,175 @@
 {
-  "generated_at": "2026-09-05T12:01:28.476335+00:00",
+  "generated_at": "2026-09-05T15:18:02.644666+00:00",
   "items": [
     {
-      "id": "apple-iphone-18-event-2026",
+      "id": "apple-foldable-iphone-morgan-stanley",
       "type": "empresa",
-      "title": "Apple prepara su evento más grande en años con el iPhone plegable",
-      "summary": "Apple anunciará el 9 de septiembre sus nuevos productos bajo el nombre 'Surprise and Shine', incluyendo un iPhone Ultra plegable, modelos actualizados de iPhone 18 Pro y nuevos Apple Watch. Además, sería la primera vez que un nuevo CEO, John Ternus, toma el escenario principal.",
-      "detail": "Los lanzamientos de Apple son eventos clave para los mercados porque AAPL es una de las empresas con mayor peso en índices como el S&P 500 y el Nasdaq. Un producto revolucionario como un iPhone plegable puede impactar tanto las ventas futuras como la valuación de la acción. Además, los movimientos de Apple suelen arrastrar a todo el sector tecnológico, afectando fondos de inversión y ETFs globales.",
+      "title": "Morgan Stanley proyecta u$s 14.000 millones para el iPhone plegable de Apple",
+      "summary": "Según Morgan Stanley, el primer iPhone plegable de Apple podría generar unos u$s 14.000 millones en ingresos durante el trimestre de diciembre, con una producción estimada de entre 7 y 8 millones de unidades en la segunda mitad de 2026. El banco lo califica como el cambio de formato más importante desde el iPhone X.",
+      "detail": "Cuando un banco de inversión de la talla de Morgan Stanley publica estimaciones de ventas tan específicas, el mercado lo toma como señal y suele mover el precio de la acción. Esto muestra cómo los analistas intentan anticipar el impacto financiero de un producto antes de que salga, algo clave para entender cómo se forman las expectativas en bolsa. Además, el artículo menciona aumentos de precio en los modelos Pro por mayores costos de componentes, lo que ilustra cómo la cadena de suministro afecta directamente los márgenes de una empresa.",
       "tags": [
         "tecnología",
-        "acciones",
-        "lanzamiento"
+        "valuación",
+        "expectativas"
+      ],
+      "source_name": "Yahoo Finance",
+      "source_url": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-estimates-apple-foldable-131000560.html",
+      "published_at": "2026-09-05T13:11:00Z",
+      "tickers": [
+        "AAPL",
+        "MS"
+      ]
+    },
+    {
+      "id": "apple-evento-septiembre-9",
+      "type": "reunion",
+      "title": "Apple presenta su evento 'Surprise and Shine' el 9 de septiembre con un iPhone plegable y nuevo CEO",
+      "summary": "Apple tiene preparado uno de sus eventos más grandes en años para el 9 de septiembre, donde se espera que debute el iPhone plegable Ultra, los nuevos modelos iPhone 18 Pro y Pro Max, y el Apple Watch Series 12. Será además la primera vez que John Ternus, el nuevo CEO, conduzca el evento.",
+      "detail": "Los eventos de presentación de Apple son seguidos de cerca por inversores de todo el mundo porque suelen impactar el precio de la acción en los días previos y posteriores. El cambio de CEO es un dato relevante: los mercados prestan mucha atención a la continuidad del liderazgo en empresas grandes, ya que puede afectar la confianza de los inversores. Este tipo de evento también mueve a toda la cadena de proveedores de componentes, lo que lo convierte en una noticia con efecto dominó sobre varios sectores.",
+      "tags": [
+        "Apple",
+        "lanzamiento",
+        "CEO"
       ],
       "source_name": "Macworld",
       "source_url": "https://www.macworld.com/article/3209849/apple-surprise-shine-event-iphone-18-pro-ultra-watch-smart-home.html",
-      "published_at": "2026-09-05T11:02:19Z",
+      "published_at": "2026-09-05T11:02:00Z",
       "tickers": [
         "AAPL"
       ]
     },
     {
-      "id": "lam-research-ia-chips-2026",
+      "id": "palantir-pwc-alianza",
       "type": "empresa",
-      "title": "Lam Research creció 30% por la demanda de chips para IA",
-      "summary": "Lam Research reportó resultados trimestrales sólidos con ingresos que subieron un 30% respecto al año anterior, impulsados por la alta demanda de chips avanzados para inteligencia artificial. Analistas mantienen una calificación de compra moderada sobre la acción.",
-      "detail": "Lam Research fabrica equipos esenciales para producir semiconductores, por lo que su desempeño es un termómetro del sector de chips a nivel global. El crecimiento del 30% interanual refleja cuánta inversión están haciendo las grandes tecnológicas en infraestructura de IA. Entender estas cadenas de valor ayuda a ver por qué el boom de la IA impacta en empresas que no son las más famosas pero son fundamentales.",
+      "title": "Palantir subió 7,7% tras ampliar su alianza con PwC para proyectos de IA empresarial",
+      "summary": "Las acciones de Palantir treparon un 7,7% luego de que la compañía anunciara una alianza ampliada con la consultora PwC, enfocada en inteligencia artificial para empresas y fusiones y adquisiciones. No se reveló el valor del contrato.",
+      "detail": "Una suba del 7,7% en un solo día por un anuncio de alianza —sin que se divulgue monto de contrato— muestra cuánto pesa la narrativa de crecimiento en empresas tecnológicas: el mercado premia la expansión de negocios aunque los números concretos no estén claros todavía. Esto es útil para entender cómo funciona el 'sentiment' en bolsa: a veces la percepción de potencial vale tanto como los resultados reales. También ilustra la diferencia entre modelos de negocio: Palantir vende software productizado a través de socios, mientras que competidores como Globant ofrecen servicios más customizados, y ambos enfoques tienen distintos perfiles de margen y escalabilidad.",
+      "tags": [
+        "IA",
+        "alianzas",
+        "tecnología"
+      ],
+      "source_name": "Yahoo Finance",
+      "source_url": "https://finance.yahoo.com/technology/ai/articles/palantir-jumped-7-7-expanded-123838463.html",
+      "published_at": "2026-09-05T12:55:00Z",
+      "tickers": [
+        "PLTR",
+        "GLOB",
+        "CRM",
+        "NVDA"
+      ]
+    },
+    {
+      "id": "jim-cramer-pe-nvda-now",
+      "type": "discurso",
+      "title": "Jim Cramer explicó por qué NVIDIA es más 'barata' que ServiceNow mirando el ratio P/E",
+      "summary": "En su programa Mad Money, Jim Cramer argumentó que NVIDIA es más barata que ServiceNow cuando se comparan sus ratios precio/ganancia (P/E), a pesar de que la acción de NVIDIA tiene un precio nominal más alto. Cramer descartó el escepticismo sobre la sostenibilidad del crecimiento de NVIDIA.",
+      "detail": "El ratio P/E (precio sobre ganancias) es una de las métricas más usadas para comparar si una acción está cara o barata en relación a lo que genera. Cramer usa este ejemplo para enseñar un error muy común entre inversores principiantes: confundir el precio de la acción con el valor de la empresa. Una acción que cotiza a u$s 1.000 puede ser más 'barata' que una a u$s 50 si sus ganancias son proporcionalmente mucho mayores. Este tipo de análisis básico de valuación es fundamental para cualquiera que esté empezando a invertir.",
+      "tags": [
+        "valuación",
+        "P/E",
+        "NVIDIA"
+      ],
+      "source_name": "Yahoo Finance",
+      "source_url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-breaks-down-p-111844638.html",
+      "published_at": "2026-09-05T11:18:00Z",
+      "tickers": [
+        "NVDA",
+        "NOW",
+        "CRM",
+        "NFLX"
+      ]
+    },
+    {
+      "id": "monolithic-power-revenue-ai",
+      "type": "empresa",
+      "title": "Monolithic Power Systems disparó sus ingresos un 48% impulsada por la demanda de chips para IA",
+      "summary": "Monolithic Power Systems reportó un aumento del 47,6% en sus ingresos del segundo trimestre, llegando a u$s 980,6 millones, gracias a la fuerte demanda de componentes de gestión de energía para aceleradores de inteligencia artificial. Sin embargo, analistas advierten sobre debilidades en otros segmentos como automotriz y consumo.",
+      "detail": "Este resultado ilustra el concepto de 'picks and shovels' en inversiones: así como en la fiebre del oro ganaban más los que vendían picos y palas que los buscadores, en el boom de la IA hay empresas que se benefician fabricando los componentes que necesitan los grandes modelos, sin asumir el riesgo de desarrollar la IA en sí. Al mismo tiempo, la advertencia sobre otros segmentos más débiles muestra por qué es importante no extrapolar el crecimiento de una división a toda la empresa. La alta valuación de la acción también plantea el dilema clásico entre crecimiento y precio justo.",
+      "tags": [
+        "IA",
+        "semiconductores",
+        "crecimiento"
+      ],
+      "source_name": "Yahoo Finance Canada",
+      "source_url": "https://ca.finance.yahoo.com/news/monolithic-power-revenue-jumped-48-102200069.html",
+      "published_at": "2026-09-05T10:38:00Z",
+      "tickers": [
+        "MPWR",
+        "NVDA"
+      ]
+    },
+    {
+      "id": "home-depot-ai-recompra",
+      "type": "empresa",
+      "title": "Home Depot expandió su asistente de IA a más de 2.000 tiendas y completó un programa de recompra de acciones",
+      "summary": "Home Depot desplegó su asistente de inteligencia artificial 'Magic Apron' en más de 2.000 tiendas en Estados Unidos y cerró un programa significativo de recompra de acciones propias. Además, presentó un registro de nuevas acciones ante la SEC.",
+      "detail": "Las recompras de acciones (buybacks) son una forma que tienen las empresas de devolver valor a sus accionistas: al reducir la cantidad de acciones en circulación, las ganancias por acción suben aunque los beneficios totales sean los mismos. Es una señal que el mercado suele interpretar positivamente, aunque también puede indicar que la empresa no encuentra mejores usos para su capital. La expansión del asistente de IA, por otro lado, apunta a reducir costos operativos y mejorar la experiencia del cliente, lo que podría impactar márgenes en el mediano plazo.",
+      "tags": [
+        "recompra",
+        "retail",
+        "inteligencia artificial"
+      ],
+      "source_name": "Yahoo Finance Canada",
+      "source_url": "https://ca.finance.yahoo.com/news/home-depot-ai-magic-apron-110753784.html",
+      "published_at": "2026-09-05T11:18:00Z",
+      "tickers": [
+        "HD"
+      ]
+    },
+    {
+      "id": "lam-research-revenue-ai-chips",
+      "type": "empresa",
+      "title": "Lam Research creció un 30% en ingresos interanual gracias a la demanda de chips para IA",
+      "summary": "Lam Research reportó un crecimiento del 30% en sus ingresos respecto al año anterior y aumentó su dividendo trimestral, todo en un contexto de alta demanda por chips avanzados e inteligencia artificial. Munich Re redujo su participación en la empresa durante el segundo trimestre.",
+      "detail": "Lam Research fabrica equipos esenciales para producir semiconductores, lo que la ubica en un lugar estratégico dentro de la cadena de valor del boom de la IA. Un crecimiento del 30% en ingresos interanual es una señal muy fuerte en un sector de alta inversión de capital. El hecho de que un inversor institucional como Munich Re haya reducido su posición no necesariamente es una señal negativa: los grandes fondos ajustan carteras constantemente por razones propias, no siempre vinculadas a la perspectiva de la empresa.",
       "tags": [
         "semiconductores",
-        "inteligencia artificial",
-        "resultados"
+        "IA",
+        "dividendos"
       ],
       "source_name": "MarketBeat",
       "source_url": "https://www.marketbeat.com/instant-alerts/filing-munich-reinsurance-co-stock-corp-in-munich-has-1828-million-position-in-lam-research-corporation-lrcx-2026-09-05/",
-      "published_at": "2026-09-05T10:41:31Z",
+      "published_at": "2026-09-05T10:41:00Z",
       "tickers": [
         "LRCX"
       ]
     },
     {
-      "id": "goldman-sachs-resultados-2026",
-      "type": "empresa",
-      "title": "Goldman Sachs superó expectativas con ganancias de USD 20,98 por acción",
-      "summary": "Goldman Sachs reportó resultados del segundo trimestre por encima de lo esperado, con un EPS de USD 20,98 y una facturación de USD 20.340 millones. Además, aumentó su dividendo trimestral a USD 5,00 por acción.",
-      "detail": "Goldman Sachs es uno de los bancos de inversión más influyentes del mundo, y sus resultados reflejan el estado general del sistema financiero global. Cuando los grandes bancos ganan más de lo esperado, suele ser señal de que los mercados de capitales están activos y que hay apetito por inversiones. El dividendo creciente también atrae a inversores institucionales que buscan ingresos estables.",
+      "id": "fg-annuities-downgrade-strong-sell",
+      "type": "mercado",
+      "title": "Zacks bajó la calificación de F&G Annuities a 'venta fuerte' tras resultados por debajo de lo esperado",
+      "summary": "La firma de análisis Zacks Research degradó a F&G Annuities & Life a 'strong sell' (venta fuerte) después de que la compañía reportara ganancias y facturación por debajo de las estimaciones del mercado. Las acciones abrieron a u$s 25, con un precio objetivo promedio de analistas de u$s 30.",
+      "detail": "Las calificaciones de analistas como 'buy', 'hold' o 'sell' son señales de referencia para inversores, aunque no son garantía de nada: distintas firmas pueden tener visiones opuestas sobre la misma empresa. Cuando los resultados de una empresa quedan por debajo de las expectativas del consenso (como en este caso, u$s 0,65 de EPS vs. u$s 0,78 esperados), el mercado suele castigar la acción porque las proyecciones futuras también se ponen en duda. Este caso es un buen ejemplo de cómo el 'guidance' y las expectativas importan tanto o más que los números absolutos.",
       "tags": [
-        "banca",
+        "calificaciones",
         "resultados",
-        "dividendo"
+        "seguros"
       ],
       "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/filing-markowski-investments-makes-new-investment-in-the-goldman-sachs-group-inc-gs-2026-09-05/",
-      "published_at": "2026-09-05T10:12:38Z",
+      "source_url": "https://www.marketbeat.com/instant-alerts/analyst-fg-annuities-life-nyse-fg-downgraded-to-strong-sell-rating-by-zacks-research-2026-09-05/",
+      "published_at": "2026-09-05T12:04:00Z",
       "tickers": [
-        "GS"
+        "FG"
       ]
     },
     {
-      "id": "bank-of-america-resultados-2026",
-      "type": "empresa",
-      "title": "Bank of America superó expectativas y subió su dividendo",
-      "summary": "Bank of America reportó resultados trimestrales por encima de lo estimado por los analistas y aumentó su dividendo trimestral a USD 0,32 por acción. El consenso de analistas mantiene una calificación de compra moderada con un precio objetivo promedio de USD 64,08.",
-      "detail": "Los resultados de los grandes bancos estadounidenses son un indicador clave de la salud económica global, ya que reflejan tanto el nivel de crédito como la actividad corporativa. Un dividendo al alza es una señal de confianza de la empresa en su flujo de caja futuro. Para quien aprende finanzas, seguir a los grandes bancos ayuda a entender cómo se mueve el dinero a escala global.",
+      "id": "anthropic-ipo-destiny-tech100",
+      "type": "mercado",
+      "title": "Inversores minoristas buscan exposición a Anthropic antes de su IPO a través de fondos como Destiny Tech100",
+      "summary": "Ante la imposibilidad de invertir directamente en Anthropic —empresa de IA que aún no cotiza en bolsa—, inversores minoristas están evaluando fondos como Destiny Tech100 (DXYZ) que tienen participaciones en compañías privadas. El artículo advierte sobre los riesgos de pagar un precio de mercado muy por encima del valor real de los activos del fondo.",
+      "detail": "Este artículo toca un tema muy relevante para quienes empiezan a invertir: cómo acceder a empresas privadas antes de que hagan su IPO. Los fondos que invierten en compañías no listadas pueden cotizar con una prima enorme sobre su valor neto de activos (NAV), lo que significa que el inversor paga más de lo que valen los activos subyacentes. Entender la diferencia entre precio de mercado y valor intrínseco es una de las habilidades más importantes en finanzas, y este caso lo ejemplifica muy bien con una empresa de altísimo perfil como Anthropic.",
       "tags": [
-        "banca",
-        "dividendo",
-        "resultados"
+        "IPO",
+        "empresas privadas",
+        "valuación"
       ],
-      "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/filing-old-mission-investment-co-llc-takes-262-million-position-in-bank-of-america-corporation-bac-2026-09-05/",
-      "published_at": "2026-09-05T10:12:50Z",
+      "source_name": "Yahoo Finance",
+      "source_url": "https://finance.yahoo.com/markets/stocks/articles/retail-investors-chasing-anthropic-ipo-055631043.html",
+      "published_at": "2026-09-05T10:56:00Z",
       "tickers": [
-        "BAC"
-      ]
-    },
-    {
-      "id": "dollar-general-resultados-consumo-2026",
-      "type": "empresa",
-      "title": "Dollar General ganó más de lo esperado pero advierte presión en sus clientes",
-      "summary": "Dollar General reportó ganancias de USD 2,48 por acción y USD 11.290 millones en ingresos, superando estimaciones, y elevó su guía de ganancias para 2026. Sin embargo, el CEO alertó sobre la presión financiera que enfrentan sus clientes principales y el posible impacto en los márgenes.",
-      "detail": "Dollar General apunta a consumidores de bajos ingresos en Estados Unidos, por lo que sus advertencias son un termómetro del bienestar económico de ese segmento de la población. Cuando el CEO de una empresa de consumo masivo advierte sobre dificultades de sus clientes, es una señal de alerta macroeconómica que puede anticipar menor gasto y desaceleración. Este tipo de comentarios de ejecutivos se llaman 'forward guidance' y son muy seguidos por los inversores.",
-      "tags": [
-        "consumo",
-        "economía",
-        "resultados"
-      ],
-      "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/filing-dollar-general-corporation-dg-shares-acquired-by-munich-reinsurance-co-stock-corp-in-munich-2026-09-05/",
-      "published_at": "2026-09-05T10:19:19Z",
-      "tickers": [
-        "DG"
-      ]
-    },
-    {
-      "id": "exxonmobil-dividendo-petroleo-2026",
-      "type": "empresa",
-      "title": "ExxonMobil pagará un dividendo de USD 1,03 y mantiene calificación neutral",
-      "summary": "ExxonMobil declaró un dividendo trimestral de USD 1,03 por acción y reportó ingresos por encima de lo esperado, aunque quedó levemente por debajo en ganancias por acción. Los analistas mantienen una calificación de 'Hold' con un precio objetivo promedio de USD 167,45.",
-      "detail": "ExxonMobil es una de las mayores empresas de energía del mundo y su desempeño está directamente ligado al precio del petróleo. Para quienes siguen los mercados globales, las grandes petroleras son indicadores del ciclo energético y tienen un peso importante en índices como el S&P 500. El dividendo consistente de empresas como XOM también es relevante para entender estrategias de inversión de largo plazo basadas en ingresos.",
-      "tags": [
-        "energía",
-        "petróleo",
-        "dividendo"
-      ],
-      "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/filing-markowski-investments-purchases-new-shares-in-exxonmobil-corporation-xom-2026-09-05/",
-      "published_at": "2026-09-05T10:13:08Z",
-      "tickers": [
-        "XOM"
-      ]
-    },
-    {
-      "id": "freeport-mcmoran-cobre-2026",
-      "type": "empresa",
-      "title": "Freeport-McMoRan sigue atrayendo inversores institucionales",
-      "summary": "Outlook Capital Management compró una posición de USD 18,45 millones en Freeport-McMoRan, una de las mayores productoras de cobre del mundo, que superó las expectativas de ganancias trimestrales. Los analistas mantienen una calificación de compra moderada con un precio objetivo de USD 70,27.",
-      "detail": "Freeport-McMoRan es clave en el mercado del cobre, un metal esencial para la transición energética y la fabricación de vehículos eléctricos e infraestructura. El precio del cobre suele usarse como indicador económico global porque refleja la demanda industrial. Para inversores argentinos, el desempeño de mineras como FCX también puede ser relevante dado que Argentina tiene reservas de minerales críticos que despiertan interés similar.",
-      "tags": [
-        "minería",
-        "cobre",
-        "materias primas"
-      ],
-      "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/filing-outlook-capital-management-llc-purchases-new-stake-in-freeport-mcmoran-inc-fcx-2026-09-05/",
-      "published_at": "2026-09-05T10:04:39Z",
-      "tickers": [
-        "FCX"
-      ]
-    },
-    {
-      "id": "american-express-resultados-2026",
-      "type": "empresa",
-      "title": "American Express ganó USD 4,53 por acción y sigue con calificación de compra",
-      "summary": "American Express reportó ganancias trimestrales de USD 4,53 por acción, superando las estimaciones de los analistas. El consenso se mantiene en compra moderada con un precio objetivo promedio de USD 373,32.",
-      "detail": "American Express es una empresa financiera que funciona tanto como red de pagos como emisora de tarjetas de crédito, especialmente orientada a consumidores de altos ingresos. Sus resultados son un indicador del nivel de gasto del segmento premium de la economía estadounidense. Comparar sus resultados con los de empresas como Dollar General permite entender cómo distintos segmentos económicos se comportan de forma diferente ante el mismo entorno macro.",
-      "tags": [
-        "finanzas",
-        "consumo",
-        "resultados"
-      ],
-      "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/filing-4364-shares-in-american-express-company-axp-acquired-by-old-mission-investment-co-llc-2026-09-05/",
-      "published_at": "2026-09-05T10:28:49Z",
-      "tickers": [
-        "AXP"
-      ]
-    },
-    {
-      "id": "walmart-insiders-vendieron-2026",
-      "type": "empresa",
-      "title": "Walmart superó expectativas pero sus directivos vendieron acciones por más de USD 8,8 millones",
-      "summary": "Walmart reportó resultados por encima de lo estimado y recibió múltiples recomendaciones de compra de analistas, con un precio objetivo consensuado de USD 131,88. Sin embargo, los insiders de la compañía vendieron más de 81.000 acciones por un valor superior a USD 8,8 millones en el último trimestre.",
-      "detail": "Cuando los ejecutivos y directivos de una empresa venden grandes cantidades de sus propias acciones, los inversores lo toman como una señal a monitorear, aunque no siempre indica problemas. En el caso de Walmart, el contraste entre los buenos resultados y las ventas internas es un dato útil para entender el concepto de 'insider trading legal' o ventas planificadas. Walmart es además un indicador del consumo masivo en Estados Unidos, el mercado más grande del mundo.",
-      "tags": [
-        "retail",
-        "insiders",
-        "resultados"
-      ],
-      "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/filing-strive-financial-group-llc-has-125-million-position-in-walmart-inc-wmt-2026-09-05/",
-      "published_at": "2026-09-05T10:08:55Z",
-      "tickers": [
-        "WMT"
+        "DXYZ",
+        "NVDA"
       ]
     }
   ],
@@ -191,9 +200,9 @@
     },
     {
       "label": "BITCOIN",
-      "valor": "US$ 79.614",
-      "valor_num": 79614.0,
-      "delta_pct": -2.01
+      "valor": "US$ 79.727",
+      "valor_num": 79727.0,
+      "delta_pct": 0.66
     },
     {
       "label": "S&P 500",
