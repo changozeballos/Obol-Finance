@@ -1,34 +1,16 @@
 {
-  "generated_at": "2026-09-05T19:02:05.837916+00:00",
+  "generated_at": "2026-09-05T19:06:08.553719+00:00",
   "items": [
     {
-      "id": "tesla-cybercab-launch",
+      "id": "apple-foldable-iphone-morgan-stanley",
       "type": "empresa",
-      "title": "Tesla lanzó el Cybercab pero los inversores quedaron con dudas",
-      "summary": "Elon Musk anunció que el motor eléctrico del Cybercab no usa tierras raras, un logro técnico que reduce riesgos en la cadena de suministro. Sin embargo, el inversor Gary Black criticó el lanzamiento como un fracaso por falta de información concreta y dudas regulatorias.",
-      "detail": "Cuando una empresa lanza un producto nuevo, los inversores no solo miran la tecnología sino también la claridad del plan de negocio: ¿cuándo se vende, a qué precio, bajo qué reglas? La falta de respuestas concretas puede generar incertidumbre que presiona el precio de la acción hacia abajo. Además, eliminar las tierras raras es relevante porque China controla gran parte de su producción, y depender menos de ellas reduce riesgos geopolíticos para Tesla.",
-      "tags": [
-        "autos eléctricos",
-        "cadena de suministro",
-        "innovación"
-      ],
-      "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/technology/articles/elon-musk-says-tesla-cybercab-133036109.html",
-      "published_at": "2026-09-05T13:11:49Z",
-      "tickers": [
-        "TSLA"
-      ]
-    },
-    {
-      "id": "apple-foldable-morgan-stanley",
-      "type": "empresa",
-      "title": "Morgan Stanley proyecta u$s 14.000 millones en ventas para el iPhone plegable",
-      "summary": "El banco Morgan Stanley estima que el primer iPhone plegable de Apple podría generar unos 14.000 millones de dólares en ingresos solo en el trimestre de diciembre, con una producción inicial de entre 7 y 8 millones de unidades. El lanzamiento también traería aumentos de precio en los modelos Pro.",
-      "detail": "Las proyecciones de bancos de inversión como Morgan Stanley son muy seguidas por el mercado porque pueden mover el precio de una acción antes de que el producto salga. Cuando un analista de peso publica un número así, muchos inversores lo toman como señal y compran, lo que sube la cotización. Este caso también muestra cómo un cambio de formato en un producto masivo —no solo mejoras incrementales— puede representar un salto grande en ingresos. Seguir estas proyecciones ayuda a entender cómo se forman las expectativas del mercado.",
+      "title": "Morgan Stanley proyecta u$s 14.000 millones en ventas para el iPhone plegable de Apple",
+      "summary": "Morgan Stanley estima que el primer iPhone plegable de Apple podría generar unos u$s 14.000 millones de ingresos en el trimestre de diciembre, con una producción de entre 7 y 8 millones de unidades en la segunda mitad de 2026. También se espera un aumento de precio en los modelos Pro por mayores costos de componentes.",
+      "detail": "Cuando un banco de inversión como Morgan Stanley publica una estimación de ventas para un producto nuevo, eso mueve expectativas del mercado y puede influir en el precio de la acción antes de que el producto se lance. Además, el caso del iPhone plegable ilustra cómo los cambios de diseño (form factor) impactan toda la cadena de valor: fabricantes de componentes, pantallas y proveedores de vidrio también se ven afectados. Para quien aprende finanzas, esto muestra cómo los analistas usan modelos de oferta y demanda para anticipar ingresos futuros.",
       "tags": [
         "tecnología",
-        "Apple",
-        "análisis bancario"
+        "análisis bursátil",
+        "Apple"
       ],
       "source_name": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-estimates-apple-foldable-131000560.html",
@@ -39,11 +21,47 @@
       ]
     },
     {
-      "id": "palantir-pwc-alliance",
+      "id": "tesla-cybercab-musk-black",
       "type": "empresa",
-      "title": "Palantir subió 7,7% tras ampliar su alianza con PwC en inteligencia artificial",
-      "summary": "Las acciones de Palantir saltaron 7,7% luego de que la empresa anunciara una alianza ampliada con la consultora PwC para acelerar proyectos de fusiones y adquisiciones usando IA empresarial. No se reveló el valor económico del nuevo acuerdo.",
-      "detail": "Este caso muestra cómo un anuncio de alianza estratégica —aunque sin cifras concretas— puede mover fuertemente el precio de una acción en un solo día. Los inversores interpretan estas asociaciones como señales de que la empresa va a crecer su base de clientes corporativos. También ilustra la diferencia entre valor real y expectativa: el mercado reaccionó positivamente antes de conocer resultados concretos, lo que es un riesgo que los inversores deben tener en cuenta.",
+      "title": "Tesla lanzó el Cybercab con motor sin tierras raras, pero inversores lo critican",
+      "summary": "Elon Musk confirmó que el motor del Tesla Cybercab no usa tierras raras, lo que reduce dependencia de cadenas de suministro complejas. Sin embargo, el inversor Gary Black criticó el lanzamiento por falta de detalles e incertidumbre regulatoria, calificándolo como 'un fracaso en gran medida'.",
+      "detail": "Las tierras raras son minerales críticos para muchos motores eléctricos y su suministro está concentrado principalmente en China, lo que representa un riesgo geopolítico para fabricantes de vehículos eléctricos. Que Tesla logre prescindir de ellas es un avance técnico relevante. Sin embargo, este caso también muestra que un anuncio de producto no siempre genera confianza si los inversores no reciben información concreta sobre plazos, regulaciones y escalabilidad comercial.",
+      "tags": [
+        "vehículos eléctricos",
+        "Tesla",
+        "cadena de suministro"
+      ],
+      "source_name": "Yahoo Finance",
+      "source_url": "https://finance.yahoo.com/technology/articles/elon-musk-says-tesla-cybercab-133036109.html",
+      "published_at": "2026-09-05T13:11:49Z",
+      "tickers": [
+        "TSLA"
+      ]
+    },
+    {
+      "id": "adobe-adquiere-rilo-ia",
+      "type": "empresa",
+      "title": "Adobe compró la startup de IA Rilo para potenciar sus herramientas de marketing",
+      "summary": "Adobe adquirió Rilo, una startup india de automatización de flujos de trabajo con inteligencia artificial, para reforzar sus capacidades de IA agentiva e integrarla en sus productos existentes. La movida busca fortalecer a Adobe frente a gigantes tecnológicos que también invierten fuerte en IA para marketing.",
+      "detail": "Las adquisiciones de startups de IA son una estrategia común entre grandes empresas tecnológicas para no quedarse atrás en una tecnología que avanza rápido. Para los inversores, la clave está en si esta compra se traduce en mayor crecimiento de ingresos o mejores márgenes, algo que todavía no está claro. Este tipo de noticias también refleja la presión competitiva que enfrenta Adobe: si no innova, pierde terreno frente a Google, Amazon y Meta en el segmento de herramientas de marketing digital.",
+      "tags": [
+        "inteligencia artificial",
+        "fusiones",
+        "tecnología"
+      ],
+      "source_name": "Yahoo Finance",
+      "source_url": "https://finance.yahoo.com/technology/ai/articles/adobe-inc-adbe-acquires-rilo-150728839.html",
+      "published_at": "2026-09-05T15:07:56Z",
+      "tickers": [
+        "ADBE"
+      ]
+    },
+    {
+      "id": "palantir-pwc-alianza-ia",
+      "type": "empresa",
+      "title": "Palantir subió 7,7% tras ampliar su alianza con PwC en inteligencia artificial empresarial",
+      "summary": "Las acciones de Palantir treparon 7,7% después de anunciar una expansión de su alianza con PwC, enfocada en IA para empresas y fusiones y adquisiciones. La movida apunta a acelerar transacciones corporativas y reducir costos, aunque no se reveló el valor del contrato.",
+      "detail": "Este caso ilustra cómo las alianzas estratégicas con grandes consultoras pueden impulsar el precio de una acción incluso sin revelar cifras concretas: el mercado reacciona a las expectativas de negocios futuros. Palantir basa su modelo en vender software especializado a través de socios como PwC, lo que le permite escalar sin aumentar tanto su propio equipo de ventas. Para quien aprende finanzas, es un buen ejemplo de cómo los 'anuncios de negocios' mueven cotizaciones aunque no haya ingresos confirmados aún.",
       "tags": [
         "inteligencia artificial",
         "alianzas",
@@ -58,33 +76,15 @@
       ]
     },
     {
-      "id": "adobe-adquiere-rilo",
-      "type": "empresa",
-      "title": "Adobe compró una startup de IA para fortalecer su posición en marketing automatizado",
-      "summary": "Adobe adquirió Rilo, una startup india de automatización de flujos de trabajo con inteligencia artificial, para potenciar sus herramientas de marketing empresarial y competir con gigantes tecnológicos que invierten fuerte en IA.",
-      "detail": "Las adquisiciones de startups de IA son una estrategia común entre empresas grandes para no quedarse atrás en la carrera tecnológica. Para los inversores, la clave es evaluar si esta compra va a traducirse en más ingresos o si solo suma costos. El caso de Adobe también refleja una tensión típica del sector: la IA generativa amenaza su negocio central de software creativo, por lo que necesita reinventarse. Seguir estas movidas ayuda a entender cómo las empresas responden a disrupciones tecnológicas.",
-      "tags": [
-        "inteligencia artificial",
-        "fusiones y adquisiciones",
-        "tecnología"
-      ],
-      "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/technology/ai/articles/adobe-inc-adbe-acquires-rilo-150728839.html",
-      "published_at": "2026-09-05T15:07:56Z",
-      "tickers": [
-        "ADBE"
-      ]
-    },
-    {
       "id": "dollar-general-dollar-tree-comparacion",
-      "type": "mercado",
-      "title": "Dollar General y Dollar Tree crecieron, pero hay una señal de alerta para inversores",
-      "summary": "Ambas cadenas de descuento reportaron resultados trimestrales sólidos, impulsados por la demanda de productos baratos y devoluciones arancelarias temporales. El riesgo es que ese impulso podría desaparecer cuando esas ventajas temporales se agoten.",
-      "detail": "Este artículo es un buen ejemplo de cómo analizar resultados empresariales con ojo crítico: no alcanza con ver que las ganancias subieron, hay que entender por qué subieron. Si el motor fue un beneficio extraordinario y temporal —como un reembolso arancelario— y no una mejora estructural del negocio, los resultados futuros pueden ser peores. Para alguien que aprende finanzas, esto enseña a distinguir entre ganancias sostenibles y ganancias circunstanciales.",
+      "type": "empresa",
+      "title": "Dollar General y Dollar Tree reportaron buenos resultados, pero con un asterisco",
+      "summary": "Ambas cadenas de descuento de EE.UU. mostraron resultados trimestrales sólidos, impulsados por la demanda de productos esenciales baratos y reembolsos de aranceles. Sin embargo, analistas advierten que esa mejora de rentabilidad es en parte temporal, ya que los reembolsos arancelarios no se mantendrán.",
+      "detail": "Cuando una empresa se beneficia de factores extraordinarios —como reembolsos impositivos— es importante separar ese efecto del desempeño genuino del negocio. Este caso muestra el concepto de 'calidad de las ganancias': no todas las utilidades valen igual si parte de ellas viene de eventos que no se repetirán. También refleja cómo las políticas comerciales (aranceles) afectan directamente los resultados de empresas minoristas, un vínculo clave entre economía macro y finanzas corporativas.",
       "tags": [
         "retail",
-        "resultados trimestrales",
-        "aranceles"
+        "aranceles",
+        "ganancias"
       ],
       "source_name": "Yahoo Finance UK",
       "source_url": "https://uk.finance.yahoo.com/news/dollar-general-dg-dollar-tree-124227102.html",
@@ -95,15 +95,15 @@
       ]
     },
     {
-      "id": "home-depot-ia-recompra",
+      "id": "home-depot-ia-magic-apron-recompra",
       "type": "empresa",
-      "title": "Home Depot expandió su asistente de IA a 2.000 tiendas y completó una recompra de acciones",
-      "summary": "Home Depot desplegó su asistente de inteligencia artificial Magic Apron en más de 2.000 locales en Estados Unidos y completó un programa de recompra de acciones, mientras también registró nuevas acciones comunes.",
-      "detail": "Las recompras de acciones son una herramienta que usan las empresas para devolver valor a sus accionistas: al comprar sus propias acciones en el mercado, reducen la cantidad disponible y eso suele subir el precio por acción. Al mismo tiempo, invertir en IA para mejorar la experiencia del cliente es una apuesta por mantener la competitividad a largo plazo. Cuando una empresa hace ambas cosas a la vez, manda una señal de que tiene confianza en su situación financiera actual y en su futuro.",
+      "title": "Home Depot expandió su asistente de IA a más de 2.000 tiendas y completó un programa de recompra de acciones",
+      "summary": "Home Depot desplegó su herramienta de IA 'Magic Apron' en más de 2.000 locales en EE.UU. y cerró un programa significativo de recompra de acciones propias. Además, presentó un registro de acciones que le da flexibilidad financiera para el futuro.",
+      "detail": "Las recompras de acciones (buybacks) son una forma en que las empresas devuelven valor a sus accionistas: al haber menos acciones en circulación, cada una vale proporcionalmente más. Combinadas con inversiones en tecnología como la IA, muestran una estrategia dual: mejorar la experiencia del cliente mientras se cuida el retorno para el inversor. Para quien aprende finanzas, este caso ilustra cómo las decisiones de capital allocation (en qué gastar el dinero) son tan importantes como las ventas mismas.",
       "tags": [
+        "retail",
         "recompra de acciones",
-        "inteligencia artificial",
-        "retail"
+        "inteligencia artificial"
       ],
       "source_name": "Yahoo! Finance Canada",
       "source_url": "https://ca.finance.yahoo.com/news/home-depot-ai-magic-apron-110753784.html",
@@ -113,14 +113,14 @@
       ]
     },
     {
-      "id": "gilead-hiv-aprobaciones-fda",
+      "id": "gilead-hiv-resultados-financieros",
       "type": "empresa",
-      "title": "Gilead obtuvo tres aprobaciones de la FDA para tratamientos del VIH y superó los u$s 7.600 millones en ingresos trimestrales",
-      "summary": "Gilead Sciences recibió tres aprobaciones de la FDA para sus terapias contra el VIH, incluyendo Bixlenvo, y reportó ingresos de 7.600 millones de dólares en el segundo trimestre. La empresa también aumentó dividendos y realizó recompras de acciones.",
-      "detail": "Las aprobaciones regulatorias son eventos clave para empresas farmacéuticas porque habilitan nuevas fuentes de ingresos. Cada aprobación de la FDA representa años de inversión en investigación y puede cambiar significativamente las perspectivas de una compañía. El hecho de que Gilead combine buenos resultados financieros con retorno al accionista vía dividendos y recompras muestra una empresa en posición sólida, aunque los analistas advierten sobre presión competitiva a largo plazo.",
+      "title": "Gilead Sciences se prepara para cambios en el mercado del VIH con tres nuevas aprobaciones de la FDA",
+      "summary": "Gilead obtuvo tres aprobaciones recientes de la FDA para tratamientos de VIH, incluyendo Bixlenvo, y reportó ingresos de u$s 7.600 millones en el segundo trimestre. La compañía también anunció aumento de dividendos y recompras de acciones, aunque los analistas tienen opiniones mixtas por la presión competitiva.",
+      "detail": "Gilead es un ejemplo clásico de empresa farmacéutica que depende de mantener su cartera de productos vigente frente a la competencia y el vencimiento de patentes. Las aprobaciones regulatorias son eventos clave que pueden cambiar las perspectivas de ingresos futuros. Para quien aprende finanzas, el caso ilustra cómo combinar análisis de resultados trimestrales con factores cualitativos —como el pipeline de productos— es esencial para evaluar empresas del sector salud.",
       "tags": [
         "farmacéutica",
-        "FDA",
+        "resultados",
         "dividendos"
       ],
       "source_name": "Intellectia AI",
@@ -131,15 +131,15 @@
       ]
     },
     {
-      "id": "citigroup-demanda-pixels",
+      "id": "citigroup-demanda-pixels-privacidad",
       "type": "empresa",
       "title": "Citigroup enfrenta una demanda colectiva por usar píxeles de rastreo sin consentimiento",
-      "summary": "Se presentó una demanda colectiva contra Citigroup alegando que el banco recopiló datos personales de visitantes de su sitio web usando píxeles de rastreo, sin su conocimiento ni consentimiento, violando leyes de California y federales.",
-      "detail": "Los píxeles de rastreo son pequeños fragmentos de código que registran el comportamiento de los usuarios en páginas web. Cuando un banco los usa para recopilar datos sin avisar, puede violar leyes de privacidad. Para los inversores, estas demandas importan porque pueden derivar en multas, acuerdos costosos y daño reputacional. Este tipo de riesgo legal —llamado riesgo regulatorio— es algo que los inversores deben evaluar al analizar acciones del sector financiero.",
+      "summary": "Una demanda colectiva acusa a Citigroup de interceptar ilegalmente datos personales de los visitantes de su sitio web mediante píxeles de rastreo, sin su conocimiento ni consentimiento, violando leyes de California y federales. Casos similares se presentaron contra Hilton, LinkedIn, PNC Bank y Wells Fargo.",
+      "detail": "Los píxeles de rastreo son pequeños fragmentos de código que registran el comportamiento online del usuario y pueden compartir esa información con terceros. Cuando un banco los usa, el riesgo legal y reputacional es mayor por la sensibilidad de los datos financieros. Para quien aprende finanzas, este tipo de litigios importa porque puede derivar en multas significativas y dañar la confianza del consumidor, afectando el valor de la acción a largo plazo.",
       "tags": [
-        "privacidad de datos",
-        "riesgo legal",
-        "bancos"
+        "regulación",
+        "privacidad",
+        "banca"
       ],
       "source_name": "Top Class Actions",
       "source_url": "https://topclassactions.com/lawsuit-settlements/lawsuit-news/class-action-accuses-citigroup-of-using-tracking-pixels-to-intercept-data/",
@@ -149,14 +149,32 @@
       ]
     },
     {
-      "id": "starbucks-boycott-wage",
+      "id": "jinkosolar-rebaja-fuerte-venta",
       "type": "mercado",
-      "title": "El sindicato de Starbucks mantiene el boicot y exige u$s 17 por hora de salario mínimo",
-      "summary": "Starbucks Workers United sostiene el boicot contra la cadena de café durante el fin de semana del Día del Trabajo, reclamando un salario mínimo de 17 dólares por hora, mejor dotación de personal y más protecciones laborales.",
-      "detail": "Los conflictos laborales en empresas grandes afectan directamente los resultados financieros: un boicot puede reducir ventas, y un aumento salarial significativo impacta los márgenes de ganancia. Este caso también muestra cómo el contexto político importa en finanzas: el artículo menciona que una junta laboral con mayoría republicana revirtió varias decisiones pro-sindicato, lo que cambia el equilibrio de poder en la negociación. Para un inversor, entender estas tensiones ayuda a anticipar riesgos en empresas con grandes dotaciones de personal.",
+      "title": "Zacks bajó la recomendación de JinkoSolar a 'venta fuerte' tras resultados decepcionantes",
+      "summary": "La firma de análisis Zacks degradó a JinkoSolar a 'Strong Sell' después de que la empresa reportara una pérdida trimestral de u$s 2,53 por acción, muy por encima de la pérdida estimada de u$s 0,75. La acción cotiza cerca de su mínimo de 52 semanas.",
+      "detail": "JinkoSolar es uno de los mayores fabricantes de paneles solares del mundo, y sus resultados reflejan la presión que enfrenta el sector por exceso de oferta global y caída de precios. Para quien aprende finanzas, este caso muestra cómo una rebaja de calificación por parte de una firma de análisis puede amplificar una caída ya existente en el precio de una acción. También ilustra la diferencia entre estimaciones de analistas y resultados reales, un indicador clave del 'earnings surprise'.",
       "tags": [
-        "conflicto laboral",
-        "salarios",
+        "energía solar",
+        "calificación bursátil",
+        "pérdidas"
+      ],
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/analyst-jinkosolar-nyse-jks-downgraded-by-zacks-research-to-strong-sell-2026-09-05/",
+      "published_at": "2026-09-05T12:21:24Z",
+      "tickers": [
+        "JKS"
+      ]
+    },
+    {
+      "id": "starbucks-boycott-salarios-sindicato",
+      "type": "economia",
+      "title": "El sindicato de trabajadores de Starbucks mantiene el boicot y reclama u$s 17 por hora",
+      "summary": "Starbucks Workers United continúa su boicot durante el fin de semana del Día del Trabajo, exigiendo un salario mínimo de u$s 17 por hora, mejor dotación de personal y más protecciones laborales. El sindicato enfrenta un contexto difícil con una junta laboral de mayoría republicana que revirtió varias resoluciones favorables a los trabajadores.",
+      "detail": "Las negociaciones salariales en grandes empresas como Starbucks son un termómetro del mercado laboral estadounidense y pueden tener impacto en los costos operativos y los márgenes de la compañía. Para quien aprende finanzas, este caso muestra cómo los conflictos laborales son un riesgo no financiero que los inversores deben considerar: un boicot sostenido puede reducir ventas y presionar a la dirección a ceder, lo que sube costos. También ilustra el rol de los organismos regulatorios laborales en el equilibrio de poder entre empresas y sindicatos.",
+      "tags": [
+        "mercado laboral",
+        "sindicatos",
         "consumo"
       ],
       "source_name": "Truthout",
@@ -194,9 +212,9 @@
     },
     {
       "label": "BITCOIN",
-      "valor": "US$ 79.998",
-      "valor_num": 79998.0,
-      "delta_pct": 0.42
+      "valor": "US$ 79.936",
+      "valor_num": 79936.0,
+      "delta_pct": 0.28
     },
     {
       "label": "S&P 500",
