@@ -1,188 +1,159 @@
 {
-  "generated_at": "2026-09-05T22:01:28.809457+00:00",
+  "generated_at": "2026-09-06T12:01:21.963279+00:00",
   "items": [
     {
-      "id": "citigroup-subvaluado-record-revenue",
+      "id": "saudi-cb-inversiones-masivas",
       "type": "mercado",
-      "title": "Citigroup podría estar 31% subvaluado tras un trimestre récord",
-      "summary": "Las acciones de Citigroup parecen estar significativamente por debajo de su valor real, con un modelo de análisis que sugiere un descuento del 31% respecto a su valor intrínseco, a pesar de haber registrado ingresos récord recientemente.",
-      "detail": "Cuando una acción cotiza por debajo de su valor intrínseco, los inversores hablan de 'subvaluación': básicamente, el mercado la vende más barata de lo que 'debería' valer según sus fundamentos. En el caso de Citigroup, el mercado parece estar descontando riesgos macroeconómicos y costos regulatorios. Entender la diferencia entre el precio de mercado y el valor intrínseco es uno de los conceptos clave del análisis fundamental. Esta tensión entre optimismo por la transformación digital y preocupaciones macro es un ejemplo clásico de por qué el precio de una acción no siempre refleja su valor real.",
+      "title": "El Banco Central de Arabia Saudita compró acciones en masa en Wall Street",
+      "summary": "El banco central saudita (SAMA) aumentó fuertemente sus posiciones en empresas como Goldman Sachs, American Express, Procter & Gamble, Salesforce, PepsiCo y varias más durante el segundo trimestre. Las compras representan incrementos de entre el 60% y el 95% en cada posición.",
+      "detail": "Cuando un banco central invierte sus reservas en acciones extranjeras, está eligiendo diversificar en lugar de guardar todo en bonos del Tesoro de EE.UU. o en oro. Esto es una señal de que Arabia Saudita busca mayor rentabilidad para sus petrodólares. Para alguien aprendiendo finanzas, es un ejemplo concreto de cómo los grandes actores institucionales mueven mercados con sus decisiones de asignación de capital.",
       "tags": [
-        "bancos",
-        "valuación",
-        "mercados"
-      ],
-      "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/markets/stocks/articles/citigroup-c-stock-may-31-181022509.html",
-      "published_at": "2026-09-05T17:45:42Z",
-      "tickers": [
-        "C"
-      ]
-    },
-    {
-      "id": "apple-iphone-plegable-morgan-stanley",
-      "type": "empresa",
-      "title": "Morgan Stanley proyecta u$s 14.000 millones en ingresos para el iPhone plegable de Apple",
-      "summary": "Morgan Stanley estima que el primer iPhone plegable de Apple podría generar alrededor de 14.000 millones de dólares en ingresos solo en el trimestre de diciembre, con una demanda inicial que superaría a la oferta disponible.",
-      "detail": "Cuando un banco de inversión como Morgan Stanley publica proyecciones sobre un producto, suele mover el precio de las acciones de la empresa, ya que los inversores ajustan sus expectativas de ganancias futuras. Este caso ilustra cómo el lanzamiento de un nuevo producto puede ser un 'catalizador' para una acción. También es relevante notar que se anticipan aumentos de precios en los modelos Pro por mayores costos de componentes, lo que afecta directamente los márgenes de ganancia de la compañía.",
-      "tags": [
-        "tecnología",
-        "Apple",
-        "acciones"
-      ],
-      "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-estimates-apple-foldable-131000560.html",
-      "published_at": "2026-09-05T13:11:26Z",
-      "tickers": [
-        "AAPL",
-        "MS"
-      ]
-    },
-    {
-      "id": "palantir-pwc-alianza-acciones",
-      "type": "mercado",
-      "title": "Palantir subió 7,7% tras ampliar su alianza con PwC en IA empresarial",
-      "summary": "Las acciones de Palantir saltaron 7,7% después de que la compañía anunciara una alianza ampliada con la consultora PwC, enfocada en inteligencia artificial para empresas y fusiones y adquisiciones.",
-      "detail": "Este movimiento muestra cómo un anuncio de alianza estratégica puede impactar directamente el precio de una acción, incluso sin que se divulgue el valor concreto del contrato. En finanzas, esto se llama reacción del mercado a 'noticias blandas': el mercado apuesta por el potencial futuro aunque los números no estén confirmados. También ilustra la competencia entre modelos de negocio en el sector de IA: software productizado versus servicios especializados, un debate relevante para entender cómo se valúan las empresas tecnológicas.",
-      "tags": [
-        "inteligencia artificial",
-        "acciones",
-        "tecnología"
-      ],
-      "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/technology/ai/articles/palantir-jumped-7-7-expanded-123838463.html",
-      "published_at": "2026-09-05T12:55:09Z",
-      "tickers": [
-        "PLTR",
-        "GLOB",
-        "CRM"
-      ]
-    },
-    {
-      "id": "adobe-adquiere-rilo-ia",
-      "type": "empresa",
-      "title": "Adobe compró la startup de IA Rilo para potenciar sus herramientas de marketing",
-      "summary": "Adobe adquirió Rilo, una startup india especializada en automatización de flujos de trabajo con IA, para reforzar sus capacidades de inteligencia artificial en marketing y competir con gigantes tecnológicos que invierten fuerte en el sector.",
-      "detail": "Las adquisiciones de startups de IA son una estrategia común entre las grandes empresas tecnológicas para no quedarse atrás en la carrera por la inteligencia artificial. Para los inversores, lo clave es evaluar si esta compra se va a traducir en mayor crecimiento de ingresos o si solo suma costos. Adobe enfrenta el desafío de que la IA generativa también amenaza su negocio principal de software creativo, por lo que esta jugada apunta a diversificarse. Es un buen ejemplo de cómo las fusiones y adquisiciones pueden ser tanto una oportunidad como un riesgo.",
-      "tags": [
-        "inteligencia artificial",
-        "fusiones",
-        "tecnología"
-      ],
-      "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/technology/ai/articles/adobe-inc-adbe-acquires-rilo-150728839.html",
-      "published_at": "2026-09-05T15:07:56Z",
-      "tickers": [
-        "ADBE"
-      ]
-    },
-    {
-      "id": "tesla-cybercab-lanzamiento-criticas",
-      "type": "empresa",
-      "title": "Musk presentó el Cybercab sin tierras raras, pero inversores lo recibieron con escepticismo",
-      "summary": "Elon Musk anunció que el motor del Tesla Cybercab no usa tierras raras, lo que reduce su dependencia de cadenas de suministro riesgosas, pero el inversor Gary Black criticó el lanzamiento por falta de información concreta y dudas regulatorias.",
-      "detail": "Las tierras raras son minerales críticos para fabricar motores eléctricos, y depender de ellas implica riesgo de suministro, especialmente en contextos de tensión geopolítica. Que Tesla logre evitarlas es técnicamente relevante para su cadena de costos a largo plazo. Sin embargo, este caso muestra que en los mercados financieros no basta con un logro técnico: los inversores necesitan datos concretos sobre planes de despliegue, regulación y rentabilidad para confiar en una inversión. La crítica al lanzamiento refleja cómo la transparencia corporativa impacta la confianza del mercado.",
-      "tags": [
-        "Tesla",
-        "autos eléctricos",
-        "inversores"
-      ],
-      "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/technology/articles/elon-musk-says-tesla-cybercab-133036109.html",
-      "published_at": "2026-09-05T13:11:49Z",
-      "tickers": [
-        "TSLA"
-      ]
-    },
-    {
-      "id": "dollar-general-dollar-tree-resultados",
-      "type": "mercado",
-      "title": "Dollar General y Dollar Tree reportaron buenos resultados, pero parte del impulso es temporal",
-      "summary": "Ambas cadenas de descuento mostraron resultados trimestrales sólidos, beneficiadas por la demanda de productos básicos baratos y devoluciones de aranceles, aunque los analistas advierten que ese impulso podría no durar.",
-      "detail": "Las tiendas de descuento suelen beneficiarse en contextos de inflación o incertidumbre económica, ya que los consumidores migran hacia opciones más baratas. Sin embargo, cuando parte de las ganancias viene de factores temporales como reembolsos de aranceles, hay que ser cuidadoso: esos ingresos no se van a repetir automáticamente. Esto ilustra el concepto de 'calidad de las ganancias': no todas las utilidades son igualmente sostenibles. Para alguien que está aprendiendo a analizar empresas, es clave distinguir entre ganancias recurrentes y las que tienen una base frágil.",
-      "tags": [
-        "retail",
-        "ganancias",
-        "consumo"
-      ],
-      "source_name": "Yahoo Finance UK",
-      "source_url": "https://uk.finance.yahoo.com/news/dollar-general-dg-dollar-tree-124227102.html",
-      "published_at": "2026-09-05T15:17:45Z",
-      "tickers": [
-        "DG",
-        "DLTR"
-      ]
-    },
-    {
-      "id": "hca-healthcare-guia-recortada",
-      "type": "empresa",
-      "title": "HCA Healthcare recortó su guía de ganancias para 2026 y enfrenta presión en sus ingresos",
-      "summary": "HCA Healthcare redujo sus proyecciones de ganancias para todo el año 2026 por un deterioro en la mezcla de pagadores, menos cirugías electivas y costos más altos, lo que llevó a despidos y a vender un hospital.",
-      "detail": "La 'mezcla de pagadores' en el sector salud se refiere a qué proporción de pacientes tienen seguros privados versus cobertura gubernamental (como Medicaid o Medicare), que suelen pagar menos. Cuando esta mezcla empeora, los ingresos de los hospitales caen aunque atiendan la misma cantidad de pacientes. El impacto estimado en ingresos es de 400 millones de dólares por trimestre, lo que es significativo. Este caso muestra cómo los cambios en políticas públicas de salud pueden afectar directamente la rentabilidad de empresas privadas del sector.",
-      "tags": [
-        "salud",
-        "ganancias",
-        "políticas"
-      ],
-      "source_name": "Yahoo Finance",
-      "source_url": "https://finance.yahoo.com/healthcare/articles/bull-case-hca-healthcare-hca-190715030.html",
-      "published_at": "2026-09-05T18:50:52Z",
-      "tickers": [
-        "HCA"
-      ]
-    },
-    {
-      "id": "cardano-ada-red-actividad",
-      "type": "mercado",
-      "title": "Cardano sube impulsado por un crecimiento del triple en actividad de su red en dos días",
-      "summary": "El precio de Cardano (ADA) creció junto con un fuerte aumento en la actividad de su red y los volúmenes de intercambio descentralizado, y un analista proyecta que podría llegar a 2,90 dólares, aunque desde niveles muy inferiores al actual.",
-      "detail": "En el mundo cripto, el aumento de actividad en la red (medido por transacciones, volumen en exchanges descentralizados o valor bloqueado en DeFi) suele interpretarse como una señal de mayor adopción, lo que puede influir positivamente en el precio. Sin embargo, las proyecciones de precios en criptomonedas son muy especulativas y el artículo también menciona preocupaciones por posibles subas de tasas de interés, que históricamente afectan negativamente a los activos de riesgo como las criptomonedas. Es un ejemplo de cómo factores técnicos y macroeconómicos interactúan en este mercado.",
-      "tags": [
-        "cripto",
-        "DeFi",
-        "blockchain"
-      ],
-      "source_name": "CoinGape",
-      "source_url": "https://coingape.com/markets/cardano-price-forecast-as-analyst-predicts-ada-could-reach-2-90-amid-3x-network-growth/",
-      "published_at": "2026-09-05T14:27:49Z",
-      "tickers": [
-        "COIN"
-      ]
-    },
-    {
-      "id": "starbucks-boicot-salarios",
-      "type": "empresa",
-      "title": "El sindicato de Starbucks mantiene el boicot y exige un mínimo de 17 dólares por hora",
-      "summary": "El sindicato Starbucks Workers United continúa su boicot en el Día del Trabajo, reclamando un salario mínimo de 17 dólares la hora, mejoras en dotación de personal y protecciones laborales, en un contexto donde el organismo regulador laboral tiene mayoría republicana.",
-      "detail": "Los conflictos laborales en grandes empresas pueden afectar la rentabilidad a través de mayores costos salariales y daño reputacional que impacta las ventas. Para los inversores, los movimientos sindicales son un factor de riesgo a monitorear, especialmente en empresas con mucho personal de contacto directo con el cliente. Este caso también ilustra cómo el contexto político (la composición del organismo regulador laboral) puede inclinar la balanza en favor o en contra de los trabajadores, afectando el resultado de estas negociaciones.",
-      "tags": [
-        "salarios",
-        "consumo",
-        "riesgo laboral"
-      ],
-      "source_name": "Truthout",
-      "source_url": "https://truthout.org/articles/boycott-of-starbucks-is-still-on-as-workers-press-for-17-wage-and-protections/",
-      "published_at": "2026-09-05T18:09:14Z",
-      "tickers": [
-        "SBUX"
-      ]
-    },
-    {
-      "id": "jinkosolar-rebaja-zacks",
-      "type": "mercado",
-      "title": "Zacks rebajó JinkoSolar a 'venta fuerte' tras resultados muy por debajo de lo esperado",
-      "summary": "La firma de análisis Zacks degradó a JinkoSolar a su calificación más baja después de que la empresa reportó una pérdida de 2,53 dólares por acción cuando el mercado esperaba solo 0,75 dólares de pérdida, llevando al papel cerca de sus mínimos anuales.",
-      "detail": "Una rebaja de calificación por parte de una firma de análisis reconocida puede generar ventas masivas de una acción, ya que muchos fondos e inversores institucionales siguen estas recomendaciones automáticamente. En el caso de JinkoSolar, el dato más preocupante es que la pérdida real casi triplicó lo que el mercado anticipaba, lo que sugiere que los analistas no tenían visibilidad clara del negocio. Esto es un ejemplo de 'sorpresa negativa de ganancias', uno de los eventos que más impactan el precio de una acción en el corto plazo.",
-      "tags": [
-        "energía solar",
-        "rebaja",
-        "ganancias"
+        "inversión institucional",
+        "Wall Street",
+        "Arabia Saudita"
       ],
       "source_name": "MarketBeat",
-      "source_url": "https://www.marketbeat.com/instant-alerts/analyst-jinkosolar-nyse-jks-downgraded-by-zacks-research-to-strong-sell-2026-09-05/",
-      "published_at": "2026-09-05T12:21:24Z",
+      "source_url": "https://www.marketbeat.com/instant-alerts/filing-saudi-central-bank-grows-holdings-in-american-express-company-axp-2026-09-06/",
+      "published_at": "2026-09-06T10:17:37Z",
       "tickers": [
-        "JKS"
+        "AXP",
+        "GS",
+        "PG",
+        "PEP",
+        "CRM",
+        "TTE",
+        "LOW",
+        "TJX",
+        "WELL",
+        "MDT",
+        "AMT",
+        "PNC"
+      ]
+    },
+    {
+      "id": "bank-of-america-resultados-solidos",
+      "type": "empresa",
+      "title": "Bank of America superó expectativas y subió su dividendo",
+      "summary": "Bank of America reportó ganancias de u$s1,21 por acción e ingresos de u$s31,56 mil millones, superando las estimaciones de analistas. La empresa también aumentó su dividendo trimestral y recibió una calificación de \"Compra Moderada\" por consenso.",
+      "detail": "Cuando un banco grande como Bank of America supera las expectativas de ganancias, es señal de que el negocio bancario está siendo rentable: los márgenes de interés y el crédito funcionan bien. Subir el dividendo además indica que la dirección confía en la solidez futura del negocio. Para quienes aprenden finanzas, este es un ejemplo de cómo leer resultados trimestrales y qué señales buscar en una empresa financiera.",
+      "tags": [
+        "banca",
+        "resultados",
+        "dividendo"
+      ],
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/filing-kintra-wealth-llc-increases-holdings-in-bank-of-america-corporation-bac-2026-09-06/",
+      "published_at": "2026-09-06T10:19:17Z",
+      "tickers": [
+        "BAC"
+      ]
+    },
+    {
+      "id": "goldman-sachs-resultados",
+      "type": "empresa",
+      "title": "Goldman Sachs reportó resultados fuertes y elevó su dividendo a u$s5 por acción",
+      "summary": "Goldman Sachs ganó u$s20,98 por acción con ingresos de u$s20,34 mil millones, superando las expectativas del mercado. El banco aumentó su dividendo trimestral a u$s5,00 por acción y los analistas mantienen una recomendación de \"Compra Moderada\" con un precio objetivo promedio de u$s1.062,86.",
+      "detail": "Goldman Sachs es uno de los bancos de inversión más importantes del mundo, y sus resultados suelen tomarse como termómetro de la salud de los mercados financieros globales. Un EPS tan alto refleja ingresos robustos en trading, banca de inversión y gestión de activos. Para alguien aprendiendo finanzas, es útil observar cómo el mercado reacciona ante resultados que superan expectativas y cómo eso se traduce en movimientos del precio de la acción.",
+      "tags": [
+        "banca inversión",
+        "resultados",
+        "dividendo"
+      ],
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/filing-saudi-central-bank-has-2089-million-holdings-in-the-goldman-sachs-group-inc-gs-2026-09-06/",
+      "published_at": "2026-09-06T10:17:03Z",
+      "tickers": [
+        "GS"
+      ]
+    },
+    {
+      "id": "american-express-crecimiento-ingresos",
+      "type": "empresa",
+      "title": "American Express creció un 10% en ingresos año a año y superó estimaciones",
+      "summary": "American Express reportó ganancias de u$s4,53 por acción e ingresos de u$s19,64 mil millones, un 10% más que el año anterior. Los analistas mantienen una calificación de \"Compra Moderada\" con un precio objetivo promedio de u$s373,32.",
+      "detail": "El crecimiento sostenido de ingresos del 10% interanual en una empresa financiera de consumo indica que el gasto con tarjeta y la base de clientes siguen en expansión. American Express apunta a segmentos de mayores ingresos, lo que la hace menos vulnerable a impagos que otros emisores de tarjetas. Es un buen ejemplo de empresa para analizar márgenes, crecimiento de ingresos y calidad de cartera crediticia.",
+      "tags": [
+        "tarjeta crédito",
+        "resultados",
+        "consumo"
+      ],
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/filing-saudi-central-bank-grows-holdings-in-american-express-company-axp-2026-09-06/",
+      "published_at": "2026-09-06T10:17:37Z",
+      "tickers": [
+        "AXP"
+      ]
+    },
+    {
+      "id": "walmart-resultados-presion-aranceles",
+      "type": "empresa",
+      "title": "Walmart superó estimaciones pero enfrenta presión por aranceles y regulación",
+      "summary": "Walmart reportó ganancias de u$s0,81 por acción con ingresos de u$s187,94 mil millones, superando las expectativas del mercado. Sin embargo, la empresa enfrenta desafíos por presión arancelaria, escrutinio regulatorio y una valuación considerada alta por algunos analistas.",
+      "detail": "Walmart es el retailer más grande del mundo, así que sus resultados son un indicador del consumo masivo en EE.UU. La mención a la presión arancelaria es clave: si los aranceles sobre importaciones suben, Walmart puede ver incrementar sus costos, lo que afecta márgenes. Este es un ejemplo real de cómo la política comercial impacta directamente en los balances de grandes empresas.",
+      "tags": [
+        "retail",
+        "aranceles",
+        "consumo"
+      ],
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/filing-mw-advisory-llc-takes-position-in-walmart-inc-wmt-2026-09-06/",
+      "published_at": "2026-09-06T09:31:35Z",
+      "tickers": [
+        "WMT"
+      ]
+    },
+    {
+      "id": "blackstone-ingresos-disparan",
+      "type": "empresa",
+      "title": "Blackstone reportó un salto de ingresos del 35,9% y subió su dividendo",
+      "summary": "Blackstone, una de las gestoras de activos alternativos más grandes del mundo, reportó ganancias de u$s1,52 por acción con ingresos que crecieron un 35,9% interanual. La empresa aumentó su dividendo trimestral a u$s1,29, equivalente a un rendimiento anualizado del 3,8%.",
+      "detail": "Blackstone gestiona fondos de private equity, real estate e infraestructura, por lo que un salto en ingresos del 36% refleja buena actividad en los mercados de activos alternativos. Las gestoras de activos como Blackstone cobran comisiones de administración y participación en ganancias, así que cuando los mercados suben y se concretan ventas de activos, sus ingresos se disparan. Es un buen caso para entender cómo funciona el negocio de la gestión de inversiones.",
+      "tags": [
+        "gestión activos",
+        "resultados",
+        "dividendo"
+      ],
+      "source_name": "MarketBeat",
+      "source_url": "https://www.marketbeat.com/instant-alerts/filing-rose-capital-advisors-llc-acquires-new-shares-in-blackstone-inc-bx-2026-09-06/",
+      "published_at": "2026-09-06T09:33:24Z",
+      "tickers": [
+        "BX"
+      ]
+    },
+    {
+      "id": "byd-planta-stellantis-canada",
+      "type": "empresa",
+      "title": "BYD, el gigante chino de autos eléctricos, analiza comprar una planta cerrada de Stellantis en Canadá",
+      "summary": "BYD, el mayor fabricante de vehículos eléctricos de China, expresó interés en adquirir la planta de ensamblaje de Stellantis en Brampton, Ontario, que lleva cerrada desde diciembre de 2023 y dejó sin trabajo a unas 3.000 personas. La empresa evalúa convertirla en una fábrica de colectivos de tránsito.",
+      "detail": "La expansión internacional de BYD es una de las historias más relevantes de la industria automotriz global: la empresa china desafía a fabricantes establecidos como General Motors y Ford en sus propios mercados. Que una fábrica cerrada en Canadá sea un candidato para producción de transporte público eléctrico muestra cómo la transición energética reordena las cadenas productivas. Para quienes siguen finanzas, es un ejemplo de cómo las decisiones corporativas afectan empleo, mercados y geopolítica al mismo tiempo.",
+      "tags": [
+        "autos eléctricos",
+        "manufactura",
+        "China"
+      ],
+      "source_name": "Yahoo! Finance Canada",
+      "source_url": "https://ca.finance.yahoo.com/news/byd-inquires-stellantiss-shuttered-2-110000751.html",
+      "published_at": "2026-09-06T10:59:53Z",
+      "tickers": [
+        "STLA"
+      ]
+    },
+    {
+      "id": "oiltanking-on-argentina",
+      "type": "mercado",
+      "title": "Oiltanking colocó obligaciones negociables por u$s17,7 millones en Argentina",
+      "summary": "Oiltanking Ebytem, empresa líder en el sector de hidrocarburos de Argentina que brinda servicios de recepción, almacenamiento y bombeo de crudo, emitió dos series de obligaciones negociables por un total de u$s17,7 millones. La operación contó con el asesoramiento de estudios jurídicos y la participación de varios bancos e inversores.",
+      "detail": "Las obligaciones negociables (ON) son instrumentos de deuda que emiten empresas privadas para financiarse directamente en el mercado de capitales, sin pasar por un banco. Para alguien aprendiendo finanzas en Argentina, este tipo de operaciones son muy relevantes porque las ON son una herramienta de inversión accesible en pesos o dólares dentro del mercado local. Que una empresa del sector energético emita deuda también refleja la dinámica del financiamiento corporativo en el país.",
+      "tags": [
+        "obligaciones negociables",
+        "energía",
+        "Argentina"
+      ],
+      "source_name": "Bruchou & Funes de Rioja",
+      "source_url": "https://bruchoufunes.com/obligaciones-negociables-oiltanking-por-usd-17-7-millones/",
+      "published_at": "2026-09-06T09:51:39Z",
+      "tickers": [
+        "BMA"
       ]
     }
   ],
@@ -213,9 +184,9 @@
     },
     {
       "label": "BITCOIN",
-      "valor": "US$ 79.919",
-      "valor_num": 79919.0,
-      "delta_pct": 0.3
+      "valor": "US$ 79.908",
+      "valor_num": 79908.0,
+      "delta_pct": 0.36
     },
     {
       "label": "S&P 500",
@@ -227,7 +198,7 @@
       "label": "ORO (ONZA)",
       "valor": "US$ 4.477",
       "valor_num": 4476.6,
-      "delta_pct": 1.03
+      "delta_pct": 2.96
     }
   ]
 }
